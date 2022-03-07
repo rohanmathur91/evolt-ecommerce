@@ -2,6 +2,7 @@ import React from "react";
 import banner from "../../assests/banner.jpg";
 import { Category } from "./Category";
 import { TopBrands } from "./TopBrands";
+import "./Home.css";
 
 export const Home = () => {
 	return (
@@ -19,7 +20,6 @@ export const Home = () => {
 				</div>
 
 				<Category />
-
 				<TopBrands />
 			</section>
 		</div>

@@ -1,0 +1,30 @@
+.container {
+	margin: 2rem 4rem;
+}
+
+/* category */
+.category {
+	gap: 10px;
+}
+
+.category-item {
+	width: 25rem;
+	height: 25rem;
+	margin: auto;
+}
+
+.text-overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: var(--navigation-shadow);
+}
+
+.overlay-content {
+	font-size: 1.8rem;
+	color: var(--primary-color);
+	background-color: var(--light-gray);
+}

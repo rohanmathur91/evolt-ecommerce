@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navbar.css";
 
 export const Navbar = () => {
 	return (
@@ -34,7 +35,7 @@ export const Navbar = () => {
 				<input
 					className="search-input w-100 py-1 px-2 text-base rounded-sm"
 					id="search"
-					type="search"
+					type="text"
 					placeholder="search..."
 				/>
 			</span>
