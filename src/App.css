@@ -18,8 +18,9 @@
 	--primary-hover-color: #4a494e;
 	--secondary-color: #9a9a9a;
 	--secondary-hover-color: #afafaf;
-	--background-color: #fff;
+	--background-color: #ffffff;
 	--navigation-shadow: rgba(0, 0, 0, 0.2);
+	--text-overlay-background: rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -115,27 +116,5 @@ select:focus {
 @media screen and (max-width: 64em) {
 	html {
 		font-size: 56%;
-	}
-
-	.navbar-icon-title,
-	.navbar-left-menu {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 48em) {
-	.navigation .search {
-		position: absolute;
-		top: 6.4rem;
-		left: 0;
-		width: 100%;
-	}
-
-	.search-input {
-		padding: 1rem 2rem;
-	}
-
-	.banner {
-		margin-top: 2.8rem;
 	}
 }

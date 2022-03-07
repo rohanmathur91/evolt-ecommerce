@@ -2,7 +2,6 @@
 	margin: 2rem 4rem;
 }
 
-/* category */
 .category {
 	gap: 10px;
 }
@@ -20,7 +19,7 @@
 	left: 0;
 	right: 0;
 	z-index: 1;
-	background-color: var(--navigation-shadow);
+	background-color: var(--text-overlay-background);
 }
 
 .overlay-content {

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Navbar.css";
 
-export const Navbar = () => {
+export const Navbar = ({ setToggleSidebar }) => {
 	return (
 		<nav className="navigation flex-row items-center content-space-between w-100 sticky top-0 left-0 z-3">
 			<div className="flex-row items-center">
-				<div className="menu hide mr-1 p-1">
+				<div onClick={() => setToggleSidebar(true)} className="menu mr-1 p-1">
 					<div className="hamburger hamburger-line1"></div>
 					<div className="hamburger hamburger-line2"></div>
 					<div className="hamburger hamburger-line3"></div>
@@ -34,14 +34,14 @@ export const Navbar = () => {
 				</button>
 				<input
 					className="search-input w-100 py-1 px-2 text-base rounded-sm"
-					id="search"
 					type="text"
 					placeholder="search..."
+					autoComplete="false"
 				/>
 			</span>
 
 			<ul className="navbar-options flex-row flex-center">
-				<li>
+				<li className="hide">
 					<a className="flex-column items-center" href="./auth/login.html">
 						<i className="fa fa-user icon-stroke badge-icon"></i>
 						<span className="navbar-icon-title">Login</span>
