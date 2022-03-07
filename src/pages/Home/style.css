@@ -1,0 +1,45 @@
+.container {
+	margin: 2rem 4rem;
+}
+
+.category {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+	justify-items: center;
+	gap: 1rem;
+}
+
+.category-header,
+.category-header-btn {
+	font-size: 1.8rem;
+}
+
+.category-header-btn {
+	color: var(--primary-color);
+}
+
+.category-item {
+	max-width: 25rem;
+}
+
+.text-overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: var(--text-overlay-background);
+}
+
+.overlay-content {
+	font-size: 1.8rem;
+	color: var(--primary-color);
+	background-color: var(--light-gray);
+}
+
+@media screen and (max-width: 48em) {
+	.category {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

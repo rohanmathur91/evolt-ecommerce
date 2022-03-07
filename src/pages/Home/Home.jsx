@@ -2,8 +2,7 @@ import React from "react";
 import banner from "../../assests/banner.jpg";
 import { Category } from "./Category";
 import { TopBrands } from "./TopBrands";
-
-import "./Home.css";
+import "./style.css";
 
 export const Home = () => {
 	return (
@@ -12,12 +11,12 @@ export const Home = () => {
 				<img className="banner w-100" src={banner} alt="banner" />
 			</header>
 
-			<section className="gutter-bottom category-container m-auto p-1">
-				<div className="text-lg font-semibold flex-row content-space-between mx-2 gutter-bottom">
+			<section className="category-container m-auto p-1 gutter-bottom ">
+				<div className="category-header text-base font-semibold flex-row content-space-between mx-2 gutter-bottom">
 					<div>Categories</div>
-					<a className="text-lg" href="./products/product.html">
+					<button className="category-header-btn font-semibold">
 						Shop now <i className="fa fa-long-arrow-right ml-1"></i>
-					</a>
+					</button>
 				</div>
 
 				<Category />
