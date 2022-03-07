@@ -280,10 +280,6 @@ select:focus {
 	.navbar-left-menu {
 		display: none;
 	}
-
-	.arrival-container {
-		flex-direction: column;
-	}
 }
 
 @media screen and (max-width: 48em) {
