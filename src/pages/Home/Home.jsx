@@ -1,11 +1,12 @@
 import React from "react";
-import { categories } from "./categories";
+import banner from "../../assests/banner.jpg";
+import { Category } from "./Category";
 
 export const Home = () => {
 	return (
 		<div>
 			<header className="overflow-hidden gutter-bottom">
-				<img className="banner w-100" src="./assests/banner.jpg" alt="banner" />
+				<img className="banner w-100" src={banner} alt="banner" />
 			</header>
 
 			<section className="gutter-bottom category-container m-auto p-1">
@@ -15,22 +16,8 @@ export const Home = () => {
 						Shop now <i className="fa fa-long-arrow-right ml-1"></i>
 					</a>
 				</div>
-				<article className="category flex-row content-space-between wrap mx-2 gutter-bottom">
-					{categories.map(({ alt, image, category }, index) => (
-						<a
-							href="#"
-							key={index}
-							className="category-item my-1 rounded-sm overflow-hidden relative"
-						>
-							<img className="p-1 relative" src={image} alt={alt} />
-							<div className="text-overlay flex-row flex-center">
-								<p className="overlay-content p-1 rounded-sm font-semibold">
-									{category}
-								</p>
-							</div>
-						</a>
-					))}
-				</article>
+
+				<Category />
 
 				<article className="arrival-container m-2 flex-row flex-center gutter-bottom">
 					<a

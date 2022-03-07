@@ -1,15 +1,27 @@
 export const categories = [
-	{ image: "../assets/jbl-product-2.jpg", alt: "product", category: "Sports" },
 	{
-		image: "../assests/marshall-product-1.jpg",
+		alt: "product",
+		category: "Sports",
+		image: "https://m.media-amazon.com/images/I/71j1dzyRQPS._SL1500_.jpg",
+	},
+	{
 		alt: "product",
 		category: "Classic speakers",
+		image: "https://m.media-amazon.com/images/I/51wnOfRKl6L._SL1500_.jpg",
 	},
-	{ image: "../assests/bose.jpg", alt: "product", category: "Wireless" },
-	{ image: "../assets/bose-buds.jpeg", alt: "product", category: "Sports" },
 	{
-		image: "../assets/JBL_C115TWS_Black_01.webp",
+		alt: "product",
+		category: "Wireless",
+		image: "https://m.media-amazon.com/images/I/71j1dzyRQPS._SL1500_.jpg",
+	},
+	{
+		alt: "product",
+		category: "Sports",
+		image: "https://m.media-amazon.com/images/I/51wnOfRKl6L._SL1500_.jpg",
+	},
+	{
 		alt: "product",
 		category: "Gaming",
+		image: "https://m.media-amazon.com/images/I/71j1dzyRQPS._SL1500_.jpg",
 	},
 ];
