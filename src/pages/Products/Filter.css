@@ -1,0 +1,34 @@
+.filters {
+	position: sticky;
+	top: 6.8rem;
+	left: 0;
+	height: calc(100vh - 7.4rem);
+	width: 28rem;
+	min-width: 28rem;
+	overflow: auto;
+}
+
+.filter-title {
+	font-size: 1.8rem;
+}
+
+.filter-clear-btn {
+	color: var(--primary-color);
+}
+
+.filter-clear-btn:hover {
+	text-decoration: underline;
+}
+
+.divider {
+	width: 100%;
+	height: 0.2px;
+	background-color: var(--light-gray);
+	margin: 2rem 0;
+}
+
+@media screen and (max-width: 48em) {
+	.filters {
+		display: none;
+	}
+}

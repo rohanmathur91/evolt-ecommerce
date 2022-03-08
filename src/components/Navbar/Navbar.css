@@ -5,6 +5,8 @@
 	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 	-webkit-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 	-moz-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-ms-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-o-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .menu {
@@ -111,6 +113,11 @@
 	-moz-transition: all 0.2s;
 	-ms-transition: all 0.2s;
 	-o-transition: all 0.2s;
+	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-webkit-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-moz-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-ms-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+	-o-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .sidebar-header {
