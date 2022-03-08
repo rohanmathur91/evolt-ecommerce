@@ -12,13 +12,6 @@ export const Home = () => {
 			</header>
 
 			<section className="category-container m-auto p-1 gutter-bottom ">
-				<div className="category-header text-base font-semibold flex-row content-space-between mx-2 gutter-bottom">
-					<div>Categories</div>
-					<button className="category-header-btn font-semibold">
-						Shop now <i className="fa fa-long-arrow-right ml-1"></i>
-					</button>
-				</div>
-
 				<Category />
 				<TopBrands />
 			</section>
