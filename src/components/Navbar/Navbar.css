@@ -144,16 +144,12 @@
 }
 
 @media screen and (max-width: 64em) {
-	.navbar-icon-title,
-	.navbar-left-menu {
-		display: none;
-	}
-
 	.menu {
 		display: block;
 	}
-
-	.hide {
+	.profile-icon-hide,
+	.navbar-icon-title,
+	.navbar-left-menu {
 		display: none;
 	}
 

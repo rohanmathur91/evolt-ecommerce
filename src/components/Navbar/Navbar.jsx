@@ -44,7 +44,7 @@ export const Navbar = () => {
 				</span>
 
 				<ul className="navbar-options flex-row flex-center">
-					<li className="hide">
+					<li className="profile-icon-hide">
 						<a className="flex-column items-center" href="./auth/login.html">
 							<i className="fa fa-user icon-stroke badge-icon"></i>
 							<span className="navbar-icon-title">Login</span>
