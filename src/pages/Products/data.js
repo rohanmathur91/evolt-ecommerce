@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 export const data = [
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",
@@ -13,7 +13,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "JBL Go 3",
 		alt: "JBL Go 3",
 		image: "https://m.media-amazon.com/images/I/81GE-JdnNMS._AC_UY218_.jpg",
@@ -23,7 +23,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall Acton II 60 ",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51Tn3qxqr3L._AC_UY218_.jpg",
@@ -34,7 +34,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",
@@ -44,7 +44,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",
@@ -54,7 +54,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",
@@ -64,7 +64,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",
@@ -74,7 +74,7 @@ export const data = [
 	},
 	{
 		id: uuid(),
-		newProduct: true,
+		latest: true,
 		productName: "Marshall",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51UYQQsQVfL._AC_UY218_.jpg",

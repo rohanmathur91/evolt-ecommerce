@@ -1,14 +1,14 @@
 import React from "react";
 import "./MobileFilter.css";
 
-export const MobileFilter = ({ setShowMobileFilter }) => {
+export const MobileFilter = ({ setShowFilter }) => {
 	return (
 		<div className="mobile-filter-wrapper">
 			<div className="mobile-filter card-shadow p-4">
 				<div className="flex-row content-space-between items-center pb-1 mb-2 border-bottom">
 					<div className="text-base font-semibold">Filters</div>
 					<button
-						onClick={() => setShowMobileFilter((prev) => !prev)}
+						onClick={() => setShowFilter((prev) => !prev)}
 						className="mobile-filter-close"
 					>
 						<i className="fa fa-times-circle-o"></i>

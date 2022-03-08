@@ -5,7 +5,7 @@ export const ProductCard = ({
 	id,
 	alt,
 	image,
-	newProduct,
+	latest,
 	productName,
 	description,
 	latestPrice,
@@ -16,7 +16,7 @@ export const ProductCard = ({
 			key={id}
 			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
-			{newProduct && (
+			{latest && (
 				<span className="card-badge text-base font-semibold absolute top-1 left-1 rounded-sm">
 					New
 				</span>

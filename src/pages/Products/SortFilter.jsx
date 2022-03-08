@@ -13,7 +13,17 @@ export const SortFilter = () => {
 				<li className="filter-header mb-2">
 					<div className="text-base font-bold">Sort By</div>
 				</li>
-
+				<li className="filter-item mb-1">
+					<label>
+						<input
+							className="mr-2"
+							type="radio"
+							name="price"
+							id="filter-price"
+						/>
+						Latest
+					</label>
+				</li>
 				<li className="filter-item mb-1">
 					<label>
 						<input
