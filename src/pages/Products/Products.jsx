@@ -4,21 +4,23 @@ import "./Products.css";
 export const Products = () => {
 	return (
 		<div>
-			<div class="products-container flex-row">
-				<aside class="filters flex-column py-3 px-4 border-r">
-					<div class="filter-title mt-2 p-1 flex-row content-space-between">
-						<h4>Filters</h4>
-						<button class="text-underline">Clear all</button>
+			<div className="products-container flex-row">
+				<aside className="filters flex-column py-3 px-4 border-r">
+					<div className="flex-row content-space-between mb-3 py-2 border-bottom">
+						<div className="filter-title font-bold">Filters</div>
+						<button className="filter-clear-btn text-base font-bold">
+							Clear all
+						</button>
 					</div>
-					<ul class="mt-2 ml-1">
-						<li class="filter-header mb-1">
-							<h4>Sort</h4>
+					<ul>
+						<li className="filter-header mb-2">
+							<div className="text-base font-bold">Sort By</div>
 						</li>
 
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label>
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="radio"
 									name="price"
 									id="filter-price"
@@ -26,10 +28,10 @@ export const Products = () => {
 								Price (Low to High)
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item">
 							<label>
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="radio"
 									name="price"
 									id="filter-price"
@@ -37,16 +39,18 @@ export const Products = () => {
 								Price (High to Low)
 							</label>
 						</li>
-						<li class="filter-item">
-							<div class="divider"></div>
+					</ul>
+					<ul>
+						<li className="filter-item">
+							<div className="divider"></div>
 						</li>
-						<li class="filter-header mb-1">
-							<h4>Brand</h4>
+						<li className="filter-header mb-2">
+							<div className="text-base font-bold">Brand</div>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-canon">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-canon"
@@ -54,10 +58,10 @@ export const Products = () => {
 								Bose
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-fuji">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-fuji"
@@ -65,10 +69,10 @@ export const Products = () => {
 								Boat
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-nikon">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-nikon"
@@ -76,10 +80,10 @@ export const Products = () => {
 								Marshall
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-olympus">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="price"
 									id="filter-olympus"
@@ -87,10 +91,10 @@ export const Products = () => {
 								Sony
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-sony">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="price"
 									id="filter-sony"
@@ -99,17 +103,17 @@ export const Products = () => {
 							</label>
 						</li>
 
-						<li class="filter-item">
-							<div class="divider"></div>
+						<li className="filter-item">
+							<div className="divider"></div>
 						</li>
 
-						<li class="filter-header mb-1">
-							<h4>Type</h4>
+						<li className="filter-header mb-2">
+							<div className="text-base font-bold">Type</div>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-resolution-1">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-resolution-1"
@@ -117,10 +121,10 @@ export const Products = () => {
 								Wired
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-resolution-2">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-resolution-2"
@@ -128,10 +132,10 @@ export const Products = () => {
 								Wireless
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-resolution-3">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-resolution-3"
@@ -139,10 +143,10 @@ export const Products = () => {
 								Noise Cancelling
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-resolution-4">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="price"
 									id="filter-resolution-4"
@@ -150,17 +154,17 @@ export const Products = () => {
 								Tangle Free Cord
 							</label>
 						</li>
-						<li class="filter-item">
-							<div class="divider"></div>
+						<li className="filter-item">
+							<div className="divider"></div>
 						</li>
 
-						<li class="filter-header mb-1">
-							<h4>Rating</h4>
+						<li className="filter-header mb-2">
+							<div className="text-base font-bold">Rating</div>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-rating-5">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-rating-5"
@@ -168,10 +172,10 @@ export const Products = () => {
 								5 star
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-rating-4">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-rating-4"
@@ -179,10 +183,10 @@ export const Products = () => {
 								4 star
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-rating-3">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-rating-3"
@@ -190,10 +194,10 @@ export const Products = () => {
 								3 star
 							</label>
 						</li>
-						<li class="filter-item mb-1">
+						<li className="filter-item mb-1">
 							<label for="filter-rating-2">
 								<input
-									class="mr-2"
+									className="mr-2"
 									type="checkbox"
 									name="brand"
 									id="filter-rating-2"
@@ -204,15 +208,15 @@ export const Products = () => {
 					</ul>
 				</aside>
 
-				<div class="products w-100 p-1 pt-6 mb-6">{/*ProductCard  */}</div>
+				<div className="products w-100 p-1 pt-6 mb-6">{/*ProductCard  */}</div>
 
-				<div class="mobile-filters fixed left-0 bottom-0 flex-row w-100">
-					<button class="sort-btn filter-btn py-1 px-2 w-100 border-r transition-3">
-						<i class="fa fa-sort mr-1"></i>
+				<div className="mobile-filters fixed left-0 bottom-0 flex-row w-100">
+					<button className="sort-btn filter-btn py-1 px-2 w-100 border-r transition-3">
+						<i className="fa fa-sort mr-1"></i>
 						Sort
 					</button>
-					<button class="filter-btn p-2 w-100 transition-3">
-						<i class="fa fa-filter mr-1"></i>
+					<button className="filter-btn p-2 w-100 transition-3">
+						<i className="fa fa-filter mr-1"></i>
 						Filter
 					</button>
 				</div>

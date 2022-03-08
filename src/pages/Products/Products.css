@@ -7,37 +7,19 @@
 	max-width: 80rem;
 }
 
-.card {
-	max-width: 25rem;
-	transition: all 0.3s;
-}
-
-.card-description {
-	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-	color: var(--dark-gray);
-	text-overflow: ellipsis;
-	align-self: flex-start;
-}
-
-.wishlist-badge {
-	background-color: var(--light-red);
-}
-
-.wishlist-badge i {
-	color: var(--red);
-}
-
-.price-strike {
-	margin-left: 5px;
-	font-size: 1.2rem;
-	color: var(--dark-gray);
-	text-decoration: line-through;
-}
-
 /* filters */
+.filter-title {
+	font-size: 1.8rem;
+}
+
+.filter-clear-btn {
+	color: var(--primary-color);
+}
+
+.filter-clear-btn:hover {
+	text-decoration: underline;
+}
+
 .divider {
 	width: 100%;
 	height: 0.2px;
