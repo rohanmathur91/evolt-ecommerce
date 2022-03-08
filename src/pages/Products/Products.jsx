@@ -17,7 +17,7 @@ export const Products = () => {
 			</aside>
 			<div className="products w-100 p-1 pt-5 m-auto">
 				{data.map((product) => (
-					<ProductCard {...product} />
+					<ProductCard key={product.id} {...product} />
 				))}
 			</div>
 
