@@ -1,6 +1,9 @@
 import React from "react";
+import { useProduct } from "../../context";
 
 export const SortFilter = () => {
+	const { productDispatch } = useProduct();
+
 	const sortFilters = [
 		{ filter: "Latest", type: "SORT_BY_LATEST" },
 		{ filter: "Price (Low to High)", type: "SORT_BY_LOW_TO_HIGH" },
@@ -11,7 +14,10 @@ export const SortFilter = () => {
 		<>
 			<div className="flex-row content-space-between mb-3 py-2 border-bottom">
 				<div className="filter-title font-bold">Filters</div>
-				<button className="filter-clear-btn text-base font-bold">
+				<button
+					onClick={() => productDispatch({ type: "CLEAR_FILTER" })}
+					className="filter-clear-btn text-base font-bold"
+				>
 					Clear all
 				</button>
 			</div>

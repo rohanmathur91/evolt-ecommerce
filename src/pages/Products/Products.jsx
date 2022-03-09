@@ -19,9 +19,13 @@ export const Products = () => {
 				<Filter />
 			</aside>
 			<div className="products w-100 p-1 pt-5">
-				{filteredData.map((product) => (
-					<ProductCard key={product.id} {...product} />
-				))}
+				{filteredData.length ? (
+					filteredData.map((product) => (
+						<ProductCard key={product.id} {...product} />
+					))
+				) : (
+					<p>No products to show...</p>
+				)}
 			</div>
 
 			{showSortFilter && (

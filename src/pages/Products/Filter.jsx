@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useProduct } from "../../context/ProductContext";
 import "./Filter.css";
 
 export const Filter = () => {
-	const [priceRange, setPriceRange] = useState("2500");
+	const {
+		productFilter: { price, inStockOnly },
+		productDispatch,
+	} = useProduct();
 
 	return (
 		<>
@@ -14,27 +18,38 @@ export const Filter = () => {
 					<div className="text-base font-bold">Availability & Price</div>
 				</li>
 				<li className="filter-item mb-2">
-					<label htmlFor="filter-canon">
+					<label htmlFor="filter-stock">
 						<input
-							className="mr-2"
 							type="checkbox"
-							name="brand"
-							id="filter-canon"
+							className="mr-2"
+							id="filter-stock"
+							checked={inStockOnly}
+							onChange={(e) =>
+								productDispatch({
+									type: "FILTER_BY_IN_STOCK_ONLY",
+									payload: e.target.checked,
+								})
+							}
 						/>
 						In stock only
 					</label>
 				</li>
 
 				<li className="filter-item mb-1">
-					<label htmlFor="price-range">Price range: 0 to {priceRange}</label>
+					<label htmlFor="price-range">Price range: 0 to {price}</label>
 					<input
-						id="price-range"
-						type="range"
 						min="0"
 						max="5000"
 						step="50"
-						value={priceRange}
-						onChange={(e) => setPriceRange(e.target.value)}
+						type="range"
+						id="price-range"
+						value={price}
+						onChange={(e) =>
+							productDispatch({
+								type: "FILTER_BY_PRICE",
+								payload: Number(e.target.value),
+							})
+						}
 					/>
 				</li>
 			</ul>
@@ -151,17 +166,6 @@ export const Filter = () => {
 							id="filter-resolution-3"
 						/>
 						Noise Cancelling
-					</label>
-				</li>
-				<li className="filter-item mb-1">
-					<label htmlFor="filter-resolution-4">
-						<input
-							className="mr-2"
-							type="checkbox"
-							name="price"
-							id="filter-resolution-4"
-						/>
-						Tangle Free Cord
 					</label>
 				</li>
 			</ul>

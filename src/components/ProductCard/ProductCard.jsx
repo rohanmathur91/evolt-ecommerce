@@ -8,7 +8,7 @@ export const ProductCard = ({
 	latest,
 	productName,
 	description,
-	latestPrice,
+	price,
 	oldPrice,
 }) => {
 	return (
@@ -35,7 +35,7 @@ export const ProductCard = ({
 
 				<p className="card-description card-text mb-1">{description}</p>
 				<div className="card-price">
-					<span className="font-semibold">₹{latestPrice}</span>
+					<span className="font-semibold">₹{price}</span>
 					<span className="price-strike font-regular">₹{oldPrice}</span>
 				</div>
 				<p className="mb-1 font-semibold"></p>

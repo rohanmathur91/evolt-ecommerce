@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useProduct } from "../../context";
 import "./MobileFilter.css";
 
 export const MobileFilter = ({ setShowFilter }) => {
-	const [priceRange, setPriceRange] = useState("2500");
+	const {
+		productFilter: { price, inStockOnly },
+		productDispatch,
+	} = useProduct();
 
 	return (
 		<div className="mobile-filter-wrapper">
@@ -22,24 +26,40 @@ export const MobileFilter = ({ setShowFilter }) => {
 							<div className="text-base font-bold">Availability & Price</div>
 						</li>
 						<li className="filter-item mb-2">
-							<label>
-								<input className="mr-2" type="checkbox" />
+							<label htmlFor="filter-stock">
+								<input
+									type="checkbox"
+									className="mr-2"
+									id="filter-stock"
+									checked={inStockOnly}
+									onChange={(e) =>
+										productDispatch({
+											type: "FILTER_BY_IN_STOCK_ONLY",
+											payload: e.target.checked,
+										})
+									}
+								/>
 								In stock only
 							</label>
 						</li>
 
 						<li className="filter-item mb-1">
 							<div>
-								<label htmlFor="price-range">Price: 0 to {priceRange}</label>
+								<label htmlFor="price-range">Price: 0 to {price}</label>
 							</div>
 							<input
-								id="price-range"
-								type="range"
 								min="0"
 								max="5000"
 								step="50"
-								value={priceRange}
-								onChange={(e) => setPriceRange(e.target.value)}
+								type="range"
+								value={price}
+								id="price-range"
+								onChange={(e) =>
+									productDispatch({
+										type: "FILTER_BY_PRICE",
+										payload: Number(e.target.value),
+									})
+								}
 							/>
 						</li>
 					</ul>
@@ -148,21 +168,13 @@ export const MobileFilter = ({ setShowFilter }) => {
 								Noise Cancelling
 							</label>
 						</li>
-						<li className="filter-item mb-1">
-							<label htmlFor="filter-resolution-4">
-								<input
-									className="mr-2"
-									type="checkbox"
-									name="price"
-									id="filter-resolution-4"
-								/>
-								Tangle Free Cord
-							</label>
-						</li>
 					</ul>
 				</div>
 
-				<button className="mobile-clear-btn btn btn-solid mt-2">
+				<button
+					onClick={() => productDispatch({ type: "CLEAR_FILTER" })}
+					className="mobile-clear-btn btn btn-solid mt-2"
+				>
 					Clear all
 				</button>
 			</div>
