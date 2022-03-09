@@ -1,6 +1,18 @@
 import React from "react";
+import { useProduct } from "../../context";
+
+const sortFilters = [
+	{ filter: "Latest", sortProduct: "SORT_BY_LATEST" },
+	{ filter: "Price (Low to High)", sortProduct: "SORT_BY_LOW_TO_HIGH" },
+	{ filter: "Price (High to Low)", sortProduct: "SORT_BY_HIGH_TO_LOW" },
+];
 
 export const MobileSortFilter = ({ setShowSortFilter }) => {
+	const {
+		productFilter: { sortBy },
+		productDispatch,
+	} = useProduct();
+
 	return (
 		<div className="mobile-filter-wrapper">
 			<div className="mobile-filter card-shadow p-4">
@@ -14,39 +26,22 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 					</button>
 				</div>
 				<ul>
-					<li className="filter-item mb-1">
-						<label>
-							<input
-								className="mr-2"
-								type="radio"
-								name="price"
-								id="filter-price"
-							/>
-							Latest
-						</label>
-					</li>
-					<li className="filter-item mb-1">
-						<label>
-							<input
-								className="mr-2"
-								type="radio"
-								name="price"
-								id="filter-price"
-							/>
-							Price (Low to High)
-						</label>
-					</li>
-					<li className="filter-item">
-						<label>
-							<input
-								className="mr-2"
-								type="radio"
-								name="price"
-								id="filter-price"
-							/>
-							Price (High to Low)
-						</label>
-					</li>
+					{sortFilters.map(({ filter, sortProduct }, index) => (
+						<li key={index} className="filter-item mb-1">
+							<label>
+								<input
+									type="radio"
+									name="price"
+									className="mr-2"
+									checked={sortBy === sortProduct}
+									onChange={() => {
+										productDispatch({ type: "SORT", payload: sortProduct });
+									}}
+								/>
+								{filter}
+							</label>
+						</li>
+					))}
 				</ul>
 			</div>
 		</div>

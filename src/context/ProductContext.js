@@ -1,47 +1,35 @@
 import { createContext, useContext, useReducer } from "react";
 import { productReducer } from "../reducer";
 import { data, brands, types } from "./data";
+import {
+	getFilteredData,
+	getSearchProduct,
+	getSortedProduct,
+	createFilterObject,
+} from "./utilities";
 
 const ProductContext = createContext();
-
-const createFilterObject = (array) => {
-	return array.reduce((acc, item) => ({ ...acc, [item]: false }), {});
-};
 
 const ProductProvider = ({ children }) => {
 	const [
 		{ products, searchQuery, productDetail, productFilter },
 		productDispatch,
 	] = useReducer(productReducer, {
+		products: data,
+		searchQuery: "",
+		productDetail: null,
 		productFilter: {
-			price: 2500,
-			sortBy: null,
+			price: 5000,
+			sortBy: "",
 			inStockOnly: false,
 			types: createFilterObject(types),
 			brands: createFilterObject(brands),
 		},
-		searchQuery: "",
-		products: data,
-		productDetail: null,
 	});
 
-	const getSearchProduct = (word) => {
-		return data.filter(({ productName }) =>
-			searchQuery
-				? productName.toLowerCase().includes(word.toLowerCase())
-				: true
-		);
-	};
-
-	const searchProduct = getSearchProduct(searchQuery);
-
-	const getFilteredData = (products) => {
-		return products
-			.filter(({ price }) => Number(price) <= productFilter.price)
-			.filter(({ inStock }) => (productFilter.inStockOnly ? inStock : true));
-	};
-
-	const filteredData = getFilteredData(searchProduct);
+	const searchProduct = getSearchProduct(data, searchQuery);
+	const sortedProduct = getSortedProduct(searchProduct, productFilter);
+	const filteredData = getFilteredData(sortedProduct, productFilter);
 
 	return (
 		<ProductContext.Provider

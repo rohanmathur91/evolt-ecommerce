@@ -56,8 +56,8 @@ export const productReducer = (state, { type, payload }) => {
 			return {
 				...state,
 				productFilter: {
-					price: 2500,
-					sortBy: null,
+					price: 5000,
+					sortBy: "",
 					inStockOnly: false,
 					types: {},
 					brands: {},
