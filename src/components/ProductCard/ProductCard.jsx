@@ -17,7 +17,7 @@ export const ProductCard = ({
 			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
 			{latest && (
-				<span className="card-badge text-base font-semibold absolute top-1 left-1 rounded-sm">
+				<span className="card-badge font-semibold absolute top-1 left-1 rounded-sm">
 					New
 				</span>
 			)}
@@ -29,11 +29,13 @@ export const ProductCard = ({
 				<img src={image} alt={alt} className="w-20" />
 			</div>
 			<div className="px-1">
-				<h4 className="card-heading mt-2 mb-1">{productName}</h4>
+				<div className="card-heading card-text mt-2 mb-1 font-bold">
+					{productName}
+				</div>
 
-				<p className="card-description mb-1">{description}</p>
+				<p className="card-description card-text mb-1">{description}</p>
 				<div className="card-price">
-					<span className="font-bold">₹{latestPrice}</span>{" "}
+					<span className="font-semibold">₹{latestPrice}</span>
 					<span className="price-strike font-regular">₹{oldPrice}</span>
 				</div>
 				<p className="mb-1 font-semibold"></p>

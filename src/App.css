@@ -71,12 +71,13 @@ img {
 }
 
 .btn {
-	font-weight: bold;
+	font-weight: 600;
 	border-radius: 5px;
 	padding: 0.8rem 1.6rem;
 }
 
 .btn-solid {
+	font-size: 1.4rem;
 	color: var(--white);
 	background-color: var(--primary-color);
 }

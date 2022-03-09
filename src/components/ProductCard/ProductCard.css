@@ -3,14 +3,31 @@
 	transition: all 0.3s;
 }
 
-.card-description {
+.card-badge {
+	font-size: 1.4rem;
+}
+
+.card-heading {
+	font-size: 1.6rem;
+	-webkit-line-clamp: 1;
+}
+
+.card-text {
 	overflow: hidden;
 	display: -webkit-box;
-	color: var(--dark-gray);
-	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 	text-overflow: ellipsis;
+}
+
+.card-description {
+	font-size: 1.4rem;
+	-webkit-line-clamp: 2;
+	color: var(--dark-gray);
 	align-self: flex-start;
+}
+
+.card-price > * {
+	font-size: 1.4rem;
 }
 
 .wishlist-badge {
