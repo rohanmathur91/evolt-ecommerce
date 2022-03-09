@@ -24,7 +24,7 @@ export const data = [
 	{
 		id: uuid(),
 		latest: true,
-		productName: "Marshall Acton II 60 ",
+		productName: "Marshall Acton II",
 		alt: "Marshall speaker",
 		image: "https://m.media-amazon.com/images/I/51Tn3qxqr3L._AC_UY218_.jpg",
 		description:

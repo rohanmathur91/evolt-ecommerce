@@ -27,6 +27,14 @@
 	margin: 2rem 0;
 }
 
+input[type="range"] {
+	-webkit-appearance: auto;
+	height: 6px;
+	width: 16rem;
+	border-radius: 5px;
+	margin-top: 1rem;
+}
+
 @media screen and (max-width: 48em) {
 	.filters {
 		display: none;

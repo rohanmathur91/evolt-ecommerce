@@ -3,8 +3,8 @@
 	align-items: start;
 	justify-items: center;
 	grid-template-columns: repeat(3, 1fr);
-	margin-bottom: 6rem;
 	max-width: 80rem;
+	margin: 0rem auto 6rem auto;
 }
 
 .mobile-filter-container {

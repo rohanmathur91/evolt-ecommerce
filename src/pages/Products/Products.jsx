@@ -17,7 +17,7 @@ export const Products = () => {
 				<SortFilter />
 				<Filter />
 			</aside>
-			<div className="products w-100 p-1 pt-5 m-auto">
+			<div className="products w-100 p-1 pt-5">
 				{data.map((product) => (
 					<ProductCard key={product.id} {...product} />
 				))}

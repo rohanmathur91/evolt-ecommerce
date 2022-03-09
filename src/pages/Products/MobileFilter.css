@@ -29,7 +29,8 @@
 }
 
 @media screen and (min-width: 48em) {
-	.mobile-filter {
+	.mobile-filter,
+	.mobile-filter-wrapper {
 		display: none;
 	}
 }

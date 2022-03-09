@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MobileFilter.css";
 
 export const MobileFilter = ({ setShowFilter }) => {
+	const [priceRange, setPriceRange] = useState("2500");
+
 	return (
 		<div className="mobile-filter-wrapper">
 			<div className="mobile-filter card-shadow p-4">
@@ -15,6 +17,35 @@ export const MobileFilter = ({ setShowFilter }) => {
 					</button>
 				</div>
 				<div className="flex-row content-space-between">
+					<ul className="mr-1">
+						<li className="filter-header mb-2">
+							<div className="text-base font-bold">Price</div>
+						</li>
+						<li className="filter-item mb-2">
+							<label>
+								<input className="mr-2" type="checkbox" />
+								In stock only
+							</label>
+						</li>
+
+						<li className="filter-item mb-1">
+							<div>
+								<label htmlFor="price-range">
+									Price range: 0 to {priceRange}
+								</label>
+							</div>
+							<input
+								id="price-range"
+								type="range"
+								min="0"
+								max="5000"
+								step="50"
+								value={priceRange}
+								onChange={(e) => setPriceRange(e.target.value)}
+							/>
+						</li>
+					</ul>
+
 					<ul>
 						<li className="filter-header mb-2 flex-row content-space-between">
 							<div className="text-base font-semibold">Brand</div>
@@ -117,56 +148,6 @@ export const MobileFilter = ({ setShowFilter }) => {
 									id="filter-resolution-4"
 								/>
 								Tangle Free Cord
-							</label>
-						</li>
-					</ul>
-
-					<ul>
-						<li className="filter-header mb-2">
-							<div className="text-base font-semibold">Rating</div>
-						</li>
-						<li className="filter-item mb-1">
-							<label htmlFor="filter-rating-5">
-								<input
-									className="mr-2"
-									type="checkbox"
-									name="brand"
-									id="filter-rating-5"
-								/>
-								5 star
-							</label>
-						</li>
-						<li className="filter-item mb-1">
-							<label htmlFor="filter-rating-4">
-								<input
-									className="mr-2"
-									type="checkbox"
-									name="brand"
-									id="filter-rating-4"
-								/>
-								4 star
-							</label>
-						</li>
-						<li className="filter-item mb-1">
-							<label htmlFor="filter-rating-3">
-								<input
-									className="mr-2"
-									type="checkbox"
-									name="brand"
-									id="filter-rating-3"
-								/>
-								3 star
-							</label>
-						</li>
-						<li className="filter-item mb-1">
-							<label htmlFor="filter-rating-2">
-								<input
-									className="mr-2"
-									type="checkbox"
-									name="brand"
-									id="filter-rating-2"
-								/>
-								2 star
 							</label>
 						</li>
 					</ul>
