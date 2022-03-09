@@ -1,6 +1,12 @@
 import React from "react";
 
 export const SortFilter = () => {
+	const sortFilters = [
+		{ filter: "Latest", type: "SORT_BY_LATEST" },
+		{ filter: "Price (Low to High)", type: "SORT_BY_LOW_TO_HIGH" },
+		{ filter: "Price (High to Low)", type: "SORT_BY_HIGH_TO_LOW" },
+	];
+
 	return (
 		<>
 			<div className="flex-row content-space-between mb-3 py-2 border-bottom">
@@ -9,44 +15,25 @@ export const SortFilter = () => {
 					Clear all
 				</button>
 			</div>
-			<ul>
-				<li className="filter-header mb-2">
-					<div className="text-base font-bold">Sort By</div>
-				</li>
-				<li className="filter-item mb-1">
-					<label>
-						<input
-							className="mr-2"
-							type="radio"
-							name="price"
-							id="filter-price"
-						/>
-						Latest
-					</label>
-				</li>
-				<li className="filter-item mb-1">
-					<label>
-						<input
-							className="mr-2"
-							type="radio"
-							name="price"
-							id="filter-price"
-						/>
-						Price (Low to High)
-					</label>
-				</li>
-				<li className="filter-item">
-					<label>
-						<input
-							className="mr-2"
-							type="radio"
-							name="price"
-							id="filter-price"
-						/>
-						Price (High to Low)
-					</label>
-				</li>
-			</ul>
+
+			<div>
+				<div className="filter-header mb-2 text-base font-bold">Sort By</div>
+				<ul>
+					{sortFilters.map(({ filter }) => (
+						<li className="filter-item mb-1">
+							<label>
+								<input
+									className="mr-2"
+									type="radio"
+									name="price"
+									id="filter-price"
+								/>
+								{filter}
+							</label>
+						</li>
+					))}
+				</ul>
+			</div>
 		</>
 	);
 };

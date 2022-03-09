@@ -11,7 +11,7 @@ export const Filter = () => {
 					<div className="divider"></div>
 				</li>
 				<li className="filter-header mb-2">
-					<div className="text-base font-bold">Price</div>
+					<div className="text-base font-bold">Availability & Price</div>
 				</li>
 				<li className="filter-item mb-2">
 					<label htmlFor="filter-canon">

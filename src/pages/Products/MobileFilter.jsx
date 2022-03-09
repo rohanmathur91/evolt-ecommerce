@@ -19,7 +19,7 @@ export const MobileFilter = ({ setShowFilter }) => {
 				<div className="flex-row content-space-between">
 					<ul className="mr-1">
 						<li className="filter-header mb-2">
-							<div className="text-base font-bold">Price</div>
+							<div className="text-base font-bold">Availability & Price</div>
 						</li>
 						<li className="filter-item mb-2">
 							<label>
@@ -30,9 +30,7 @@ export const MobileFilter = ({ setShowFilter }) => {
 
 						<li className="filter-item mb-1">
 							<div>
-								<label htmlFor="price-range">
-									Price range: 0 to {priceRange}
-								</label>
+								<label htmlFor="price-range">Price: 0 to {priceRange}</label>
 							</div>
 							<input
 								id="price-range"
@@ -46,7 +44,7 @@ export const MobileFilter = ({ setShowFilter }) => {
 						</li>
 					</ul>
 
-					<ul>
+					<ul className="mx-1">
 						<li className="filter-header mb-2 flex-row content-space-between">
 							<div className="text-base font-semibold">Brand</div>
 						</li>
