@@ -52,6 +52,11 @@ select:focus {
 	border: 1px solid var(--dark-gray);
 }
 
+img {
+	height: 100%;
+	object-fit: contain;
+}
+
 /* utility */
 .text-primary {
 	color: var(--primary-color);

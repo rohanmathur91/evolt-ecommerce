@@ -132,6 +132,17 @@ export const Filter = () => {
 					</label>
 				</li>
 				<li className="filter-item mb-1">
+					<label htmlFor="filter-resolution-2">
+						<input
+							className="mr-2"
+							type="checkbox"
+							name="brand"
+							id="filter-resolution-2"
+						/>
+						Speaker
+					</label>
+				</li>
+				<li className="filter-item mb-1">
 					<label htmlFor="filter-resolution-3">
 						<input
 							className="mr-2"
