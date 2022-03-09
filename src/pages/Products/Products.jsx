@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { data } from "./data";
 import { Filter } from "./Filter";
 import { SortFilter } from "./SortFilter";
 import { ProductCard } from "../../components";
 import { MobileFilter } from "./MobileFilter";
 import { MobileSortFilter } from "./MobileSortFilter";
+import { useProduct } from "../../context";
 import "./Products.css";
 
 export const Products = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSortFilter, setShowSortFilter] = useState(false);
+	const { filteredData } = useProduct();
 
 	return (
 		<div className="products-container flex-row">
@@ -18,7 +19,7 @@ export const Products = () => {
 				<Filter />
 			</aside>
 			<div className="products w-100 p-1 pt-5">
-				{data.map((product) => (
+				{filteredData.map((product) => (
 					<ProductCard key={product.id} {...product} />
 				))}
 			</div>

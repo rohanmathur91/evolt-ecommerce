@@ -19,8 +19,8 @@ export const SortFilter = () => {
 			<div>
 				<div className="filter-header mb-2 text-base font-bold">Sort By</div>
 				<ul>
-					{sortFilters.map(({ filter }) => (
-						<li className="filter-item mb-1">
+					{sortFilters.map(({ filter }, index) => (
+						<li key={index} className="filter-item mb-1">
 							<label>
 								<input
 									className="mr-2"

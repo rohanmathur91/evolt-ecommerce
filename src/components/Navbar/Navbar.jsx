@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useProduct } from "../../context";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
+	const { searchQuery, productDispatch } = useProduct();
 
 	return (
 		<>
@@ -36,10 +38,14 @@ export const Navbar = () => {
 						<i className=" fa fa-search search-icon ml-2"></i>
 					</button>
 					<input
-						className="search-input w-100 py-1 px-2 text-base rounded-sm"
+						value={searchQuery}
 						type="text"
-						placeholder="search..."
 						autoComplete="false"
+						placeholder="search..."
+						className="search-input w-100 py-1 px-2 text-base rounded-sm"
+						onChange={(e) =>
+							productDispatch({ type: "SEARCH", payload: e.target.value })
+						}
 					/>
 				</span>
 
