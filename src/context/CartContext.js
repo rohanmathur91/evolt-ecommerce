@@ -18,8 +18,9 @@ const CartProvider = ({ children }) => {
 		toastMessage: "",
 	});
 
-	const productInWishlist = (id) =>
-		wishlist.some(({ id: productId }) => productId === id);
+	const productInWishlist = (id) => {
+		return wishlist.some(({ id: productId }) => productId === id);
+	};
 
 	return (
 		<CartContext.Provider
