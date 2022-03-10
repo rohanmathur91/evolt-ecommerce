@@ -1,0 +1,23 @@
+.address {
+	font-size: 1.4rem;
+}
+
+.edit-btn {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.cart-container {
+	margin: auto;
+	max-width: 102.4rem;
+}
+
+.cart-products {
+	width: 100%;
+	max-width: 65rem;
+}
+
+.cart-checkout {
+	flex-grow: 1;
+	align-self: flex-start;
+}
