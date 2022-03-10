@@ -11,13 +11,10 @@ export const Filter = () => {
 
 	return (
 		<>
+			<div className="filter-header text-base py-2 mt-2 font-bold">
+				Availability & Price
+			</div>
 			<ul>
-				<li className="filter-item">
-					<div className="divider"></div>
-				</li>
-				<li className="filter-header mb-2">
-					<div className="text-base font-bold">Availability & Price</div>
-				</li>
 				<li className="filter-item mb-2">
 					<Checkbox
 						id="filter-stock"
@@ -47,13 +44,8 @@ export const Filter = () => {
 				</li>
 			</ul>
 
+			<div className="filter-header py-2 mt-2 text-base font-bold">Brand</div>
 			<ul>
-				<li className="filter-item">
-					<div className="divider"></div>
-				</li>
-				<li className="filter-header mb-2">
-					<div className="text-base font-bold">Brand</div>
-				</li>
 				<li className="filter-item mb-1">
 					<Checkbox
 						id="filter-bose"
@@ -99,14 +91,10 @@ export const Filter = () => {
 						title="JBL"
 					/>
 				</li>
+			</ul>
 
-				<li className="filter-item">
-					<div className="divider"></div>
-				</li>
-
-				<li className="filter-header mb-2">
-					<div className="text-base font-bold">Type</div>
-				</li>
+			<div className="filter-header py-2 mt-2 text-base font-bold">Type</div>
+			<ul>
 				<li className="filter-item mb-1">
 					<Checkbox
 						id="filter-wired"
@@ -116,7 +104,6 @@ export const Filter = () => {
 						title="Wired"
 					/>
 				</li>
-
 				<li className="filter-item mb-1">
 					<Checkbox
 						id="filter-wireless"
@@ -126,7 +113,6 @@ export const Filter = () => {
 						title="Wireless"
 					/>
 				</li>
-
 				<li className="filter-item mb-1">
 					<Checkbox
 						id="filter-speaker"

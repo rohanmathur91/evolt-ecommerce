@@ -15,7 +15,7 @@ export const SortFilter = () => {
 
 	return (
 		<>
-			<div className="flex-row content-space-between mb-3 py-2 border-bottom">
+			<div className="flex-row content-space-between pt-2">
 				<div className="filter-title font-bold">Filters</div>
 				<button
 					onClick={() => productDispatch({ type: "CLEAR_FILTER" })}
@@ -25,7 +25,7 @@ export const SortFilter = () => {
 				</button>
 			</div>
 
-			<div className="filter-header mb-2 text-base font-bold">Sort By</div>
+			<div className="filter-header py-2 mt-2 text-base font-bold">Sort By</div>
 			<ul>
 				{sortFilters.map(({ filter, sortProduct }, index) => (
 					<li key={index} className="filter-item mb-1">

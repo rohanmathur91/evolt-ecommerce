@@ -8,6 +8,10 @@
 	overflow: auto;
 }
 
+.filter-header {
+	border-top: 1px solid var(--light-gray);
+}
+
 .filter-title {
 	font-size: 1.8rem;
 }
@@ -18,13 +22,6 @@
 
 .filter-clear-btn:hover {
 	text-decoration: underline;
-}
-
-.divider {
-	width: 100%;
-	height: 0.2px;
-	background-color: var(--light-gray);
-	margin: 2rem 0;
 }
 
 input[type="range"] {
