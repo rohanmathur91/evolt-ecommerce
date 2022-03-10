@@ -9,7 +9,7 @@ function App() {
 			{/* <Home /> */}
 			<Products />
 			<Cart />
-			{/* <Wishlist /> */}
+			<Wishlist />
 
 			{/* <Footer /> */}
 		</div>
