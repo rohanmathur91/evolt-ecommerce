@@ -1,10 +1,12 @@
 export const cartReducer = (cart, { type, payload }) => {
 	switch (type) {
 		case "ADD_TO_CART":
-			return {
-				...cart,
-				cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
-			};
+			return !cart.cartProducts.some(({ id }) => id === payload.id)
+				? {
+						...cart,
+						cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
+				  }
+				: cart;
 
 		case "REMOVE_FROM_CART":
 			return {

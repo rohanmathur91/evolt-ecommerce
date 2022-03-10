@@ -35,8 +35,8 @@ const CartProvider = ({ children }) => {
 			  totalPrice
 			: 500;
 
-	const totalAmount = totalPrice - totalDiscount;
-	const totalSave = totalPrice - totalAmount;
+	const totalAmount = (totalPrice - totalDiscount).toFixed(2);
+	const totalSave = (totalPrice - totalAmount).toFixed(2);
 
 	return (
 		<CartContext.Provider
