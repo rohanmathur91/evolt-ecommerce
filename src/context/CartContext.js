@@ -1,8 +1,8 @@
 import { createContext, useContext, useReducer } from "react";
+import { getTotalCartPrice, getTotalCartDiscount } from "./utilities";
 import { cartReducer } from "../reducer";
+
 /*
-    1. cart
-    2. wishlist
     3. order summary
     4. address management
 */
@@ -22,19 +22,8 @@ const CartProvider = ({ children }) => {
 		return wishlist.some(({ id: productId }) => productId === id);
 	};
 
-	const totalPrice = cartProducts.reduce(
-		(total, { price }) => total + Number(price),
-		0
-	);
-
-	const totalDiscount =
-		cartProducts.length > 0
-			? (cartProducts.reduce((total, { discount }) => total + discount, 0) /
-					cartProducts.length /
-					100) *
-			  totalPrice
-			: 500;
-
+	const totalPrice = getTotalCartPrice(cartProducts);
+	const totalDiscount = getTotalCartDiscount(cartProducts, totalPrice);
 	const totalAmount = (totalPrice - totalDiscount).toFixed(2);
 	const totalSave = (totalPrice - totalAmount).toFixed(2);
 
