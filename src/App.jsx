@@ -1,5 +1,5 @@
-import { Home, Products, Wishlist } from "./pages";
-import { Navbar, Footer } from "./components";
+import { Products, Wishlist } from "./pages";
+import { Navbar } from "./components";
 import "./App.css";
 
 function App() {
