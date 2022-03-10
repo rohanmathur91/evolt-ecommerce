@@ -10,6 +10,7 @@
 	--black: #171717;
 	--white: #ffffff;
 	--red: #ef4444;
+	--green: #388e3c;
 	--light-red: #fee2e2;
 	--gray: #94969f;
 	--light-gray: #d8d8d8;
@@ -62,6 +63,14 @@ img {
 	color: var(--primary-color);
 }
 
+.text-green {
+	color: var(--green);
+}
+
+.text-underline {
+	text-decoration: underline;
+}
+
 .gutter-bottom {
 	margin-bottom: 2rem;
 }
@@ -102,10 +111,6 @@ img {
 
 .overflow-hidden {
 	overflow: hidden;
-}
-
-.text-underline {
-	text-decoration: underline;
 }
 
 .border {

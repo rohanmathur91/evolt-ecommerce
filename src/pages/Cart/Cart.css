@@ -16,8 +16,3 @@
 	width: 100%;
 	max-width: 65rem;
 }
-
-.cart-checkout {
-	flex-grow: 1;
-	align-self: flex-start;
-}
