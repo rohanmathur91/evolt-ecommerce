@@ -1,6 +1,4 @@
 export const productReducer = (state, { type, payload }) => {
-	console.log(`${type} :: ${typeof payload} :: ${payload}`);
-
 	switch (type) {
 		case "SEARCH":
 			return { ...state, searchQuery: payload };

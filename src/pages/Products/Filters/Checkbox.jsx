@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../context";
+import { useProduct } from "../../../context";
 
 export const Checkbox = ({ id, title, value, actionType, payload }) => {
 	const { productDispatch } = useProduct();

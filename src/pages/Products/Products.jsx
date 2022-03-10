@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Filter } from "./Filter";
-import { SortFilter } from "./SortFilter";
-import { ProductCard } from "../../components";
-import { MobileFilter } from "./MobileFilter";
-import { MobileSortFilter } from "./MobileSortFilter";
 import { useProduct } from "../../context";
+import { ProductCard } from "../../components";
+import { Filter, SortFilter, MobileFilter, MobileSortFilter } from "./Filters";
 import "./Products.css";
 
 export const Products = () => {

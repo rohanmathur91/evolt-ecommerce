@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../context";
+import { useProduct } from "../../../context";
 
 const sortFilters = [
 	{ filter: "Latest", sortProduct: "SORT_BY_LATEST" },
