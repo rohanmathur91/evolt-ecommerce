@@ -1,19 +1,45 @@
 export const cartReducer = (cart, { type, payload }) => {
+	console.log(payload);
+
 	switch (type) {
 		case "ADD_TO_CART":
-			return cart.cartProducts.length &&
-				cart.cartProducts.some(({ id }) => id === payload.id)
-				? { ...cart, toastMessage: "Item already present" }
-				: {
-						...cart,
-						cartProducts: [payload, ...cart.cartProducts],
-				  };
+			return {
+				...cart,
+				cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
+			};
 
 		case "REMOVE_FROM_CART":
 			return {
 				...cart,
 				cartProducts: cart.cartProducts.filter(({ id }) => id !== payload),
 			};
+
+		case "INCREASE_QUANTITY":
+			return {
+				...cart,
+				cartProducts: cart.cartProducts.map((product) =>
+					product.id === payload.id
+						? { ...product, quantity: payload.quantity + 1 }
+						: product
+				),
+			};
+
+		case "DECREASE_QUANTITY":
+			return payload.quantity === 1
+				? {
+						...cart,
+						cartProducts: cart.cartProducts.filter(
+							({ id }) => id !== payload.id
+						),
+				  }
+				: {
+						...cart,
+						cartProducts: cart.cartProducts.map((product) =>
+							product.id === payload.id
+								? { ...product, quantity: payload.quantity - 1 }
+								: product
+						),
+				  };
 
 		case "ADD_TO_WISHLIST":
 			return cart.wishlist.length &&
