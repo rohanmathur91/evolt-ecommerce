@@ -1,4 +1,4 @@
-import { Home, Products } from "./pages";
+import { Home, Products, Wishlist } from "./pages";
 import { Navbar, Footer } from "./components";
 import "./App.css";
 
@@ -8,6 +8,7 @@ function App() {
 			<Navbar />
 			{/* <Home /> */}
 			<Products />
+			<Wishlist />
 			{/* productlisting */}
 			{/* wishlist */}
 			{/* cart */}

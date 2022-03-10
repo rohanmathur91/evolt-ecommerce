@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useProduct } from "../../context";
+import { useCart, useProduct } from "../../context";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const { searchQuery, productDispatch } = useProduct();
+	const { cartProducts, wishlist } = useCart();
 
 	return (
 		<>
@@ -66,14 +67,14 @@ export const Navbar = () => {
 								<span className="badge red-badge">0</span>
 							</span>
 
-							<span className="navbar-icon-title">Wishlist</span>
+							<span className="navbar-icon-title">{wishlist.length}</span>
 						</a>
 					</li>
 					<li className="ml-4">
 						<a className="flex-column items-center" href="./cart/cart.html">
 							<span className="relative">
 								<i className="fa fa-shopping-bag icon-stroke badge-icon relative"></i>
-								<span className="badge red-badge">0</span>
+								<span className="badge red-badge">{cartProducts.length}</span>
 							</span>
 							<span className="navbar-icon-title">Bag</span>
 						</a>

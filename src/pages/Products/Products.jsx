@@ -21,7 +21,7 @@ export const Products = () => {
 						<ProductCard key={product.id} {...product} />
 					))
 				) : (
-					<p>No products to show...</p>
+					<p className="not-available">No products available...</p>
 				)}
 			</div>
 

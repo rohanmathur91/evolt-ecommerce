@@ -25,6 +25,10 @@
 	border-right: 1px solid var(--white-hover-color);
 }
 
+.not-available {
+	grid-column: 2 / 3;
+}
+
 @media screen and (max-width: 64em) {
 	.products {
 		grid-template-columns: repeat(2, 1fr);
