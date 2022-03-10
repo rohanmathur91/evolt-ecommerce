@@ -44,3 +44,17 @@
 	color: var(--dark-gray);
 	text-decoration: line-through;
 }
+
+.out-of-stock-overlay {
+	opacity: 0.8;
+	filter: grayscale(80%);
+	-webkit-filter: grayscale(80%);
+}
+
+.out-of-stock {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	font-size: 2.4rem;
+}

@@ -17,7 +17,6 @@ const ProductProvider = ({ children }) => {
 	] = useReducer(productReducer, {
 		products: data,
 		searchQuery: "",
-		productDetail: null,
 		productFilter: {
 			price: 5000,
 			sortBy: "",
@@ -27,7 +26,7 @@ const ProductProvider = ({ children }) => {
 		},
 	});
 
-	const searchProduct = getSearchProduct(data, searchQuery);
+	const searchProduct = getSearchProduct(products, searchQuery);
 	const sortedProduct = getSortedProduct(searchProduct, productFilter);
 	const filteredData = getFilteredData(sortedProduct, productFilter);
 
@@ -37,7 +36,6 @@ const ProductProvider = ({ children }) => {
 				products,
 				searchQuery,
 				filteredData,
-				productDetail,
 				productFilter,
 				productDispatch,
 			}}

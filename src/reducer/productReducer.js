@@ -59,8 +59,19 @@ export const productReducer = (state, { type, payload }) => {
 					price: 5000,
 					sortBy: "",
 					inStockOnly: false,
-					types: {},
-					brands: {},
+					types: {
+						wired: false,
+						wireless: false,
+						speaker: false,
+						noiseCancelling: false,
+					},
+					brands: {
+						bose: false,
+						boat: false,
+						marshall: false,
+						sony: false,
+						jbl: false,
+					},
 				},
 			};
 

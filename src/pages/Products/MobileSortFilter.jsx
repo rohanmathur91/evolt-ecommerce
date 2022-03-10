@@ -13,6 +13,8 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 		productDispatch,
 	} = useProduct();
 
+	console.log(sortBy);
+
 	return (
 		<div className="mobile-filter-wrapper">
 			<div className="mobile-filter card-shadow p-4">
@@ -26,7 +28,57 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 					</button>
 				</div>
 				<ul>
-					{sortFilters.map(({ filter, sortProduct }, index) => (
+					<li key={0} className="filter-item mb-1">
+						<label>
+							<input
+								type="radio"
+								name="price"
+								className="mr-2"
+								checked={sortBy === "SORT_BY_LATEST"}
+								onChange={() => {
+									productDispatch({ type: "SORT", payload: "SORT_BY_LATEST" });
+								}}
+							/>
+							Latest
+						</label>
+					</li>
+
+					<li key={1} className="filter-item mb-1">
+						<label>
+							<input
+								type="radio"
+								name="price"
+								className="mr-2"
+								checked={sortBy === "SORT_BY_LOW_TO_HIGH"}
+								onChange={() => {
+									productDispatch({
+										type: "SORT",
+										payload: "SORT_BY_LOW_TO_HIGH",
+									});
+								}}
+							/>
+							Price (Low to High)
+						</label>
+					</li>
+
+					<li key={2} className="filter-item mb-1">
+						<label>
+							<input
+								type="radio"
+								name="price"
+								className="mr-2"
+								checked={sortBy === "SORT_BY_HIGH_TO_LOW"}
+								onChange={() => {
+									productDispatch({
+										type: "SORT",
+										payload: "SORT_BY_HIGH_TO_LOW",
+									});
+								}}
+							/>
+							Price (High to Low)
+						</label>
+					</li>
+					{/* {sortFilters.map(({ filter, sortProduct }, index) => (
 						<li key={index} className="filter-item mb-1">
 							<label>
 								<input
@@ -41,7 +93,7 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 								{filter}
 							</label>
 						</li>
-					))}
+					))} */}
 				</ul>
 			</div>
 		</div>

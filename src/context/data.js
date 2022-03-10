@@ -87,7 +87,7 @@ const data = [
 	{
 		id: uuid(),
 		latest: true,
-		brand: "sony",
+		brand: "marshall",
 		type: "speaker",
 		productName: "Marshall",
 		alt: "Marshall speaker",
@@ -114,7 +114,7 @@ const data = [
 	{
 		id: uuid(),
 		latest: true,
-		brand: "sony",
+		brand: "bose",
 		type: "noiseCancelling",
 		productName: "Bose QuietComfort",
 		alt: "Bose Sport Earbuds",
@@ -141,7 +141,7 @@ const data = [
 		inStock: true,
 	},
 ];
-const brands = ["Bose", "Boat", "Marshall", "Sony", "JBL"];
+const brands = ["bose", "boat", "marshall", "sony", "jbl"];
 const types = ["wired", "wireless", "speaker", "noiseCancelling"];
 
 export { data, brands, types };
