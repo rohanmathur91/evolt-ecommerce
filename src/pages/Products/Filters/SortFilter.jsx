@@ -1,17 +1,9 @@
 import React from "react";
 import { useProduct } from "../../../context";
-
-const sortFilters = [
-	{ filter: "Latest", sortProduct: "SORT_BY_LATEST" },
-	{ filter: "Price (Low to High)", sortProduct: "SORT_BY_LOW_TO_HIGH" },
-	{ filter: "Price (High to Low)", sortProduct: "SORT_BY_HIGH_TO_LOW" },
-];
+import { Sort } from "./Sort";
 
 export const SortFilter = () => {
-	const {
-		productFilter: { sortBy },
-		productDispatch,
-	} = useProduct();
+	const { productDispatch } = useProduct();
 
 	return (
 		<>
@@ -24,26 +16,8 @@ export const SortFilter = () => {
 					Clear all
 				</button>
 			</div>
-
 			<div className="filter-header py-2 mt-2 text-base font-bold">Sort By</div>
-			<ul>
-				{sortFilters.map(({ filter, sortProduct }, index) => (
-					<li key={index} className="filter-item mb-1">
-						<label>
-							<input
-								type="radio"
-								name="price"
-								className="mr-2"
-								checked={sortBy === sortProduct}
-								onChange={() => {
-									productDispatch({ type: "SORT", payload: sortProduct });
-								}}
-							/>
-							{filter}
-						</label>
-					</li>
-				))}
-			</ul>
+			<Sort />
 		</>
 	);
 };

@@ -9,7 +9,7 @@ export const MobileFilter = ({ setShowFilter }) => {
 	return (
 		<div className="mobile-filter-wrapper">
 			<div className="mobile-filter card-shadow p-4">
-				<div className="flex-row content-space-between items-center ">
+				<div className="flex-row content-space-between items-center">
 					<div className="text-base font-bold">Filters</div>
 					<button
 						onClick={() => setShowFilter((prev) => !prev)}
