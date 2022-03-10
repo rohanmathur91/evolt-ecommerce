@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../../context";
 import "./ProductCard.css";
 
 export const ProductCard = ({
@@ -12,6 +13,8 @@ export const ProductCard = ({
 	productName,
 	description,
 }) => {
+	const { cartDispatch } = useCart();
+
 	return (
 		<div
 			key={id}
@@ -30,7 +33,25 @@ export const ProductCard = ({
 				</span>
 			)}
 
-			<span className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer">
+			<span
+				onClick={() =>
+					cartDispatch({
+						type: "ADD_TO_WISHLIST",
+						payload: {
+							id,
+							alt,
+							image,
+							latest,
+							price,
+							oldPrice,
+							inStock,
+							productName,
+							description,
+						},
+					})
+				}
+				className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
+			>
 				<i className="fa fa-heart-o"></i>
 			</span>
 			<div className="text-center h-20 flex-row flex-center">
