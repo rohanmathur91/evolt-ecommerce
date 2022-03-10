@@ -1,3 +1,5 @@
+import { createContext, useContext, useReducer } from "react";
+import { cartReducer } from "../reducer";
 /*
     1. cart
     2. wishlist
@@ -5,21 +7,7 @@
     4. address management
 */
 
-import { createContext, useContext, useReducer } from "react";
-
 const CartContext = createContext();
-
-const cartReducer = (cart, { type, payload }) => {
-	switch (type) {
-		case "ADD_TO_WISHLIST":
-			return cart.wishlist.some(({ id }) => id === payload.id)
-				? { ...cart, toastMessage: "Item already present" }
-				: { ...cart, wishlist: [payload, ...cart.wishlist] };
-
-		default:
-			return cart;
-	}
-};
 
 const CartProvider = ({ children }) => {
 	const [{ cartProducts, wishlist }, cartDispatch] = useReducer(cartReducer, {
@@ -30,11 +18,17 @@ const CartProvider = ({ children }) => {
 		toastMessage: "",
 	});
 
+	const productInWishlist = (id) =>
+		wishlist.some(({ id: productId }) => productId === id);
+
 	return (
-		<CartProvider value={{ cartProducts, wishlist }}>{children}</CartProvider>
+		<CartContext.Provider
+			value={{ wishlist, cartProducts, productInWishlist, cartDispatch }}
+		>
+			{children}
+		</CartContext.Provider>
 	);
 };
 
 const useCart = () => useContext(CartContext);
-
 export { useCart, CartProvider };

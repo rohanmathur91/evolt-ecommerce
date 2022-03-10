@@ -5,7 +5,7 @@ import "./Navbar.css";
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const { searchQuery, productDispatch } = useProduct();
-	const { cartProducts, wishlist } = useCart();
+	const { wishlist, cartProducts } = useCart();
 
 	return (
 		<>
@@ -64,10 +64,10 @@ export const Navbar = () => {
 						>
 							<span className="relative">
 								<i className="fa fa-heart icon-stroke badge-icon"> </i>
-								<span className="badge red-badge">0</span>
+								<span className="badge red-badge">{wishlist.length}</span>
 							</span>
 
-							<span className="navbar-icon-title">{wishlist.length}</span>
+							<span className="navbar-icon-title">Wishlist</span>
 						</a>
 					</li>
 					<li className="ml-4">

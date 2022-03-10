@@ -36,6 +36,7 @@
 
 .wishlist-badge i {
 	color: var(--red);
+	margin-top: 3px;
 }
 
 .price-strike {
