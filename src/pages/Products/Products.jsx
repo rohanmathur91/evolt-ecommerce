@@ -15,15 +15,16 @@ export const Products = () => {
 				<SortFilter />
 				<Filter />
 			</aside>
-			<div className="products w-100 p-1 pt-5">
-				{filteredAndSortedProducts.length ? (
-					filteredAndSortedProducts.map((product) => (
+
+			{filteredAndSortedProducts.length ? (
+				<div className="products w-100 p-1 pt-5">
+					{filteredAndSortedProducts.map((product) => (
 						<ProductCard key={product.id} {...product} />
-					))
-				) : (
-					<p className="not-available">No products available...</p>
-				)}
-			</div>
+					))}
+				</div>
+			) : (
+				<p className="not-available">No products available...</p>
+			)}
 
 			{showSortFilter && (
 				<MobileSortFilter setShowSortFilter={setShowSortFilter} />

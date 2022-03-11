@@ -8,8 +8,8 @@ function App() {
 			<Navbar />
 			{/* <Home /> */}
 			<Products />
-			<Cart />
-			<Wishlist />
+			{/* <Cart /> */}
+			{/* <Wishlist /> */}
 
 			{/* <Footer /> */}
 		</div>

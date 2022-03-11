@@ -18,8 +18,8 @@ const ProductProvider = ({ children }) => {
 		products: data,
 		searchQuery: "",
 		productFilter: {
-			price: 5000,
 			sortBy: "",
+			price: 5000,
 			inStockOnly: false,
 			types: createFilterObject(types),
 			brands: createFilterObject(brands),
