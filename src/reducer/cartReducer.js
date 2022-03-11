@@ -56,12 +56,6 @@ export const cartReducer = (cart, { type, payload }) => {
 				wishlist: cart.wishlist.filter(({ id }) => id !== payload),
 			};
 
-		case "ADDRESS":
-			return {
-				...cart,
-				newAddress: { ...cart.newAddress, [payload.id]: payload.value },
-			};
-
 		case "ADD_ADDRESS":
 			return {
 				...cart,

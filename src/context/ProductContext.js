@@ -6,7 +6,7 @@ import {
 	getSortedProducts,
 	createFilterObject,
 	getFilteredProducts,
-} from "./utilities";
+} from "./utils";
 
 const ProductContext = createContext();
 

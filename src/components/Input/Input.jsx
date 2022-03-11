@@ -1,25 +1,24 @@
 import React from "react";
-import { useCart } from "../../context";
 
-export const Input = ({ id, title, type, placeholder }) => {
-	const { newAddress, cartDispatch } = useCart();
-
+export const Input = ({
+	field,
+	title,
+	type,
+	placeholder,
+	newAddress,
+	updateAddress,
+}) => {
 	return (
 		<div className="flex-column mb-3">
-			<label htmlFor={id}>{title}</label>
+			<label htmlFor={field}>{title}</label>
 			<input
 				required
-				id={id}
+				id={field}
 				type={type}
 				placeholder={placeholder}
 				className="mt-1 py-1 px-2 text-base border rounded-sm"
-				value={newAddress[id]}
-				onChange={(e) =>
-					cartDispatch({
-						type: "ADDRESS",
-						payload: { id, value: e.target.value },
-					})
-				}
+				value={newAddress[field]}
+				onChange={(e) => updateAddress(e, field)}
 			/>
 		</div>
 	);

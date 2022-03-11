@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
-import { getTotalCartPrice, getTotalCartDiscount } from "./utilities";
+import { getTotalCartPrice, getTotalCartDiscount } from "./utils";
 import { cartReducer } from "../reducer";
 
 /*
@@ -10,27 +10,13 @@ import { cartReducer } from "../reducer";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-	const [{ cartProducts, wishlist, newAddress }, cartDispatch] = useReducer(
-		cartReducer,
-		{
-			wishlist: [],
-			cartProducts: [],
-			orderSummary: [],
-			addressList: [],
-			toastMessage: "",
-			currentSelect: "",
-			newAddress: {
-				name: "",
-				area: "",
-				city: "",
-				home: "",
-				contact: "",
-				country: "India",
-				pinCode: "",
-				addressType: "home",
-			},
-		}
-	);
+	const [{ cartProducts, wishlist }, cartDispatch] = useReducer(cartReducer, {
+		wishlist: [],
+		cartProducts: [],
+		orderSummary: [],
+		addressList: [],
+		currentAddress: "",
+	});
 
 	const productInWishlist = (id) => {
 		return wishlist.some(({ id: productId }) => productId === id);
@@ -50,7 +36,6 @@ const CartProvider = ({ children }) => {
 				totalAmount,
 				totalSave,
 				cartProducts,
-				newAddress,
 				productInWishlist,
 				cartDispatch,
 			}}

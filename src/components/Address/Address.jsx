@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../../context";
 import { Input } from "../Input/Input";
 import uuid from "react-uuid";
 import "./Address.css";
 
 export const Address = () => {
-	const { newAddress, cartDispatch } = useCart();
+	const { cartDispatch } = useCart();
+	const [newAddress, setNewAddress] = useState({
+		name: "",
+		area: "",
+		city: "",
+		home: "",
+		contact: "",
+		country: "India",
+		pinCode: "",
+		addressType: "home",
+	});
 
+	console.log(newAddress);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		cartDispatch({
 			type: "ADD_ADDRESS",
 			payload: { id: uuid(), ...newAddress },
 		});
+	};
+
+	const updateAddress = (e, field) => {
+		setNewAddress((address) => ({ ...address, [field]: e.target.value }));
 	};
 
 	return (
@@ -27,15 +42,10 @@ export const Address = () => {
 					<select
 						type="text"
 						id="country"
-						value={newAddress["country"]}
+						value={newAddress.country}
 						placeholder="Enter your country"
 						className="mt-1 py-1 px-2 text-base border rounded-sm"
-						onChange={(e) =>
-							cartDispatch({
-								type: "ADDRESS",
-								payload: { id: "country", value: e.target.value },
-							})
-						}
+						onChange={(e) => updateAddress(e, "country")}
 					>
 						<option value="india">India</option>
 						<option value="japan">Japan</option>
@@ -44,44 +54,56 @@ export const Address = () => {
 
 				<Input
 					type="text"
-					id="name"
+					field="name"
 					title="Full Name"
 					placeholder="Enter your full name"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<Input
 					type="number"
-					id="contact"
+					field="contact"
 					title="Contact"
 					placeholder="10-digit mobile number"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<Input
 					type="number"
-					id="pinCode"
+					field="pinCode"
 					title="PIN code"
 					placeholder="6-digit PIN code"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<Input
 					type="text"
-					id="home"
+					field="home"
 					title="Flat, House no, Building, Apartment"
 					placeholder="Enter house details"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<Input
 					type="text"
-					id="area"
+					field="area"
 					title="Area, Colony, Street, Sector"
 					placeholder="Enter area details"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<Input
 					type="text"
-					id="city"
+					field="city"
 					title="City, State"
 					placeholder="Enter city and state details"
+					newAddress={newAddress}
+					updateAddress={updateAddress}
 				/>
 
 				<div className="flex-column mb-3">
@@ -89,15 +111,10 @@ export const Address = () => {
 					<select
 						type="text"
 						id="addressType"
-						value={newAddress["addressType"]}
+						value={newAddress.addressType}
 						placeholder="Enter city and state details"
 						className="mt-1 py-1 px-2 text-base border rounded-sm"
-						onChange={(e) =>
-							cartDispatch({
-								type: "ADDRESS",
-								payload: { id: "addressType", value: e.target.value },
-							})
-						}
+						onChange={(e) => updateAddress(e, "addressType")}
 					>
 						<option value="home">Home (7 am – 9 pm delivery)</option>
 						<option value="office">
