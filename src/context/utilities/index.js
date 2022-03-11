@@ -1,6 +1,6 @@
-export { getFilteredProducts } from "./getFilteredProducts";
-export { getSearchProducts } from "./getSearchProducts";
-export { getSortedProducts } from "./getSortedProducts";
-export { createFilterObject } from "./createFilterObject";
-export { getTotalCartPrice } from "./getTotalCartPrice";
-export { getTotalCartDiscount } from "./getTotalCartDiscount";
+export { getSearchProducts } from "./productUtilities/getSearchProducts";
+export { getFilteredProducts } from "./productUtilities/getFilteredProducts";
+export { getSortedProducts } from "./productUtilities/getSortedProducts";
+export { createFilterObject } from "./productUtilities/createFilterObject";
+export { getTotalCartPrice } from "./cartUtilities/getTotalCartPrice";
+export { getTotalCartDiscount } from "./cartUtilities/getTotalCartDiscount";
