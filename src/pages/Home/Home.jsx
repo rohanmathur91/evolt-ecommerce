@@ -1,8 +1,7 @@
 import React from "react";
 import banner from "../../assests/banner.jpg";
-import { Category } from "./Category";
-import { TopBrands } from "./TopBrands";
-import "./style.css";
+import { Category, BrandList } from "../../components";
+import "./Home.css";
 
 export const Home = () => {
 	return (
@@ -13,7 +12,7 @@ export const Home = () => {
 
 			<section className="category-container m-auto p-1 gutter-bottom ">
 				<Category />
-				<TopBrands />
+				<BrandList />
 			</section>
 		</div>
 	);

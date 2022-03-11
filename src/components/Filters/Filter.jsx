@@ -1,6 +1,6 @@
 import React from "react";
 import { Checkbox } from "./Checkbox";
-import { useProduct } from "../../../context/ProductContext";
+import { useProduct } from "../../context";
 import "./Filter.css";
 
 export const Filter = () => {

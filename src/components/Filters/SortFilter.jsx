@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../../context";
+import { useProduct } from "../../context";
 import { Sort } from "./Sort";
 
 export const SortFilter = () => {

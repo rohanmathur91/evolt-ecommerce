@@ -1,5 +1,6 @@
 import React from "react";
-import { categories } from "./categories";
+import { categories } from "../../staticData";
+import "./Category.css";
 
 export const Category = () => {
 	return (

@@ -1,7 +1,7 @@
 import React from "react";
-import { brands } from "./brand";
+import { brands } from "../../staticData";
 
-export const TopBrands = () => {
+export const BrandList = () => {
 	return (
 		<article>
 			<h2 className="text-center mt-6 mb-2">Top Brands</h2>

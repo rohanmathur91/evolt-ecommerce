@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { productReducer } from "../reducer";
-import { data, brands, types } from "./data";
+import { data, brands, types } from "../staticData/data";
 import {
 	getSearchProducts,
 	getSortedProducts,
@@ -28,10 +28,7 @@ const ProductProvider = ({ children }) => {
 
 	const searchProducts = getSearchProducts(products, searchQuery);
 	const filteredProducts = getFilteredProducts(searchProducts, productFilter);
-	const filteredAndSortedProducts = getSortedProducts(
-		filteredProducts,
-		productFilter
-	);
+	const sortedProducts = getSortedProducts(filteredProducts, productFilter);
 
 	return (
 		<ProductContext.Provider
@@ -40,7 +37,7 @@ const ProductProvider = ({ children }) => {
 				searchQuery,
 				productFilter,
 				productDispatch,
-				filteredAndSortedProducts,
+				sortedProducts,
 			}}
 		>
 			{children}

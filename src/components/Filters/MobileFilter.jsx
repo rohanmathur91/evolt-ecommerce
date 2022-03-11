@@ -1,6 +1,6 @@
 import React from "react";
 import { Filter } from "./Filter";
-import { useProduct } from "../../../context";
+import { useProduct } from "../../context";
 import "./MobileFilter.css";
 
 export const MobileFilter = ({ setShowFilter }) => {
