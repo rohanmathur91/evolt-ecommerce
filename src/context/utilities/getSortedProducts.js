@@ -1,4 +1,4 @@
-export const getSortedProduct = (products, { sortBy }) => {
+export const getSortedProducts = (products, { sortBy }) => {
 	if (sortBy === "SORT_BY_LATEST") {
 		return [...products]
 			.sort((a, b) => (a.latest === b.latest ? 0 : a ? -1 : 1))

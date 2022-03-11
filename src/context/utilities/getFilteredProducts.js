@@ -1,4 +1,4 @@
-export const getFilteredData = (
+export const getFilteredProducts = (
 	products,
 	{ price: filterPrice, inStockOnly, brands: filterBrands, types }
 ) => {

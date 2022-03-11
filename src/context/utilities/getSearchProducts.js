@@ -1,4 +1,4 @@
-export const getSearchProduct = (products, searchQuery) => {
+export const getSearchProducts = (products, searchQuery) => {
 	return products.filter(({ productName }) =>
 		searchQuery
 			? productName.toLowerCase().includes(searchQuery.toLowerCase())

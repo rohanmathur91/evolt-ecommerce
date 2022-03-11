@@ -2,10 +2,10 @@ import { createContext, useContext, useReducer } from "react";
 import { productReducer } from "../reducer";
 import { data, brands, types } from "./data";
 import {
-	getFilteredData,
-	getSearchProduct,
-	getSortedProduct,
+	getSearchProducts,
+	getSortedProducts,
 	createFilterObject,
+	getFilteredProducts,
 } from "./utilities";
 
 const ProductContext = createContext();
@@ -26,18 +26,21 @@ const ProductProvider = ({ children }) => {
 		},
 	});
 
-	const searchProduct = getSearchProduct(products, searchQuery);
-	const sortedProduct = getSortedProduct(searchProduct, productFilter);
-	const filteredData = getFilteredData(sortedProduct, productFilter);
+	const searchProducts = getSearchProducts(products, searchQuery);
+	const filteredProducts = getFilteredProducts(searchProducts, productFilter);
+	const filteredAndSortedProducts = getSortedProducts(
+		filteredProducts,
+		productFilter
+	);
 
 	return (
 		<ProductContext.Provider
 			value={{
 				products,
 				searchQuery,
-				filteredData,
 				productFilter,
 				productDispatch,
+				filteredAndSortedProducts,
 			}}
 		>
 			{children}

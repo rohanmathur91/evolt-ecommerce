@@ -7,7 +7,7 @@ import "./Products.css";
 export const Products = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSortFilter, setShowSortFilter] = useState(false);
-	const { filteredData } = useProduct();
+	const { filteredAndSortedProducts } = useProduct();
 
 	return (
 		<div className="products-container flex-row">
@@ -16,8 +16,8 @@ export const Products = () => {
 				<Filter />
 			</aside>
 			<div className="products w-100 p-1 pt-5">
-				{filteredData.length ? (
-					filteredData.map((product) => (
+				{filteredAndSortedProducts.length ? (
+					filteredAndSortedProducts.map((product) => (
 						<ProductCard key={product.id} {...product} />
 					))
 				) : (
