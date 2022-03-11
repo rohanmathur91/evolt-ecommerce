@@ -37,16 +37,16 @@ export const Navbar = () => {
 					</div>
 				</div>
 
-				<span className="search flex-row items-center border rounded-sm">
-					<button className="search-btn">
-						<i className=" fa fa-search search-icon ml-2"></i>
-					</button>
+				<span className="search relative rounded-sm">
+					<span className="search-icon absolute">
+						<i className="fa fa-search"></i>
+					</span>
 					<input
 						value={searchQuery}
 						type="text"
 						autoComplete="false"
 						placeholder="search..."
-						className="search-input w-100 py-1 px-2 text-base rounded-sm"
+						className="search-input border w-100 py-1 pl-6 pr-2 text-base rounded-sm"
 						onChange={(e) =>
 							productDispatch({ type: "SEARCH", payload: e.target.value })
 						}
