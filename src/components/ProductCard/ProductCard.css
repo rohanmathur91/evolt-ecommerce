@@ -31,7 +31,7 @@
 }
 
 .wishlist-badge {
-	background-color: var(--light-red);
+	background-color: var(--badge-background);
 }
 
 .wishlist-badge i {

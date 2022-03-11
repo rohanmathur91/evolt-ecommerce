@@ -7,7 +7,7 @@ export const ToggleWishlist = (product) => {
 	return (
 		<button
 			key={product.id}
-			onClick={() =>
+			onClick={() => {
 				!productInWishlist(product.id)
 					? cartDispatch({
 							type: "ADD_TO_WISHLIST",
@@ -16,8 +16,8 @@ export const ToggleWishlist = (product) => {
 					: cartDispatch({
 							type: "REMOVE_FROM_WISHLIST",
 							payload: product.id,
-					  })
-			}
+					  });
+			}}
 			className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
 		>
 			{productInWishlist(product.id) ? (

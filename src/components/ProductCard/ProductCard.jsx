@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../../context";
+import { useCart, useProduct } from "../../context";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
 
@@ -16,6 +16,7 @@ export const ProductCard = ({
 	discount,
 }) => {
 	const { cartDispatch } = useCart();
+	const { productDispatch } = useProduct();
 
 	return (
 		<div
@@ -64,7 +65,7 @@ export const ProductCard = ({
 			</div>
 			<button
 				disabled={!inStock}
-				onClick={() =>
+				onClick={() => {
 					cartDispatch({
 						type: "ADD_TO_CART",
 						payload: {
@@ -79,8 +80,8 @@ export const ProductCard = ({
 							description,
 							discount,
 						},
-					})
-				}
+					});
+				}}
 				className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1"
 			>
 				Add to cart

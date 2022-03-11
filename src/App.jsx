@@ -1,15 +1,16 @@
 import { Home, Products, Footer, Wishlist, Cart } from "./pages";
-import { Navbar } from "./components";
+import { Navbar, Address } from "./components";
 import "./App.css";
 
 function App() {
 	return (
 		<div className="App">
 			<Navbar />
-			<Home />
+			{/* <Home /> */}
 			<Products />
-			<Cart />
+			{/* <Cart /> */}
 			{/* <Wishlist /> */}
+			<Address />
 
 			{/* <Footer /> */}
 		</div>

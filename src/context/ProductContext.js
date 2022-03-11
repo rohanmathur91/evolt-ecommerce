@@ -11,20 +11,23 @@ import {
 const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-	const [
-		{ products, searchQuery, productDetail, productFilter },
-		productDispatch,
-	] = useReducer(productReducer, {
-		products: data,
-		searchQuery: "",
-		productFilter: {
-			sortBy: "",
-			price: 5000,
-			inStockOnly: false,
-			types: createFilterObject(types),
-			brands: createFilterObject(brands),
-		},
-	});
+	const [{ products, searchQuery, toast, productFilter }, productDispatch] =
+		useReducer(productReducer, {
+			products: data,
+			searchQuery: "",
+			productFilter: {
+				sortBy: "",
+				price: 5000,
+				inStockOnly: false,
+				types: createFilterObject(types),
+				brands: createFilterObject(brands),
+			},
+			toast: {
+				type: "",
+				message: "",
+				showToast: false,
+			},
+		});
 
 	const searchProducts = getSearchProducts(products, searchQuery);
 	const filteredProducts = getFilteredProducts(searchProducts, productFilter);
@@ -33,6 +36,7 @@ const ProductProvider = ({ children }) => {
 	return (
 		<ProductContext.Provider
 			value={{
+				toast,
 				products,
 				searchQuery,
 				productFilter,

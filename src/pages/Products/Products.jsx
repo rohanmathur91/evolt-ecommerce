@@ -6,16 +6,21 @@ import {
 	SortFilter,
 	MobileFilter,
 	MobileSortFilter,
+	Toast,
 } from "../../components";
 import "./Products.css";
 
 export const Products = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSortFilter, setShowSortFilter] = useState(false);
-	const { sortedProducts } = useProduct();
+	const {
+		sortedProducts,
+		toast: { showToast },
+	} = useProduct();
 
 	return (
 		<div className="products-container flex-row">
+			{showToast && <Toast />}
 			<aside className="filters flex-column py-3 px-4 border-r">
 				<SortFilter />
 				<Filter />

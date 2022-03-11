@@ -14,7 +14,10 @@ const CartProvider = ({ children }) => {
 		wishlist: [],
 		cartProducts: [],
 		orderSummary: [],
-		addressManagement: [],
+		address: {
+			addressList: [],
+			currentSelect: "",
+		},
 		toastMessage: "",
 	});
 
