@@ -8,7 +8,7 @@ function App() {
 			<Navbar />
 			{/* <Home /> */}
 			<Products />
-			{/* <Cart /> */}
+			<Cart />
 			{/* <Wishlist /> */}
 
 			{/* <Footer /> */}
