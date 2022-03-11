@@ -10,16 +10,27 @@ import { cartReducer } from "../reducer";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-	const [{ cartProducts, wishlist }, cartDispatch] = useReducer(cartReducer, {
-		wishlist: [],
-		cartProducts: [],
-		orderSummary: [],
-		address: {
+	const [{ cartProducts, wishlist, newAddress }, cartDispatch] = useReducer(
+		cartReducer,
+		{
+			wishlist: [],
+			cartProducts: [],
+			orderSummary: [],
 			addressList: [],
+			toastMessage: "",
 			currentSelect: "",
-		},
-		toastMessage: "",
-	});
+			newAddress: {
+				name: "",
+				area: "",
+				city: "",
+				home: "",
+				contact: "",
+				country: "India",
+				pinCode: "",
+				addressType: "home",
+			},
+		}
+	);
 
 	const productInWishlist = (id) => {
 		return wishlist.some(({ id: productId }) => productId === id);
@@ -39,6 +50,7 @@ const CartProvider = ({ children }) => {
 				totalAmount,
 				totalSave,
 				cartProducts,
+				newAddress,
 				productInWishlist,
 				cartDispatch,
 			}}
