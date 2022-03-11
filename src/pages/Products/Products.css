@@ -8,23 +8,6 @@
 	margin: 0rem auto 6rem auto;
 }
 
-.mobile-filter-container {
-	display: none;
-}
-
-.filter-btn {
-	color: var(--primary-color);
-	background-color: var(--white);
-}
-
-.filter-btn:hover {
-	background-color: var(--white-hover-color);
-}
-
-.sort-btn {
-	border-right: 1px solid var(--white-hover-color);
-}
-
 .not-available {
 	width: 100%;
 	margin-top: 8rem;

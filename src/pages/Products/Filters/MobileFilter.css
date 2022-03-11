@@ -12,6 +12,23 @@
 	background-color: var(--modal-background);
 }
 
+.mobile-filter-container {
+	display: none;
+}
+
+.filter-btn {
+	color: var(--white);
+	background-color: var(--primary-color);
+}
+
+.filter-btn:hover {
+	background-color: var(--primary-hover-color);
+}
+
+.sort-btn {
+	border-right: 0.5px solid var(--gray);
+}
+
 .mobile-filter {
 	width: 100%;
 	margin-top: auto;

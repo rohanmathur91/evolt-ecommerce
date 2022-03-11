@@ -34,7 +34,7 @@ export const Products = () => {
 			<div className="mobile-filter-container fixed left-0 bottom-0 flex-row w-100">
 				<button
 					onClick={() => setShowSortFilter((prev) => !prev)}
-					className="sort-btn filter-btn py-1 px-2 w-100 border-r transition-3"
+					className="sort-btn filter-btn py-1 px-2 w-100 transition-3"
 				>
 					<i className="fa fa-sort mr-1"></i>
 					Sort
