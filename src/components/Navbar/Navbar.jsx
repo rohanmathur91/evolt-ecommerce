@@ -22,11 +22,14 @@ export const Navbar = () => {
 					</a>
 
 					<div className="navbar-left-menu ml-4">
-						<a className="navbar-cta mr-1 rounded-sm p-1" href="./index.html">
+						<a
+							className="navbar-cta font-bold mr-1 rounded-sm p-1"
+							href="./index.html"
+						>
 							Home
 						</a>
 						<a
-							className="navbar-cta rounded-sm p-1"
+							className="navbar-cta font-bold rounded-sm p-1"
 							href="./products/product.html"
 						>
 							Shop now
