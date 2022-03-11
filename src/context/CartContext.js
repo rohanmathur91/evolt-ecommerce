@@ -3,20 +3,23 @@ import { getTotalCartPrice, getTotalCartDiscount } from "./utils";
 import { cartReducer } from "../reducer";
 
 /*
-    3. order summary
-    4. address management
+    1. order summary
+    2. address management
 */
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-	const [{ cartProducts, wishlist }, cartDispatch] = useReducer(cartReducer, {
-		wishlist: [],
-		cartProducts: [],
-		orderSummary: [],
-		addressList: [],
-		currentAddress: "",
-	});
+	const [{ wishlist, cartProducts, addressList }, cartDispatch] = useReducer(
+		cartReducer,
+		{
+			wishlist: [],
+			cartProducts: [],
+			orderSummary: [],
+			addressList: [],
+			currentAddress: "",
+		}
+	);
 
 	const productInWishlist = (id) => {
 		return wishlist.some(({ id: productId }) => productId === id);
@@ -32,8 +35,8 @@ const CartProvider = ({ children }) => {
 			value={{
 				wishlist,
 				totalPrice,
-				totalDiscount,
 				totalAmount,
+				totalDiscount,
 				totalSave,
 				cartProducts,
 				productInWishlist,

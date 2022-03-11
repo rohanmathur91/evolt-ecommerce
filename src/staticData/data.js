@@ -1,8 +1,8 @@
-import uuid from "react-uuid";
+import { nanoid } from "nanoid";
 
 const data = [
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "marshall",
 		type: "speaker",
@@ -16,7 +16,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "jbl",
 		type: "speaker",
@@ -30,7 +30,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "boat",
 		type: "wireless",
@@ -45,7 +45,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "marshall",
 		type: "speaker",
@@ -60,7 +60,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: false,
 		productName: "Sony WH-CH510",
 		brand: "sony",
@@ -76,7 +76,7 @@ const data = [
 	},
 
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		productName: "Sony MDR-ZX110AP",
 		brand: "sony",
@@ -91,7 +91,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "marshall",
 		type: "speaker",
@@ -105,7 +105,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: false,
 		brand: "bose",
 		type: "wireless",
@@ -120,7 +120,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: true,
 		brand: "bose",
 		type: "noiseCancelling",
@@ -136,7 +136,7 @@ const data = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
-		id: uuid(),
+		id: nanoid(),
 		latest: false,
 		brand: "boat",
 		type: "wireless",

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import { useCart } from "../../context";
 import { Input } from "../Input/Input";
-import uuid from "react-uuid";
 import "./Address.css";
 
 export const Address = () => {
@@ -17,12 +17,11 @@ export const Address = () => {
 		addressType: "home",
 	});
 
-	console.log(newAddress);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		cartDispatch({
 			type: "ADD_ADDRESS",
-			payload: { id: uuid(), ...newAddress },
+			payload: { id: nanoid(), ...newAddress },
 		});
 	};
 
