@@ -1,9 +1,9 @@
 import React from "react";
 import { useCart } from "../../context";
 import { ProductCard } from "../../components";
-import "./WishList.css";
+import "./Wishlist.css";
 
-export const WishList = () => {
+export const Wishlist = () => {
 	const { wishlist } = useCart();
 
 	return (

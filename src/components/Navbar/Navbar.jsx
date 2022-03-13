@@ -59,13 +59,13 @@ export const Navbar = () => {
 						</Link>
 					</li>
 					<li className="ml-4">
-						<Link to="/wishList" className="flex-column items-center">
+						<Link to="/wishlist" className="flex-column items-center">
 							<span className="relative">
 								<i className="fa fa-heart icon-stroke badge-icon"> </i>
 								<span className="badge red-badge">{wishlist.length}</span>
 							</span>
 
-							<span className="navbar-icon-title">Wishlist</span>
+							<span className="navbar-icon-title">wishlist</span>
 						</Link>
 					</li>
 					<li className="ml-4">
@@ -113,7 +113,7 @@ export const Navbar = () => {
 						</Link>
 					</li>
 					<li className="sidebar-item">
-						<Link to="/logout" className="sidebar-link">
+						<Link to="/profile" className="sidebar-link">
 							Logout
 						</Link>
 					</li>
