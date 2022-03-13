@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart, useProduct } from "../../context";
 import "./Navbar.css";
 
@@ -17,23 +18,20 @@ export const Navbar = () => {
 						<div className="hamburger hamburger-line3"></div>
 					</div>
 
-					<a href="./index.html">
+					<Link to="/">
 						<h3 className="brand-logo font-black">EVOLT</h3>
-					</a>
+					</Link>
 
 					<div className="navbar-left-menu ml-4">
-						<a
-							className="navbar-cta font-bold mr-1 rounded-sm p-1"
-							href="./index.html"
-						>
+						<Link to="/" className="navbar-cta font-bold mr-1 rounded-sm p-1">
 							Home
-						</a>
-						<a
+						</Link>
+						<Link
+							to="/products"
 							className="navbar-cta font-bold rounded-sm p-1"
-							href="./products/product.html"
 						>
 							Shop now
-						</a>
+						</Link>
 					</div>
 				</div>
 
@@ -55,32 +53,29 @@ export const Navbar = () => {
 
 				<ul className="navbar-options flex-row flex-center">
 					<li className="profile-icon-hide">
-						<a className="flex-column items-center" href="./auth/login.html">
+						<Link to="/login" className="flex-column items-center">
 							<i className="fa fa-user icon-stroke badge-icon"></i>
 							<span className="navbar-icon-title">Login</span>
-						</a>
+						</Link>
 					</li>
 					<li className="ml-4">
-						<a
-							className="flex-column items-center"
-							href="./wishlist/wishlist.html"
-						>
+						<Link to="/wishList" className="flex-column items-center">
 							<span className="relative">
 								<i className="fa fa-heart icon-stroke badge-icon"> </i>
 								<span className="badge red-badge">{wishlist.length}</span>
 							</span>
 
 							<span className="navbar-icon-title">Wishlist</span>
-						</a>
+						</Link>
 					</li>
 					<li className="ml-4">
-						<a className="flex-column items-center" href="./cart/cart.html">
+						<Link to="/cart" className="flex-column items-center">
 							<span className="relative">
 								<i className="fa fa-shopping-bag icon-stroke badge-icon relative"></i>
 								<span className="badge red-badge">{cartProducts.length}</span>
 							</span>
 							<span className="navbar-icon-title">Bag</span>
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</nav>
@@ -103,24 +98,24 @@ export const Navbar = () => {
 
 				<ul className="mt-1 p-1">
 					<li className="sidebar-item">
-						<a href="#" className="sidebar-link">
+						<Link to="/" className="sidebar-link">
 							Home
-						</a>
+						</Link>
 					</li>
 					<li className="sidebar-item">
-						<a href="#" className="sidebar-link">
+						<Link to="/products" className="sidebar-link">
 							Shop now
-						</a>
+						</Link>
 					</li>
 					<li className="sidebar-item">
-						<a href="#" className="sidebar-link">
+						<Link to="/profile" className="sidebar-link">
 							Profile
-						</a>
+						</Link>
 					</li>
 					<li className="sidebar-item">
-						<a href="#" className="sidebar-link">
+						<Link to="/logout" className="sidebar-link">
 							Logout
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>

@@ -1,4 +1,4 @@
-import { Home, Products, Footer, WishList, Cart } from "./pages";
+import { Home, Products, WishList, Cart } from "./pages";
 import { Navbar, Address, AddressList } from "./components";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";

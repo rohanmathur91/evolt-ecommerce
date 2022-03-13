@@ -1,6 +1,6 @@
 import React from "react";
 import banner from "../../assets/banner.jpg";
-import { Category, BrandList } from "../../components";
+import { Category, BrandList, Footer } from "../../components";
 import "./Home.css";
 
 export const Home = () => {
@@ -14,6 +14,7 @@ export const Home = () => {
 				<Category />
 				<BrandList />
 			</section>
+			<Footer />
 		</div>
 	);
 };
