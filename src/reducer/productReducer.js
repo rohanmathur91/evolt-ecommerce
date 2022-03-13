@@ -73,19 +73,6 @@ export const productReducer = (state, { type, payload }) => {
 				},
 			};
 
-		case "TOAST":
-			return state.toast.showToast
-				? { ...state, toast: payload }
-				: {
-						...state,
-						toast: {
-							...state.toast,
-							showToast: payload.showToast,
-							message: payload.message,
-							type: payload.type,
-						},
-				  };
-
 		default:
 			return state;
 	}
