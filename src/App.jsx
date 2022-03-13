@@ -1,4 +1,4 @@
-import { Home, Products, Wishlist, Cart } from "./pages";
+import { Home, Products, Wishlist, Cart, Login } from "./pages";
 import { Navbar, Address, AddressList } from "./components";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -12,7 +12,9 @@ function App() {
 				<Route path="/products" element={<Products />} />
 				<Route path="/Wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
+			<Address />
 		</div>
 	);
 }

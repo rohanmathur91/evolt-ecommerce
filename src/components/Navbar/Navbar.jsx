@@ -129,12 +129,12 @@ export const Navbar = () => {
 					</li>
 					<li>
 						<NavLink
-							to="/logout"
+							to="/login"
 							className={({ isActive }) =>
 								`sidebar-link ${isActive ? "active-link" : ""}`
 							}
 						>
-							Logout
+							Login
 						</NavLink>
 					</li>
 				</ul>

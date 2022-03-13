@@ -1,4 +1,5 @@
 export const cartReducer = (cart, { type, payload }) => {
+	console.log(payload);
 	switch (type) {
 		case "ADD_TO_CART":
 			return !cart.cartProducts.some(({ id }) => id === payload.id)

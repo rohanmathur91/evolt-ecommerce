@@ -25,8 +25,8 @@ export const Address = () => {
 		});
 	};
 
-	const updateAddress = (e, field) => {
-		setNewAddress((address) => ({ ...address, [field]: e.target.value }));
+	const updateAddress = (event, field) => {
+		setNewAddress((address) => ({ ...address, [field]: event.target.value }));
 	};
 
 	return (
@@ -52,57 +52,57 @@ export const Address = () => {
 				</div>
 
 				<Input
+					id="name"
 					type="text"
-					field="name"
 					title="Full Name"
 					placeholder="Enter your full name"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.name}
+					updateValue={updateAddress}
 				/>
 
 				<Input
+					id="contact"
 					type="number"
-					field="contact"
 					title="Contact"
 					placeholder="10-digit mobile number"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.contact}
+					updateValue={updateAddress}
 				/>
 
 				<Input
+					id="pinCode"
 					type="number"
-					field="pinCode"
 					title="PIN code"
 					placeholder="6-digit PIN code"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.pinCode}
+					updateValue={updateAddress}
 				/>
 
 				<Input
+					id="home"
 					type="text"
-					field="home"
 					title="Flat, House no, Building, Apartment"
 					placeholder="Enter house details"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.home}
+					updateValue={updateAddress}
 				/>
 
 				<Input
+					id="area"
 					type="text"
-					field="area"
 					title="Area, Colony, Street, Sector"
 					placeholder="Enter area details"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.area}
+					updateValue={updateAddress}
 				/>
 
 				<Input
+					id="city"
 					type="text"
-					field="city"
 					title="City, State"
 					placeholder="Enter city and state details"
-					newAddress={newAddress}
-					updateField={updateAddress}
+					value={newAddress.city}
+					updateValue={updateAddress}
 				/>
 
 				<div className="flex-column mb-3">

@@ -1,24 +1,17 @@
 import React from "react";
 
-export const Input = ({
-	field,
-	title,
-	type,
-	placeholder,
-	newAddress,
-	updateField,
-}) => {
+export const Input = ({ id, type, title, value, placeholder, updateValue }) => {
 	return (
 		<div className="flex-column mb-3">
-			<label htmlFor={field}>{title}</label>
+			<label htmlFor={id}>{title}</label>
 			<input
 				required
-				id={field}
+				id={id}
 				type={type}
 				placeholder={placeholder}
 				className="mt-1 py-1 px-2 text-base border rounded-sm"
-				value={newAddress[field]}
-				onChange={(e) => updateField(e, field)}
+				value={value}
+				onChange={(event) => updateValue(event, id)}
 			/>
 		</div>
 	);
