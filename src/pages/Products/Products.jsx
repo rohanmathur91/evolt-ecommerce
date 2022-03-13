@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useProduct } from "../../context";
+import { useDocumentTitle } from "../../hooks";
 import {
 	ProductCard,
 	Filter,
@@ -17,6 +18,8 @@ export const Products = () => {
 		sortedProducts,
 		toast: { showToast },
 	} = useProduct();
+
+	useDocumentTitle("Evolt | Products");
 
 	return (
 		<div className="products-container flex-row">

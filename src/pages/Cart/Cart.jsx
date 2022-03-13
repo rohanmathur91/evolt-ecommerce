@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context";
+import { useDocumentTitle } from "../../hooks";
 import { Checkout, ProductHorizontalCard } from "../../components";
 import "./Cart.css";
 
 export const Cart = () => {
 	const { cartProducts } = useCart();
+
+	useDocumentTitle("Evolt | Cart");
 
 	return (
 		<div>
