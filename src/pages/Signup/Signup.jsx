@@ -18,8 +18,6 @@ export const Signup = () => {
 		}));
 	};
 
-	console.log(credentials);
-
 	const handleFormSubmit = (event) => {
 		event.preventDefault();
 	};
