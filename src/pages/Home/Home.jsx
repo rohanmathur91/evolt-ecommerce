@@ -1,7 +1,7 @@
 import React from "react";
 import { useDocumentTitle } from "../../hooks";
-import banner from "../../assets/banner.jpg";
 import { Category, BrandList, Footer } from "../../components";
+import banner from "../../assets/banner.jpg";
 import "./Home.css";
 
 export const Home = () => {

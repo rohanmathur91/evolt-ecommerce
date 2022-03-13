@@ -129,6 +129,10 @@ img {
 	border-bottom: 1px solid var(--light-gray);
 }
 
+.app {
+	height: 100%;
+}
+
 @media screen and (max-width: 64em) {
 	html {
 		font-size: 58%;

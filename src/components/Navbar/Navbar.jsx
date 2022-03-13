@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCart, useProduct } from "../../context";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
+	const { pathname } = useLocation();
 	const { searchQuery, productDispatch } = useProduct();
 	const { wishlist, cartProducts } = useCart();
 
@@ -35,21 +36,23 @@ export const Navbar = () => {
 					</div>
 				</div>
 
-				<span className="search relative rounded-sm">
-					<span className="search-icon absolute">
-						<i className="fa fa-search"></i>
+				{pathname === "/products" && (
+					<span className="search relative rounded-sm">
+						<span className="search-icon absolute">
+							<i className="fa fa-search"></i>
+						</span>
+						<input
+							value={searchQuery}
+							type="text"
+							autoComplete="false"
+							placeholder="search..."
+							className="search-input border w-100 py-1 pl-6 pr-2 text-base rounded-sm"
+							onChange={(e) =>
+								productDispatch({ type: "SEARCH", payload: e.target.value })
+							}
+						/>
 					</span>
-					<input
-						value={searchQuery}
-						type="text"
-						autoComplete="false"
-						placeholder="search..."
-						className="search-input border w-100 py-1 pl-6 pr-2 text-base rounded-sm"
-						onChange={(e) =>
-							productDispatch({ type: "SEARCH", payload: e.target.value })
-						}
-					/>
-				</span>
+				)}
 
 				<ul className="navbar-options flex-row flex-center">
 					<li className="profile-icon-hide">
