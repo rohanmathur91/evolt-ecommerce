@@ -57,7 +57,7 @@ export const Address = () => {
 					title="Full Name"
 					placeholder="Enter your full name"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<Input
@@ -66,7 +66,7 @@ export const Address = () => {
 					title="Contact"
 					placeholder="10-digit mobile number"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<Input
@@ -75,7 +75,7 @@ export const Address = () => {
 					title="PIN code"
 					placeholder="6-digit PIN code"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<Input
@@ -84,7 +84,7 @@ export const Address = () => {
 					title="Flat, House no, Building, Apartment"
 					placeholder="Enter house details"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<Input
@@ -93,7 +93,7 @@ export const Address = () => {
 					title="Area, Colony, Street, Sector"
 					placeholder="Enter area details"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<Input
@@ -102,7 +102,7 @@ export const Address = () => {
 					title="City, State"
 					placeholder="Enter city and state details"
 					newAddress={newAddress}
-					updateAddress={updateAddress}
+					updateField={updateAddress}
 				/>
 
 				<div className="flex-column mb-3">

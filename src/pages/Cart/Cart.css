@@ -16,3 +16,11 @@
 	width: 100%;
 	max-width: 65rem;
 }
+
+.continue {
+	color: var(--blue);
+}
+
+.continue:hover {
+	text-decoration: underline;
+}

@@ -6,7 +6,7 @@ export const Input = ({
 	type,
 	placeholder,
 	newAddress,
-	updateAddress,
+	updateField,
 }) => {
 	return (
 		<div className="flex-column mb-3">
@@ -18,7 +18,7 @@ export const Input = ({
 				placeholder={placeholder}
 				className="mt-1 py-1 px-2 text-base border rounded-sm"
 				value={newAddress[field]}
-				onChange={(e) => updateAddress(e, field)}
+				onChange={(e) => updateField(e, field)}
 			/>
 		</div>
 	);

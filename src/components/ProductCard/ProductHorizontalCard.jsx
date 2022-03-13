@@ -46,7 +46,7 @@ export const ProductHorizontalCard = ({
 							}
 							className="quantity-btn flex-row flex-center rounded-full mr-2"
 						>
-							-
+							<i className="fa fa-minus"></i>
 						</button>
 						<span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
 							{quantity || 0}
@@ -60,7 +60,7 @@ export const ProductHorizontalCard = ({
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
 						>
-							+
+							<i className="fa fa-plus"></i>
 						</button>
 					</div>
 				</div>
