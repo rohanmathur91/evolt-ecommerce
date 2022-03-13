@@ -1,23 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useProduct } from "../../context";
 import "./Toast.css";
 
 export const Toast = () => {
 	const {
-		toast: { type, message, showToast },
+		toast: { type, message },
 		productDispatch,
 	} = useProduct();
-
-	useEffect(() => {
-		let timerId;
-		if (showToast) {
-			timerId = setTimeout(
-				() => productDispatch({ type: "TOAST", payload: false }),
-				2000
-			);
-		}
-		return () => clearTimeout(timerId);
-	}, [showToast]);
 
 	return (
 		<div
