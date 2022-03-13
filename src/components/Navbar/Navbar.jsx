@@ -61,7 +61,7 @@ export const Navbar = () => {
 					<li className="ml-4">
 						<Link to="/wishlist" className="flex-column items-center">
 							<span className="relative">
-								<i className="fa fa-heart icon-stroke badge-icon"> </i>
+								<i className="fa fa-heart icon-stroke badge-icon"></i>
 								<span className="badge red-badge">{wishlist.length}</span>
 							</span>
 
@@ -71,7 +71,7 @@ export const Navbar = () => {
 					<li className="ml-4">
 						<Link to="/cart" className="flex-column items-center">
 							<span className="relative">
-								<i className="fa fa-shopping-bag icon-stroke badge-icon relative"></i>
+								<i className="fa fa-shopping-cart icon-stroke badge-icon"></i>
 								<span className="badge red-badge">{cartProducts.length}</span>
 							</span>
 							<span className="navbar-icon-title">Bag</span>
