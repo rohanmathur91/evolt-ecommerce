@@ -17,7 +17,7 @@ export const Address = () => {
 		addressType: "home",
 	});
 
-	const handleSubmit = (e) => {
+	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		cartDispatch({
 			type: "ADD_ADDRESS",
@@ -32,7 +32,7 @@ export const Address = () => {
 	return (
 		<div className="address w-100 flex-row content-center">
 			<form
-				onSubmit={handleSubmit}
+				onSubmit={handleFormSubmit}
 				className="py-2 px-4 w-100 border rounded-sm mt-4 mx-2 mb-2"
 			>
 				<h3 className="text-center mt-2 mb-3">Add address</h3>

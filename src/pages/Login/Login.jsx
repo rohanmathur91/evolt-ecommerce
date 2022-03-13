@@ -9,16 +9,22 @@ export const Login = () => {
 		password: "",
 	});
 
-	const handleChange = (event, field) => {
+	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
 			...prevCredentials,
 			[field]: event.target.value,
 		}));
 	};
 
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+	};
 	return (
 		<div className="w-100 flex-row content-center mt-4">
-			<form className="login-form py-2 px-4 w-100 card-shadow rounded-sm m-2">
+			<form
+				onSubmit={handleFormSubmit}
+				className="login-form py-2 px-4 w-100 card-shadow rounded-sm m-2"
+			>
 				<h3 className="text-center mt-2 mb-3">Login</h3>
 				<Input
 					id="email"
@@ -26,7 +32,7 @@ export const Login = () => {
 					title="Email address"
 					value={credentials.email}
 					placeholder="Enter your email"
-					updateValue={handleChange}
+					updateValue={handleInputChange}
 				/>
 
 				<Input
@@ -35,7 +41,7 @@ export const Login = () => {
 					title="Password"
 					value={credentials.password}
 					placeholder="Enter your password"
-					updateValue={handleChange}
+					updateValue={handleInputChange}
 				/>
 				<div className="login-remember-me flex-row content-space-between my-2">
 					{/* TODO: For remember me, increase the expriy of JWT token from backend */}

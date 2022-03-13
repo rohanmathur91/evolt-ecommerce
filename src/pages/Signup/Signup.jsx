@@ -1,62 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Input } from "../../components";
 import "./Signup.css";
 
 export const Signup = () => {
+	const [credentials, setCredentials] = useState({
+		fullName: "",
+		email: "",
+		password: "",
+		confirmPassword: "",
+	});
+
+	const handleInputChange = (event, field) => {
+		setCredentials((prevCredentials) => ({
+			...prevCredentials,
+			[field]: event.target.value,
+		}));
+	};
+
+	console.log(credentials);
+
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+	};
+
 	return (
-		<div class="w-100 flex-row content-center">
-			<form class="signup-form w-100 py-2 px-4 m-2 card-shadow rounded-sm">
-				<h3 class="text-center mt-2 mb-3">Signup</h3>
+		<div className="w-100 flex-row content-center">
+			<form
+				onSubmit={handleFormSubmit}
+				className="signup-form w-100 py-2 px-4 m-2 card-shadow rounded-sm"
+			>
+				<h3 className="text-center mt-2 mb-3">Signup</h3>
 
 				<Input
-					id="firstName"
+					id="fullName"
 					type="text"
 					title="Full Name"
 					placeholder="Enter your full name"
+					value={credentials.fullName}
+					updateValue={handleInputChange}
 				/>
-				<div class="flex-column mb-3">
-					<label for="email">Full Name</label>
-					<input
-						class="mt-1 py-1 px-2 text-base border rounded-sm"
-						id="fname"
-						type="text"
-						placeholder="Enter your full name"
-					/>
-				</div>
-				<div class="flex-column mb-3">
-					<label for="email">Email address</label>
-					<input
-						class="mt-1 py-1 px-2 text-base border rounded-sm"
-						id="email"
-						type="email"
-						placeholder="Enter your email"
-					/>
-				</div>
 
-				<div class="flex-column mb-3">
-					<label for="password">Password</label>
-					<input
-						class="mt-1 py-1 px-2 text-base border rounded-sm"
-						id="password"
-						type="password"
-						placeholder="Enter your password"
-					/>
-				</div>
-				<div class="flex-column mb-3">
-					<label htmlFor="password">Confirm Password</label>
-					<input
-						class="mt-1 py-1 px-2 text-base border rounded-sm"
-						id="password"
-						type="password"
-						placeholder="Re-enter your password"
-					/>
-				</div>
+				<Input
+					id="email"
+					type="email"
+					title="Email address"
+					placeholder="Enter your email"
+					value={credentials.email}
+					updateValue={handleInputChange}
+				/>
 
-				<button class="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
+				<Input
+					id="password"
+					type="password"
+					title="Password"
+					value={credentials.password}
+					placeholder="Enter your password"
+					updateValue={handleInputChange}
+				/>
+
+				<Input
+					id="confirmPassword"
+					type="password"
+					title="Confirm Password"
+					value={credentials.confirmPassword}
+					placeholder="Re-enter your password"
+					updateValue={handleInputChange}
+				/>
+
+				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
 					Signup
 				</button>
 
-				<div class="text-center mb-2">
-					<a href="./login.html">Already a user?</a>
+				<div className="text-center mb-2">
+					<Link to="/login">Already a user?</Link>
 				</div>
 			</form>
 		</div>
