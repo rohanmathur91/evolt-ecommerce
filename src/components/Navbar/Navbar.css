@@ -134,22 +134,21 @@
 	border: 2px solid var(--white);
 }
 
-.sidebar-item {
+.sidebar-link {
 	padding: 1rem;
 	border-radius: 4px;
+	margin-bottom: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
-}
-
-.sidebar-item:hover {
-	background-color: var(--light-gray);
-}
-
-.sidebar-link {
 	display: block;
 	font-size: 1.8rem;
+}
+
+.active-link,
+.sidebar-link:hover {
+	background-color: var(--light-gray);
 }
 
 @media screen and (max-width: 64em) {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCart, useProduct } from "../../context";
 import "./Navbar.css";
 
@@ -97,25 +97,45 @@ export const Navbar = () => {
 				</div>
 
 				<ul className="mt-1 p-1">
-					<li className="sidebar-item">
-						<Link to="/" className="sidebar-link">
+					<li>
+						<NavLink
+							to="/"
+							className={({ isActive }) =>
+								`sidebar-link ${isActive ? "active-link" : ""}`
+							}
+						>
 							Home
-						</Link>
+						</NavLink>
 					</li>
-					<li className="sidebar-item">
-						<Link to="/products" className="sidebar-link">
+					<li>
+						<NavLink
+							to="/products"
+							className={({ isActive }) =>
+								`sidebar-link ${isActive ? "active-link" : ""}`
+							}
+						>
 							Shop now
-						</Link>
+						</NavLink>
 					</li>
-					<li className="sidebar-item">
-						<Link to="/profile" className="sidebar-link">
+					<li>
+						<NavLink
+							to="/profile"
+							className={({ isActive }) =>
+								`sidebar-link ${isActive ? "active-link" : ""}`
+							}
+						>
 							Profile
-						</Link>
+						</NavLink>
 					</li>
-					<li className="sidebar-item">
-						<Link to="/profile" className="sidebar-link">
+					<li>
+						<NavLink
+							to="/logout"
+							className={({ isActive }) =>
+								`sidebar-link ${isActive ? "active-link" : ""}`
+							}
+						>
 							Logout
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			</div>
