@@ -16,8 +16,6 @@ export const Login = () => {
 		}));
 	};
 
-	// TODO: For remember me, increase the expriy of JWT token from backend
-
 	return (
 		<div className="w-100 flex-row content-center mt-4">
 			<form className="login-form py-2 px-4 w-100 card-shadow rounded-sm m-2">
@@ -26,6 +24,7 @@ export const Login = () => {
 					id="email"
 					type="email"
 					title="Email address"
+					value={credentials.email}
 					placeholder="Enter your email"
 					updateValue={handleChange}
 				/>
@@ -34,10 +33,12 @@ export const Login = () => {
 					id="password"
 					type="password"
 					title="Password"
+					value={credentials.password}
 					placeholder="Enter your password"
 					updateValue={handleChange}
 				/>
 				<div className="login-remember-me flex-row content-space-between my-2">
+					{/* TODO: For remember me, increase the expriy of JWT token from backend */}
 					<label htmlFor="remember-me">
 						<input className="mr-1" type="checkbox" id="remember-me" /> Remember
 						me
