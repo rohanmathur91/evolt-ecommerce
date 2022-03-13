@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
 			cartProducts: [],
 			orderSummary: [],
 			addressList: [],
-			currentAddress: "",
+			currentAddress: null,
 		}
 	);
 
@@ -39,6 +39,7 @@ const CartProvider = ({ children }) => {
 				totalDiscount,
 				totalSave,
 				cartProducts,
+				addressList,
 				productInWishlist,
 				cartDispatch,
 			}}

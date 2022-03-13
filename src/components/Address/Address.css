@@ -2,3 +2,11 @@
 	margin: 0 auto;
 	max-width: 60rem;
 }
+
+.address-area {
+	max-width: 47ch;
+}
+
+.address-btn {
+	margin-left: auto;
+}
