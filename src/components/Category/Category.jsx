@@ -1,21 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { categories } from "../../staticData";
 import "./Category.css";
 
 export const Category = () => {
 	return (
 		<>
-			<div className="category-header text-base font-semibold flex-row content-space-between mx-2 gutter-bottom">
+			<div className="category-header text-base font-semibold flex-row content-space-between mx-5 gutter-bottom">
 				<div>Categories</div>
-				<button className="category-header-btn font-semibold">
+				<Link to={"/products"} className="category-header-btn font-semibold">
 					Shop now <i className="fa fa-long-arrow-right ml-1"></i>
-				</button>
+				</Link>
 			</div>
 			<article className="category">
 				{categories.map(({ alt, image, category }, index) => (
-					<a
-						href="#"
+					<Link
 						key={index}
+						to="/products"
 						className="category-item rounded-sm overflow-hidden relative"
 					>
 						<img className="p-1 relative" src={image} alt={alt} />
@@ -24,7 +25,7 @@ export const Category = () => {
 								{category}
 							</p>
 						</div>
-					</a>
+					</Link>
 				))}
 			</article>
 		</>
