@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDocumentTitle } from "../../hooks";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "./Login.css";
 
@@ -10,6 +10,7 @@ export const Login = () => {
 		password: "",
 	});
 
+	useScrollToTop();
 	useDocumentTitle("Evolt | Login");
 
 	const handleInputChange = (event, field) => {

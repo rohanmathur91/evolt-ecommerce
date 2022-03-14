@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context";
-import { useDocumentTitle } from "../../hooks";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Checkout, ProductHorizontalCard } from "../../components";
 import "./Cart.css";
 
 export const Cart = () => {
 	const { cartProducts } = useCart();
 
+	useScrollToTop();
 	useDocumentTitle("Evolt | Cart");
 
 	return (
@@ -32,7 +33,7 @@ export const Cart = () => {
 								</p>
 							</div>
 							<Link
-								to="/profile/address"
+								to="/address"
 								className="btn-solid edit-btn rounded-full ml-2 p-2 flex-row flex-center border-l-1"
 							>
 								<i className="fa text-base fa-pencil"></i>

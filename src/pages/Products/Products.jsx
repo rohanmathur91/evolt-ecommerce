@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useProduct } from "../../context";
-import { useDocumentTitle } from "../../hooks";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import {
 	ProductCard,
 	Filter,
@@ -19,6 +19,7 @@ export const Products = () => {
 		toast: { showToast },
 	} = useProduct();
 
+	useScrollToTop();
 	useDocumentTitle("Evolt | Products");
 
 	return (

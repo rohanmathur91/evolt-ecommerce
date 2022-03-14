@@ -12,10 +12,10 @@ function App() {
 				<Route path="/products" element={<Products />} />
 				<Route path="/Wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
+				<Route path="/address" element={<Address />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 			</Routes>
-			<Address />
 		</div>
 	);
 }

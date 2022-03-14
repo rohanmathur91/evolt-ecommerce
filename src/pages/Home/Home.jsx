@@ -1,10 +1,11 @@
 import React from "react";
-import { useDocumentTitle } from "../../hooks";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Category, BrandList, Footer } from "../../components";
 import banner from "../../assets/banner.jpg";
 import "./Home.css";
 
 export const Home = () => {
+	useScrollToTop();
 	useDocumentTitle("Evolt | Home");
 
 	return (
