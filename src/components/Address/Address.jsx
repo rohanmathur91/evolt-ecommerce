@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import { useCart } from "../../context";
 import { Input } from "../Input/Input";
+import { countries } from "../../staticData";
 import "./Address.css";
 
 export const Address = () => {
@@ -17,16 +18,18 @@ export const Address = () => {
 		addressType: "home",
 	});
 
-	const handleFormSubmit = (e) => {
-		e.preventDefault();
+	console.log(newAddress);
+
+	const updateAddress = (event, field) => {
+		setNewAddress((address) => ({ ...address, [field]: event.target.value }));
+	};
+
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
 		cartDispatch({
 			type: "ADD_ADDRESS",
 			payload: { id: nanoid(), ...newAddress },
 		});
-	};
-
-	const updateAddress = (event, field) => {
-		setNewAddress((address) => ({ ...address, [field]: event.target.value }));
 	};
 
 	return (
@@ -44,40 +47,55 @@ export const Address = () => {
 						value={newAddress.country}
 						placeholder="Enter your country"
 						className="mt-1 py-1 px-2 text-base border rounded-sm"
-						onChange={(e) => updateAddress(e, "country")}
+						onChange={(event) => updateAddress(event, "country")}
 					>
-						<option value="india">India</option>
-						<option value="japan">Japan</option>
+						{countries.map((country) => (
+							<option key={country} value={country}>
+								{country}
+							</option>
+						))}
 					</select>
 				</div>
 
-				<Input
-					id="name"
-					type="text"
-					title="Full Name"
-					placeholder="Enter your full name"
-					value={newAddress.name}
-					updateValue={updateAddress}
-				/>
+				<div className="flex-row">
+					<Input
+						id="name"
+						type="text"
+						title="Full Name"
+						placeholder="Enter your full name"
+						value={newAddress.name}
+						updateValue={updateAddress}
+					/>
 
-				<Input
-					id="contact"
-					type="number"
-					title="Contact"
-					placeholder="10-digit mobile number"
-					value={newAddress.contact}
-					updateValue={updateAddress}
-				/>
+					<Input
+						id="contact"
+						type="number"
+						title="Contact"
+						placeholder="10-digit mobile number"
+						value={newAddress.contact}
+						updateValue={updateAddress}
+					/>
+				</div>
 
-				<Input
-					id="pinCode"
-					type="number"
-					title="PIN code"
-					placeholder="6-digit PIN code"
-					value={newAddress.pinCode}
-					updateValue={updateAddress}
-				/>
+				<div className="flex-row">
+					<Input
+						id="pinCode"
+						type="number"
+						title="PIN code"
+						placeholder="6-digit PIN code"
+						value={newAddress.pinCode}
+						updateValue={updateAddress}
+					/>
 
+					<Input
+						id="city"
+						type="text"
+						title="City, State"
+						placeholder="Enter city and state details"
+						value={newAddress.city}
+						updateValue={updateAddress}
+					/>
+				</div>
 				<Input
 					id="home"
 					type="text"
@@ -96,30 +114,33 @@ export const Address = () => {
 					updateValue={updateAddress}
 				/>
 
-				<Input
-					id="city"
-					type="text"
-					title="City, State"
-					placeholder="Enter city and state details"
-					value={newAddress.city}
-					updateValue={updateAddress}
-				/>
-
 				<div className="flex-column mb-3">
-					<label htmlFor="addressType">Address Type</label>
-					<select
-						type="text"
-						id="addressType"
-						value={newAddress.addressType}
-						placeholder="Enter city and state details"
-						className="mt-1 py-1 px-2 text-base border rounded-sm"
-						onChange={(e) => updateAddress(e, "addressType")}
-					>
-						<option value="home">Home (7 am – 9 pm delivery)</option>
-						<option value="office">
-							Office/Commercial (10 AM - 6 PM delivery)
-						</option>
-					</select>
+					<div className="text-base">Address Type</div>
+					<div className="flex-row">
+						<label className="mr-2" htmlFor="addressType-home">
+							<input
+								type="radio"
+								id="addressType-home"
+								name="addressType"
+								value="home"
+								className="mt-1 mr-1 py-1 px-2 text-base"
+								onChange={(event) => updateAddress(event, "addressType")}
+							/>
+							Home
+						</label>
+
+						<label htmlFor="addressType-office">
+							<input
+								type="radio"
+								id="addressType-office"
+								name="addressType"
+								value="office"
+								className="mt-1 mr-1 py-1 px-2 text-base"
+								onChange={(event) => updateAddress(event, "addressType")}
+							/>
+							Office
+						</label>
+					</div>
 				</div>
 
 				<button className="btn btn-solid p-1 w-100 font-semibold transition-2 mr-1 mb-2 rounded-sm">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Sort } from "./Sort";
+import { SortFilterList } from "./SortFilterList";
 
 export const MobileSortFilter = ({ setShowSortFilter }) => {
 	return (
@@ -14,7 +14,7 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 						<i className="fa fa-times-circle-o"></i>
 					</button>
 				</div>
-				<Sort />
+				<SortFilterList />
 			</div>
 		</div>
 	);

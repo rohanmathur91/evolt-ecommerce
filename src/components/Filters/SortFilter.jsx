@@ -1,6 +1,6 @@
 import React from "react";
 import { useProduct } from "../../context";
-import { Sort } from "./Sort";
+import { SortFilterList } from "./SortFilterList";
 
 export const SortFilter = () => {
 	const { productDispatch } = useProduct();
@@ -17,7 +17,7 @@ export const SortFilter = () => {
 				</button>
 			</div>
 			<div className="filter-header py-2 mt-2 text-base font-bold">Sort By</div>
-			<Sort />
+			<SortFilterList />
 		</>
 	);
 };

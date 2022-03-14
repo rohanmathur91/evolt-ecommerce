@@ -15,7 +15,7 @@ const sortFilters = [
 	},
 ];
 
-export const Sort = () => {
+export const SortFilterList = () => {
 	const {
 		productFilter: { sortBy },
 		productDispatch,
