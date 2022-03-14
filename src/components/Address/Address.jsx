@@ -57,7 +57,7 @@ export const Address = () => {
 					</select>
 				</div>
 
-				<div className="flex-row">
+				<div className="address-input flex-row wrap content-space-between">
 					<Input
 						id="name"
 						type="text"
@@ -77,7 +77,7 @@ export const Address = () => {
 					/>
 				</div>
 
-				<div className="flex-row">
+				<div className="address-input flex-row wrap content-space-between">
 					<Input
 						id="pinCode"
 						type="number"

@@ -3,10 +3,16 @@
 	max-width: 60rem;
 }
 
-.address-area {
-	max-width: 47ch;
+.address-input div {
+	width: 24rem;
 }
 
 .address-btn {
 	margin-left: auto;
+}
+
+@media screen and (max-width: 48em) {
+	.address-input div {
+		width: 100%;
+	}
 }
