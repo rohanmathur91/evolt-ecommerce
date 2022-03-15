@@ -54,26 +54,35 @@ export const Navbar = () => {
 				<ul className="navbar-options flex-row flex-center">
 					<li className="profile-icon-hide">
 						<Link to="/login" className="flex-column items-center">
-							<i className="fa fa-user icon-stroke badge-icon"></i>
+							<div className="icon">
+								<span class="material-icons-outlined badge-icon">
+									person_outline
+								</span>
+							</div>
 							<span className="navbar-icon-title">Login</span>
 						</Link>
 					</li>
 					<li className="ml-4">
 						<Link to="/wishlist" className="flex-column items-center">
-							<span className="relative">
-								<i className="fa fa-heart icon-stroke badge-icon"></i>
+							<div className="relative icon">
+								<span class="material-icons-outlined badge-icon">
+									favorite_border
+								</span>
 								<span className="badge red-badge">{0}</span>
-							</span>
+							</div>
 
 							<span className="navbar-icon-title">wishlist</span>
 						</Link>
 					</li>
 					<li className="ml-4">
 						<Link to="/cart" className="flex-column items-center">
-							<span className="relative">
-								<i className="fa fa-shopping-cart icon-stroke badge-icon"></i>
+							<div className="relative icon">
+								<span class="material-icons-outlined badge-icon">
+									shopping_cart
+								</span>
 								<span className="badge red-badge">{0}</span>
-							</span>
+							</div>
+
 							<span className="navbar-icon-title">Bag</span>
 						</Link>
 					</li>

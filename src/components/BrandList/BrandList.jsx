@@ -3,7 +3,7 @@ import { brands } from "../../staticData";
 
 export const BrandList = () => {
 	return (
-		<article>
+		<article className="mb-4">
 			<h2 className="text-center mt-6 mb-2">Top Brands</h2>
 			<div className="w-80 m-auto flex-row wrap flex-center gutter-bottom">
 				{brands.map(({ image }, index) => (

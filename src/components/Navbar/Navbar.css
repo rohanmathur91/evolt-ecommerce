@@ -44,13 +44,13 @@
 
 .navbar-options .badge {
 	position: absolute;
-	left: 1.3rem;
-	bottom: 1.3rem;
+	left: 1.6rem;
+	bottom: 1.6rem;
 	font-weight: normal;
 }
 
 .navbar-options .badge-icon {
-	font-size: 2rem;
+	font-size: 2.6rem;
 }
 
 .navbar-icon-title {
@@ -86,16 +86,6 @@
 	position: absolute;
 	left: 1.5rem;
 	bottom: 1rem;
-}
-
-.icon-stroke {
-	color: transparent;
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: var(--primary-color);
-}
-
-.badge-icon {
-	font-size: 2rem;
 }
 
 .red-badge {
