@@ -1,0 +1,13 @@
+@import "./assets/styles/utils.css";
+@import "./assets/styles/reset.css";
+@import "./assets/styles/variables.css";
+
+.app {
+	height: 100%;
+}
+
+@media screen and (max-width: 64em) {
+	html {
+		font-size: 58%;
+	}
+}
