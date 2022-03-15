@@ -8,11 +8,8 @@ export const Category = () => {
 		<>
 			<div className="text-base font-semibold flex-row content-space-between mx-5 gutter-bottom">
 				<div className="category-header font-semibold">Categories</div>
-				<Link
-					to={"/products"}
-					className="category-header-btn font-semibold flex-row flex-center"
-				>
-					<span>Shop now</span>{" "}
+				<Link to={"/products"} className="flex-row flex-center">
+					<span className="category-header-btn font-semibold">Shop now</span>{" "}
 					<span class="material-icons-outlined font-base ml-1">east</span>
 				</Link>
 			</div>
