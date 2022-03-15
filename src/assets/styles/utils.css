@@ -1,0 +1,83 @@
+/* text */
+.text-primary {
+	color: var(--primary-color);
+}
+
+.text-green {
+	color: var(--green);
+}
+
+.text-underline {
+	text-decoration: underline;
+}
+
+/* spacing */
+.gutter-bottom {
+	margin-bottom: 2rem;
+}
+
+/* container */
+.wrapper {
+	padding: 2rem;
+}
+
+/* cursor */
+.cursor-pointer {
+	cursor: pointer;
+}
+
+/* buttons */
+.btn {
+	font-weight: 600;
+	font-size: 1.4rem;
+	border-radius: 5px;
+	padding: 0.8rem 1.6rem;
+}
+
+.btn-solid {
+	color: var(--white);
+	background-color: var(--primary-color);
+}
+
+.btn-solid:hover {
+	background-color: var(--primary-hover-color);
+}
+
+.btn-outlined {
+	color: var(--primary-color);
+	border: 1px solid var(--light-gray);
+}
+
+.btn-outlined:hover {
+	color: var(--primary-color);
+	background-color: var(--light-gray);
+}
+
+/* overflow */
+.overflow-hidden {
+	overflow: hidden;
+}
+
+/* border */
+.border {
+	border: 1px solid var(--light-gray);
+}
+
+.border-r {
+	border-right: 1px solid var(--light-gray);
+}
+
+.border-l {
+	border-left: 1px solid var(--light-gray);
+}
+
+.border-bottom {
+	border-bottom: 1px solid var(--light-gray);
+}
+
+/* icons */
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

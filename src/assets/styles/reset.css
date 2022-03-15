@@ -1,0 +1,42 @@
+@import "https://polaroid7.netlify.app/polaroid.css";
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap";
+@import "https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: var(--primary-color);
+	font-family: "Inter", sans-serif;
+	background-color: var(--background-color);
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--secondary-color);
+}
+
+i,
+input,
+button,
+select {
+	font-size: 1.6rem;
+	font-family: inherit;
+}
+
+input:focus,
+select:focus {
+	outline: none;
+	border: 1px solid var(--dark-gray);
+}
+
+img {
+	height: 100%;
+	object-fit: contain;
+}
