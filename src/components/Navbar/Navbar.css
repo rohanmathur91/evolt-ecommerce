@@ -18,20 +18,16 @@
 	display: block;
 }
 
-.hamburger {
-	width: 2.8rem;
-	height: 3px;
-	border-radius: 1rem;
-	background-color: var(--primary-color);
-}
-
-.hamburger-line2,
-.hamburger-line3 {
-	margin-top: 4px;
+.menu .hamburger-menu {
+	font-size: 3.5rem;
 }
 
 .brand-logo {
 	color: var(--primary-color);
+}
+
+.navbar-cta:hover {
+	background-color: var(--light-gray);
 }
 
 .navbar-options {
@@ -54,7 +50,7 @@
 }
 
 .navbar-icon-title {
-	margin-top: 2px;
+	padding: 4px 0;
 	font-size: 1.2rem;
 	font-weight: bold;
 }
@@ -76,6 +72,33 @@
 
 .search-input:focus {
 	border: 0.5px solid var(--gray);
+}
+
+.profile-icon:hover .profile-options {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.profile-option-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: var(--primary-color);
+	border-bottom: 0.5px solid var(--light-gray);
+	padding-bottom: 1rem;
+}
+
+.profile-options {
+	display: none;
+	position: absolute;
+	top: 4.8rem;
+	left: -4.4rem;
+	background-color: var(--white);
+	border: 0.5px solid var(--light-gray);
+}
+
+.profile-option {
+	font-size: 1.4rem;
 }
 
 .card-badge {
@@ -117,11 +140,9 @@
 	background-color: var(--primary-color);
 }
 
-.sidebar-close-btn {
-	width: 4rem;
-	height: 4rem;
+.sidebar-close-btn span {
+	font-size: 3.5rem;
 	color: var(--white);
-	border: 2px solid var(--white);
 }
 
 .sidebar-link {
@@ -145,7 +166,7 @@
 	.menu {
 		display: block;
 	}
-	.profile-icon-hide,
+	.profile-icon,
 	.navbar-icon-title,
 	.navbar-left-menu {
 		display: none;

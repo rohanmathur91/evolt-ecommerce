@@ -9,11 +9,9 @@ export const Navbar = () => {
 	return (
 		<>
 			<nav className="navigation flex-row items-center content-space-between w-100 sticky top-0 left-0 z-3">
-				<div className="flex-row items-center">
-					<div onClick={() => setToggleMenu(true)} className="menu mr-1 p-1">
-						<div className="hamburger hamburger-line1"></div>
-						<div className="hamburger hamburger-line2"></div>
-						<div className="hamburger hamburger-line3"></div>
+				<div className="flex-row flex-center">
+					<div onClick={() => setToggleMenu(true)} className="menu mr-1">
+						<span class="hamburger-menu material-icons">menu</span>
 					</div>
 
 					<Link to="/">
@@ -36,7 +34,7 @@ export const Navbar = () => {
 				{pathname === "/products" && (
 					<span className="search relative rounded-sm">
 						<span className="search-icon absolute">
-							<i className="fa fa-search"></i>
+							<span class="material-icons-outlined">search</span>
 						</span>
 						<input
 							value={searchQuery}
@@ -52,7 +50,7 @@ export const Navbar = () => {
 				)}
 
 				<ul className="navbar-options flex-row flex-center">
-					<li className="profile-icon-hide">
+					<li className="profile-icon relative">
 						<Link to="/login" className="flex-column items-center">
 							<div className="icon">
 								<span class="material-icons-outlined badge-icon">
@@ -61,6 +59,15 @@ export const Navbar = () => {
 							</div>
 							<span className="navbar-icon-title">Login</span>
 						</Link>
+						<div className="profile-options rounded-sm p-1 transition-2">
+							<div className="profile-option-title mx-1 py-1">Welcome</div>
+							<Link to="/profile" className="p-1 profile-option">
+								Profile
+							</Link>
+							<Link to="/login" className="p-1 profile-option">
+								Login/Signup
+							</Link>
+						</div>
 					</li>
 					<li className="ml-4">
 						<Link to="/wishlist" className="flex-column items-center">
@@ -101,7 +108,7 @@ export const Navbar = () => {
 						onClick={() => setToggleMenu(false)}
 						className="sidebar-close-btn flex-center rounded-full"
 					>
-						<i className="fa fa-times"></i>
+						<span class="material-icons-outlined">close</span>
 					</button>
 				</div>
 

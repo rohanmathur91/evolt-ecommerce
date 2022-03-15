@@ -10,7 +10,7 @@ export const Category = () => {
 				<div className="category-header font-semibold">Categories</div>
 				<Link
 					to={"/products"}
-					className="category-header-btn font-semibold flex-row"
+					className="category-header-btn font-semibold flex-row flex-center"
 				>
 					<span>Shop now</span>{" "}
 					<span class="material-icons-outlined font-base ml-1">east</span>
