@@ -1,3 +1,4 @@
+/* text */
 .text-primary {
 	color: var(--primary-color);
 }
@@ -10,18 +11,22 @@
 	text-decoration: underline;
 }
 
+/* spacing */
 .gutter-bottom {
 	margin-bottom: 2rem;
 }
 
+/* container */
 .wrapper {
 	padding: 2rem;
 }
 
+/* cursor */
 .cursor-pointer {
 	cursor: pointer;
 }
 
+/* buttons */
 .btn {
 	font-weight: 600;
 	font-size: 1.4rem;
@@ -48,10 +53,12 @@
 	background-color: var(--light-gray);
 }
 
+/* overflow */
 .overflow-hidden {
 	overflow: hidden;
 }
 
+/* border */
 .border {
 	border: 1px solid var(--light-gray);
 }
