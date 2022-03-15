@@ -4,7 +4,7 @@ import "./Footer.css";
 export const Footer = () => {
 	return (
 		<footer className="footer flex-column flex-center p-4">
-			<p className="mb-1">Made by Rohan.</p>
+			<p className="mb-1">Made by Rohan</p>
 
 			<div>
 				<a
