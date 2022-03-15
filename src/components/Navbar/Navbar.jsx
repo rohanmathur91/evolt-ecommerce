@@ -106,7 +106,7 @@ export const Navbar = () => {
 					<h3>Welcome, user!</h3>
 					<button
 						onClick={() => setToggleMenu(false)}
-						className="sidebar-close-btn flex-center rounded-full"
+						className="sidebar-close-btn flex-row flex-center rounded-full"
 					>
 						<span class="material-icons-outlined">close</span>
 					</button>
