@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useProduct } from "../../context";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const { pathname } = useLocation();
+	const { searchQuery, productDispatch } = useProduct();
 
 	return (
 		<>
@@ -37,7 +39,7 @@ export const Navbar = () => {
 							<span className="material-icons-outlined">search</span>
 						</span>
 						<input
-							value=""
+							value={searchQuery}
 							type="text"
 							autoComplete="false"
 							placeholder="search..."
