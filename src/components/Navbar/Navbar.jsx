@@ -11,7 +11,7 @@ export const Navbar = () => {
 			<nav className="navigation flex-row items-center content-space-between w-100 sticky top-0 left-0 z-3">
 				<div className="flex-row flex-center">
 					<div onClick={() => setToggleMenu(true)} className="menu mr-1">
-						<span class="hamburger-menu material-icons">menu</span>
+						<span className="hamburger-menu material-icons">menu</span>
 					</div>
 
 					<Link to="/">
@@ -34,7 +34,7 @@ export const Navbar = () => {
 				{pathname === "/products" && (
 					<span className="search relative rounded-sm">
 						<span className="search-icon absolute">
-							<span class="material-icons-outlined">search</span>
+							<span className="material-icons-outlined">search</span>
 						</span>
 						<input
 							value={searchQuery}
@@ -53,7 +53,7 @@ export const Navbar = () => {
 					<li className="profile-icon relative">
 						<Link to="/login" className="flex-column items-center">
 							<div className="icon">
-								<span class="material-icons-outlined badge-icon">
+								<span className="material-icons-outlined badge-icon">
 									person_outline
 								</span>
 							</div>
@@ -72,7 +72,7 @@ export const Navbar = () => {
 					<li className="ml-4">
 						<Link to="/wishlist" className="flex-column items-center">
 							<div className="relative icon">
-								<span class="material-icons-outlined badge-icon">
+								<span className="material-icons-outlined badge-icon">
 									favorite_border
 								</span>
 								<span className="badge red-badge">{0}</span>
@@ -84,7 +84,7 @@ export const Navbar = () => {
 					<li className="ml-4">
 						<Link to="/cart" className="flex-column items-center">
 							<div className="relative icon">
-								<span class="material-icons-outlined badge-icon">
+								<span className="material-icons-outlined badge-icon">
 									shopping_cart
 								</span>
 								<span className="badge red-badge">{0}</span>
@@ -108,7 +108,7 @@ export const Navbar = () => {
 						onClick={() => setToggleMenu(false)}
 						className="sidebar-close-btn flex-row flex-center rounded-full"
 					>
-						<span class="material-icons-outlined">close</span>
+						<span className="material-icons-outlined">close</span>
 					</button>
 				</div>
 
