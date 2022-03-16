@@ -56,16 +56,16 @@ export const Products = () => {
 			<div className="mobile-filter-container fixed left-0 bottom-0 flex-row w-100">
 				<button
 					onClick={() => setShowSortFilter((prev) => !prev)}
-					className="sort-btn filter-btn py-1 px-2 w-100 transition-3"
+					className="sort-btn flex-row flex-center filter-btn py-1 px-2 w-100 transition-3"
 				>
-					<i className="fa fa-sort mr-1"></i>
+					<span className="material-icons-outlined mr-1">sort</span>
 					Sort
 				</button>
 				<button
 					onClick={() => setShowFilter((prev) => !prev)}
-					className="filter-btn p-2 w-100 transition-3"
+					className="filter-btn flex-row flex-center p-2 w-100 transition-3"
 				>
-					<i className="fa fa-filter mr-1"></i>
+					<span className="material-icons-outlined mr-1">filter_alt</span>
 					Filter
 				</button>
 			</div>
