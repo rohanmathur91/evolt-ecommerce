@@ -16,18 +16,15 @@ export const ProductCard = ({
 	return (
 		<div
 			key={id}
-			className={`${
-				!inStock ? "out-of-stock-overlay" : ""
-			} card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border`}
+			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
-			{!inStock && (
-				<div className="out-of-stock text-center w-100 font-bold z-1">
-					Out of stock
-				</div>
-			)}
-			{latest && (
-				<span className="card-badge font-semibold absolute top-1 left-1 rounded-sm">
-					New
+			{(!inStock || latest) && (
+				<span
+					className={` ${
+						!inStock ? "out-of-stock" : ""
+					} card-badge font-semibold absolute top-1 left-1 rounded-sm`}
+				>
+					{!inStock ? "Out of stock" : "New"}
 				</span>
 			)}
 
@@ -35,7 +32,7 @@ export const ProductCard = ({
 				key={id}
 				className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
 			>
-				<i className="fa fa-heart-o"></i>
+				<span className="material-icons-outlined">favorite</span>
 			</button>
 
 			<div className="text-center h-20 flex-row flex-center">
@@ -53,7 +50,11 @@ export const ProductCard = ({
 				</div>
 				<p className="mb-1 font-semibold"></p>
 			</div>
-			<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1">
+			<button
+				className={`${
+					!inStock ? "disable" : ""
+				} p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}
+			>
 				Add to cart
 			</button>
 		</div>
