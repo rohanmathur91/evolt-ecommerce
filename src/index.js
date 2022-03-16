@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { ProductProvider } from "./context";
+import { CartProvider, ProductProvider } from "./context";
 import App from "./App";
 import { makeServer } from "./server";
 
@@ -12,7 +12,9 @@ ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<ProductProvider>
-				<App />
+				<CartProvider>
+					<App />
+				</CartProvider>
 			</ProductProvider>
 		</BrowserRouter>
 	</React.StrictMode>,
