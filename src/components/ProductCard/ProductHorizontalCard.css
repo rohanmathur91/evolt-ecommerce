@@ -1,0 +1,16 @@
+.card-content {
+	width: 90%;
+}
+
+.quantity {
+	width: 3rem;
+	height: 3rem;
+}
+
+.quantity-btn {
+	width: 2.5rem;
+	height: 2.5rem;
+	font-size: 1.2rem;
+	color: var(--white);
+	background-color: var(--primary-color);
+}

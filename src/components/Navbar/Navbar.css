@@ -101,10 +101,6 @@
 	font-size: 1.4rem;
 }
 
-.card-badge {
-	background-color: var(--primary-color);
-}
-
 .badge {
 	position: absolute;
 	left: 1.5rem;

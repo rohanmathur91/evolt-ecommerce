@@ -37,7 +37,7 @@ export const Navbar = () => {
 							<span className="material-icons-outlined">search</span>
 						</span>
 						<input
-							value={searchQuery}
+							value=""
 							type="text"
 							autoComplete="false"
 							placeholder="search..."
