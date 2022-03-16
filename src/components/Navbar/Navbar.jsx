@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useProduct } from "../../context";
+import { useCart, useProduct } from "../../context";
 import "./Navbar.css";
 
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const { pathname } = useLocation();
 	const { searchQuery, productDispatch } = useProduct();
+	const { wishlist, cartProducts } = useCart();
 
 	return (
 		<>
@@ -77,7 +78,7 @@ export const Navbar = () => {
 								<span className="material-icons-outlined badge-icon">
 									favorite_border
 								</span>
-								<span className="badge red-badge">{0}</span>
+								<span className="badge red-badge">{wishlist.length}</span>
 							</div>
 
 							<span className="navbar-icon-title">wishlist</span>
@@ -89,10 +90,10 @@ export const Navbar = () => {
 								<span className="material-icons-outlined badge-icon">
 									shopping_cart
 								</span>
-								<span className="badge red-badge">{0}</span>
+								<span className="badge red-badge">{cartProducts.length}</span>
 							</div>
 
-							<span className="navbar-icon-title">Bag</span>
+							<span className="navbar-icon-title">Cart</span>
 						</Link>
 					</li>
 				</ul>
