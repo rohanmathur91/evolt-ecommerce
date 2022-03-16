@@ -58,14 +58,14 @@ export const Products = () => {
 					onClick={() => setShowSortFilter((prev) => !prev)}
 					className="sort-btn flex-row flex-center filter-btn py-1 px-2 w-100 transition-3"
 				>
-					<span class="material-icons-outlined mr-1">sort</span>
+					<span className="material-icons-outlined mr-1">sort</span>
 					Sort
 				</button>
 				<button
 					onClick={() => setShowFilter((prev) => !prev)}
 					className="filter-btn flex-row flex-center p-2 w-100 transition-3"
 				>
-					<span class="material-icons-outlined mr-1">filter_alt</span>
+					<span className="material-icons-outlined mr-1">filter_alt</span>
 					Filter
 				</button>
 			</div>

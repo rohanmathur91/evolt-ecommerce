@@ -15,7 +15,7 @@ export const MobileFilter = ({ setShowFilter }) => {
 						className="mobile-filter-close"
 						onClick={() => setShowFilter((prev) => !prev)}
 					>
-						<span class="material-icons-outlined">cancel</span>
+						<span className="material-icons-outlined">cancel</span>
 					</button>
 				</div>
 
