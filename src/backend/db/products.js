@@ -17,7 +17,7 @@ export const products = [
 		description: "Acton II 15 Watt Wireless Bluetooth Speaker (Black)",
 		price: "1900.00",
 		oldPrice: "3000.00",
-		inStock: false,
+		inStock: true,
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
@@ -76,7 +76,7 @@ export const products = [
 			"Sony WH-CH510 Bluetooth Wireless On Ear Headphones with Mic (Blue)",
 		price: "2900.00",
 		oldPrice: "4000.00",
-		inStock: true,
+		inStock: false,
 		discount: Math.floor(Math.random() * 100),
 	},
 

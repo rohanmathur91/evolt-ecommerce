@@ -1,9 +1,10 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Category.css";
 
 export const Category = () => {
+	const [error, setError] = useState(null);
 	const [categoryList, setCategorList] = useState([]);
 
 	useEffect(() => {
@@ -14,7 +15,7 @@ export const Category = () => {
 				} = await axios.get("/api/categories");
 				setCategorList(categories);
 			} catch (error) {
-				console.log(error);
+				setError("Cannot fetch the categories");
 			}
 		})();
 	}, []);
@@ -29,7 +30,10 @@ export const Category = () => {
 				</Link>
 			</div>
 			<article className="category">
-				{categoryList &&
+				{error ? (
+					<p className="m-auto">{error}</p>
+				) : (
+					categoryList &&
 					categoryList.map(({ alt, image, category }, index) => (
 						<Link key={index} to="/products">
 							<div className="category-item flex-column rounded-sm">
@@ -39,7 +43,8 @@ export const Category = () => {
 								</p>
 							</div>
 						</Link>
-					))}
+					))
+				)}
 			</article>
 		</>
 	);
