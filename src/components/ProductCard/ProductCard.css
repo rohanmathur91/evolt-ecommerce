@@ -1,0 +1,63 @@
+.card {
+	max-width: 25rem;
+	transition: all 0.3s;
+}
+
+.card-badge {
+	font-size: 1.4rem;
+	background-color: var(--primary-color);
+}
+
+.card-title {
+	font-size: 1.6rem;
+	-webkit-line-clamp: 1;
+}
+
+.card-text {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+.card-description {
+	font-size: 1.4rem;
+	-webkit-line-clamp: 2;
+	color: var(--dark-gray);
+	align-self: flex-start;
+}
+
+.card-price > * {
+	font-size: 1.4rem;
+}
+
+.wishlist-badge span {
+	font-size: 2.4rem;
+	color: var(--light-gray);
+}
+
+.wishlist-badge-active span {
+	font-size: 2.4rem;
+	color: var(--red);
+}
+
+.wishlist-badge-active {
+	background-color: var(--badge-background);
+}
+
+.price-strike {
+	margin-left: 5px;
+	font-size: 1.2rem;
+	color: var(--dark-gray);
+	text-decoration: line-through;
+}
+
+.out-of-stock {
+	color: var(--white);
+	background-color: var(--red);
+}
+
+.btn.disable {
+	cursor: auto;
+	opacity: 0.7;
+}
