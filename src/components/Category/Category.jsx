@@ -7,16 +7,16 @@ export const Category = () => {
 	const [categoryList, setCategorList] = useState([]);
 
 	useEffect(() => {
-		try {
-			(async () => {
+		(async () => {
+			try {
 				const {
 					data: { categories },
 				} = await axios.get("/api/categories");
 				setCategorList(categories);
-			})();
-		} catch (error) {
-			console.log(error);
-		}
+			} catch (error) {
+				console.log(error);
+			}
+		})();
 	}, []);
 
 	return (

@@ -4,24 +4,27 @@ import { ProductCard } from "../../components";
 import "./Products.css";
 
 export const Products = () => {
+	const [error, setError] = useState(null);
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		try {
-			(async () => {
+		(async () => {
+			try {
 				const {
 					data: { products },
 				} = await axios.get("/api/products");
 				setProducts(products);
-			})();
-		} catch (error) {
-			console.log(error);
-		}
+			} catch (error) {
+				setError("No products to show.");
+			}
+		})();
 	}, []);
 
 	return (
 		<div className="products-container flex-row">
-			{products.length ? (
+			{error ? (
+				<p className="not-available">{error}</p>
+			) : products ? (
 				<div className="products w-100 p-1 pt-5">
 					{products.map((product) => (
 						<ProductCard key={product.id} {...product} />
