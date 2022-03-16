@@ -13,7 +13,6 @@ export const Products = () => {
 					data: { products },
 				} = await axios.get("/api/products");
 				setProducts(products);
-				console.log(products);
 			})();
 		} catch (error) {
 			console.log(error);
