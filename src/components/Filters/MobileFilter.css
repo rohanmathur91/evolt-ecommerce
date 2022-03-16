@@ -35,8 +35,10 @@
 	background-color: var(--background-color);
 }
 
-.mobile-filter-close {
-	font-size: 2.6rem;
+.mobile-filter-close span {
+	display: flex;
+	align-items: center;
+	font-size: 2.8rem;
 	color: var(--primary-color);
 }
 

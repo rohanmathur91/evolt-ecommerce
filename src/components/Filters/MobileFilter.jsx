@@ -12,10 +12,10 @@ export const MobileFilter = ({ setShowFilter }) => {
 				<div className="flex-row content-space-between items-center">
 					<div className="text-base font-bold">Filters</div>
 					<button
-						onClick={() => setShowFilter((prev) => !prev)}
 						className="mobile-filter-close"
+						onClick={() => setShowFilter((prev) => !prev)}
 					>
-						<i className="fa fa-times-circle-o"></i>
+						<span class="material-icons-outlined">cancel</span>
 					</button>
 				</div>
 

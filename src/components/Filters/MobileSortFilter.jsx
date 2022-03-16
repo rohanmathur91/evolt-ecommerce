@@ -11,7 +11,7 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
 						onClick={() => setShowSortFilter((prev) => !prev)}
 						className="mobile-filter-close"
 					>
-						<i className="fa fa-times-circle-o"></i>
+						<span class="material-icons-outlined">cancel</span>
 					</button>
 				</div>
 				<SortFilterList />
