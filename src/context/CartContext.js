@@ -1,5 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
-import { getTotalCartPrice, getTotalCartDiscount } from "./utils";
+import {
+	getTotalCartPrice,
+	getTotalCartDiscount,
+	checkProductInWishlist,
+} from "../utils";
 import { cartReducer, cartInitialState } from "../reducer";
 
 const CartContext = createContext();
@@ -9,10 +13,6 @@ const CartProvider = ({ children }) => {
 		cartReducer,
 		cartInitialState
 	);
-
-	const productInWishlist = (id) => {
-		return wishlist.some(({ id: productId }) => productId === id);
-	};
 
 	const totalPrice = getTotalCartPrice(cartProducts);
 	const totalDiscount = getTotalCartDiscount(cartProducts, totalPrice);
@@ -29,7 +29,7 @@ const CartProvider = ({ children }) => {
 				totalSave,
 				cartProducts,
 				addressList,
-				productInWishlist,
+				checkProductInWishlist,
 				cartDispatch,
 			}}
 		>
