@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ProductCard } from "../../components";
+import { useProduct } from "../../context";
+import {
+	Filter,
+	SortFilter,
+	MobileFilter,
+	MobileSortFilter,
+	ProductCard,
+} from "../../components";
 import "./Products.css";
 
 export const Products = () => {
 	const [error, setError] = useState(null);
-	const [products, setProducts] = useState([]);
+	const [showFilter, setShowFilter] = useState(false);
+	const [showSortFilter, setShowSortFilter] = useState(false);
+	const { sortedProducts, productDispatch } = useProduct();
 
 	useEffect(() => {
 		(async () => {
@@ -13,7 +22,7 @@ export const Products = () => {
 				const {
 					data: { products },
 				} = await axios.get("/api/products");
-				setProducts(products);
+				productDispatch({ type: "FETCH_PRODUCTS", payload: products });
 			} catch (error) {
 				setError("No products to show.");
 			}
@@ -22,17 +31,44 @@ export const Products = () => {
 
 	return (
 		<div className="products-container flex-row">
+			<aside className="filters flex-column py-3 px-4 border-r">
+				<SortFilter />
+				<Filter />
+			</aside>
+
 			{error ? (
 				<p className="not-available">{error}</p>
-			) : products ? (
+			) : sortedProducts.length ? (
 				<div className="products w-100 p-1 pt-5">
-					{products.map((product) => (
+					{sortedProducts.map((product) => (
 						<ProductCard key={product.id} {...product} />
 					))}
 				</div>
 			) : (
 				<p className="not-available">No products available...</p>
 			)}
+
+			{showSortFilter && (
+				<MobileSortFilter setShowSortFilter={setShowSortFilter} />
+			)}
+			{showFilter && <MobileFilter setShowFilter={setShowFilter} />}
+
+			<div className="mobile-filter-container fixed left-0 bottom-0 flex-row w-100">
+				<button
+					onClick={() => setShowSortFilter((prev) => !prev)}
+					className="sort-btn flex-row flex-center filter-btn py-1 px-2 w-100 transition-3"
+				>
+					<span className="material-icons-outlined mr-1">sort</span>
+					Sort
+				</button>
+				<button
+					onClick={() => setShowFilter((prev) => !prev)}
+					className="filter-btn flex-row flex-center p-2 w-100 transition-3"
+				>
+					<span className="material-icons-outlined mr-1">filter_alt</span>
+					Filter
+				</button>
+			</div>
 		</div>
 	);
 };

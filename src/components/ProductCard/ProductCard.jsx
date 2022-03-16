@@ -5,20 +5,20 @@ export const ProductCard = ({
 	id,
 	alt,
 	image,
-	latest,
 	price,
 	oldPrice,
 	inStock,
 	productName,
 	description,
-	discount,
+	addedInYear,
 }) => {
+	const currentYear = new Date().getFullYear();
 	return (
 		<div
 			key={id}
 			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
-			{(!inStock || latest) && (
+			{(!inStock || addedInYear === currentYear) && (
 				<span
 					className={` ${
 						!inStock ? "out-of-stock" : ""
