@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2022,
 		brand: "marshall",
 		type: "speaker",
 		productName: "Marshall",
@@ -22,7 +22,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2019,
 		brand: "jbl",
 		type: "speaker",
 		productName: "JBL Go 3",
@@ -36,7 +36,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2022,
 		brand: "boat",
 		type: "wireless",
 		productName: "boAt Rockerz 450",
@@ -51,7 +51,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2022,
 		brand: "marshall",
 		type: "speaker",
 		alt: "Marshall speaker",
@@ -66,7 +66,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: false,
+		addedInYear: 2022,
 		productName: "Sony WH-CH510",
 		brand: "sony",
 		type: "wireless",
@@ -82,7 +82,7 @@ export const products = [
 
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2022,
 		productName: "Sony MDR-ZX110AP",
 		brand: "sony",
 		type: "wired",
@@ -97,7 +97,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2019,
 		brand: "marshall",
 		type: "speaker",
 		productName: "Marshall",
@@ -111,7 +111,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: false,
+		addedInYear: 2022,
 		brand: "bose",
 		type: "wireless",
 		productName: "Bose QuietComfort 35",
@@ -126,7 +126,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: true,
+		addedInYear: 2022,
 		brand: "bose",
 		type: "noiseCancelling",
 		productName: "Bose QuietComfort",
@@ -142,7 +142,7 @@ export const products = [
 	},
 	{
 		_id: uuid(),
-		latest: false,
+		addedInYear: 2021,
 		brand: "boat",
 		type: "wireless",
 		productName: "boAt Rockerz 550",
