@@ -9,6 +9,7 @@ export const Input = ({
 	placeholder,
 	updateValue,
 	error,
+	showPassword,
 }) => {
 	return (
 		<div className="flex-column mb-3">
@@ -22,9 +23,10 @@ export const Input = ({
 				value={value}
 				onChange={(event) => updateValue(event, id)}
 			/>
+
 			{error && (
 				<div className="validation-msg flex-row items-center mt-1 error">
-					<span class="material-icons-outlined mr-1">error_outline</span>{" "}
+					<span className="material-icons-outlined mr-1">error_outline</span>{" "}
 					{error}
 				</div>
 			)}

@@ -1,13 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "../../components";
-import "./Login.css";
+import "../../components/Input/Form.css";
 
 export const Login = () => {
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
 	});
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -16,7 +18,7 @@ export const Login = () => {
 		}));
 	};
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 	};
 
@@ -36,22 +38,33 @@ export const Login = () => {
 					updateValue={handleInputChange}
 				/>
 
-				<Input
-					id="password"
-					type="password"
-					title="Password"
-					value={credentials.password}
-					placeholder="Enter your password"
-					updateValue={handleInputChange}
-				/>
+				<div className="relative">
+					<Input
+						id="password"
+						type={showPassword ? "text" : "password"}
+						title="Password"
+						value={credentials.password}
+						placeholder="Enter your password"
+						updateValue={handleInputChange}
+					/>
+					{
+						<span
+							class="material-icons-outlined cursor-pointer visibility-icon"
+							onClick={() => setShowPassword((showPassword) => !showPassword)}
+						>
+							{showPassword ? "visibility" : "visibility_off"}
+						</span>
+					}
+				</div>
 
 				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
 					Login
 				</button>
 
-				<div className="text-center mb-2">
-					<Link to="/signup">
-						Create New Account <i className="fa fa-chevron-right"></i>
+				<div className="mb-2">
+					<Link to="/signup" className="flex-row flex-center">
+						Create New Account{" "}
+						<span class="material-icons-outlined ml-1">east</span>
 					</Link>
 				</div>
 			</form>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { Input } from "../../components";
-import "./Signup.css";
+import "../../components/Input/Form.css";
 
 export const Signup = () => {
 	const [credentials, setCredentials] = useState({
@@ -10,6 +11,7 @@ export const Signup = () => {
 		password: "",
 		confirmPassword: "",
 	});
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -18,8 +20,18 @@ export const Signup = () => {
 		}));
 	};
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = async (event) => {
 		event.preventDefault();
+		try {
+			const data = await axios.post(
+				"/api/auth/signup",
+				JSON.stringify(credentials)
+			);
+
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -48,14 +60,24 @@ export const Signup = () => {
 					updateValue={handleInputChange}
 				/>
 
-				<Input
-					id="password"
-					type="password"
-					title="Password"
-					value={credentials.password}
-					placeholder="Enter your password"
-					updateValue={handleInputChange}
-				/>
+				<div className="relative">
+					<Input
+						id="password"
+						type={showPassword ? "text" : "password"}
+						title="Password"
+						value={credentials.password}
+						placeholder="Enter your password"
+						updateValue={handleInputChange}
+					/>
+					{
+						<span
+							class="material-icons-outlined cursor-pointer visibility-icon"
+							onClick={() => setShowPassword((showPassword) => !showPassword)}
+						>
+							{showPassword ? "visibility" : "visibility_off"}
+						</span>
+					}
+				</div>
 
 				<Input
 					id="confirmPassword"
