@@ -50,6 +50,7 @@ export const ProductCard = ({ product }) => {
 				<p className="mb-1 font-semibold"></p>
 			</div>
 			<button
+				disabled={!inStock}
 				onClick={() =>
 					cartDispatch({
 						type: "ADD_TO_CART",

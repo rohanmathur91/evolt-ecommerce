@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../../context";
 import "./ProductHorizontalCard.css";
 
-export const ProductHorizontalCard = (product) => {
+export const ProductHorizontalCard = ({ product }) => {
 	const { cartDispatch } = useCart();
 	const {
 		id,
