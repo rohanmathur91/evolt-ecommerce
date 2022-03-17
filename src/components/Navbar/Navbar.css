@@ -77,7 +77,7 @@
 }
 
 .profile-option-title {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 	color: var(--primary-color);
 	border-bottom: 0.5px solid var(--light-gray);
@@ -87,7 +87,7 @@
 .profile-options {
 	display: none;
 	position: absolute;
-	top: 4.8rem;
+	top: 4.4rem;
 	left: -4.4rem;
 	background-color: var(--white);
 	border: 0.5px solid var(--light-gray);
