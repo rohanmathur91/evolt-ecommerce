@@ -49,7 +49,7 @@ export const Login = () => {
 					/>
 					{
 						<span
-							class="material-icons-outlined cursor-pointer visibility-icon"
+							className="material-icons-outlined cursor-pointer visibility-icon"
 							onClick={() => setShowPassword((showPassword) => !showPassword)}
 						>
 							{showPassword ? "visibility" : "visibility_off"}
@@ -64,7 +64,7 @@ export const Login = () => {
 				<div className="mb-2">
 					<Link to="/signup" className="flex-row flex-center">
 						Create New Account{" "}
-						<span class="material-icons-outlined ml-1">east</span>
+						<span className="material-icons-outlined ml-1">east</span>
 					</Link>
 				</div>
 			</form>

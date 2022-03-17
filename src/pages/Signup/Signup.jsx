@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
@@ -61,7 +60,7 @@ export const Signup = () => {
 					/>
 					{
 						<span
-							class="material-icons-outlined cursor-pointer visibility-icon"
+							className="material-icons-outlined cursor-pointer visibility-icon"
 							onClick={() => setShowPassword((showPassword) => !showPassword)}
 						>
 							{showPassword ? "visibility" : "visibility_off"}
