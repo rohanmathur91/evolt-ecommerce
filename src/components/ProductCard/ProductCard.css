@@ -1,6 +1,5 @@
 .card {
 	max-width: 25rem;
-	transition: all 0.3s;
 }
 
 .card-badge {
@@ -32,13 +31,14 @@
 }
 
 .wishlist-badge span {
+	padding: 8px;
 	font-size: 2.4rem;
 	color: var(--light-gray);
 }
 
-.wishlist-badge-active span {
-	font-size: 2.4rem;
+.wishlist-badge .wishlist-badge-active {
 	color: var(--red);
+	background-color: var(--light-red);
 }
 
 .wishlist-badge-active {
