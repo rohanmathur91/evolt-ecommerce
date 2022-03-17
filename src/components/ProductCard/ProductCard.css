@@ -56,8 +56,3 @@
 	color: var(--white);
 	background-color: var(--red);
 }
-
-.btn.disable {
-	cursor: auto;
-	opacity: 0.7;
-}

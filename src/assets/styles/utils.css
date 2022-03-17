@@ -53,6 +53,11 @@
 	background-color: var(--light-gray);
 }
 
+.disable {
+	cursor: auto;
+	opacity: 0.7;
+}
+
 /* overflow */
 .overflow-hidden {
 	overflow: hidden;
