@@ -22,16 +22,6 @@ export const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		try {
-			const data = await axios.post(
-				"/api/auth/signup",
-				JSON.stringify(credentials)
-			);
-
-			console.log(data);
-		} catch (error) {
-			console.log(error);
-		}
 	};
 
 	return (
