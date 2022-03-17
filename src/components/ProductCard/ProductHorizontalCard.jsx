@@ -8,10 +8,8 @@ export const ProductHorizontalCard = ({ product }) => {
 		id,
 		alt,
 		image,
-		latest,
 		price,
 		oldPrice,
-		inStock,
 		productName,
 		description,
 		discount,
@@ -39,13 +37,16 @@ export const ProductHorizontalCard = ({ product }) => {
 					<div className="flex-row items-center my-2">
 						<p className="mr-1">Quantity:</p>
 						<button
+							disabled={quantity === 1}
 							onClick={() =>
 								cartDispatch({
 									type: "DECREASE_QUANTITY",
-									payload: { id, quantity },
+									payload: id,
 								})
 							}
-							className="quantity-btn flex-row flex-center rounded-full mr-2"
+							className={` ${
+								quantity === 1 ? "disable" : ""
+							} quantity-btn flex-row flex-center rounded-full mr-2`}
 						>
 							<span class="material-icons-outlined">remove</span>
 						</button>
@@ -56,7 +57,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							onClick={() =>
 								cartDispatch({
 									type: "INCREASE_QUANTITY",
-									payload: { id, quantity },
+									payload: id,
 								})
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
