@@ -1,8 +1,10 @@
 import React from "react";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
+import { useCart } from "../../context";
 
 export const ProductCard = ({ product }) => {
+	const { cartDispatch } = useCart();
 	const currentYear = new Date().getFullYear();
 	const {
 		id,
@@ -48,6 +50,12 @@ export const ProductCard = ({ product }) => {
 				<p className="mb-1 font-semibold"></p>
 			</div>
 			<button
+				onClick={() =>
+					cartDispatch({
+						type: "ADD_TO_CART",
+						payload: product,
+					})
+				}
 				className={`${
 					!inStock ? "disable" : ""
 				} p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}
