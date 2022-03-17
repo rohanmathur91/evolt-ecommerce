@@ -1,6 +1,15 @@
 import React from "react";
+import "./Input.css";
 
-export const Input = ({ id, type, title, value, placeholder, updateValue }) => {
+export const Input = ({
+	id,
+	type,
+	title,
+	value,
+	placeholder,
+	updateValue,
+	error,
+}) => {
 	return (
 		<div className="flex-column mb-3">
 			<label htmlFor={id}>{title}</label>
@@ -13,6 +22,12 @@ export const Input = ({ id, type, title, value, placeholder, updateValue }) => {
 				value={value}
 				onChange={(event) => updateValue(event, id)}
 			/>
+			{error && (
+				<div className="validation-msg flex-row items-center mt-1 error">
+					<span class="material-icons-outlined mr-1">error_outline</span>{" "}
+					{error}
+				</div>
+			)}
 		</div>
 	);
 };
