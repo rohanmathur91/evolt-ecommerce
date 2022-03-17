@@ -41,7 +41,7 @@ export const Products = () => {
 			) : sortedProducts.length ? (
 				<div className="products w-100 p-1 pt-5">
 					{sortedProducts.map((product) => (
-						<ProductCard key={product.id} {...product} />
+						<ProductCard key={product.id} product={product} />
 					))}
 				</div>
 			) : (

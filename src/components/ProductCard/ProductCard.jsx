@@ -1,18 +1,20 @@
 import React from "react";
+import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
 
-export const ProductCard = ({
-	id,
-	alt,
-	image,
-	price,
-	oldPrice,
-	inStock,
-	productName,
-	description,
-	addedInYear,
-}) => {
+export const ProductCard = ({ product }) => {
 	const currentYear = new Date().getFullYear();
+	const {
+		id,
+		alt,
+		image,
+		price,
+		oldPrice,
+		inStock,
+		productName,
+		description,
+		addedInYear,
+	} = product;
 	return (
 		<div
 			key={id}
@@ -28,12 +30,7 @@ export const ProductCard = ({
 				</span>
 			)}
 
-			<button
-				key={id}
-				className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
-			>
-				<span className="material-icons-outlined">favorite</span>
-			</button>
+			<ToggleWishlist product={product} />
 
 			<div className="text-center h-20 flex-row flex-center">
 				<img src={image} alt={alt} className="w-20" />
