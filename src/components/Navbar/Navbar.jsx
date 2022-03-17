@@ -53,14 +53,14 @@ export const Navbar = () => {
 
 				<ul className="navbar-options flex-row flex-center">
 					<li className="profile-icon relative">
-						<Link to="/login" className="flex-column items-center">
+						<div className="cursor-pointer">
 							<div className="icon">
 								<span className="material-icons-outlined badge-icon">
 									person_outline
 								</span>
 							</div>
-							<span className="navbar-icon-title">Login</span>
-						</Link>
+							<span className="navbar-icon-title">Profile</span>
+						</div>
 						<div className="profile-options rounded-sm p-1 transition-2">
 							<div className="profile-option-title mx-1 py-1">Welcome</div>
 							<Link to="/profile" className="p-1 profile-option">
