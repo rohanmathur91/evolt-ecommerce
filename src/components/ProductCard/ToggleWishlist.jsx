@@ -27,13 +27,13 @@ export const ToggleWishlist = ({ product }) => {
 			}
 			className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
 		>
-			{isProductInWishlist ? (
-				<span className="material-icons-outlined wishlist-badge-active rounded-full">
-					favorite
-				</span>
-			) : (
-				<span className="material-icons-outlined">favorite</span>
-			)}
+			<span
+				className={`${
+					isProductInWishlist ? "wishlist-badge-active" : ""
+				} material-icons-outlined rounded-full`}
+			>
+				favorite
+			</span>
 		</button>
 	);
 };
