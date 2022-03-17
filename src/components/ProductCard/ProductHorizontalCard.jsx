@@ -47,10 +47,10 @@ export const ProductHorizontalCard = ({ product }) => {
 							}
 							className="quantity-btn flex-row flex-center rounded-full mr-2"
 						>
-							<i className="fa fa-minus"></i>
+							<span class="material-icons-outlined">remove</span>
 						</button>
 						<span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
-							{quantity || 0}
+							{quantity}
 						</span>
 						<button
 							onClick={() =>
@@ -61,7 +61,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
 						>
-							<i className="fa fa-plus"></i>
+							<span class="material-icons-outlined">add</span>
 						</button>
 					</div>
 				</div>

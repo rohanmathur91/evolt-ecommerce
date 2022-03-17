@@ -10,7 +10,10 @@
 .quantity-btn {
 	width: 2.5rem;
 	height: 2.5rem;
-	font-size: 1.2rem;
 	color: var(--white);
 	background-color: var(--primary-color);
+}
+
+.quantity-btn span {
+	font-size: 1.4rem;
 }
