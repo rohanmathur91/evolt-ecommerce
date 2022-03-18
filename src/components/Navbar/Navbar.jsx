@@ -8,6 +8,7 @@ export const Navbar = () => {
 	const { pathname } = useLocation();
 	const { searchQuery, productDispatch } = useProduct();
 	const { wishlist, cartProducts } = useCart();
+	const user = true;
 
 	return (
 		<>
@@ -54,23 +55,40 @@ export const Navbar = () => {
 
 				<ul className="navbar-options flex-row flex-center">
 					<li className="profile-icon relative">
-						<div className="cursor-pointer">
-							<div className="icon">
-								<span className="material-icons-outlined badge-icon">
-									person_outline
-								</span>
-							</div>
-							<span className="navbar-icon-title">Profile</span>
-						</div>
-						<div className="profile-options rounded-sm p-1 transition-2">
-							<div className="profile-option-title mx-1 py-1">Welcome</div>
-							<Link to="/profile" className="p-1 profile-option">
-								Profile
+						{!user ? (
+							<Link to="/login">
+								<div className="cursor-pointer">
+									<div className="icon">
+										<span className="material-icons-outlined badge-icon">
+											person_outline
+										</span>
+									</div>
+									<span className="navbar-icon-title">Login</span>
+								</div>
 							</Link>
-							<Link to="/login" className="p-1 profile-option">
-								Login/Signup
-							</Link>
-						</div>
+						) : (
+							<>
+								<div className="cursor-pointer">
+									<div className="icon">
+										<span className="material-icons-outlined badge-icon">
+											person_outline
+										</span>
+									</div>
+									<span className="navbar-icon-title">
+										{user ? "Profile" : "Login"}
+									</span>
+								</div>
+								<div className="profile-options rounded-sm p-1 transition-2">
+									<div className="profile-option-title mx-1 py-1">Welcome</div>
+									<Link to="/profile" className="p-1 profile-option">
+										Profile
+									</Link>
+									<Link to="/login" className="p-1 profile-option">
+										Logout
+									</Link>
+								</div>
+							</>
+						)}
 					</li>
 					<li className="ml-4">
 						<Link to="/wishlist" className="flex-column items-center">
