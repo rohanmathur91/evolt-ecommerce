@@ -91,3 +91,17 @@ export const ProductHorizontalCard = ({ product }) => {
 		</div>
 	);
 };
+
+ProductHorizontalCard.defaultProps = {
+	product: {
+		id: "",
+		alt: "",
+		image: "",
+		price: 0,
+		oldPrice: 0,
+		productName: "",
+		description: "",
+		discount: 0,
+		quantity: 0,
+	},
+};
