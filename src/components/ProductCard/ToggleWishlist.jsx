@@ -37,3 +37,17 @@ export const ToggleWishlist = ({ product }) => {
 		</button>
 	);
 };
+
+ToggleWishlist.defaultProps = {
+	product: {
+		id: "",
+		alt: "",
+		image: "",
+		price: 0,
+		oldPrice: 0,
+		inStock: false,
+		productName: "",
+		description: "",
+		addedInYear: "",
+	},
+};

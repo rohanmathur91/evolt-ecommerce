@@ -70,6 +70,20 @@
 	border: 0.5px solid var(--gray);
 }
 
+.profile-options {
+	display: none;
+	position: absolute;
+	width: 15rem;
+	top: 4.4rem;
+	left: -5.4rem;
+	background-color: var(--white);
+	border: 0.5px solid var(--light-gray);
+}
+
+.profile-option {
+	font-size: 1.4rem;
+}
+
 .profile-icon:hover .profile-options {
 	display: flex;
 	flex-direction: column;
@@ -77,24 +91,11 @@
 }
 
 .profile-option-title {
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 	color: var(--primary-color);
 	border-bottom: 0.5px solid var(--light-gray);
 	padding-bottom: 1rem;
-}
-
-.profile-options {
-	display: none;
-	position: absolute;
-	top: 4.8rem;
-	left: -4.4rem;
-	background-color: var(--white);
-	border: 0.5px solid var(--light-gray);
-}
-
-.profile-option {
-	font-size: 1.4rem;
 }
 
 .badge {
