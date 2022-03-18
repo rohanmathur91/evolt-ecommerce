@@ -22,3 +22,11 @@ export const Checkbox = ({ id, title, value, actionType, payload }) => {
 		</label>
 	);
 };
+
+Checkbox.defaultProps = {
+	id: "",
+	title: "",
+	value: false,
+	actionType: "",
+	payload: "",
+};
