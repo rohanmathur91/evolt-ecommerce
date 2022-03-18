@@ -19,8 +19,6 @@
 
 .category-item:hover {
 	box-shadow: 0px 0px 6px 0px var(--navigation-shadow);
-	-webkit-box-shadow: 0px 0px 6px 0px var(--navigation-shadow);
-	-moz-box-shadow: 0px 0px 6px 0px var(--navigation-shadow);
 }
 
 .category-name {
