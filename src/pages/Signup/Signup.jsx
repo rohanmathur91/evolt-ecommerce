@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
@@ -11,6 +12,9 @@ export const Signup = () => {
 		confirmPassword: "",
 	});
 	const [showPassword, setShowPassword] = useState(false);
+
+	useScrollToTop();
+	useDocumentTitle("Evolt | Signup");
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -60,8 +64,8 @@ export const Signup = () => {
 					/>
 					{
 						<span
-							className="material-icons-outlined cursor-pointer visibility-icon"
 							onClick={() => setShowPassword((showPassword) => !showPassword)}
+							className="material-icons-outlined cursor-pointer visibility-icon"
 						>
 							{showPassword ? "visibility" : "visibility_off"}
 						</span>
