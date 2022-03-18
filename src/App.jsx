@@ -1,6 +1,7 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { Home, Products, Wishlist, Cart, Login, Signup } from "./pages";
 import { Navbar } from "./components";
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
