@@ -171,7 +171,7 @@ export const Navbar = () => {
 								`sidebar-link ${isActive ? "active-link" : ""}`
 							}
 						>
-							Login
+							{user ? "Logout" : "Login"}
 						</NavLink>
 					</li>
 				</ul>
