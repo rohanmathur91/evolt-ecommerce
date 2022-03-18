@@ -1,10 +1,14 @@
 import React from "react";
 import { useCart } from "../../context";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { ProductCard } from "../../components";
 import "./Wishlist.css";
 
 export const Wishlist = () => {
 	const { wishlist } = useCart();
+
+	useScrollToTop();
+	useDocumentTitle("Evolt | Wishlist");
 
 	return (
 		<div>

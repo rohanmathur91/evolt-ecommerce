@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Checkout, ProductHorizontalCard } from "../../components";
 import "./Cart.css";
 
 export const Cart = () => {
 	const { cartProducts } = useCart();
 
+	useScrollToTop();
+	useDocumentTitle("Evolt | Cart");
 	return (
 		<div>
 			{cartProducts.length > 0 ? (

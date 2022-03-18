@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useProduct } from "../../context";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import {
 	Filter,
 	SortFilter,
@@ -15,6 +16,9 @@ export const Products = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSortFilter, setShowSortFilter] = useState(false);
 	const { sortedProducts, productDispatch } = useProduct();
+
+	useScrollToTop();
+	useDocumentTitle("Evolt | Products");
 
 	useEffect(() => {
 		(async () => {
