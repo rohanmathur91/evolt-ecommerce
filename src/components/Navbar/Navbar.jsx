@@ -6,8 +6,8 @@ import "./Navbar.css";
 export const Navbar = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const { pathname } = useLocation();
-	const { searchQuery, productDispatch } = useProduct();
 	const { wishlist, cartProducts } = useCart();
+	const { searchQuery, productDispatch } = useProduct();
 	const user = true;
 
 	return (
