@@ -62,7 +62,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
 						>
-							<span class="material-icons-outlined">add</span>
+							<span className="material-icons-outlined">add</span>
 						</button>
 					</div>
 				</div>
