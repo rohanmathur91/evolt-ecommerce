@@ -1,0 +1,21 @@
+.login-form,
+.signup-form {
+	max-width: 40rem;
+	height: fit-content;
+}
+
+.forgot-password {
+	color: var(--primary-color);
+}
+
+.logout {
+	width: 100%;
+	max-width: 50rem;
+}
+
+.visibility-icon {
+	position: absolute;
+	top: 3.45rem;
+	right: 1rem;
+	user-select: none;
+}

@@ -31,3 +31,5 @@ export const MobileFilter = ({ setShowFilter }) => {
 		</div>
 	);
 };
+
+MobileFilter.defaultProps = { setShowFilter: () => {} };
