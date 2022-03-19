@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useCart, useProduct } from "../../context";
+import { useAuth, useCart, useProduct } from "../../context";
 import { SEARCH } from "../../reducer";
 import "./Navbar.css";
 
@@ -9,7 +9,7 @@ export const Navbar = () => {
 	const { pathname } = useLocation();
 	const { wishlist, cartProducts } = useCart();
 	const { searchQuery, productDispatch } = useProduct();
-	const user = true;
+	const { user } = useAuth();
 
 	return (
 		<>
