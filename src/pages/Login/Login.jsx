@@ -32,10 +32,10 @@ export const Login = () => {
 				data: { foundUser, encodedToken },
 			} = await axios.post("/api/auth/login", credentials);
 			localStorage.setItem("token", encodedToken);
-			throw Error("");
+			throw Error();
 			navigate("/");
 		} catch (error) {
-			setError("Email or password is incorrect.");
+			setError("Email or password is incorrect");
 		}
 	};
 
@@ -92,7 +92,7 @@ export const Login = () => {
 
 				{error && (
 					<div className="mb-2 login-error-msg flex-row items-center">
-						<span class="material-icons-outlined mr-1">error_outline</span>
+						<span className="material-icons-outlined mr-1">error_outline</span>
 						<p>{error}</p>
 					</div>
 				)}
