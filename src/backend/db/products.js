@@ -1,3 +1,5 @@
+import { v4 as uuid } from "uuid";
+
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
@@ -5,6 +7,7 @@
 
 export const products = [
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		brand: "marshall",
 		type: "speaker",
@@ -18,6 +21,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2019,
 		brand: "jbl",
 		type: "speaker",
@@ -31,6 +35,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		brand: "boat",
 		type: "wireless",
@@ -45,6 +50,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		brand: "marshall",
 		type: "speaker",
@@ -59,6 +65,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		productName: "Sony WH-CH510",
 		brand: "sony",
@@ -74,6 +81,7 @@ export const products = [
 	},
 
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		productName: "Sony MDR-ZX110AP",
 		brand: "sony",
@@ -88,6 +96,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2019,
 		brand: "marshall",
 		type: "speaker",
@@ -101,6 +110,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		brand: "bose",
 		type: "wireless",
@@ -115,6 +125,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2022,
 		brand: "bose",
 		type: "noiseCancelling",
@@ -130,6 +141,7 @@ export const products = [
 		discount: Math.floor(Math.random() * 100),
 	},
 	{
+		_id: uuid(),
 		addedInYear: 2021,
 		brand: "boat",
 		type: "wireless",

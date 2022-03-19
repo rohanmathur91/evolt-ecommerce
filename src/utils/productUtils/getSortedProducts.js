@@ -1,5 +1,6 @@
 /**
  * Gives sorted array of products based on the filter applied
+ *
  * @param  {array} products
  * @param  {object} filter object
  * @returns {array} sorted array

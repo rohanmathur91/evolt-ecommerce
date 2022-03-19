@@ -19,7 +19,7 @@ export const cartInitialState = {
 export const cartReducer = (cart, { type, payload }) => {
 	switch (type) {
 		case ADD_TO_CART:
-			return !cart.cartProducts.some(({ id }) => id === payload.id)
+			return !cart.cartProducts.some(({ _id }) => _id === payload._id)
 				? {
 						...cart,
 						cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
@@ -29,14 +29,14 @@ export const cartReducer = (cart, { type, payload }) => {
 		case REMOVE_FROM_CART:
 			return {
 				...cart,
-				cartProducts: cart.cartProducts.filter(({ id }) => id !== payload),
+				cartProducts: cart.cartProducts.filter(({ _id }) => _id !== payload),
 			};
 
 		case INCREASE_QUANTITY:
 			return {
 				...cart,
 				cartProducts: cart.cartProducts.map((product) =>
-					product.id === payload
+					product._id === payload
 						? { ...product, quantity: product.quantity + 1 }
 						: product
 				),
@@ -46,7 +46,7 @@ export const cartReducer = (cart, { type, payload }) => {
 			return {
 				...cart,
 				cartProducts: cart.cartProducts.map((product) =>
-					product.id === payload
+					product._id === payload
 						? { ...product, quantity: product.quantity - 1 }
 						: product
 				),
@@ -54,7 +54,7 @@ export const cartReducer = (cart, { type, payload }) => {
 
 		case ADD_TO_WISHLIST:
 			return cart.wishlist.length &&
-				cart.wishlist.some(({ id }) => id === payload.id)
+				cart.wishlist.some(({ _id }) => _id === payload._id)
 				? { ...cart, toastMessage: "Item already present" }
 				: {
 						...cart,
@@ -64,7 +64,7 @@ export const cartReducer = (cart, { type, payload }) => {
 		case REMOVE_FROM_WISHLIST:
 			return {
 				...cart,
-				wishlist: cart.wishlist.filter(({ id }) => id !== payload),
+				wishlist: cart.wishlist.filter(({ _id }) => _id !== payload),
 			};
 
 		case ADD_ADDRESS:

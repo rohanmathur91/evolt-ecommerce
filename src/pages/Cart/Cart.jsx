@@ -24,7 +24,7 @@ export const Cart = () => {
 				<div className="cart-container flex-row wrap content-center">
 					<div className="cart-products mt-2">
 						{cartProducts.map((product) => (
-							<ProductHorizontalCard key={product.id} product={product} />
+							<ProductHorizontalCard key={product._id} product={product} />
 						))}
 					</div>
 					<Checkout />

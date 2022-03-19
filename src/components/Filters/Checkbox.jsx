@@ -1,13 +1,13 @@
 import React from "react";
 import { useProduct } from "../../context";
 
-export const Checkbox = ({ id, title, value, actionType, payload }) => {
+export const Checkbox = ({ _id, title, value, actionType, payload }) => {
 	const { productDispatch } = useProduct();
 
 	return (
-		<label htmlFor={id} className="cursor-pointer">
+		<label htmlFor={_id} className="cursor-pointer">
 			<input
-				id={id}
+				id={_id}
 				type="checkbox"
 				className="mr-2 cursor-pointer"
 				checked={value}

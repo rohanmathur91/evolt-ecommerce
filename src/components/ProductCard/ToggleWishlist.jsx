@@ -16,13 +16,13 @@ export const ToggleWishlist = ({ product }) => {
 	const handleRemoveFromWishlist = () => {
 		cartDispatch({
 			type: REMOVE_FROM_WISHLIST,
-			payload: product.id,
+			payload: product._id,
 		});
 	};
 
 	return (
 		<button
-			key={product.id}
+			key={product._id}
 			onClick={
 				!isProductInWishlist ? handleAddToWhishlist : handleRemoveFromWishlist
 			}
@@ -41,7 +41,7 @@ export const ToggleWishlist = ({ product }) => {
 
 ToggleWishlist.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

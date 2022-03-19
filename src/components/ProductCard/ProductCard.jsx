@@ -8,7 +8,7 @@ export const ProductCard = ({ product }) => {
 	const { cartDispatch } = useCart();
 	const currentYear = new Date().getFullYear();
 	const {
-		id,
+		_id,
 		alt,
 		image,
 		price,
@@ -20,7 +20,7 @@ export const ProductCard = ({ product }) => {
 	} = product;
 	return (
 		<div
-			key={id}
+			key={_id}
 			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
 			{(!inStock || addedInYear === currentYear) && (
@@ -70,7 +70,7 @@ export const ProductCard = ({ product }) => {
 
 ProductCard.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

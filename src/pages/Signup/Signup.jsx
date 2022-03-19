@@ -29,10 +29,8 @@ export const Signup = () => {
 			confirmPassword: "",
 		};
 
-		const onlyAlphabets = /^[a-zA-Z]+$/;
-		const isFullNameValid =
-			fullName.length >= 4 && onlyAlphabets.test(fullName);
-		const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+		const isFullNameValid = fullName.length < 4 && /^[a-zA-Z]+$/.test(fullName);
+		const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
 
 		if (!isFullNameValid) error.fullName = "Please enter valid name";
 		if (!isEmailValid) error.fullName = "Please enter valid email";

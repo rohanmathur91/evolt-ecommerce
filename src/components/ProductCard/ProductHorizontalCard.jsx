@@ -11,7 +11,7 @@ import "./ProductHorizontalCard.css";
 export const ProductHorizontalCard = ({ product }) => {
 	const { cartDispatch } = useCart();
 	const {
-		id,
+		_id,
 		alt,
 		image,
 		price,
@@ -47,7 +47,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							onClick={() =>
 								cartDispatch({
 									type: DECREASE_QUANTITY,
-									payload: id,
+									payload: _id,
 								})
 							}
 							className={` ${
@@ -63,7 +63,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							onClick={() =>
 								cartDispatch({
 									type: INCREASE_QUANTITY,
-									payload: id,
+									payload: _id,
 								})
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
@@ -86,7 +86,7 @@ export const ProductHorizontalCard = ({ product }) => {
 					</button>
 					<button
 						onClick={() =>
-							cartDispatch({ type: REMOVE_FROM_CART, payload: id })
+							cartDispatch({ type: REMOVE_FROM_CART, payload: _id })
 						}
 						className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
 					>
@@ -100,7 +100,7 @@ export const ProductHorizontalCard = ({ product }) => {
 
 ProductHorizontalCard.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

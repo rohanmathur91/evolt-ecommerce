@@ -34,8 +34,8 @@ export const Category = () => {
 					<p className="m-auto">{error}</p>
 				) : (
 					categoryList &&
-					categoryList.map(({ alt, image, category }, index) => (
-						<Link key={index} to="/products">
+					categoryList.map(({ _id, alt, image, category }) => (
+						<Link key={_id} to="/products">
 							<div className="category-item flex-column rounded-sm">
 								<img className="p-1" src={image} alt={alt} />
 								<p className="category-name text-center p-1 rounded-sm font-semibold">
