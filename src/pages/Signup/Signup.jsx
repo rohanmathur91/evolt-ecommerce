@@ -1,5 +1,5 @@
 import React, { useState, useReducer } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import {
 	signupErrorReducer,
@@ -31,6 +31,7 @@ export const Signup = () => {
 	useScrollToTop();
 	useDocumentTitle("Signup");
 
+	const navigate = useNavigate();
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
 			...prevCredentials,
@@ -46,8 +47,10 @@ export const Signup = () => {
 				const {
 					data: { encodedToken },
 				} = await axios.post("/api/auth/signup", credentials);
+
 				localStorage.setItem("token", encodedToken);
 				errorDispatch({ type: CLEAR_SIGNUP_FORM });
+				navigate("/");
 			} catch (error) {
 				console.log("Something is wrong, please try later.");
 			}

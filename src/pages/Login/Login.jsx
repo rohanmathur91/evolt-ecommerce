@@ -32,7 +32,6 @@ export const Login = () => {
 				data: { foundUser, encodedToken },
 			} = await axios.post("/api/auth/login", credentials);
 			localStorage.setItem("token", encodedToken);
-			throw Error();
 			navigate("/");
 		} catch (error) {
 			setError("Email or password is incorrect");
