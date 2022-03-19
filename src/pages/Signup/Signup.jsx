@@ -14,7 +14,7 @@ export const Signup = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Signup");
+	useDocumentTitle("Signup");
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({

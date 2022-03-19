@@ -18,7 +18,7 @@ export const Products = () => {
 	const { sortedProducts, productDispatch } = useProduct();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Products");
+	useDocumentTitle("Products");
 
 	useEffect(() => {
 		(async () => {

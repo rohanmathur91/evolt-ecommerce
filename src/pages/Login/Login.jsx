@@ -13,7 +13,7 @@ export const Login = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Login");
+	useDocumentTitle("Login");
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({

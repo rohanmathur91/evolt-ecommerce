@@ -8,7 +8,7 @@ export const Wishlist = () => {
 	const { wishlist } = useCart();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Wishlist");
+	useDocumentTitle("Wishlist");
 
 	return (
 		<div>

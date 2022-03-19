@@ -9,7 +9,7 @@ export const Cart = () => {
 	const { cartProducts } = useCart();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Cart");
+	useDocumentTitle("Cart");
 	return (
 		<div>
 			{cartProducts.length > 0 ? (
