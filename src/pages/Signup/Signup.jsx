@@ -13,6 +13,7 @@ import {
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
+import axios from "axios";
 
 export const Signup = () => {
 	const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +41,17 @@ export const Signup = () => {
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		const isValidForm = validateSignupForm(errorDispatch, credentials);
-		isValidForm && errorDispatch({ type: CLEAR_SIGNUP_FORM });
+		if (isValidForm) {
+			try {
+				const {
+					data: { encodedToken },
+				} = await axios.post("/api/auth/signup", credentials);
+				localStorage.setItem("token", encodedToken);
+				errorDispatch({ type: CLEAR_SIGNUP_FORM });
+			} catch (error) {
+				console.log("Something is wrong, please try later.");
+			}
+		}
 	};
 
 	return (

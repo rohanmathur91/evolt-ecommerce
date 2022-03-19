@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
@@ -15,6 +15,8 @@ export const Login = () => {
 	useScrollToTop();
 	useDocumentTitle("Login");
 
+	const navigate = useNavigate();
+
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
 			...prevCredentials,
@@ -24,6 +26,15 @@ export const Login = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
+		try {
+			const {
+				data: { foundUser, encodedToken },
+			} = await axios.post("/api/auth/login", credentials);
+			localStorage.setItem("token", encodedToken);
+			navigate("/");
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -60,6 +71,18 @@ export const Login = () => {
 						</span>
 					}
 				</div>
+
+				<button
+					onClick={() =>
+						setCredentials({
+							email: "adarshbalika@gmail.com",
+							password: "adarshbalika",
+						})
+					}
+					className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"
+				>
+					Login using dummy credentials
+				</button>
 
 				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
 					Login
