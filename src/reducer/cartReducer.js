@@ -6,6 +6,8 @@ import {
 	ADD_TO_WISHLIST,
 	REMOVE_FROM_WISHLIST,
 	ADD_ADDRESS,
+	UPDATE_USER_CART,
+	UPDATE_USER_WISHLIST,
 } from "./index";
 
 export const cartInitialState = {
@@ -72,6 +74,12 @@ export const cartReducer = (cart, { type, payload }) => {
 				...cart,
 				addressList: [payload, ...cart.addressList],
 			};
+
+		case UPDATE_USER_CART:
+			return { ...cart, cartProducts: payload };
+
+		case UPDATE_USER_WISHLIST:
+			return { ...cart, wishlist: payload };
 
 		default:
 			return cart;

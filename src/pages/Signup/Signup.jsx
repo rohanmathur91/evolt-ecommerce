@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { useAuth, useCart } from "../../context";
 import {
 	signupErrorReducer,
 	signUpErrorInitialState,
@@ -9,6 +10,8 @@ import {
 	SET_SIGNUP_FULLNAME_ERROR,
 	SET_SIGNUP_PASSWORD_ERROR,
 	SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+	UPDATE_USER_CART,
+	UPDATE_USER_WISHLIST,
 } from "../../reducer";
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
@@ -27,6 +30,8 @@ export const Signup = () => {
 		signupErrorReducer,
 		signUpErrorInitialState
 	);
+	const { updateUser } = useAuth();
+	const { cartDispatch } = useCart();
 
 	useScrollToTop();
 	useDocumentTitle("Signup");
@@ -45,8 +50,15 @@ export const Signup = () => {
 		if (isValidForm) {
 			try {
 				const {
-					data: { encodedToken },
+					data: { createdUser, encodedToken },
 				} = await axios.post("/api/auth/signup", credentials);
+
+				updateUser(createdUser);
+				cartDispatch({ type: UPDATE_USER_CART, payload: createdUser.cart });
+				cartDispatch({
+					type: UPDATE_USER_WISHLIST,
+					payload: createdUser.wishlist,
+				});
 
 				localStorage.setItem("token", encodedToken);
 				errorDispatch({ type: CLEAR_SIGNUP_FORM });
