@@ -3,10 +3,6 @@
 	min-height: 10vh;
 	background-color: var(--background-color);
 	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-webkit-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-moz-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-ms-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-o-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .menu {
@@ -82,6 +78,7 @@
 	left: -5.4rem;
 	background-color: var(--white);
 	border: 0.5px solid var(--light-gray);
+	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .profile-option {
@@ -118,18 +115,9 @@
 .sidebar {
 	width: 0;
 	height: 100vh;
-	background-color: var(--background-color);
 	overflow: hidden;
-	transition: all 0.2s;
-	-webkit-transition: all 0.2s;
-	-moz-transition: all 0.2s;
-	-ms-transition: all 0.2s;
-	-o-transition: all 0.2s;
+	background-color: var(--background-color);
 	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-webkit-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-moz-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-ms-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
-	-o-box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .sidebar-header {
@@ -144,13 +132,9 @@
 
 .sidebar-link {
 	padding: 1rem;
+	display: block;
 	border-radius: 4px;
 	margin-bottom: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-ms-border-radius: 4px;
-	-o-border-radius: 4px;
-	display: block;
 	font-size: 1.8rem;
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useProduct } from "../../context";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import {
 	Filter,
 	SortFilter,
@@ -15,6 +16,9 @@ export const Products = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSortFilter, setShowSortFilter] = useState(false);
 	const { sortedProducts, productDispatch } = useProduct();
+
+	useScrollToTop();
+	useDocumentTitle("Evolt | Products");
 
 	useEffect(() => {
 		(async () => {
@@ -55,14 +59,14 @@ export const Products = () => {
 
 			<div className="mobile-filter-container fixed left-0 bottom-0 flex-row w-100">
 				<button
-					onClick={() => setShowSortFilter((prev) => !prev)}
+					onClick={() => setShowSortFilter((prevShowFilter) => !prevShowFilter)}
 					className="sort-btn flex-row flex-center filter-btn py-1 px-2 w-100 transition-3"
 				>
 					<span className="material-icons-outlined mr-1">sort</span>
 					Sort
 				</button>
 				<button
-					onClick={() => setShowFilter((prev) => !prev)}
+					onClick={() => setShowFilter((prevShowFilter) => !prevShowFilter)}
 					className="filter-btn flex-row flex-center p-2 w-100 transition-3"
 				>
 					<span className="material-icons-outlined mr-1">filter_alt</span>

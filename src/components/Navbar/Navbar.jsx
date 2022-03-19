@@ -119,7 +119,7 @@ export const Navbar = () => {
 
 			{/* mobile navigation */}
 			<div
-				className={`sidebar fixed top-0 left-0 z-3 ${
+				className={`sidebar transition-2 fixed top-0 left-0 z-3 ${
 					toggleMenu ? "sidebar-mobile" : ""
 				}`}
 			>

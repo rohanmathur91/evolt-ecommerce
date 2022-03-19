@@ -26,28 +26,21 @@ export const cartReducer = (cart, { type, payload }) => {
 			return {
 				...cart,
 				cartProducts: cart.cartProducts.map((product) =>
-					product.id === payload.id
-						? { ...product, quantity: payload.quantity + 1 }
+					product.id === payload
+						? { ...product, quantity: product.quantity + 1 }
 						: product
 				),
 			};
 
 		case "DECREASE_QUANTITY":
-			return payload.quantity === 1
-				? {
-						...cart,
-						cartProducts: cart.cartProducts.filter(
-							({ id }) => id !== payload.id
-						),
-				  }
-				: {
-						...cart,
-						cartProducts: cart.cartProducts.map((product) =>
-							product.id === payload.id
-								? { ...product, quantity: payload.quantity - 1 }
-								: product
-						),
-				  };
+			return {
+				...cart,
+				cartProducts: cart.cartProducts.map((product) =>
+					product.id === payload
+						? { ...product, quantity: product.quantity - 1 }
+						: product
+				),
+			};
 
 		case "ADD_TO_WISHLIST":
 			return cart.wishlist.length &&

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
@@ -10,6 +11,9 @@ export const Login = () => {
 		password: "",
 	});
 	const [showPassword, setShowPassword] = useState(false);
+
+	useScrollToTop();
+	useDocumentTitle("Evolt | Login");
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
