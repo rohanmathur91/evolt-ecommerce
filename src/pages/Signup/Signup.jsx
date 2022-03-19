@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { signupErrorReducer, signUpErrorInitialState } from "../../reducer";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
@@ -13,6 +14,12 @@ export const Signup = () => {
 		confirmPassword: "",
 	});
 
+	const [errorState, errorDispatch] = useReducer(
+		signupErrorReducer,
+		signUpErrorInitialState
+	);
+
+	console.log(errorState);
 	useScrollToTop();
 	useDocumentTitle("Signup");
 
@@ -22,18 +29,47 @@ export const Signup = () => {
 		password,
 		confirmPassword,
 	}) => {
-		const error = {
-			fullName: "",
-			email: "Please enter valid email",
-			password: "",
-			confirmPassword: "",
-		};
-
-		const isFullNameValid = fullName.length < 4 && /^[a-zA-Z]+$/.test(fullName);
+		const isFullNameValid =
+			fullName.length >= 4 && /^[a-zA-Z]+$/.test(fullName);
 		const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
+		const isPasswordValid =
+			password !== "" &&
+			/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+		const isConfirmPassword =
+			confirmPassword !== "" && confirmPassword === isPasswordValid;
 
-		if (!isFullNameValid) error.fullName = "Please enter valid name";
-		if (!isEmailValid) error.fullName = "Please enter valid email";
+		if (!isFullNameValid) {
+			errorDispatch({
+				type: "SET_SIGNUP_FULLNAME_ERROR",
+				payload: "Please enter valid name",
+			});
+		}
+
+		if (!isEmailValid) {
+			errorDispatch({
+				type: "SET_SIGNUP_EMAIL_ERROR",
+				payload: "Please enter valid email",
+			});
+		}
+
+		if (!isPasswordValid) {
+			errorDispatch({
+				type: "SET_SIGNUP_PASSWORD_ERROR",
+				payload:
+					"Password should contain atleast 8 characters,one letter and one number",
+			});
+		}
+
+		if (!isConfirmPassword) {
+			errorDispatch({
+				type: "SET_SIGNUP_CONFIRM_PASSWORD_ERROR",
+				payload: "Password does not match",
+			});
+		}
+
+		return (
+			isFullNameValid && isEmailValid && isPasswordValid && isConfirmPassword
+		);
 	};
 
 	const handleInputChange = (event, field) => {
@@ -45,6 +81,10 @@ export const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
+		if (validateSignupForm(credentials)) {
+			// make a call to backend
+			console.log(validateSignupForm(credentials));
+		}
 	};
 
 	return (
@@ -61,8 +101,8 @@ export const Signup = () => {
 					title="Full Name"
 					placeholder="Enter your full name"
 					value={credentials.fullName}
+					error={errorState.fullName}
 					updateValue={handleInputChange}
-					error="Worng name"
 				/>
 
 				<Input
@@ -71,6 +111,7 @@ export const Signup = () => {
 					title="Email address"
 					placeholder="Enter your email"
 					value={credentials.email}
+					error={errorState.email}
 					updateValue={handleInputChange}
 				/>
 
@@ -80,6 +121,7 @@ export const Signup = () => {
 						type={showPassword ? "text" : "password"}
 						title="Password"
 						value={credentials.password}
+						error={errorState.password}
 						placeholder="Enter your password"
 						updateValue={handleInputChange}
 					/>
@@ -98,6 +140,7 @@ export const Signup = () => {
 					type="password"
 					title="Confirm Password"
 					value={credentials.confirmPassword}
+					error={errorState.confirmPassword}
 					placeholder="Re-enter your password"
 					updateValue={handleInputChange}
 				/>
