@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useCart, useProduct } from "../../context";
+import { SEARCH } from "../../reducer";
 import "./Navbar.css";
 
 export const Navbar = () => {
@@ -47,7 +48,7 @@ export const Navbar = () => {
 							placeholder="search..."
 							className="search-input border w-100 py-1 pl-6 pr-2 text-base rounded-sm"
 							onChange={(e) =>
-								productDispatch({ type: "SEARCH", payload: e.target.value })
+								productDispatch({ type: SEARCH, payload: e.target.value })
 							}
 						/>
 					</span>

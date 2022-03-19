@@ -1,7 +1,8 @@
 import React from "react";
+import { useCart } from "../../context";
+import { ADD_TO_CART } from "../../reducer";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
-import { useCart } from "../../context";
 
 export const ProductCard = ({ product }) => {
 	const { cartDispatch } = useCart();
@@ -53,7 +54,7 @@ export const ProductCard = ({ product }) => {
 				disabled={!inStock}
 				onClick={() =>
 					cartDispatch({
-						type: "ADD_TO_CART",
+						type: ADD_TO_CART,
 						payload: product,
 					})
 				}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useProduct } from "../../context";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { FETCH_PRODUCTS } from "../../reducer";
 import {
 	Filter,
 	SortFilter,
@@ -26,7 +27,7 @@ export const Products = () => {
 				const {
 					data: { products },
 				} = await axios.get("/api/products");
-				productDispatch({ type: "FETCH_PRODUCTS", payload: products });
+				productDispatch({ type: FETCH_PRODUCTS, payload: products });
 			} catch (error) {
 				setError("No products to show.");
 			}

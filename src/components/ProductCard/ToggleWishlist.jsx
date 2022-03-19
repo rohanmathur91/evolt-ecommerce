@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../../context";
+import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../../reducer";
 
 export const ToggleWishlist = ({ product }) => {
 	const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
@@ -7,14 +8,14 @@ export const ToggleWishlist = ({ product }) => {
 
 	const handleAddToWhishlist = () => {
 		cartDispatch({
-			type: "ADD_TO_WISHLIST",
+			type: ADD_TO_WISHLIST,
 			payload: product,
 		});
 	};
 
 	const handleRemoveFromWishlist = () => {
 		cartDispatch({
-			type: "REMOVE_FROM_WISHLIST",
+			type: REMOVE_FROM_WISHLIST,
 			payload: product.id,
 		});
 	};

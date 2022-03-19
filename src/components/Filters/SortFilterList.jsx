@@ -1,5 +1,6 @@
 import React from "react";
 import { useProduct } from "../../context";
+import { SORT } from "../../reducer";
 
 const sortFilters = [
 	{ id: "latest", filter: "Latest", sortProduct: "SORT_BY_LATEST" },
@@ -34,7 +35,7 @@ export const SortFilterList = () => {
 								className="cursor-pointer mr-2"
 								checked={sortBy === sortProduct}
 								onChange={() => {
-									productDispatch({ type: "SORT", payload: sortProduct });
+									productDispatch({ type: SORT, payload: sortProduct });
 								}}
 							/>
 							{filter}
