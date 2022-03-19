@@ -5,13 +5,13 @@ import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
 export const Signup = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
 		fullName: "",
 		email: "",
 		password: "",
 		confirmPassword: "",
 	});
-	const [showPassword, setShowPassword] = useState(false);
 
 	useScrollToTop();
 	useDocumentTitle("Signup");

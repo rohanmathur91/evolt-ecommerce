@@ -6,11 +6,11 @@ import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
 export const Login = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
 	});
-	const [showPassword, setShowPassword] = useState(false);
 
 	useScrollToTop();
 	useDocumentTitle("Login");
