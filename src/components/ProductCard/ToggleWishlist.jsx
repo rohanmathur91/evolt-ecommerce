@@ -4,7 +4,7 @@ import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../../reducer";
 
 export const ToggleWishlist = ({ product }) => {
 	const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
-	const isProductInWishlist = checkProductInWishlist(product.id, wishlist);
+	const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
 	const handleAddToWhishlist = () => {
 		cartDispatch({
