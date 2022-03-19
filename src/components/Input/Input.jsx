@@ -5,11 +5,12 @@ export const Input = ({
 	id,
 	type,
 	title,
+	error,
 	value,
 	placeholder,
 	updateValue,
-	error,
 	showPassword,
+	handleOnFocus,
 }) => {
 	return (
 		<div className="flex-column mb-3">
@@ -20,6 +21,7 @@ export const Input = ({
 				type={type}
 				value={value}
 				placeholder={placeholder}
+				onFocus={handleOnFocus}
 				onChange={(event) => updateValue(event, id)}
 				className="mt-1 py-1 px-2 text-base border rounded-sm"
 			/>
@@ -38,9 +40,10 @@ Input.defaultProps = {
 	id: "",
 	type: "",
 	title: "",
+	error: "",
 	value: "",
 	placeholder: "",
-	updateValue: () => {},
-	error: "",
 	showPassword: "",
+	updateValue: () => {},
+	handleOnFocus: () => {},
 };
