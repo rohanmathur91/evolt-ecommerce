@@ -48,7 +48,7 @@ export const ProductHorizontalCard = ({ product }) => {
 								quantity === 1 ? "disable" : ""
 							} quantity-btn flex-row flex-center rounded-full mr-2`}
 						>
-							<span class="material-icons-outlined">remove</span>
+							<span className="material-icons-outlined">remove</span>
 						</button>
 						<span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
 							{quantity}
