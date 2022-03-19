@@ -1,5 +1,11 @@
 import React from "react";
 import { useCart } from "../../context";
+import {
+	INCREASE_QUANTITY,
+	DECREASE_QUANTITY,
+	ADD_TO_WISHLIST,
+	REMOVE_FROM_CART,
+} from "../../reducer";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
@@ -40,7 +46,7 @@ export const ProductHorizontalCard = ({ product }) => {
 							disabled={quantity === 1}
 							onClick={() =>
 								cartDispatch({
-									type: "DECREASE_QUANTITY",
+									type: DECREASE_QUANTITY,
 									payload: id,
 								})
 							}
@@ -56,7 +62,7 @@ export const ProductHorizontalCard = ({ product }) => {
 						<button
 							onClick={() =>
 								cartDispatch({
-									type: "INCREASE_QUANTITY",
+									type: INCREASE_QUANTITY,
 									payload: id,
 								})
 							}
@@ -70,7 +76,7 @@ export const ProductHorizontalCard = ({ product }) => {
 					<button
 						onClick={() =>
 							cartDispatch({
-								type: "ADD_TO_WISHLIST",
+								type: ADD_TO_WISHLIST,
 								payload: product,
 							})
 						}
@@ -80,7 +86,7 @@ export const ProductHorizontalCard = ({ product }) => {
 					</button>
 					<button
 						onClick={() =>
-							cartDispatch({ type: "REMOVE_FROM_CART", payload: id })
+							cartDispatch({ type: REMOVE_FROM_CART, payload: id })
 						}
 						className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
 					>
