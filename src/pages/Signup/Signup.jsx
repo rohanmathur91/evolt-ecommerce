@@ -2,6 +2,7 @@ import React, { useState, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { signupErrorReducer, signUpErrorInitialState } from "../../reducer";
+import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
@@ -13,64 +14,13 @@ export const Signup = () => {
 		password: "",
 		confirmPassword: "",
 	});
-
 	const [errorState, errorDispatch] = useReducer(
 		signupErrorReducer,
 		signUpErrorInitialState
 	);
 
-	console.log(errorState);
 	useScrollToTop();
 	useDocumentTitle("Signup");
-
-	const validateSignupForm = ({
-		email,
-		fullName,
-		password,
-		confirmPassword,
-	}) => {
-		const isFullNameValid =
-			fullName.length >= 4 && /^[a-zA-Z]+$/.test(fullName);
-		const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
-		const isPasswordValid =
-			password !== "" &&
-			/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
-		const isConfirmPassword =
-			confirmPassword !== "" && confirmPassword === isPasswordValid;
-
-		if (!isFullNameValid) {
-			errorDispatch({
-				type: "SET_SIGNUP_FULLNAME_ERROR",
-				payload: "Please enter valid name",
-			});
-		}
-
-		if (!isEmailValid) {
-			errorDispatch({
-				type: "SET_SIGNUP_EMAIL_ERROR",
-				payload: "Please enter valid email",
-			});
-		}
-
-		if (!isPasswordValid) {
-			errorDispatch({
-				type: "SET_SIGNUP_PASSWORD_ERROR",
-				payload:
-					"Password should contain atleast 8 characters,one letter and one number",
-			});
-		}
-
-		if (!isConfirmPassword) {
-			errorDispatch({
-				type: "SET_SIGNUP_CONFIRM_PASSWORD_ERROR",
-				payload: "Password does not match",
-			});
-		}
-
-		return (
-			isFullNameValid && isEmailValid && isPasswordValid && isConfirmPassword
-		);
-	};
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -81,10 +31,9 @@ export const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		if (validateSignupForm(credentials)) {
-			// make a call to backend
-			console.log(validateSignupForm(credentials));
+		if (validateSignupForm(errorDispatch, credentials)) {
 		}
+		console.log(validateSignupForm(errorDispatch, credentials));
 	};
 
 	return (

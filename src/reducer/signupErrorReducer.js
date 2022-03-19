@@ -1,3 +1,10 @@
+import {
+	SET_SIGNUP_EMAIL_ERROR,
+	SET_SIGNUP_FULLNAME_ERROR,
+	SET_SIGNUP_PASSWORD_ERROR,
+	SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+} from "./index";
+
 export const signUpErrorInitialState = {
 	email: "",
 	fullName: "",
@@ -7,15 +14,15 @@ export const signUpErrorInitialState = {
 
 export const signupErrorReducer = (errorState, { type, payload }) => {
 	switch (type) {
-		case "SET_SIGNUP_EMAIL_ERROR":
+		case SET_SIGNUP_EMAIL_ERROR:
 			return { ...errorState, email: payload };
-		case "SET_SIGNUP_FULLNAME_ERROR":
+		case SET_SIGNUP_FULLNAME_ERROR:
 			return { ...errorState, fullName: payload };
 
-		case "SET_SIGNUP_PASSWORD_ERROR":
+		case SET_SIGNUP_PASSWORD_ERROR:
 			return { ...errorState, password: payload };
 
-		case "SET_SIGNUP_CONFIRM_PASSWORD_ERROR":
+		case SET_SIGNUP_CONFIRM_PASSWORD_ERROR:
 			return { ...errorState, confirmPassword: payload };
 
 		default:
