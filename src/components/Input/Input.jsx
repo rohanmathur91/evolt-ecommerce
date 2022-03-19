@@ -9,7 +9,6 @@ export const Input = ({
 	value,
 	placeholder,
 	updateValue,
-	showPassword,
 	handleOnFocus,
 }) => {
 	return (
@@ -43,7 +42,6 @@ Input.defaultProps = {
 	error: "",
 	value: "",
 	placeholder: "",
-	showPassword: "",
 	updateValue: () => {},
 	handleOnFocus: () => {},
 };

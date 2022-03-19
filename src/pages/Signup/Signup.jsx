@@ -1,7 +1,15 @@
 import React, { useState, useReducer } from "react";
 import { Link } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
-import { signupErrorReducer, signUpErrorInitialState } from "../../reducer";
+import {
+	signupErrorReducer,
+	signUpErrorInitialState,
+	CLEAR_SIGNUP_FORM,
+	SET_SIGNUP_EMAIL_ERROR,
+	SET_SIGNUP_FULLNAME_ERROR,
+	SET_SIGNUP_PASSWORD_ERROR,
+	SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+} from "../../reducer";
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
@@ -31,9 +39,8 @@ export const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		if (validateSignupForm(errorDispatch, credentials)) {
-		}
-		console.log(validateSignupForm(errorDispatch, credentials));
+		const isValidForm = validateSignupForm(errorDispatch, credentials);
+		isValidForm && errorDispatch({ type: CLEAR_SIGNUP_FORM });
 	};
 
 	return (
@@ -52,6 +59,9 @@ export const Signup = () => {
 					value={credentials.fullName}
 					error={errorState.fullName}
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({ type: SET_SIGNUP_FULLNAME_ERROR, payload: "" })
+					}
 				/>
 
 				<Input
@@ -62,6 +72,9 @@ export const Signup = () => {
 					value={credentials.email}
 					error={errorState.email}
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({ type: SET_SIGNUP_EMAIL_ERROR, payload: "" })
+					}
 				/>
 
 				<div className="relative">
@@ -73,6 +86,9 @@ export const Signup = () => {
 						error={errorState.password}
 						placeholder="Enter your password"
 						updateValue={handleInputChange}
+						handleOnFocus={() =>
+							errorDispatch({ type: SET_SIGNUP_PASSWORD_ERROR, payload: "" })
+						}
 					/>
 					{
 						<span
@@ -92,6 +108,12 @@ export const Signup = () => {
 					error={errorState.confirmPassword}
 					placeholder="Re-enter your password"
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({
+							type: SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+							payload: "",
+						})
+					}
 				/>
 
 				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">

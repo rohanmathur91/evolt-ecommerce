@@ -9,7 +9,7 @@ export const validateSignupForm = (
 	errorDispatch,
 	{ email, fullName, password, confirmPassword }
 ) => {
-	const isFullNameValid = fullName.length >= 2 && /^[a-zA-Z]*$/.test(fullName);
+	const isFullNameValid = fullName.length >= 2 && /^[a-zA-Z ]*$/.test(fullName);
 	const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
 	const isPasswordValid =
 		password !== "" && /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
