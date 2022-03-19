@@ -7,14 +7,36 @@ import "../../components/Input/Form.css";
 export const Signup = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
-		fullName: "",
 		email: "",
+		fullName: "",
 		password: "",
 		confirmPassword: "",
 	});
 
 	useScrollToTop();
 	useDocumentTitle("Signup");
+
+	const validateSignupForm = ({
+		email,
+		fullName,
+		password,
+		confirmPassword,
+	}) => {
+		const error = {
+			fullName: "",
+			email: "Please enter valid email",
+			password: "",
+			confirmPassword: "",
+		};
+
+		const onlyAlphabets = /^[a-zA-Z]+$/;
+		const isFullNameValid =
+			fullName.length >= 4 && onlyAlphabets.test(fullName);
+		const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+
+		if (!isFullNameValid) error.fullName = "Please enter valid name";
+		if (!isEmailValid) error.fullName = "Please enter valid email";
+	};
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -42,6 +64,7 @@ export const Signup = () => {
 					placeholder="Enter your full name"
 					value={credentials.fullName}
 					updateValue={handleInputChange}
+					error="Worng name"
 				/>
 
 				<Input
