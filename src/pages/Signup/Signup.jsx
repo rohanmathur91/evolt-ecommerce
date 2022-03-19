@@ -131,8 +131,17 @@ export const Signup = () => {
 					Signup
 				</button>
 
-				<div className="text-center mb-2">
-					<Link to="/login">Already a user?</Link>
+				<div className="text-sm mb-2 flex-row flex-center">
+					Already a user?
+					<Link
+						to="/login"
+						className="font-semibold text-sm flex-row flex-center ml-1"
+					>
+						Login
+						<span className="material-icons-outlined redirect-icon">
+							arrow_right
+						</span>
+					</Link>
 				</div>
 			</form>
 		</div>

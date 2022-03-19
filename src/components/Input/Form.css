@@ -19,3 +19,12 @@
 	right: 1rem;
 	user-select: none;
 }
+
+.login-error-msg {
+	color: var(--red);
+}
+
+.material-icons-outlined.redirect-icon {
+	font-size: 2.7rem;
+	margin-left: -6px;
+}

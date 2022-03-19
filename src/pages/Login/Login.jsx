@@ -6,6 +6,7 @@ import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
 export const Login = () => {
+	const [error, setError] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
 		email: "",
@@ -31,9 +32,10 @@ export const Login = () => {
 				data: { foundUser, encodedToken },
 			} = await axios.post("/api/auth/login", credentials);
 			localStorage.setItem("token", encodedToken);
+			throw Error("");
 			navigate("/");
 		} catch (error) {
-			console.log(error);
+			setError("Email or password is incorrect.");
 		}
 	};
 
@@ -88,10 +90,23 @@ export const Login = () => {
 					Login
 				</button>
 
-				<div className="mb-2">
-					<Link to="/signup" className="flex-row flex-center">
-						Create New Account{" "}
-						<span className="material-icons-outlined ml-1">east</span>
+				{error && (
+					<div className="mb-2 login-error-msg flex-row items-center">
+						<span class="material-icons-outlined mr-1">error_outline</span>
+						<p>{error}</p>
+					</div>
+				)}
+
+				<div className="text-sm mb-2 flex-row flex-center">
+					Not a user?
+					<Link
+						to="/signup"
+						className="font-semibold text-sm flex-row flex-center ml-1"
+					>
+						Signup
+						<span className="material-icons-outlined redirect-icon">
+							arrow_right
+						</span>
 					</Link>
 				</div>
 			</form>

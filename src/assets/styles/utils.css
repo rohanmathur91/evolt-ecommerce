@@ -1,4 +1,8 @@
 /* text */
+.text-sm {
+	font-size: 1.4rem;
+}
+
 .text-primary {
 	color: var(--primary-color);
 }
