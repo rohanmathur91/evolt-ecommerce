@@ -1,5 +1,6 @@
 /**
  * Filter the products based on the applied filter
+ *
  * @param  {array} products
  * @param  {object} filter object
  * @returns {array} filtered products

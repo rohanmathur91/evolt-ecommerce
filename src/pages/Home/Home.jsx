@@ -6,7 +6,7 @@ import "./Home.css";
 
 export const Home = () => {
 	useScrollToTop();
-	useDocumentTitle("Evolt | Home");
+	useDocumentTitle("Home");
 
 	return (
 		<div>

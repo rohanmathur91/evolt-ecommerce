@@ -8,7 +8,7 @@ export const Wishlist = () => {
 	const { wishlist } = useCart();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Wishlist");
+	useDocumentTitle("Wishlist");
 
 	return (
 		<div>
@@ -16,7 +16,7 @@ export const Wishlist = () => {
 			{wishlist.length ? (
 				<div className="products w-100 p-1 mt-2 mb-6">
 					{wishlist.map((product) => (
-						<ProductCard key={product.id} product={product} />
+						<ProductCard key={product._id} product={product} />
 					))}
 				</div>
 			) : (

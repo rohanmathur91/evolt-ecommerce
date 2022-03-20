@@ -1,6 +1,12 @@
 import React from "react";
 import { Checkbox } from "./Checkbox";
 import { useProduct } from "../../context";
+import {
+	FILTER_BY_PRICE,
+	FILTER_BY_BRAND,
+	FILTER_BY_TYPE,
+	FILTER_BY_IN_STOCK_ONLY,
+} from "../../reducer";
 import "./Filter.css";
 
 export const Filter = () => {
@@ -20,7 +26,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-stock"
 							value={inStockOnly}
-							actionType="FILTER_BY_IN_STOCK_ONLY"
+							actionType={FILTER_BY_IN_STOCK_ONLY}
 							title="In stock only"
 						/>
 					</li>
@@ -37,7 +43,7 @@ export const Filter = () => {
 							className="cursor-pointer"
 							onChange={(e) =>
 								productDispatch({
-									type: "FILTER_BY_PRICE",
+									type: FILTER_BY_PRICE,
 									payload: Number(e.target.value),
 								})
 							}
@@ -51,7 +57,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-bose"
 							value={brands.bose}
-							actionType="FILTER_BY_BRAND"
+							actionType={FILTER_BY_BRAND}
 							payload="bose"
 							title="Bose"
 						/>
@@ -60,7 +66,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-boat"
 							value={brands.boat}
-							actionType="FILTER_BY_BRAND"
+							actionType={FILTER_BY_BRAND}
 							payload="boat"
 							title="Boat"
 						/>
@@ -69,7 +75,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-marshall"
 							value={brands.marshall}
-							actionType="FILTER_BY_BRAND"
+							actionType={FILTER_BY_BRAND}
 							payload="marshall"
 							title="Marshall"
 						/>
@@ -78,7 +84,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-sony"
 							value={brands.sony}
-							actionType="FILTER_BY_BRAND"
+							actionType={FILTER_BY_BRAND}
 							payload="sony"
 							title="Sony"
 						/>
@@ -87,7 +93,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-jbl"
 							value={brands.jbl}
-							actionType="FILTER_BY_BRAND"
+							actionType={FILTER_BY_BRAND}
 							payload="jbl"
 							title="JBL"
 						/>
@@ -100,7 +106,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-wired"
 							value={types.wired}
-							actionType="FILTER_BY_TYPE"
+							actionType={FILTER_BY_TYPE}
 							payload="wired"
 							title="Wired"
 						/>
@@ -109,7 +115,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-wireless"
 							value={types.wireless}
-							actionType="FILTER_BY_TYPE"
+							actionType={FILTER_BY_TYPE}
 							payload="wireless"
 							title="Wireless"
 						/>
@@ -118,7 +124,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-speaker"
 							value={types.speaker}
-							actionType="FILTER_BY_TYPE"
+							actionType={FILTER_BY_TYPE}
 							payload="speaker"
 							title="Speaker"
 						/>
@@ -127,7 +133,7 @@ export const Filter = () => {
 						<Checkbox
 							id="filter-noise-cancelling"
 							value={types.noiseCancelling}
-							actionType="FILTER_BY_TYPE"
+							actionType={FILTER_BY_TYPE}
 							payload="noiseCancelling"
 							title="Noise Cancelling"
 						/>

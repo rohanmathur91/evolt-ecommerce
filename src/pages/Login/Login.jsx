@@ -1,19 +1,26 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useCart } from "../../context";
+import { UPDATE_USER_CART, UPDATE_USER_WISHLIST } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
 
 export const Login = () => {
+	const [error, setError] = useState("");
+	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
 	});
-	const [showPassword, setShowPassword] = useState(false);
+	const { updateUser } = useAuth();
+	const { cartDispatch } = useCart();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Login");
+	useDocumentTitle("Login");
+
+	const navigate = useNavigate();
 
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
@@ -24,6 +31,23 @@ export const Login = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
+		try {
+			const {
+				data: { foundUser, encodedToken },
+			} = await axios.post("/api/auth/login", credentials);
+
+			updateUser(foundUser);
+			cartDispatch({ type: UPDATE_USER_CART, payload: foundUser.cart });
+			cartDispatch({
+				type: UPDATE_USER_WISHLIST,
+				payload: foundUser.wishlist,
+			});
+
+			localStorage.setItem("token", encodedToken);
+			navigate("/");
+		} catch (error) {
+			setError("Email or password is incorrect");
+		}
 	};
 
 	return (
@@ -61,14 +85,39 @@ export const Login = () => {
 					}
 				</div>
 
+				<button
+					onClick={() =>
+						setCredentials({
+							email: "adarshbalika@gmail.com",
+							password: "adarshbalika",
+						})
+					}
+					className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"
+				>
+					Login using dummy credentials
+				</button>
+
 				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
 					Login
 				</button>
 
-				<div className="mb-2">
-					<Link to="/signup" className="flex-row flex-center">
-						Create New Account{" "}
-						<span className="material-icons-outlined ml-1">east</span>
+				{error && (
+					<div className="mb-2 login-error-msg flex-row items-center">
+						<span className="material-icons-outlined mr-1">error_outline</span>
+						<p>{error}</p>
+					</div>
+				)}
+
+				<div className="text-sm mb-2 flex-row flex-center">
+					Not a user?
+					<Link
+						to="/signup"
+						className="font-semibold text-sm flex-row flex-center ml-1"
+					>
+						Signup
+						<span className="material-icons-outlined redirect-icon">
+							arrow_right
+						</span>
 					</Link>
 				</div>
 			</form>

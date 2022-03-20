@@ -1,11 +1,17 @@
 import React from "react";
 import { useCart } from "../../context";
+import {
+	INCREASE_QUANTITY,
+	DECREASE_QUANTITY,
+	ADD_TO_WISHLIST,
+	REMOVE_FROM_CART,
+} from "../../reducer";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
 	const { cartDispatch } = useCart();
 	const {
-		id,
+		_id,
 		alt,
 		image,
 		price,
@@ -40,15 +46,15 @@ export const ProductHorizontalCard = ({ product }) => {
 							disabled={quantity === 1}
 							onClick={() =>
 								cartDispatch({
-									type: "DECREASE_QUANTITY",
-									payload: id,
+									type: DECREASE_QUANTITY,
+									payload: _id,
 								})
 							}
 							className={` ${
 								quantity === 1 ? "disable" : ""
 							} quantity-btn flex-row flex-center rounded-full mr-2`}
 						>
-							<span class="material-icons-outlined">remove</span>
+							<span className="material-icons-outlined">remove</span>
 						</button>
 						<span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
 							{quantity}
@@ -56,8 +62,8 @@ export const ProductHorizontalCard = ({ product }) => {
 						<button
 							onClick={() =>
 								cartDispatch({
-									type: "INCREASE_QUANTITY",
-									payload: id,
+									type: INCREASE_QUANTITY,
+									payload: _id,
 								})
 							}
 							className="quantity-btn flex-row flex-center rounded-full"
@@ -70,7 +76,7 @@ export const ProductHorizontalCard = ({ product }) => {
 					<button
 						onClick={() =>
 							cartDispatch({
-								type: "ADD_TO_WISHLIST",
+								type: ADD_TO_WISHLIST,
 								payload: product,
 							})
 						}
@@ -80,7 +86,7 @@ export const ProductHorizontalCard = ({ product }) => {
 					</button>
 					<button
 						onClick={() =>
-							cartDispatch({ type: "REMOVE_FROM_CART", payload: id })
+							cartDispatch({ type: REMOVE_FROM_CART, payload: _id })
 						}
 						className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
 					>
@@ -94,7 +100,7 @@ export const ProductHorizontalCard = ({ product }) => {
 
 ProductHorizontalCard.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

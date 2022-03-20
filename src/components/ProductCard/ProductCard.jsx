@@ -1,13 +1,14 @@
 import React from "react";
+import { useCart } from "../../context";
+import { ADD_TO_CART } from "../../reducer";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
-import { useCart } from "../../context";
 
 export const ProductCard = ({ product }) => {
 	const { cartDispatch } = useCart();
 	const currentYear = new Date().getFullYear();
 	const {
-		id,
+		_id,
 		alt,
 		image,
 		price,
@@ -19,7 +20,7 @@ export const ProductCard = ({ product }) => {
 	} = product;
 	return (
 		<div
-			key={id}
+			key={_id}
 			className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
 		>
 			{(!inStock || addedInYear === currentYear) && (
@@ -53,7 +54,7 @@ export const ProductCard = ({ product }) => {
 				disabled={!inStock}
 				onClick={() =>
 					cartDispatch({
-						type: "ADD_TO_CART",
+						type: ADD_TO_CART,
 						payload: product,
 					})
 				}
@@ -69,7 +70,7 @@ export const ProductCard = ({ product }) => {
 
 ProductCard.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

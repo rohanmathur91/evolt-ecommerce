@@ -1,5 +1,6 @@
 /**
  * Gives total cart price
+ *
  * @param  {array} cart
  * @returns {number} cart-total
  */

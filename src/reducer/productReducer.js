@@ -1,5 +1,15 @@
 import { createFilterObject } from "../utils";
 import { brands, types } from "../staticData/data";
+import {
+	SORT,
+	SEARCH,
+	CLEAR_FILTER,
+	FETCH_PRODUCTS,
+	FILTER_BY_PRICE,
+	FILTER_BY_BRAND,
+	FILTER_BY_TYPE,
+	FILTER_BY_IN_STOCK_ONLY,
+} from "./index";
 
 export const productInitialState = {
 	products: [],
@@ -20,19 +30,19 @@ export const productInitialState = {
 
 export const productReducer = (state, { type, payload }) => {
 	switch (type) {
-		case "FETCH_PRODUCTS":
+		case FETCH_PRODUCTS:
 			return { ...state, products: payload };
 
-		case "SORT":
+		case SORT:
 			return {
 				...state,
 				productFilter: { ...state.productFilter, sortBy: payload },
 			};
 
-		case "SEARCH":
+		case SEARCH:
 			return { ...state, searchQuery: payload };
 
-		case "FILTER_BY_PRICE":
+		case FILTER_BY_PRICE:
 			return {
 				...state,
 				productFilter: {
@@ -41,7 +51,7 @@ export const productReducer = (state, { type, payload }) => {
 				},
 			};
 
-		case "FILTER_BY_BRAND":
+		case FILTER_BY_BRAND:
 			return {
 				...state,
 				productFilter: {
@@ -53,7 +63,7 @@ export const productReducer = (state, { type, payload }) => {
 				},
 			};
 
-		case "FILTER_BY_TYPE":
+		case FILTER_BY_TYPE:
 			return {
 				...state,
 				productFilter: {
@@ -64,7 +74,7 @@ export const productReducer = (state, { type, payload }) => {
 					},
 				},
 			};
-		case "FILTER_BY_IN_STOCK_ONLY":
+		case FILTER_BY_IN_STOCK_ONLY:
 			return {
 				...state,
 				productFilter: {
@@ -73,7 +83,7 @@ export const productReducer = (state, { type, payload }) => {
 				},
 			};
 
-		case "CLEAR_FILTER":
+		case CLEAR_FILTER:
 			return {
 				...state,
 				productFilter: {

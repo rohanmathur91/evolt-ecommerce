@@ -1,27 +1,28 @@
 import React from "react";
 import { useCart } from "../../context";
+import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../../reducer";
 
 export const ToggleWishlist = ({ product }) => {
 	const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
-	const isProductInWishlist = checkProductInWishlist(product.id, wishlist);
+	const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
 	const handleAddToWhishlist = () => {
 		cartDispatch({
-			type: "ADD_TO_WISHLIST",
+			type: ADD_TO_WISHLIST,
 			payload: product,
 		});
 	};
 
 	const handleRemoveFromWishlist = () => {
 		cartDispatch({
-			type: "REMOVE_FROM_WISHLIST",
-			payload: product.id,
+			type: REMOVE_FROM_WISHLIST,
+			payload: product._id,
 		});
 	};
 
 	return (
 		<button
-			key={product.id}
+			key={product._id}
 			onClick={
 				!isProductInWishlist ? handleAddToWhishlist : handleRemoveFromWishlist
 			}
@@ -40,7 +41,7 @@ export const ToggleWishlist = ({ product }) => {
 
 ToggleWishlist.defaultProps = {
 	product: {
-		id: "",
+		_id: "",
 		alt: "",
 		image: "",
 		price: 0,

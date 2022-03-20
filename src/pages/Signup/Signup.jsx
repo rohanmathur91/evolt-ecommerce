@@ -1,21 +1,42 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useReducer } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { useAuth, useCart } from "../../context";
+import {
+	signupErrorReducer,
+	signUpErrorInitialState,
+	CLEAR_SIGNUP_FORM,
+	SET_SIGNUP_EMAIL_ERROR,
+	SET_SIGNUP_FULLNAME_ERROR,
+	SET_SIGNUP_PASSWORD_ERROR,
+	SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+	UPDATE_USER_CART,
+	UPDATE_USER_WISHLIST,
+} from "../../reducer";
+import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
+import axios from "axios";
 
 export const Signup = () => {
+	const [showPassword, setShowPassword] = useState(false);
 	const [credentials, setCredentials] = useState({
-		fullName: "",
 		email: "",
+		fullName: "",
 		password: "",
 		confirmPassword: "",
 	});
-	const [showPassword, setShowPassword] = useState(false);
+	const [errorState, errorDispatch] = useReducer(
+		signupErrorReducer,
+		signUpErrorInitialState
+	);
+	const { updateUser } = useAuth();
+	const { cartDispatch } = useCart();
 
 	useScrollToTop();
-	useDocumentTitle("Evolt | Signup");
+	useDocumentTitle("Signup");
 
+	const navigate = useNavigate();
 	const handleInputChange = (event, field) => {
 		setCredentials((prevCredentials) => ({
 			...prevCredentials,
@@ -25,6 +46,27 @@ export const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
+		const isValidForm = validateSignupForm(errorDispatch, credentials);
+		if (isValidForm) {
+			try {
+				const {
+					data: { createdUser, encodedToken },
+				} = await axios.post("/api/auth/signup", credentials);
+
+				updateUser(createdUser);
+				cartDispatch({ type: UPDATE_USER_CART, payload: createdUser.cart });
+				cartDispatch({
+					type: UPDATE_USER_WISHLIST,
+					payload: createdUser.wishlist,
+				});
+
+				localStorage.setItem("token", encodedToken);
+				errorDispatch({ type: CLEAR_SIGNUP_FORM });
+				navigate("/");
+			} catch (error) {
+				console.log("Something is wrong, please try later.");
+			}
+		}
 	};
 
 	return (
@@ -41,7 +83,11 @@ export const Signup = () => {
 					title="Full Name"
 					placeholder="Enter your full name"
 					value={credentials.fullName}
+					error={errorState.fullName}
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({ type: SET_SIGNUP_FULLNAME_ERROR, payload: "" })
+					}
 				/>
 
 				<Input
@@ -50,7 +96,11 @@ export const Signup = () => {
 					title="Email address"
 					placeholder="Enter your email"
 					value={credentials.email}
+					error={errorState.email}
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({ type: SET_SIGNUP_EMAIL_ERROR, payload: "" })
+					}
 				/>
 
 				<div className="relative">
@@ -59,8 +109,12 @@ export const Signup = () => {
 						type={showPassword ? "text" : "password"}
 						title="Password"
 						value={credentials.password}
+						error={errorState.password}
 						placeholder="Enter your password"
 						updateValue={handleInputChange}
+						handleOnFocus={() =>
+							errorDispatch({ type: SET_SIGNUP_PASSWORD_ERROR, payload: "" })
+						}
 					/>
 					{
 						<span
@@ -77,16 +131,32 @@ export const Signup = () => {
 					type="password"
 					title="Confirm Password"
 					value={credentials.confirmPassword}
+					error={errorState.confirmPassword}
 					placeholder="Re-enter your password"
 					updateValue={handleInputChange}
+					handleOnFocus={() =>
+						errorDispatch({
+							type: SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+							payload: "",
+						})
+					}
 				/>
 
 				<button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
 					Signup
 				</button>
 
-				<div className="text-center mb-2">
-					<Link to="/login">Already a user?</Link>
+				<div className="text-sm mb-2 flex-row flex-center">
+					Already a user?
+					<Link
+						to="/login"
+						className="font-semibold text-sm flex-row flex-center ml-1"
+					>
+						Login
+						<span className="material-icons-outlined redirect-icon">
+							arrow_right
+						</span>
+					</Link>
 				</div>
 			</form>
 		</div>
