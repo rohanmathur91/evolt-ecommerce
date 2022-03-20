@@ -5,6 +5,7 @@
  * @param  {string} searchQuery
  * @returns {array} searched products
  */
+
 export const getSearchProducts = (products, searchQuery) => {
   return products.filter(({ productName }) =>
     searchQuery

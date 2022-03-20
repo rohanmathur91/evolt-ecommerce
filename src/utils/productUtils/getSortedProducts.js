@@ -5,6 +5,7 @@
  * @param  {object} filter object
  * @returns {array} sorted array
  */
+
 export const getSortedProducts = (products, { sortBy }) => {
   switch (sortBy) {
     case "SORT_BY_LATEST":

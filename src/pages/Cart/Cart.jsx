@@ -10,6 +10,7 @@ export const Cart = () => {
 
   useScrollToTop();
   useDocumentTitle("Cart");
+
   return (
     <div>
       {cartProducts.length > 0 ? (

@@ -5,6 +5,7 @@
  * @param  {array} array
  * @returns {object} filter object of boolean value
  */
+
 export const createFilterObject = (array) => {
   return array.reduce(
     (initialObject, key) => ({ ...initialObject, [key]: false }),

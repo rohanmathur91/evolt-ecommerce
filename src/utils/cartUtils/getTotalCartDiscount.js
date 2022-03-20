@@ -6,6 +6,7 @@
  * @param  {number} totalPrice
  * @returns {number} discount
  */
+
 export const getTotalCartDiscount = (cart, totalPrice) => {
   return cart.length > 0
     ? (cart.reduce((total, { discount }) => total + discount, 0) /
