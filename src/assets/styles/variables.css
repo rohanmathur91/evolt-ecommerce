@@ -1,18 +1,18 @@
 :root {
-	--black: #171717;
-	--white: #ffffff;
-	--red: #ef4444;
-	--green: #388e3c;
-	--badge-background: #fee2e2;
-	--gray: #94969f;
-	--light-gray: #d8d8d8;
-	--dark-gray: #666666;
-	--primary-color: #302f34;
-	--primary-hover-color: #4a494e;
-	--white-hover-color: #e5e7eb;
-	--secondary-color: #9a9a9a;
-	--secondary-hover-color: #afafaf;
-	--background-color: #ffffff;
-	--navigation-shadow: rgba(0, 0, 0, 0.2);
-	--text-overlay-background: rgba(0, 0, 0, 0.08);
+  --black: #171717;
+  --white: #ffffff;
+  --red: #ef4444;
+  --green: #388e3c;
+  --badge-background: #fee2e2;
+  --gray: #94969f;
+  --light-gray: #d8d8d8;
+  --dark-gray: #666666;
+  --primary-color: #302f34;
+  --primary-hover-color: #4a494e;
+  --white-hover-color: #e5e7eb;
+  --secondary-color: #9a9a9a;
+  --secondary-hover-color: #afafaf;
+  --background-color: #ffffff;
+  --navigation-shadow: rgba(0, 0, 0, 0.2);
+  --text-overlay-background: rgba(0, 0, 0, 0.08);
 }

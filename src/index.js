@@ -9,16 +9,16 @@ import { makeServer } from "./server";
 makeServer();
 
 ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<AuthProvider>
-				<ProductProvider>
-					<CartProvider>
-						<App />
-					</CartProvider>
-				</ProductProvider>
-			</AuthProvider>
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById("root")
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <ProductProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProductProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
 );

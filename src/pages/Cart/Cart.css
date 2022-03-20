@@ -1,26 +1,26 @@
 .address {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .edit-btn {
-	width: 1.5rem;
-	height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .cart-container {
-	margin: auto;
-	max-width: 102.4rem;
+  margin: auto;
+  max-width: 102.4rem;
 }
 
 .cart-products {
-	width: 100%;
-	max-width: 65rem;
+  width: 100%;
+  max-width: 65rem;
 }
 
 .continue {
-	color: var(--blue);
+  color: var(--blue);
 }
 
 .continue:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }

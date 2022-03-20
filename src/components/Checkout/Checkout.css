@@ -1,6 +1,6 @@
 .cart-checkout {
-	position: sticky;
-	top: 10rem;
-	flex-grow: 1;
-	align-self: flex-start;
+  position: sticky;
+  top: 10rem;
+  flex-grow: 1;
+  align-self: flex-start;
 }

@@ -1,27 +1,27 @@
 .products {
-	display: grid;
-	align-items: start;
-	justify-items: center;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2px;
-	max-width: 80rem;
-	margin: 0rem auto 6rem auto;
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 80rem;
+  margin: 0rem auto 6rem auto;
 }
 
 .not-available {
-	width: 100%;
-	margin-top: 8rem;
-	text-align: center;
+  width: 100%;
+  margin-top: 8rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 64em) {
-	.products {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 48em) {
-	.mobile-filter-container {
-		display: flex;
-	}
+  .mobile-filter-container {
+    display: flex;
+  }
 }

@@ -1,8 +1,8 @@
 .validation-msg {
-	font-size: 1.6rem;
-	background-color: var(--white);
+  font-size: 1.6rem;
+  background-color: var(--white);
 }
 
 .validation-msg.error {
-	color: var(--red);
+  color: var(--red);
 }

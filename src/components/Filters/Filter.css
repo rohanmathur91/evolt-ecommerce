@@ -1,39 +1,39 @@
 .filters {
-	position: sticky;
-	top: 6.8rem;
-	left: 0;
-	height: calc(100vh - 7.4rem);
-	width: 28rem;
-	min-width: 28rem;
-	overflow: auto;
+  position: sticky;
+  top: 6.8rem;
+  left: 0;
+  height: calc(100vh - 7.4rem);
+  width: 28rem;
+  min-width: 28rem;
+  overflow: auto;
 }
 
 .filter-header {
-	border-top: 1px solid var(--light-gray);
+  border-top: 1px solid var(--light-gray);
 }
 
 .filter-title {
-	font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .filter-clear-btn {
-	color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .filter-clear-btn:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 input[type="range"] {
-	-webkit-appearance: auto;
-	height: 6px;
-	width: 16rem;
-	border-radius: 5px;
-	margin-top: 1rem;
+  -webkit-appearance: auto;
+  height: 6px;
+  width: 16rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 48em) {
-	.filters {
-		display: none;
-	}
+  .filters {
+    display: none;
+  }
 }

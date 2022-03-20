@@ -1,54 +1,54 @@
 .mobile-filter-wrapper {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100vw;
-	height: 100vh;
-	z-index: 10;
-	display: flex;
-	flex-direction: column;
-	background-color: var(--modal-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--modal-background);
 }
 
 .mobile-filter-container {
-	display: none;
+  display: none;
 }
 
 .filter-btn {
-	color: var(--white);
-	background-color: var(--primary-color);
+  color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .filter-btn:hover {
-	background-color: var(--primary-hover-color);
+  background-color: var(--primary-hover-color);
 }
 
 .sort-btn {
-	border-right: 0.5px solid var(--gray);
+  border-right: 0.5px solid var(--gray);
 }
 
 .mobile-filter {
-	width: 100%;
-	margin-top: auto;
-	background-color: var(--background-color);
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--background-color);
 }
 
 .mobile-filter-close span {
-	display: flex;
-	align-items: center;
-	font-size: 2.8rem;
-	color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  font-size: 2.8rem;
+  color: var(--primary-color);
 }
 
 .btn.mobile-clear-btn {
-	font-weight: 500;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 48em) {
-	.mobile-filter,
-	.mobile-filter-wrapper {
-		display: none;
-	}
+  .mobile-filter,
+  .mobile-filter-wrapper {
+    display: none;
+  }
 }

@@ -3,11 +3,11 @@
 @import "./assets/styles/variables.css";
 
 .app {
-	height: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 64em) {
-	html {
-		font-size: 58%;
-	}
+  html {
+    font-size: 58%;
+  }
 }

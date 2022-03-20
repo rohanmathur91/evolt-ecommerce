@@ -1,177 +1,177 @@
 .navigation {
-	padding: 1.5rem 4rem;
-	min-height: 10vh;
-	background-color: var(--background-color);
-	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+  padding: 1.5rem 4rem;
+  min-height: 10vh;
+  background-color: var(--background-color);
+  box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .menu {
-	display: none;
-	cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 
 .hide {
-	display: block;
+  display: block;
 }
 
 .menu .hamburger-menu {
-	font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 
 .brand-logo {
-	color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .navbar-cta:hover {
-	background-color: var(--light-gray);
+  background-color: var(--light-gray);
 }
 
 .navbar-options {
-	margin-top: 8px;
+  margin-top: 8px;
 }
 
 .navbar-options .login-btn:hover {
-	color: var(--primary-hover-color);
+  color: var(--primary-hover-color);
 }
 
 .navbar-options .badge {
-	position: absolute;
-	left: 1.6rem;
-	bottom: 1.6rem;
-	font-weight: normal;
+  position: absolute;
+  left: 1.6rem;
+  bottom: 1.6rem;
+  font-weight: normal;
 }
 
 .navbar-options .badge-icon {
-	font-size: 2.6rem;
+  font-size: 2.6rem;
 }
 
 .navbar-icon-title {
-	padding: 4px 0;
-	font-size: 1.2rem;
-	font-weight: bold;
+  padding: 4px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .search {
-	width: 40rem;
-	background-color: var(--background-color);
+  width: 40rem;
+  background-color: var(--background-color);
 }
 
 .search-icon {
-	top: 8px;
-	left: 1.5rem;
-	color: var(--gray);
+  top: 8px;
+  left: 1.5rem;
+  color: var(--gray);
 }
 
 .search-input {
-	color: inherit;
+  color: inherit;
 }
 
 .search-input:focus {
-	border: 0.5px solid var(--gray);
+  border: 0.5px solid var(--gray);
 }
 
 .profile-options {
-	display: none;
-	position: absolute;
-	width: 15rem;
-	top: 4.4rem;
-	left: -5.4rem;
-	background-color: var(--white);
-	border: 0.5px solid var(--light-gray);
-	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+  display: none;
+  position: absolute;
+  width: 15rem;
+  top: 4.4rem;
+  left: -5.4rem;
+  background-color: var(--white);
+  border: 0.5px solid var(--light-gray);
+  box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .profile-option {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .profile-icon:hover .profile-options {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-option-title {
-	font-size: 1.4rem;
-	font-weight: bold;
-	color: var(--primary-color);
-	border-bottom: 0.5px solid var(--light-gray);
-	padding-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  border-bottom: 0.5px solid var(--light-gray);
+  padding-bottom: 1rem;
 }
 
 .badge {
-	position: absolute;
-	left: 1.5rem;
-	bottom: 1rem;
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1rem;
 }
 
 .red-badge {
-	font-size: 1.2rem;
-	color: var(--white);
-	background-color: var(--red);
+  font-size: 1.2rem;
+  color: var(--white);
+  background-color: var(--red);
 }
 
 /* mobile navigation */
 .sidebar {
-	width: 0;
-	height: 100vh;
-	overflow: hidden;
-	background-color: var(--background-color);
-	box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+  width: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background-color);
+  box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
 .sidebar-header {
-	color: var(--white);
-	background-color: var(--primary-color);
+  color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .sidebar-close-btn span {
-	font-size: 3.5rem;
-	color: var(--white);
+  font-size: 3.5rem;
+  color: var(--white);
 }
 
 .sidebar-link {
-	padding: 1rem;
-	display: block;
-	border-radius: 4px;
-	margin-bottom: 4px;
-	font-size: 1.8rem;
+  padding: 1rem;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  font-size: 1.8rem;
 }
 
 .active-link,
 .sidebar-link:hover {
-	background-color: var(--light-gray);
+  background-color: var(--light-gray);
 }
 
 @media screen and (max-width: 64em) {
-	.menu {
-		display: block;
-	}
-	.profile-icon,
-	.navbar-icon-title,
-	.navbar-left-menu {
-		display: none;
-	}
+  .menu {
+    display: block;
+  }
+  .profile-icon,
+  .navbar-icon-title,
+  .navbar-left-menu {
+    display: none;
+  }
 
-	.sidebar.sidebar-mobile {
-		width: 30rem;
-		display: block;
-	}
+  .sidebar.sidebar-mobile {
+    width: 30rem;
+    display: block;
+  }
 }
 
 @media screen and (max-width: 48em) {
-	.navigation .search {
-		position: absolute;
-		top: 6.4rem;
-		left: 0;
-		width: 100%;
-	}
+  .navigation .search {
+    position: absolute;
+    top: 6.4rem;
+    left: 0;
+    width: 100%;
+  }
 
-	.search-icon {
-		top: 8px;
-	}
+  .search-icon {
+    top: 8px;
+  }
 
-	.search-input {
-		padding: 1rem 2rem 1rem 4.8rem;
-	}
+  .search-input {
+    padding: 1rem 2rem 1rem 4.8rem;
+  }
 }

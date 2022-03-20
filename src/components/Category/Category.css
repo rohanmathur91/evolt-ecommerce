@@ -1,32 +1,32 @@
 .category {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-	justify-items: center;
-	gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  justify-items: center;
+  gap: 1rem;
 }
 
 .category-header,
 .category-header-btn {
-	font-size: 1.8rem;
-	color: var(--primary-color);
+  font-size: 1.8rem;
+  color: var(--primary-color);
 }
 
 .category-item {
-	height: 100%;
-	max-width: 25rem;
-	border: 1px solid var(--light-gray);
+  height: 100%;
+  max-width: 25rem;
+  border: 1px solid var(--light-gray);
 }
 
 .category-item:hover {
-	box-shadow: 0px 0px 6px 0px var(--navigation-shadow);
+  box-shadow: 0px 0px 6px 0px var(--navigation-shadow);
 }
 
 .category-name {
-	margin-top: auto;
+  margin-top: auto;
 }
 
 @media screen and (max-width: 48em) {
-	.category {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  .category {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

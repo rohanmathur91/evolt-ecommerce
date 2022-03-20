@@ -1,8 +1,8 @@
 .footer {
-	color: var(--white);
-	background-color: var(--primary-color);
+  color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .social-icons:hover {
-	color: var(--gray);
+  color: var(--gray);
 }

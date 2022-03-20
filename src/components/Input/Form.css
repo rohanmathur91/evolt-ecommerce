@@ -1,30 +1,30 @@
 .login-form,
 .signup-form {
-	max-width: 40rem;
-	height: fit-content;
+  max-width: 40rem;
+  height: fit-content;
 }
 
 .forgot-password {
-	color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .logout {
-	width: 100%;
-	max-width: 50rem;
+  width: 100%;
+  max-width: 50rem;
 }
 
 .visibility-icon {
-	position: absolute;
-	top: 3.45rem;
-	right: 1rem;
-	user-select: none;
+  position: absolute;
+  top: 3.45rem;
+  right: 1rem;
+  user-select: none;
 }
 
 .login-error-msg {
-	color: var(--red);
+  color: var(--red);
 }
 
 .material-icons-outlined.redirect-icon {
-	font-size: 2.7rem;
-	margin-left: -6px;
+  font-size: 2.7rem;
+  margin-left: -6px;
 }

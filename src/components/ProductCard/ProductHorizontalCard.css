@@ -1,19 +1,19 @@
 .card-content {
-	width: 90%;
+  width: 90%;
 }
 
 .quantity {
-	width: 3rem;
-	height: 3rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .quantity-btn {
-	width: 2.5rem;
-	height: 2.5rem;
-	color: var(--white);
-	background-color: var(--primary-color);
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--white);
+  background-color: var(--primary-color);
 }
 
 .quantity-btn span {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }

@@ -6,5 +6,5 @@
  * @returns {boolean} product in wishlist
  */
 export const checkProductInWishlist = (productId, wishlist) => {
-	return wishlist.some(({ _id }) => _id === productId);
+  return wishlist.some(({ _id }) => _id === productId);
 };

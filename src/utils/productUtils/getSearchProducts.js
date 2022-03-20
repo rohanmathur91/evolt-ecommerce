@@ -6,9 +6,9 @@
  * @returns {array} searched products
  */
 export const getSearchProducts = (products, searchQuery) => {
-	return products.filter(({ productName }) =>
-		searchQuery
-			? productName.toLowerCase().includes(searchQuery.toLowerCase())
-			: true
-	);
+  return products.filter(({ productName }) =>
+    searchQuery
+      ? productName.toLowerCase().includes(searchQuery.toLowerCase())
+      : true
+  );
 };
