@@ -25,20 +25,6 @@ export const ToggleWishlist = ({ product }) => {
     }
   };
 
-  const handleAddToWhishlist = () => {
-    cartDispatch({
-      type: ADD_TO_WISHLIST,
-      payload: product,
-    });
-  };
-
-  const handleRemoveFromWishlist = () => {
-    cartDispatch({
-      type: REMOVE_FROM_WISHLIST,
-      payload: product._id,
-    });
-  };
-
   return (
     <button
       key={product._id}

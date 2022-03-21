@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../context";
-import { UPDATE_USER_CART, UPDATE_USER_WISHLIST } from "../../reducer";
+import { INITIALIZE_CART, INITIALIZE_WISHLIST } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
@@ -37,9 +37,9 @@ export const Login = () => {
       } = await axios.post("/api/auth/login", credentials);
 
       updateUser(foundUser);
-      cartDispatch({ type: UPDATE_USER_CART, payload: foundUser.cart });
+      cartDispatch({ type: INITIALIZE_CART, payload: foundUser.cart });
       cartDispatch({
-        type: UPDATE_USER_WISHLIST,
+        type: INITIALIZE_WISHLIST,
         payload: foundUser.wishlist,
       });
 

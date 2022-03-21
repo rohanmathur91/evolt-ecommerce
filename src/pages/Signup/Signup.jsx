@@ -10,8 +10,8 @@ import {
   SET_SIGNUP_FULLNAME_ERROR,
   SET_SIGNUP_PASSWORD_ERROR,
   SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
-  UPDATE_USER_CART,
-  UPDATE_USER_WISHLIST,
+  INITIALIZE_CART,
+  INITIALIZE_WISHLIST,
 } from "../../reducer";
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
@@ -54,9 +54,9 @@ export const Signup = () => {
         } = await axios.post("/api/auth/signup", credentials);
 
         updateUser(createdUser);
-        cartDispatch({ type: UPDATE_USER_CART, payload: createdUser.cart });
+        cartDispatch({ type: INITIALIZE_CART, payload: createdUser.cart });
         cartDispatch({
-          type: UPDATE_USER_WISHLIST,
+          type: INITIALIZE_WISHLIST,
           payload: createdUser.wishlist,
         });
 
