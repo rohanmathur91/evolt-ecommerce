@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../../context";
-import { ADD_TO_CART } from "../../reducer";
+import { addToCart } from "../../services";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
 
@@ -52,12 +52,7 @@ export const ProductCard = ({ product }) => {
       </div>
       <button
         disabled={!inStock}
-        onClick={() =>
-          cartDispatch({
-            type: ADD_TO_CART,
-            payload: product,
-          })
-        }
+        onClick={() => addToCart(product, cartDispatch)}
         className={`${
           !inStock ? "disable" : ""
         } p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}

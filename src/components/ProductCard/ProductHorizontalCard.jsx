@@ -1,11 +1,7 @@
 import React from "react";
 import { useCart } from "../../context";
-import {
-  INCREASE_QUANTITY,
-  DECREASE_QUANTITY,
-  ADD_TO_WISHLIST,
-  REMOVE_FROM_CART,
-} from "../../reducer";
+import { INCREASE_QUANTITY, DECREASE_QUANTITY } from "../../reducer";
+import { addToWishlist, removeFromCart } from "../../services";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
@@ -74,20 +70,13 @@ export const ProductHorizontalCard = ({ product }) => {
         </div>
         <div className="flex-row wrap">
           <button
-            onClick={() =>
-              cartDispatch({
-                type: ADD_TO_WISHLIST,
-                payload: product,
-              })
-            }
+            onClick={() => addToWishlist(product, cartDispatch)}
             className="btn btn-solid font-semibold items-end transition-2 mr-1 mb-1"
           >
             Move to wishlist
           </button>
           <button
-            onClick={() =>
-              cartDispatch({ type: REMOVE_FROM_CART, payload: _id })
-            }
+            onClick={() => removeFromCart(_id, cartDispatch)}
             className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
           >
             Remove from cart
