@@ -6,8 +6,9 @@ import {
   DECREASE_QUANTITY,
 } from "../reducer";
 
-const handleAddToCart = async (product, cartDispatch) => {
+const handleAddToCart = async (product, cartDispatch, setIsLoading) => {
   try {
+    setIsLoading(true);
     const updatedCart = await axios.post(
       "/api/user/cart",
       { product },
@@ -16,12 +17,12 @@ const handleAddToCart = async (product, cartDispatch) => {
       }
     );
 
-    console.log(updatedCart);
-
     cartDispatch({
       type: ADD_TO_CART,
       payload: product,
     });
+
+    setIsLoading(false);
   } catch (error) {
     console.log(error);
   }
