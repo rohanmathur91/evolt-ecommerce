@@ -1,34 +1,20 @@
 import React from "react";
-import axios from "axios";
 import { useAuth, useCart } from "../../context";
-import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../../reducer";
+import { addToWishlist, removeFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
   const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
   const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
-  const addToWishlist = async () => {
-    try {
-      const updatedWishlist = await axios.post("/api/user/wishlist", product, {
-        headers: { authorization: localStorage.getItem("token") },
-      });
-
-      cartDispatch({
-        type: ADD_TO_WISHLIST,
-        payload: product,
-      });
-
-      console.log(updatedWishlist);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <button
       key={product._id}
-      onClick={!isProductInWishlist ? addToWishlist : removeFromWishlist}
+      onClick={
+        !isProductInWishlist
+          ? () => addToWishlist(product, cartDispatch)
+          : () => removeFromWishlist(product._id, cartDispatch)
+      }
       className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
     >
       <span
