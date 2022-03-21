@@ -22,4 +22,21 @@ const addToCart = async (product, cartDispatch) => {
   }
 };
 
-export { addToCart };
+const removeFromCart = async (productId, cartDispatch) => {
+  try {
+    const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
+      headers: { authorization: localStorage.getItem("token") },
+    });
+
+    cartDispatch({
+      type: REMOVE_FROM_CART,
+      payload: productId,
+    });
+
+    console.log(updatedCart);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { addToCart, removeFromCart };
