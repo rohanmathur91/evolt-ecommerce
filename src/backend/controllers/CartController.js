@@ -36,7 +36,7 @@ export const addItemToCartHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
   try {
     if (!userId) {
-      new Response(
+      return new Response(
         404,
         {},
         {
@@ -46,6 +46,14 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { product } = JSON.parse(request.requestBody);
+    const isProductInCart = userCart.some(({ _id }) => _id === product._id);
+    if (isProductInCart) {
+      return new Response(
+        200,
+        {},
+        { message: "Product already exist in cart." }
+      );
+    }
     userCart.push({
       ...product,
       createdAt: formatDate(),

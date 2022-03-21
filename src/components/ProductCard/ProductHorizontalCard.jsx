@@ -1,7 +1,6 @@
 import React from "react";
 import { useCart } from "../../context";
-import { INCREASE_QUANTITY, DECREASE_QUANTITY } from "../../reducer";
-import { addToWishlist, removeFromCart } from "../../services";
+import { addToWishlist, removeFromCart, updateQuantity } from "../../services";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
@@ -40,12 +39,7 @@ export const ProductHorizontalCard = ({ product }) => {
             <p className="mr-1">Quantity:</p>
             <button
               disabled={quantity === 1}
-              onClick={() =>
-                cartDispatch({
-                  type: DECREASE_QUANTITY,
-                  payload: _id,
-                })
-              }
+              onClick={() => updateQuantity(_id, "decrement", cartDispatch)}
               className={` ${
                 quantity === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
@@ -56,12 +50,7 @@ export const ProductHorizontalCard = ({ product }) => {
               {quantity}
             </span>
             <button
-              onClick={() =>
-                cartDispatch({
-                  type: INCREASE_QUANTITY,
-                  payload: _id,
-                })
-              }
+              onClick={() => updateQuantity(_id, "increment", cartDispatch)}
               className="quantity-btn flex-row flex-center rounded-full"
             >
               <span className="material-icons-outlined">add</span>
