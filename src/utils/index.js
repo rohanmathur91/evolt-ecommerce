@@ -6,3 +6,4 @@ export { getTotalCartPrice } from "./cartUtils/getTotalCartPrice";
 export { getTotalCartDiscount } from "./cartUtils/getTotalCartDiscount";
 export { checkProductInWishlist } from "./cartUtils/checkProductInWishlist";
 export { validateSignupForm } from "./validationUtils/validateSignupForm";
+export { checkProductInCart } from "./cartUtils/checkProductInCart";

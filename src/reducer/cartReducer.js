@@ -67,12 +67,6 @@ export const cartReducer = (cart, { type, payload }) => {
         wishlist: cart.wishlist.filter(({ _id }) => _id !== payload),
       };
 
-    case ADD_ADDRESS:
-      return {
-        ...cart,
-        addressList: [payload, ...cart.addressList],
-      };
-
     case INITIALIZE_CART:
       return { ...cart, cartProducts: payload };
 

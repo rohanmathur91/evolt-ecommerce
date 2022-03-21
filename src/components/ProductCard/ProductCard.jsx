@@ -1,12 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context";
 import { addToCart } from "../../services";
+import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
 
 export const ProductCard = ({ product }) => {
-  const { cartDispatch } = useCart();
   const currentYear = new Date().getFullYear();
+  const { cartProducts, cartDispatch } = useCart();
+  const isProductInCart = checkProductInCart(product._id, cartProducts);
+  const navigate = useNavigate();
   const {
     _id,
     alt,
@@ -18,6 +22,7 @@ export const ProductCard = ({ product }) => {
     description,
     addedInYear,
   } = product;
+
   return (
     <div
       key={_id}
@@ -52,12 +57,16 @@ export const ProductCard = ({ product }) => {
       </div>
       <button
         disabled={!inStock}
-        onClick={() => addToCart(product, cartDispatch)}
+        onClick={
+          isProductInCart
+            ? () => navigate("/cart")
+            : () => addToCart(product, cartDispatch)
+        }
         className={`${
           !inStock ? "disable" : ""
         } p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}
       >
-        Add to cart
+        {isProductInCart ? "Go to cart" : "Add to cart"}
       </button>
     </div>
   );

@@ -39,7 +39,9 @@ export const ProductHorizontalCard = ({ product }) => {
             <p className="mr-1">Quantity:</p>
             <button
               disabled={quantity === 1}
-              onClick={() => updateQuantity(_id, "decrement", cartDispatch)}
+              onClick={() =>
+                quantity > 1 && updateQuantity(_id, "decrement", cartDispatch)
+              }
               className={` ${
                 quantity === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
