@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context";
-import { addToCart } from "../../services";
+import { handleAddToCart } from "../../services";
 import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
@@ -60,7 +60,7 @@ export const ProductCard = ({ product }) => {
         onClick={
           isProductInCart
             ? () => navigate("/cart")
-            : () => addToCart(product, cartDispatch)
+            : () => handleAddToCart(product, cartDispatch)
         }
         className={`${
           !inStock ? "disable" : ""

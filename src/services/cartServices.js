@@ -6,7 +6,7 @@ import {
   DECREASE_QUANTITY,
 } from "../reducer";
 
-const addToCart = async (product, cartDispatch) => {
+const handleAddToCart = async (product, cartDispatch) => {
   try {
     const updatedCart = await axios.post(
       "/api/user/cart",
@@ -27,7 +27,7 @@ const addToCart = async (product, cartDispatch) => {
   }
 };
 
-const removeFromCart = async (productId, cartDispatch) => {
+const handleRemoveFromCart = async (productId, cartDispatch) => {
   try {
     const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: localStorage.getItem("token") },
@@ -42,8 +42,14 @@ const removeFromCart = async (productId, cartDispatch) => {
   }
 };
 
-const updateQuantity = async (productId, updateType, cartDispatch) => {
+const handleUpdateQuantity = async (
+  productId,
+  updateType,
+  cartDispatch,
+  setIsLoading
+) => {
   try {
+    setIsLoading(true);
     const updatedCart = await axios.post(
       `/api/user/cart/${productId}`,
       {
@@ -56,15 +62,15 @@ const updateQuantity = async (productId, updateType, cartDispatch) => {
       }
     );
 
-    console.log(updatedCart);
-
     cartDispatch({
       type: updateType === "increment" ? INCREASE_QUANTITY : DECREASE_QUANTITY,
       payload: productId,
     });
+
+    setIsLoading(false);
   } catch (error) {
     console.log(error);
   }
 };
 
-export { addToCart, removeFromCart, updateQuantity };
+export { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity };

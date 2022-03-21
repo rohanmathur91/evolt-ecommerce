@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuth, useCart } from "../../context";
-import { addToWishlist, removeFromWishlist } from "../../services";
+import { handleAddToWishlist, handleRemoveFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
@@ -12,8 +12,8 @@ export const ToggleWishlist = ({ product }) => {
       key={product._id}
       onClick={
         !isProductInWishlist
-          ? () => addToWishlist(product, cartDispatch)
-          : () => removeFromWishlist(product._id, cartDispatch)
+          ? () => handleAddToWishlist(product, cartDispatch)
+          : () => handleRemoveFromWishlist(product._id, cartDispatch)
       }
       className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
     >
