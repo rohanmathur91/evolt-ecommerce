@@ -21,12 +21,10 @@ export const cartInitialState = {
 export const cartReducer = (cart, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART:
-      return !cart.cartProducts.some(({ _id }) => _id === payload._id)
-        ? {
-            ...cart,
-            cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
-          }
-        : cart;
+      return {
+        ...cart,
+        cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
+      };
 
     case REMOVE_FROM_CART:
       return {
