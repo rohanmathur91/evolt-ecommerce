@@ -5,6 +5,10 @@
   height: fit-content;
 }
 
+.login-error-msg {
+  color: var(--red);
+}
+
 .forgot-password {
   color: var(--primary-color);
 }
@@ -21,11 +25,7 @@
   user-select: none;
 }
 
-.login-error-msg {
-  color: var(--red);
-}
-
-.material-icons-outlined.redirect-icon {
+.redirect-icon {
   font-size: 2.7rem;
   margin-left: -6px;
 }
