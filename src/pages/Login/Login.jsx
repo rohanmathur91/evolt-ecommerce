@@ -5,7 +5,6 @@ import { useAuth, useCart } from "../../contexts";
 import { INITIALIZE_CART, INITIALIZE_WISHLIST } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
-import "../../components/Input/Form.css";
 
 export const Login = () => {
   const [error, setError] = useState("");

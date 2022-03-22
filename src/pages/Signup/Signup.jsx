@@ -16,7 +16,6 @@ import {
 } from "../../reducer";
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
-import "../../components/Input/Form.css";
 
 export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
