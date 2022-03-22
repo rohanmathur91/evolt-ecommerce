@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth, useCart } from "../../context";
+import { useAuth, useCart } from "../../contexts";
 import { handleAddToWishlist, handleRemoveFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {

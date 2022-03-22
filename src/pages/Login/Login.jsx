@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCart } from "../../context";
+import { useAuth, useCart } from "../../contexts";
 import { INITIALIZE_CART, INITIALIZE_WISHLIST } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";

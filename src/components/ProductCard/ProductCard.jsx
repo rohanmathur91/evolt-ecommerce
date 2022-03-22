@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../context";
+import { useCart } from "../../contexts";
 import { handleAddToCart } from "../../services";
 import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";

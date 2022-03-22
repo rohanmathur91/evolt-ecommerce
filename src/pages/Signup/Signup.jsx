@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useCart } from "../../contexts";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
-import { useAuth, useCart } from "../../context";
 import {
   signupErrorReducer,
   signUpErrorInitialState,
@@ -16,7 +17,6 @@ import {
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 import "../../components/Input/Form.css";
-import axios from "axios";
 
 export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);

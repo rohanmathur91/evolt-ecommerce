@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../context";
+import { useProduct } from "../../contexts";
 import { SORT } from "../../reducer";
 
 const sortFilters = [

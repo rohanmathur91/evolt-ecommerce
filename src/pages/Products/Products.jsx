@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useProduct } from "../../context";
+import { useProduct } from "../../contexts";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { FETCH_PRODUCTS } from "../../reducer";
 import {

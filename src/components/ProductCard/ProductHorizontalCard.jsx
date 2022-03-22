@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useCart } from "../../context";
+import { useCart } from "../../contexts";
 import {
   handleAddToWishlist,
   handleRemoveFromCart,

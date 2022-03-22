@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { useAuth, useCart, useProduct } from "../../context";
+import { useAuth, useCart, useProduct } from "../../contexts";
 import { SEARCH } from "../../reducer";
 import "./Navbar.css";
 
