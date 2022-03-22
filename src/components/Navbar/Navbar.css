@@ -131,11 +131,15 @@
 }
 
 .sidebar-link {
-  padding: 1rem;
   display: block;
   border-radius: 4px;
   margin-bottom: 4px;
   font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.logout-btn {
+  color: var(--primary-color);
 }
 
 .active-link,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth, useCart, useProduct } from "../../contexts";
 import { SEARCH } from "../../reducer";
 import "./Navbar.css";
@@ -9,7 +9,14 @@ export const Navbar = () => {
   const { pathname } = useLocation();
   const { wishlist, cartProducts } = useCart();
   const { searchQuery, productDispatch } = useProduct();
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    updateUser(null);
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
     <>
@@ -84,9 +91,12 @@ export const Navbar = () => {
                   <Link to="/profile" className="p-1 profile-option">
                     Profile
                   </Link>
-                  <Link to="/login" className="p-1 profile-option">
+                  <button
+                    onClick={handleLogout}
+                    className="profile-option p-1 text-left logout-btn"
+                  >
                     Logout
-                  </Link>
+                  </button>
                 </div>
               </>
             )}
@@ -166,14 +176,23 @@ export const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                `sidebar-link ${isActive ? "active-link" : ""}`
-              }
-            >
-              {user ? "Logout" : "Login"}
-            </NavLink>
+            {!user ? (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `sidebar-link ${isActive ? "active-link" : ""}`
+                }
+              >
+                Login
+              </NavLink>
+            ) : (
+              <button
+                onClick={handleLogout}
+                className="logout-btn w-100 text-left sidebar-link"
+              >
+                Logout
+              </button>
+            )}
           </li>
         </ul>
       </div>

@@ -29,6 +29,7 @@ export const Signup = () => {
     signupErrorReducer,
     signUpErrorInitialState
   );
+
   const { updateUser } = useAuth();
   const { cartDispatch } = useCart();
 

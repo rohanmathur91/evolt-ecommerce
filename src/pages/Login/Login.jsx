@@ -13,6 +13,7 @@ export const Login = () => {
     email: "",
     password: "",
   });
+
   const { updateUser } = useAuth();
   const { cartDispatch } = useCart();
 
