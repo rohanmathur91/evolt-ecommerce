@@ -2,7 +2,7 @@ import React from "react";
 import { Checkbox } from "../Checkbox";
 import { useProduct } from "../../../contexts";
 import { FILTER_BY_TYPE } from "../../../reducer";
-import "../Filter.css";
+import "../Filters.css";
 
 export const ProductTypeFilters = () => {
   const {

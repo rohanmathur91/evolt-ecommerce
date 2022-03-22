@@ -4,9 +4,9 @@ import {
   AvailabilityFilters,
   ProductTypeFilters,
 } from "./FilterTypes";
-import "./Filter.css";
+import "./Filters.css";
 
-export const Filter = () => {
+export const Filters = () => {
   return (
     <>
       <div className="flex-column">

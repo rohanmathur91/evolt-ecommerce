@@ -4,7 +4,7 @@ import { useProduct } from "../../contexts";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { FETCH_PRODUCTS } from "../../reducer";
 import {
-  Filter,
+  Filters,
   SortFilter,
   MobileFilter,
   MobileSortFilter,
@@ -38,7 +38,7 @@ export const Products = () => {
     <div className="products-container flex-row">
       <aside className="filters flex-column py-3 px-4 border-r">
         <SortFilter />
-        <Filter />
+        <Filters />
       </aside>
 
       {error ? (
