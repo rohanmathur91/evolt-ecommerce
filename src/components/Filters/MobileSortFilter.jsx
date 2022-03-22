@@ -1,7 +1,7 @@
 import React from "react";
 import { SortFilterList } from "./SortFilterList";
 
-export const MobileSortFilter = ({ setShowSortFilter }) => {
+export const MobileSortFilter = ({ showSortFilter, setShowSortFilter }) => {
   return (
     <div className="mobile-filter-wrapper">
       <div className="mobile-filter card-shadow p-4">
@@ -14,10 +14,13 @@ export const MobileSortFilter = ({ setShowSortFilter }) => {
             <span className="material-icons-outlined">cancel</span>
           </button>
         </div>
-        <SortFilterList />
+        <SortFilterList showSortFilter={showSortFilter} />
       </div>
     </div>
   );
 };
 
-MobileSortFilter.defaultProps = { setShowSortFilter: () => {} };
+MobileSortFilter.defaultProps = {
+  showSortFilter: false,
+  setShowSortFilter: () => {},
+};

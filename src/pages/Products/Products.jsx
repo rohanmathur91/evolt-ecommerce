@@ -54,7 +54,10 @@ export const Products = () => {
       )}
 
       {showSortFilter && (
-        <MobileSortFilter setShowSortFilter={setShowSortFilter} />
+        <MobileSortFilter
+          showSortFilter={showSortFilter}
+          setShowSortFilter={setShowSortFilter}
+        />
       )}
       {showFilter && <MobileFilter setShowFilter={setShowFilter} />}
 

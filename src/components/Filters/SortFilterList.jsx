@@ -16,7 +16,7 @@ const sortFilters = [
   },
 ];
 
-export const SortFilterList = () => {
+export const SortFilterList = ({ showSortFilter }) => {
   const {
     productFilter: { sortBy },
     productDispatch,
@@ -31,7 +31,9 @@ export const SortFilterList = () => {
               <input
                 id={id}
                 type="radio"
-                name="price"
+                name={
+                  !showSortFilter ? "sort-by-price" : "mobile-sort-by-price"
+                }
                 className="cursor-pointer mr-2"
                 checked={sortBy === sortProduct}
                 onChange={() => {
@@ -46,3 +48,5 @@ export const SortFilterList = () => {
     </>
   );
 };
+
+SortFilterList.defaultProps = { showSortFilter: false };
