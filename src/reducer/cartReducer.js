@@ -5,17 +5,15 @@ import {
   DECREASE_QUANTITY,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
-  ADD_ADDRESS,
   INITIALIZE_CART,
   INITIALIZE_WISHLIST,
+  CLEAR_CART_AND_WISHLIST,
 } from "./index";
 
 export const cartInitialState = {
   wishlist: [],
   cartProducts: [],
   orderSummary: [],
-  addressList: [],
-  currentAddress: null,
 };
 
 export const cartReducer = (cart, { type, payload }) => {
@@ -72,6 +70,14 @@ export const cartReducer = (cart, { type, payload }) => {
 
     case INITIALIZE_WISHLIST:
       return { ...cart, wishlist: payload };
+
+    case CLEAR_CART_AND_WISHLIST:
+      return {
+        ...cart,
+        wishlist: [],
+        cartProducts: [],
+        orderSummary: [],
+      };
 
     default:
       return cart;
