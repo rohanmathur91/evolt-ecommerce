@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "../../context";
+import { useProduct } from "../../contexts";
 import { CLEAR_FILTER } from "../../reducer";
 import { SortFilterList } from "./SortFilterList";
 

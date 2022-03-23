@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { CartProvider, ProductProvider, AuthProvider } from "./context";
+import { CartProvider, ProductProvider, AuthProvider } from "./contexts";
 import App from "./App";
 import { makeServer } from "./server";
 

@@ -1,6 +1,7 @@
 @import "./assets/styles/utils.css";
 @import "./assets/styles/reset.css";
 @import "./assets/styles/variables.css";
+@import "./assets/styles/common.css";
 
 .app {
   height: 100%;

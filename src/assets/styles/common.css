@@ -1,7 +1,12 @@
+/* forms */
 .login-form,
 .signup-form {
   max-width: 40rem;
   height: fit-content;
+}
+
+.login-error-msg {
+  color: var(--red);
 }
 
 .forgot-password {
@@ -20,11 +25,7 @@
   user-select: none;
 }
 
-.login-error-msg {
-  color: var(--red);
-}
-
-.material-icons-outlined.redirect-icon {
+.redirect-icon {
   font-size: 2.7rem;
   margin-left: -6px;
 }

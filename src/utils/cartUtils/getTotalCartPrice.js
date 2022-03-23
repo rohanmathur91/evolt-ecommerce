@@ -1,5 +1,5 @@
 /**
- * Gives total cart price
+ * Calculates total cart price.
  *
  * @param  {array} cart
  * @returns {number} cart-total

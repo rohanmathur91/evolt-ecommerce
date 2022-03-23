@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../../context";
+import { useCart } from "../../contexts";
 import "./Checkout.css";
 
 export const Checkout = () => {

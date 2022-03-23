@@ -1,7 +1,7 @@
 import React from "react";
-import { useProduct } from "../../context";
+import { useProduct } from "../../contexts";
 import { CLEAR_FILTER } from "../../reducer";
-import { Filter } from "./Filter";
+import { Filters } from "./Filters";
 import "./MobileFilter.css";
 
 export const MobileFilter = ({ setShowFilter }) => {
@@ -20,7 +20,7 @@ export const MobileFilter = ({ setShowFilter }) => {
           </button>
         </div>
 
-        <Filter />
+        <Filters />
 
         <button
           onClick={() => productDispatch({ type: CLEAR_FILTER })}

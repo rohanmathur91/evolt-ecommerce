@@ -5,28 +5,24 @@ import {
   DECREASE_QUANTITY,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
-  ADD_ADDRESS,
-  UPDATE_USER_CART,
-  UPDATE_USER_WISHLIST,
+  INITIALIZE_CART,
+  INITIALIZE_WISHLIST,
+  CLEAR_CART_AND_WISHLIST,
 } from "./index";
 
 export const cartInitialState = {
   wishlist: [],
   cartProducts: [],
   orderSummary: [],
-  addressList: [],
-  currentAddress: null,
 };
 
 export const cartReducer = (cart, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART:
-      return !cart.cartProducts.some(({ _id }) => _id === payload._id)
-        ? {
-            ...cart,
-            cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
-          }
-        : cart;
+      return {
+        ...cart,
+        cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
+      };
 
     case REMOVE_FROM_CART:
       return {
@@ -69,17 +65,19 @@ export const cartReducer = (cart, { type, payload }) => {
         wishlist: cart.wishlist.filter(({ _id }) => _id !== payload),
       };
 
-    case ADD_ADDRESS:
-      return {
-        ...cart,
-        addressList: [payload, ...cart.addressList],
-      };
-
-    case UPDATE_USER_CART:
+    case INITIALIZE_CART:
       return { ...cart, cartProducts: payload };
 
-    case UPDATE_USER_WISHLIST:
+    case INITIALIZE_WISHLIST:
       return { ...cart, wishlist: payload };
+
+    case CLEAR_CART_AND_WISHLIST:
+      return {
+        ...cart,
+        wishlist: [],
+        cartProducts: [],
+        orderSummary: [],
+      };
 
     default:
       return cart;

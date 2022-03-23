@@ -9,7 +9,7 @@ export const Footer = () => {
       <div>
         <a
           className="text-lg mx-1"
-          href="https://github.com/rohanmathur91/evolt-shop"
+          href="https://github.com/rohanmathur91/evolt-ecommerce"
           target="_blank"
         >
           <i className="fa fa-github social-icons transition-2"></i>

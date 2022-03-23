@@ -5,7 +5,7 @@ export { Category } from "./Category/Category";
 export { ProductCard } from "./ProductCard/ProductCard";
 export { ProductHorizontalCard } from "./ProductCard/ProductHorizontalCard";
 export { Input } from "./Input/Input";
-export { Filter } from "./Filters/Filter";
+export { Filters } from "./Filters/Filters";
 export { SortFilter } from "./Filters/SortFilter";
 export { MobileFilter } from "./Filters/MobileFilter";
 export { MobileSortFilter } from "./Filters/MobileSortFilter";

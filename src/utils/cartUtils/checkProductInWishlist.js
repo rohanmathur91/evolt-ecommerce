@@ -1,5 +1,6 @@
 /**
- * Gives boolean value for product in wishlist or not.
+ * Determines whether the specified product with the given product id
+ * is present in wishlist or not.
  *
  * @param  {string} productId
  * @param  {array} wishlist

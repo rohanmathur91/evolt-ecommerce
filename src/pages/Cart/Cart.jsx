@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../context";
+import { useCart } from "../../contexts";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Checkout, ProductHorizontalCard } from "../../components";
 import "./Cart.css";
