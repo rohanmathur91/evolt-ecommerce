@@ -53,7 +53,7 @@ export const ProductHorizontalCard = ({ product }) => {
                 )
               }
               className={`${
-                isloading || quantity === 1 ? "disable" : ""
+                quantity === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
             >
               <span className="material-icons-outlined">remove</span>
@@ -71,9 +71,7 @@ export const ProductHorizontalCard = ({ product }) => {
                   setIsLoading
                 )
               }
-              className={`${
-                isloading ? "disable" : ""
-              } quantity-btn flex-row flex-center rounded-full`}
+              className="quantity-btn flex-row flex-center rounded-full"
             >
               <span className="material-icons-outlined">add</span>
             </button>
