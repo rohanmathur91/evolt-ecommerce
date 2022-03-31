@@ -1,7 +1,7 @@
 import React from "react";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Category, BrandList, Footer } from "../../components";
-import banner from "../../assets/images/banner.jpg";
+import { banner } from "../../staticData";
 import "./Home.css";
 
 export const Home = () => {

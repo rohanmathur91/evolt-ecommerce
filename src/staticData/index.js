@@ -1,2 +1,2 @@
-export { brands } from "./brands";
+export * from "./brands";
 export { countries } from "./countries";
