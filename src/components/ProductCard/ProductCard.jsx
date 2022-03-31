@@ -67,7 +67,11 @@ export const ProductCard = ({ product }) => {
           !inStock || isloading ? "disable" : ""
         } p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}
       >
-        {isProductInCart ? "Go to cart" : "Add to cart"}
+        {isProductInCart
+          ? "Go to cart"
+          : !inStock
+          ? "Out of stock"
+          : "Add to cart"}
       </button>
     </div>
   );
