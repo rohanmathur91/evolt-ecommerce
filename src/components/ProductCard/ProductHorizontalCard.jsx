@@ -19,7 +19,7 @@ export const ProductHorizontalCard = ({ product }) => {
     productName,
     description,
     discount,
-    quantity,
+    qty,
   } = product;
 
   return (
@@ -43,7 +43,7 @@ export const ProductHorizontalCard = ({ product }) => {
           <div className="flex-row items-center my-2">
             <p className="mr-1">Quantity:</p>
             <button
-              disabled={isloading || quantity === 1}
+              disabled={isloading || qty === 1}
               onClick={() =>
                 handleUpdateQuantity(
                   _id,
@@ -53,13 +53,13 @@ export const ProductHorizontalCard = ({ product }) => {
                 )
               }
               className={`${
-                quantity === 1 ? "disable" : ""
+                qty === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
             >
               <span className="material-icons-outlined">remove</span>
             </button>
             <span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
-              {quantity}
+              {qty}
             </span>
             <button
               disabled={isloading}
@@ -106,6 +106,6 @@ ProductHorizontalCard.defaultProps = {
     productName: "",
     description: "",
     discount: 0,
-    quantity: 0,
+    qty: 1,
   },
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../contexts";
+import { useAuth, useCart } from "../../contexts";
 import { handleAddToCart } from "../../services";
 import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";
@@ -12,6 +12,7 @@ export const ProductCard = ({ product }) => {
   const { cartProducts, cartDispatch } = useCart();
   const isProductInCart = checkProductInCart(product._id, cartProducts);
   const navigate = useNavigate();
+  const { user } = useAuth();
   const {
     _id,
     alt,
@@ -23,6 +24,14 @@ export const ProductCard = ({ product }) => {
     description,
     addedInYear,
   } = product;
+
+  const isUserAuthenticated = () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      handleAddToCart(product, cartDispatch, setIsLoading);
+    }
+  };
 
   return (
     <div
@@ -61,7 +70,7 @@ export const ProductCard = ({ product }) => {
         onClick={
           isProductInCart
             ? () => navigate("/cart")
-            : () => handleAddToCart(product, cartDispatch, setIsLoading)
+            : () => isUserAuthenticated()
         }
         className={`${
           !inStock || isloading ? "disable" : ""

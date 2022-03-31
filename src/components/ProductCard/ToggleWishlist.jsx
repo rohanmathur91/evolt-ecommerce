@@ -1,20 +1,30 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
 import { handleAddToWishlist, handleRemoveFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
   const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
+
+  const isUserAuthenticated = () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      if (!isProductInWishlist) {
+        handleAddToWishlist(product, cartDispatch);
+      } else {
+        handleRemoveFromWishlist(product._id, cartDispatch);
+      }
+    }
+  };
 
   return (
     <button
       key={product._id}
-      onClick={
-        !isProductInWishlist
-          ? () => handleAddToWishlist(product, cartDispatch)
-          : () => handleRemoveFromWishlist(product._id, cartDispatch)
-      }
+      onClick={isUserAuthenticated}
       className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
     >
       <span
