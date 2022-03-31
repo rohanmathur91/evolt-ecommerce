@@ -30,6 +30,7 @@ input[type="range"] {
   width: 16rem;
   border-radius: 5px;
   margin-top: 1rem;
+  cursor: e-resize;
 }
 
 @media screen and (max-width: 48em) {
