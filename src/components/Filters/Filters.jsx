@@ -11,8 +11,8 @@ export const Filters = () => {
     <>
       <div className="flex-column">
         <AvailabilityFilters />
-        <BrandFilters />
         <ProductTypeFilters />
+        <BrandFilters />
       </div>
     </>
   );

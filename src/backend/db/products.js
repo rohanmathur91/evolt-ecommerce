@@ -18,7 +18,7 @@ export const products = [
     price: "1900.00",
     oldPrice: "3000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 20,
   },
   {
     _id: uuid(),
@@ -32,7 +32,7 @@ export const products = [
     price: "2999.00",
     oldPrice: "3999.00",
     inStock: false,
-    discount: Math.floor(Math.random() * 100),
+    discount: 30,
   },
   {
     _id: uuid(),
@@ -47,7 +47,7 @@ export const products = [
     price: "1900.00",
     oldPrice: "2000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 20,
   },
   {
     _id: uuid(),
@@ -62,7 +62,7 @@ export const products = [
     price: "5000.00",
     oldPrice: "6000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 10,
   },
   {
     _id: uuid(),
@@ -77,7 +77,7 @@ export const products = [
     price: "2900.00",
     oldPrice: "4000.00",
     inStock: false,
-    discount: Math.floor(Math.random() * 100),
+    discount: 15,
   },
 
   {
@@ -93,7 +93,7 @@ export const products = [
     price: "1390.00",
     oldPrice: "2000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 15,
   },
   {
     _id: uuid(),
@@ -107,7 +107,7 @@ export const products = [
     price: "1900.00",
     oldPrice: "3000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 15,
   },
   {
     _id: uuid(),
@@ -122,7 +122,7 @@ export const products = [
     price: "4900.00",
     oldPrice: "7000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 25,
   },
   {
     _id: uuid(),
@@ -138,7 +138,7 @@ export const products = [
     price: "3900.00",
     oldPrice: "5000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 30,
   },
   {
     _id: uuid(),
@@ -153,6 +153,6 @@ export const products = [
     price: "900.00",
     oldPrice: "1000.00",
     inStock: true,
-    discount: Math.floor(Math.random() * 100),
+    discount: 30,
   },
 ];
