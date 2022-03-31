@@ -21,7 +21,7 @@ export const cartReducer = (cart, { type, payload }) => {
     case ADD_TO_CART:
       return {
         ...cart,
-        cartProducts: [{ ...payload, quantity: 1 }, ...cart.cartProducts],
+        cartProducts: [{ ...payload, qty: 1 }, ...cart.cartProducts],
       };
 
     case REMOVE_FROM_CART:
@@ -35,7 +35,7 @@ export const cartReducer = (cart, { type, payload }) => {
         ...cart,
         cartProducts: cart.cartProducts.map((product) =>
           product._id === payload
-            ? { ...product, quantity: product.quantity + 1 }
+            ? { ...product, qty: product.qty + 1 }
             : product
         ),
       };
@@ -45,7 +45,7 @@ export const cartReducer = (cart, { type, payload }) => {
         ...cart,
         cartProducts: cart.cartProducts.map((product) =>
           product._id === payload
-            ? { ...product, quantity: product.quantity - 1 }
+            ? { ...product, qty: product.qty - 1 }
             : product
         ),
       };
@@ -80,6 +80,6 @@ export const cartReducer = (cart, { type, payload }) => {
       };
 
     default:
-      return cart;
+      throw new Error("Action type not found.");
   }
 };
