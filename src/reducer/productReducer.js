@@ -94,7 +94,7 @@ export const productReducer = (state, { type, payload }) => {
             wired: false,
             wireless: false,
             speaker: false,
-            noisecancelling: false,
+            noise_cancelling: false,
           },
           brands: {
             bose: false,
