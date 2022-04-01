@@ -36,6 +36,6 @@ export const signupErrorReducer = (errorState, { type, payload }) => {
       };
 
     default:
-      errorState;
+      throw new Error("Action type not found.");
   }
 };

@@ -43,9 +43,9 @@ export const ProductTypeFilters = () => {
         <li className="filter-item mb-1">
           <Checkbox
             id="filter-noise-cancelling"
-            value={types.noiseCancelling}
+            value={types.noise_cancelling}
             actionType={FILTER_BY_TYPE}
-            payload="noiseCancelling"
+            payload="noise_cancelling"
             title="Noise Cancelling"
           />
         </li>

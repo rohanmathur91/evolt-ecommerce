@@ -28,64 +28,64 @@ export const productInitialState = {
   },
 };
 
-export const productReducer = (state, { type, payload }) => {
+export const productReducer = (productState, { type, payload }) => {
   switch (type) {
     case FETCH_PRODUCTS:
-      return { ...state, products: payload };
+      return { ...productState, products: payload };
 
     case SORT:
       return {
-        ...state,
-        productFilter: { ...state.productFilter, sortBy: payload },
+        ...productState,
+        productFilter: { ...productState.productFilter, sortBy: payload },
       };
 
     case SEARCH:
-      return { ...state, searchQuery: payload };
+      return { ...productState, searchQuery: payload };
 
     case FILTER_BY_PRICE:
       return {
-        ...state,
+        ...productState,
         productFilter: {
-          ...state.productFilter,
+          ...productState.productFilter,
           price: payload,
         },
       };
 
     case FILTER_BY_BRAND:
       return {
-        ...state,
+        ...productState,
         productFilter: {
-          ...state.productFilter,
+          ...productState.productFilter,
           brands: {
-            ...state.productFilter.brands,
-            [payload]: !state.productFilter.brands[payload],
+            ...productState.productFilter.brands,
+            [payload]: !productState.productFilter.brands[payload],
           },
         },
       };
 
     case FILTER_BY_TYPE:
       return {
-        ...state,
+        ...productState,
         productFilter: {
-          ...state.productFilter,
+          ...productState.productFilter,
           types: {
-            ...state.productFilter.types,
-            [payload]: !state.productFilter.types[payload],
+            ...productState.productFilter.types,
+            [payload]: !productState.productFilter.types[payload],
           },
         },
       };
     case FILTER_BY_IN_STOCK_ONLY:
       return {
-        ...state,
+        ...productState,
         productFilter: {
-          ...state.productFilter,
-          inStockOnly: !state.productFilter.inStockOnly,
+          ...productState.productFilter,
+          inStockOnly: !productState.productFilter.inStockOnly,
         },
       };
 
     case CLEAR_FILTER:
       return {
-        ...state,
+        ...productState,
         productFilter: {
           price: 5000,
           sortBy: "",
@@ -94,7 +94,7 @@ export const productReducer = (state, { type, payload }) => {
             wired: false,
             wireless: false,
             speaker: false,
-            noiseCancelling: false,
+            noise_cancelling: false,
           },
           brands: {
             bose: false,
@@ -107,6 +107,6 @@ export const productReducer = (state, { type, payload }) => {
       };
 
     default:
-      return state;
+      throw new Error("Action type not found.");
   }
 };

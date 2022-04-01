@@ -125,6 +125,7 @@
   background-color: var(--primary-color);
 }
 
+.sidebar-title span,
 .sidebar-close-btn span {
   font-size: 3.5rem;
   color: var(--white);

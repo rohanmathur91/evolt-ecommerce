@@ -1,9 +1,9 @@
-.products {
+.products-container {
   display: grid;
+  gap: 2px;
   align-items: start;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
   max-width: 80rem;
   margin: 0rem auto 6rem auto;
 }
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 64em) {
-  .products {
+  .products-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }

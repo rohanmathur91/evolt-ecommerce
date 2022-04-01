@@ -1,17 +1,43 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
+import { INITIALIZE_CART } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Checkout, ProductHorizontalCard } from "../../components";
 import "./Cart.css";
 
 export const Cart = () => {
-  const { cartProducts } = useCart();
+  const [loader, setLoader] = useState(false);
+  const { cartProducts, cartDispatch } = useCart();
 
   useScrollToTop();
   useDocumentTitle("Cart");
 
-  return (
+  useEffect(() => {
+    (async () => {
+      try {
+        setLoader(true);
+        const {
+          data: { cart },
+        } = await axios.get("/api/user/cart", {
+          headers: { authorization: localStorage.getItem("token") },
+        });
+
+        cartDispatch({
+          type: INITIALIZE_CART,
+          payload: cart,
+        });
+        setLoader(false);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  return loader ? (
+    <h4 className="text-center mt-6 p-1">Loading cart...</h4>
+  ) : (
     <div>
       {cartProducts.length > 0 ? (
         <h3 className="mt-6 text-center">

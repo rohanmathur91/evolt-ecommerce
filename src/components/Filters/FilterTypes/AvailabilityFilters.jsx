@@ -34,7 +34,6 @@ export const AvailabilityFilters = () => {
             type="range"
             value={price}
             id="price-range"
-            className="cursor-pointer"
             onChange={(e) =>
               productDispatch({
                 type: FILTER_BY_PRICE,

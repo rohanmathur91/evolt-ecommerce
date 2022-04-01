@@ -6,9 +6,9 @@ import {
   DECREASE_QUANTITY,
 } from "../reducer";
 
-const handleAddToCart = async (product, cartDispatch, setIsLoading) => {
+const addToCart = async (product, cartDispatch, setLoader) => {
   try {
-    setIsLoading(true);
+    setLoader(true);
     const updatedCart = await axios.post(
       "/api/user/cart",
       { product },
@@ -22,13 +22,13 @@ const handleAddToCart = async (product, cartDispatch, setIsLoading) => {
       payload: product,
     });
 
-    setIsLoading(false);
+    setLoader(false);
   } catch (error) {
     console.log(error);
   }
 };
 
-const handleRemoveFromCart = async (productId, cartDispatch) => {
+const removeFromCart = async (productId, cartDispatch) => {
   try {
     const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: localStorage.getItem("token") },
@@ -43,14 +43,14 @@ const handleRemoveFromCart = async (productId, cartDispatch) => {
   }
 };
 
-const handleUpdateQuantity = async (
+const updateQuantity = async (
   productId,
   updateType,
   cartDispatch,
-  setIsLoading
+  setLoader
 ) => {
   try {
-    setIsLoading(true);
+    setLoader(true);
     const updatedCart = await axios.post(
       `/api/user/cart/${productId}`,
       {
@@ -68,10 +68,10 @@ const handleUpdateQuantity = async (
       payload: productId,
     });
 
-    setIsLoading(false);
+    setLoader(false);
   } catch (error) {
     console.log(error);
   }
 };
 
-export { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity };
+export { addToCart, removeFromCart, updateQuantity };

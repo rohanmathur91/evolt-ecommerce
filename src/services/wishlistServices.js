@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from "../reducer";
 
-const handleAddToWishlist = async (product, cartDispatch) => {
+const addToWishlist = async (product, cartDispatch) => {
   try {
     const updatedWishlist = await axios.post(
       "/api/user/wishlist",
@@ -20,7 +20,7 @@ const handleAddToWishlist = async (product, cartDispatch) => {
   }
 };
 
-const handleRemoveFromWishlist = async (productId, cartDispatch) => {
+const removeFromWishlist = async (productId, cartDispatch) => {
   try {
     const updatedWishlist = await axios.delete(
       `/api/user/wishlist/${productId}`,
@@ -38,4 +38,4 @@ const handleRemoveFromWishlist = async (productId, cartDispatch) => {
   }
 };
 
-export { handleAddToWishlist, handleRemoveFromWishlist };
+export { addToWishlist, removeFromWishlist };

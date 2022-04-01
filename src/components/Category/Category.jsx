@@ -1,24 +1,38 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { FILTER_BY_TYPE } from "../../reducer";
+import { useProduct } from "../../contexts";
 import "./Category.css";
 
 export const Category = () => {
   const [error, setError] = useState(null);
+  const [loader, setLoader] = useState(false);
   const [categoryList, setCategorList] = useState([]);
+  const { productDispatch } = useProduct();
 
   useEffect(() => {
     (async () => {
       try {
+        setLoader(true);
         const {
           data: { categories },
         } = await axios.get("/api/categories");
         setCategorList(categories);
       } catch (error) {
         setError("Cannot fetch the categories");
+      } finally {
+        setLoader(false);
       }
     })();
   }, []);
+
+  const handleCategoryClick = (category) => {
+    productDispatch({
+      type: FILTER_BY_TYPE,
+      payload: category.toLowerCase().split(" ").join("_"),
+    });
+  };
 
   return (
     <>
@@ -30,12 +44,16 @@ export const Category = () => {
         </Link>
       </div>
       <article className="category">
-        {error ? (
-          <p className="m-auto">{error}</p>
+        {loader ? (
+          <p className="m-auto p-7 my-7">Fetching categories...</p>
         ) : (
           categoryList &&
           categoryList.map(({ _id, alt, image, category }) => (
-            <Link key={_id} to="/products">
+            <Link
+              key={_id}
+              to="/products"
+              onClick={() => handleCategoryClick(category)}
+            >
               <div className="category-item flex-column rounded-sm">
                 <img className="p-1" src={image} alt={alt} />
                 <p className="category-name text-center p-1 rounded-sm font-semibold">

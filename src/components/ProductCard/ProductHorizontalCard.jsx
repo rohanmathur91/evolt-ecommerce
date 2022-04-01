@@ -1,10 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
-import {
-  handleAddToWishlist,
-  handleRemoveFromCart,
-  handleUpdateQuantity,
-} from "../../services";
+import { addToWishlist, removeFromCart, updateQuantity } from "../../services";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
@@ -19,61 +16,57 @@ export const ProductHorizontalCard = ({ product }) => {
     productName,
     description,
     discount,
-    quantity,
+    qty,
   } = product;
+
+  const handleMoveToWishlist = () => {
+    addToWishlist(product, cartDispatch);
+    removeFromCart(product._id, cartDispatch);
+  };
+  const handleRemoveFromCart = () => removeFromCart(_id, cartDispatch);
+  const handleUpdateQuantity = (updateType) => {
+    updateQuantity(_id, updateType, cartDispatch, setIsLoading);
+  };
 
   return (
     <div className="cart-item border flex-row items-center relative transition-2 m-2 p-1 rounded-sm">
-      <div className="w-20 h-20 text-center mx-1">
-        <img src={image} alt={alt} />
-      </div>
+      <Link to={`/product/${_id}`}>
+        <img src={image} alt={alt} className="cart-item-image p-1 mx-1" />
+      </Link>
+
       <div className="card-content flex-column content-space-between pt-2 px-2">
         <div className="w-100">
-          <div className="card-title font-semibold card-text mb-1">
-            {description}
-          </div>
+          <Link to={`/product/${_id}`}>
+            <div className="card-title font-semibold card-text mb-1">
+              {description}
+            </div>
 
-          <div className="mb-1">
-            <span className="mr-2 font-bold">₹{price}</span>
-            <span className="gray">
-              <s>₹{oldPrice}</s>
-            </span>
-          </div>
+            <div className="mb-1">
+              <span className="mr-2 font-bold">₹{price}</span>
+              <span className="gray">
+                <s>₹{oldPrice}</s>
+              </span>
+            </div>
+          </Link>
           <p className="gray font-bold mb-1">{discount}% off</p>
           <div className="flex-row items-center my-2">
             <p className="mr-1">Quantity:</p>
             <button
-              disabled={isloading || quantity === 1}
-              onClick={() =>
-                handleUpdateQuantity(
-                  _id,
-                  "decrement",
-                  cartDispatch,
-                  setIsLoading
-                )
-              }
+              disabled={isloading || qty === 1}
+              onClick={() => handleUpdateQuantity("decrement")}
               className={`${
-                isloading || quantity === 1 ? "disable" : ""
+                qty === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
             >
               <span className="material-icons-outlined">remove</span>
             </button>
             <span className="quantity px-3 flex-row flex-center border rounded-sm mr-2">
-              {quantity}
+              {qty}
             </span>
             <button
               disabled={isloading}
-              onClick={() =>
-                handleUpdateQuantity(
-                  _id,
-                  "increment",
-                  cartDispatch,
-                  setIsLoading
-                )
-              }
-              className={`${
-                isloading ? "disable" : ""
-              } quantity-btn flex-row flex-center rounded-full`}
+              onClick={() => handleUpdateQuantity("increment")}
+              className="quantity-btn flex-row flex-center rounded-full"
             >
               <span className="material-icons-outlined">add</span>
             </button>
@@ -81,13 +74,13 @@ export const ProductHorizontalCard = ({ product }) => {
         </div>
         <div className="flex-row wrap">
           <button
-            onClick={() => handleAddToWishlist(product, cartDispatch)}
+            onClick={handleMoveToWishlist}
             className="btn btn-solid font-semibold items-end transition-2 mr-1 mb-1"
           >
             Move to wishlist
           </button>
           <button
-            onClick={() => handleRemoveFromCart(_id, cartDispatch)}
+            onClick={handleRemoveFromCart}
             className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
           >
             Remove from cart
@@ -108,6 +101,6 @@ ProductHorizontalCard.defaultProps = {
     productName: "",
     description: "",
     discount: 0,
-    quantity: 0,
+    qty: 1,
   },
 };
