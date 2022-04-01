@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { CLEAR_CART_AND_WISHLIST } from "../../reducer";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { SEARCH, CLEAR_CART_AND_WISHLIST } from "../../reducer";
 import { useAuth, useCart, useProduct } from "../../contexts";
-import { SEARCH } from "../../reducer";
+import { MobileNavigation } from "./MobileNavigation";
 import "./Navbar.css";
 
 export const Navbar = () => {
@@ -129,75 +129,11 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-
-      {/* mobile navigation */}
-      <div
-        className={`sidebar transition-2 fixed top-0 left-0 z-3 ${
-          toggleMenu ? "sidebar-mobile" : ""
-        }`}
-      >
-        <div className="sidebar-header p-2 flex-row content-space-between items-center">
-          <h3>Welcome, user!</h3>
-          <button
-            onClick={() => setToggleMenu(false)}
-            className="sidebar-close-btn flex-row flex-center rounded-full"
-          >
-            <span className="material-icons-outlined">close</span>
-          </button>
-        </div>
-
-        <ul className="mt-1 p-1">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `sidebar-link ${isActive ? "active-link" : ""}`
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                `sidebar-link ${isActive ? "active-link" : ""}`
-              }
-            >
-              Shop now
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                `sidebar-link ${isActive ? "active-link" : ""}`
-              }
-            >
-              Profile
-            </NavLink>
-          </li>
-          <li>
-            {!user ? (
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  `sidebar-link ${isActive ? "active-link" : ""}`
-                }
-              >
-                Login
-              </NavLink>
-            ) : (
-              <button
-                onClick={handleLogout}
-                className="logout-btn w-100 text-left sidebar-link"
-              >
-                Logout
-              </button>
-            )}
-          </li>
-        </ul>
-      </div>
+      <MobileNavigation
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+        handleLogout={handleLogout}
+      />
     </>
   );
 };
