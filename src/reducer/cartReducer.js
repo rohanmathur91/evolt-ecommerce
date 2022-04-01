@@ -16,24 +16,26 @@ export const cartInitialState = {
   orderSummary: [],
 };
 
-export const cartReducer = (cart, { type, payload }) => {
+export const cartReducer = (cartState, { type, payload }) => {
   switch (type) {
     case ADD_TO_CART:
       return {
-        ...cart,
-        cartProducts: [{ ...payload, qty: 1 }, ...cart.cartProducts],
+        ...cartState,
+        cartProducts: [{ ...payload, qty: 1 }, ...cartState.cartProducts],
       };
 
     case REMOVE_FROM_CART:
       return {
-        ...cart,
-        cartProducts: cart.cartProducts.filter(({ _id }) => _id !== payload),
+        ...cartState,
+        cartProducts: cartState.cartProducts.filter(
+          ({ _id }) => _id !== payload
+        ),
       };
 
     case INCREASE_QUANTITY:
       return {
-        ...cart,
-        cartProducts: cart.cartProducts.map((product) =>
+        ...cartState,
+        cartProducts: cartState.cartProducts.map((product) =>
           product._id === payload
             ? { ...product, qty: product.qty + 1 }
             : product
@@ -42,8 +44,8 @@ export const cartReducer = (cart, { type, payload }) => {
 
     case DECREASE_QUANTITY:
       return {
-        ...cart,
-        cartProducts: cart.cartProducts.map((product) =>
+        ...cartState,
+        cartProducts: cartState.cartProducts.map((product) =>
           product._id === payload
             ? { ...product, qty: product.qty - 1 }
             : product
@@ -51,29 +53,28 @@ export const cartReducer = (cart, { type, payload }) => {
       };
 
     case ADD_TO_WISHLIST:
-      return cart.wishlist.length &&
-        cart.wishlist.some(({ _id }) => _id === payload._id)
-        ? { ...cart, toastMessage: "Item already present" }
-        : {
-            ...cart,
-            wishlist: [payload, ...cart.wishlist],
-          };
+      return !cartState.wishlist.some(({ _id }) => _id === payload._id)
+        ? {
+            ...cartState,
+            wishlist: [payload, ...cartState.wishlist],
+          }
+        : cartState;
 
     case REMOVE_FROM_WISHLIST:
       return {
-        ...cart,
-        wishlist: cart.wishlist.filter(({ _id }) => _id !== payload),
+        ...cartState,
+        wishlist: cartState.wishlist.filter(({ _id }) => _id !== payload),
       };
 
     case INITIALIZE_CART:
-      return { ...cart, cartProducts: payload };
+      return { ...cartState, cartProducts: payload.reverse() };
 
     case INITIALIZE_WISHLIST:
-      return { ...cart, wishlist: payload };
+      return { ...cartState, wishlist: payload.reverse() };
 
     case CLEAR_CART_AND_WISHLIST:
       return {
-        ...cart,
+        ...cartState,
         wishlist: [],
         cartProducts: [],
         orderSummary: [],
