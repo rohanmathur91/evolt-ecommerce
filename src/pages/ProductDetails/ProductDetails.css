@@ -1,13 +1,37 @@
+.product-details {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 6rem;
+  margin: 6rem auto;
+  max-width: 144rem;
+}
+
 .product-image {
   max-width: 40rem;
+  justify-self: right;
 }
 
 .product-content {
   width: 100%;
-  max-width: 50rem;
+  max-width: 60rem;
 }
 
-.rating i {
+.product-price,
+.product-rating {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.product-rating i {
   margin: 0 2px;
   font-size: 1.8rem;
+}
+
+@media screen and (max-width: 48em) {
+  .product-image {
+    justify-self: center;
+  }
+
+  .product-details {
+    grid-template-columns: 1fr;
+  }
 }

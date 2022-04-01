@@ -1,13 +1,21 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth, useCart } from "../../contexts";
+import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
+import { checkProductInCart, checkProductInWishlist } from "../../utils";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { RatingTool } from "./RatingTool";
 import "./ProductDetails.css";
 
 export const ProductDetails = () => {
   const [loader, setLoader] = useState(false);
+  const [productLoader, setProductLoader] = useState(false);
   const [product, setProduct] = useState(null);
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const { productId } = useParams();
+  const { cartProducts, wishlist, cartDispatch } = useCart();
   const {
     _id,
     alt,
@@ -18,6 +26,7 @@ export const ProductDetails = () => {
     productName,
     discount,
     description,
+    rating,
   } = product ?? {};
 
   useScrollToTop();
@@ -39,45 +48,97 @@ export const ProductDetails = () => {
     })();
   }, []);
 
+  const handleAddToCart = () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      if (checkProductInCart(_id, cartProducts)) {
+        navigate("/cart");
+      } else {
+        addToCart(product, cartDispatch, setProductLoader);
+      }
+    }
+  };
+
+  const handleWishlistClick = () => {
+    if (!user) {
+      navigate("/login");
+    } else {
+      if (!checkProductInWishlist(_id, wishlist)) {
+        addToWishlist(product, cartDispatch);
+      } else {
+        removeFromWishlist(product._id, cartDispatch);
+      }
+    }
+  };
+
   return loader ? (
     <h4 className="text-center mt-2 p-1">Loading wishlist...</h4>
   ) : (
-    <>
-      <h3 className="mt-8 mb-3 text-center">Product details</h3>
-      <div className="flex-row flex-center wrap transition-2 m-1 p-1 rounded-sm">
-        <div className="product-image text-center">
-          <img src={image} alt={alt} />
-        </div>
-        <div className="product-content flex-column content-space-between py-2 px-3">
-          <div className="w-100">
-            <h4 className="font-semibold my-1">{productName}</h4>
-            <p className="product-description my-2">{description}</p>
-            <div className="product-rating flex-row mt-2">
-              <span className="font-base">4.0</span>
+    <div className="product-details transition-2 mt-8 m-1 p-1 rounded-sm">
+      <img src={image} alt={alt} className="product-image mx-2" />
 
-              <div className="rating ml-1 flex-row flex-center">
-                <i className="fa fa-star rated"></i>
-                <i className="fa fa-star rated"></i>
-                <i className="fa fa-star rated"></i>
-                <i className="fa fa-star rated"></i>
-                <i className="fa fa-star"></i>
-              </div>
-            </div>
-
-            <div className="mb-1">
-              <span className="mr-2 font-bold">₹{price}</span>
-              <span className="gray">
-                <s>₹{oldPrice}</s>
-              </span>
-            </div>
-            <p className="gray font-bold mb-1">{discount}% off</p>
+      <div className="product-content py-2 px-3">
+        <div>
+          <h3 className="my-1">{productName}</h3>
+          <p className="product-description">{description}</p>
+          <div className="product-rating pt-1 pb-3 flex-row">
+            {RatingTool(rating)}
           </div>
+        </div>
 
-          <button className="btn btn-solid font-semibold items-end transition-2 mt-1">
-            Add to Cart
-          </button>
+        <div className="py-3 product-price">
+          <div className="flex-row">
+            <span className="mr-1 font-bold">₹{price}</span>
+            <span className="gray">
+              <s>₹{oldPrice}</s>
+            </span>
+            <p className="font-bold ml-1">({discount}% off)</p>
+          </div>
+          <p className="text-green font-semibold mt-1">
+            Price inclusive of all taxes
+          </p>
+
+          <div className="flex-row mt-2">
+            <button
+              disabled={!inStock || productLoader}
+              onClick={handleAddToCart}
+              className={`${
+                !inStock || loader ? "disable" : ""
+              } btn btn-solid font-semibold icon items-end transition-2 my-1 mr-1`}
+            >
+              <span className="material-icons-outlined mr-1">
+                shopping_cart
+              </span>
+
+              {checkProductInCart(_id, cartProducts)
+                ? "Go to cart"
+                : !inStock
+                ? "Out of stock"
+                : "Add to cart"}
+            </button>
+            <button
+              disabled={productLoader}
+              onClick={handleWishlistClick}
+              className={`${
+                loader ? "disable" : ""
+              } btn btn-outlined font-semibold icon items-end transition-2 my-1`}
+            >
+              <span className="material-icons-outlined mr-1">
+                favorite_border
+              </span>
+              {checkProductInWishlist(_id, wishlist)
+                ? "Added in Wishlist"
+                : "Wishlist"}
+            </button>
+          </div>
+        </div>
+
+        <div className="gray product-delivery mt-3">
+          <p className="mb-1">100% Original Product</p>
+          <p>Cash on delivery is available</p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
