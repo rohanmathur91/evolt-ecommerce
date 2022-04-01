@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
-import { handleAddToCart } from "../../services";
+import { addToCart } from "../../services";
 import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
@@ -25,18 +25,22 @@ export const ProductCard = ({ product }) => {
     addedInYear,
   } = product;
 
-  const isUserAuthenticated = () => {
+  const handleAddToCart = () => {
     if (!user) {
       navigate("/login");
     } else {
-      handleAddToCart(product, cartDispatch, setIsLoading);
+      if (isProductInCart) {
+        navigate("/cart");
+      } else {
+        addToCart(product, cartDispatch, setIsLoading);
+      }
     }
   };
 
   return (
     <div
       key={_id}
-      className="card card-shadow flex-column relative transition-2 m-1 p-1 rounded-sm border"
+      className="card card-shadow cursor-pointer flex-column relative transition-2 m-1 p-1 rounded-sm border"
     >
       {(!inStock || addedInYear === currentYear) && (
         <span
@@ -49,29 +53,26 @@ export const ProductCard = ({ product }) => {
       )}
 
       <ToggleWishlist product={product} />
-
-      <div className="text-center h-20 flex-row flex-center">
-        <img src={image} alt={alt} className="w-20" />
-      </div>
-      <div className="px-1">
-        <div className="card-title card-text mt-2 mb-1 font-bold">
-          {productName}
+      <Link to={`/product/${_id}`}>
+        <div className="text-center h-20 flex-row flex-center">
+          <img src={image} alt={alt} className="w-20" />
         </div>
+        <div className="px-1">
+          <div className="card-title card-text mt-2 mb-1 font-bold">
+            {productName}
+          </div>
 
-        <p className="card-description card-text mb-1">{description}</p>
-        <div className="card-price">
-          <span className="font-semibold">₹{price}</span>
-          <span className="price-strike font-regular">₹{oldPrice}</span>
+          <p className="card-description card-text mb-1">{description}</p>
+          <div className="card-price">
+            <span className="font-semibold">₹{price}</span>
+            <span className="price-strike font-regular">₹{oldPrice}</span>
+          </div>
+          <p className="mb-1 font-semibold"></p>
         </div>
-        <p className="mb-1 font-semibold"></p>
-      </div>
+      </Link>
       <button
         disabled={!inStock || isloading}
-        onClick={
-          isProductInCart
-            ? () => navigate("/cart")
-            : () => isUserAuthenticated()
-        }
+        onClick={handleAddToCart}
         className={`${
           !inStock || isloading ? "disable" : ""
         } p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}

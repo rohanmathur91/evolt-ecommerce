@@ -1,0 +1,13 @@
+.product-image {
+  max-width: 40rem;
+}
+
+.product-content {
+  width: 100%;
+  max-width: 50rem;
+}
+
+.rating i {
+  margin: 0 2px;
+  font-size: 1.8rem;
+}
