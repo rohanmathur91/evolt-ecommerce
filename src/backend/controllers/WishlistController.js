@@ -15,7 +15,7 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
 export const getWishlistItemsHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
   if (!userId) {
-    new Response(
+    return new Response(
       404,
       {},
       {
@@ -37,7 +37,7 @@ export const addItemToWishlistHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
   try {
     if (!userId) {
-      new Response(
+      return new Response(
         404,
         {},
         {
@@ -47,6 +47,16 @@ export const addItemToWishlistHandler = function (schema, request) {
     }
     const userWishlist = schema.users.findBy({ _id: userId }).wishlist;
     const { product } = JSON.parse(request.requestBody);
+    const isProductInWishlist = userWishlist.some(
+      ({ _id }) => _id === product._id
+    );
+    if (isProductInWishlist) {
+      return new Response(
+        200,
+        {},
+        { message: "Product already exist in wishlist." }
+      );
+    }
     userWishlist.push({
       ...product,
       createdAt: formatDate(),
