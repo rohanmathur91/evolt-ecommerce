@@ -34,20 +34,20 @@ export const Wishlist = () => {
     })();
   }, []);
 
-  return (
-    <div>
+  return loader ? (
+    <h4 className="text-center mt-6 p-1">Loading wishlist...</h4>
+  ) : (
+    <>
       <h3 className="mt-6 mb-3 text-center">My Wishlist</h3>
-      {loader ? (
-        <h4 className="text-center mt-2 p-1">Loading wishlist...</h4>
-      ) : wishlist.length ? (
+      {wishlist.length ? (
         <div className="products w-100 p-1 mt-2 mb-6">
           {wishlist.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
       ) : (
-        <p className="not-available">No product in wishlist.</p>
+        <p className="text-center mt-4">No product in wishlist.</p>
       )}
-    </div>
+    </>
   );
 };
