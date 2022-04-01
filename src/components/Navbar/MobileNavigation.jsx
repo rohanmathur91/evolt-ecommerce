@@ -18,7 +18,7 @@ export const MobileNavigation = ({
     >
       <div className="sidebar-header p-2 flex-row content-space-between items-center">
         <h3 className="sidebar-title icon">
-          <span class="material-icons-outlined mr-1">account_circle</span>{" "}
+          <span className="material-icons-outlined mr-1">account_circle</span>{" "}
           Welcome
         </h3>
         <button
