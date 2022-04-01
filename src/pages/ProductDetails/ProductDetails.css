@@ -13,7 +13,11 @@
 
 .product-content {
   width: 100%;
-  max-width: 60rem;
+  max-width: 70rem;
+}
+
+.product-description {
+  line-height: 2.2rem;
 }
 
 .product-price,
