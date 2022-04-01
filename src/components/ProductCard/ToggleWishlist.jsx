@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
-import { handleAddToWishlist, handleRemoveFromWishlist } from "../../services";
+import { addToWishlist, removeFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
@@ -9,14 +9,14 @@ export const ToggleWishlist = ({ product }) => {
   const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
   const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
-  const isUserAuthenticated = () => {
+  const handleWishlistClick = () => {
     if (!user) {
       navigate("/login");
     } else {
       if (!isProductInWishlist) {
-        handleAddToWishlist(product, cartDispatch);
+        addToWishlist(product, cartDispatch);
       } else {
-        handleRemoveFromWishlist(product._id, cartDispatch);
+        removeFromWishlist(product._id, cartDispatch);
       }
     }
   };
@@ -24,7 +24,7 @@ export const ToggleWishlist = ({ product }) => {
   return (
     <button
       key={product._id}
-      onClick={isUserAuthenticated}
+      onClick={handleWishlistClick}
       className="card-badge-bg wishlist-badge absolute text-base top-1 right-1 rounded-full flex-row flex-center pointer"
     >
       <span

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../../contexts";
-import {
-  handleAddToWishlist,
-  handleRemoveFromCart,
-  handleUpdateQuantity,
-} from "../../services";
+import { addToWishlist, removeFromCart, updateQuantity } from "../../services";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
@@ -21,6 +17,12 @@ export const ProductHorizontalCard = ({ product }) => {
     discount,
     qty,
   } = product;
+
+  const handleAddToWishlist = () => addToWishlist(product, cartDispatch);
+  const handleRemoveFromCart = () => removeFromCart(_id, cartDispatch);
+  const handleUpdateQuantity = (updateType) => {
+    updateQuantity(_id, cartDispatch, setIsLoading, updateType);
+  };
 
   return (
     <div className="cart-item border flex-row items-center relative transition-2 m-2 p-1 rounded-sm">
@@ -44,14 +46,7 @@ export const ProductHorizontalCard = ({ product }) => {
             <p className="mr-1">Quantity:</p>
             <button
               disabled={isloading || qty === 1}
-              onClick={() =>
-                handleUpdateQuantity(
-                  _id,
-                  "decrement",
-                  cartDispatch,
-                  setIsLoading
-                )
-              }
+              onClick={() => handleUpdateQuantity("decrement")}
               className={`${
                 qty === 1 ? "disable" : ""
               } quantity-btn flex-row flex-center rounded-full mr-2`}
@@ -63,14 +58,7 @@ export const ProductHorizontalCard = ({ product }) => {
             </span>
             <button
               disabled={isloading}
-              onClick={() =>
-                handleUpdateQuantity(
-                  _id,
-                  "increment",
-                  cartDispatch,
-                  setIsLoading
-                )
-              }
+              onClick={() => handleUpdateQuantity("increment")}
               className="quantity-btn flex-row flex-center rounded-full"
             >
               <span className="material-icons-outlined">add</span>
@@ -79,13 +67,13 @@ export const ProductHorizontalCard = ({ product }) => {
         </div>
         <div className="flex-row wrap">
           <button
-            onClick={() => handleAddToWishlist(product, cartDispatch)}
+            onClick={handleAddToWishlist}
             className="btn btn-solid font-semibold items-end transition-2 mr-1 mb-1"
           >
             Move to wishlist
           </button>
           <button
-            onClick={() => handleRemoveFromCart(_id, cartDispatch)}
+            onClick={handleRemoveFromCart}
             className="btn btn-outlined font-semibold rounded-sm items-end transition-2 mb-1"
           >
             Remove from cart

@@ -6,7 +6,7 @@ import {
   DECREASE_QUANTITY,
 } from "../reducer";
 
-const handleAddToCart = async (product, cartDispatch, setIsLoading) => {
+const addToCart = async (product, cartDispatch, setIsLoading) => {
   try {
     setIsLoading(true);
     const updatedCart = await axios.post(
@@ -28,7 +28,7 @@ const handleAddToCart = async (product, cartDispatch, setIsLoading) => {
   }
 };
 
-const handleRemoveFromCart = async (productId, cartDispatch) => {
+const removeFromCart = async (productId, cartDispatch) => {
   try {
     const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: localStorage.getItem("token") },
@@ -43,7 +43,7 @@ const handleRemoveFromCart = async (productId, cartDispatch) => {
   }
 };
 
-const handleUpdateQuantity = async (
+const updateQuantity = async (
   productId,
   updateType,
   cartDispatch,
@@ -74,4 +74,4 @@ const handleUpdateQuantity = async (
   }
 };
 
-export { handleAddToCart, handleRemoveFromCart, handleUpdateQuantity };
+export { addToCart, removeFromCart, updateQuantity };
