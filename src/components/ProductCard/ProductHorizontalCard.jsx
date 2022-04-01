@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
 import { addToWishlist, removeFromCart, updateQuantity } from "../../services";
 import "./ProductHorizontalCard.css";
@@ -18,29 +19,37 @@ export const ProductHorizontalCard = ({ product }) => {
     qty,
   } = product;
 
-  const handleAddToWishlist = () => addToWishlist(product, cartDispatch);
+  const handleMoveToWishlist = () => {
+    addToWishlist(product, cartDispatch);
+    removeFromCart(product._id, cartDispatch);
+  };
   const handleRemoveFromCart = () => removeFromCart(_id, cartDispatch);
   const handleUpdateQuantity = (updateType) => {
-    updateQuantity(_id, cartDispatch, setIsLoading, updateType);
+    updateQuantity(_id, updateType, cartDispatch, setIsLoading);
   };
 
   return (
     <div className="cart-item border flex-row items-center relative transition-2 m-2 p-1 rounded-sm">
-      <div className="w-20 h-20 text-center mx-1">
-        <img src={image} alt={alt} />
-      </div>
+      <Link to={`/product/${_id}`}>
+        <div className="w-20 h-20 text-center mx-1">
+          <img src={image} alt={alt} />
+        </div>
+      </Link>
+
       <div className="card-content flex-column content-space-between pt-2 px-2">
         <div className="w-100">
-          <div className="card-title font-semibold card-text mb-1">
-            {description}
-          </div>
+          <Link to={`/product/${_id}`}>
+            <div className="card-title font-semibold card-text mb-1">
+              {description}
+            </div>
 
-          <div className="mb-1">
-            <span className="mr-2 font-bold">₹{price}</span>
-            <span className="gray">
-              <s>₹{oldPrice}</s>
-            </span>
-          </div>
+            <div className="mb-1">
+              <span className="mr-2 font-bold">₹{price}</span>
+              <span className="gray">
+                <s>₹{oldPrice}</s>
+              </span>
+            </div>
+          </Link>
           <p className="gray font-bold mb-1">{discount}% off</p>
           <div className="flex-row items-center my-2">
             <p className="mr-1">Quantity:</p>
@@ -67,7 +76,7 @@ export const ProductHorizontalCard = ({ product }) => {
         </div>
         <div className="flex-row wrap">
           <button
-            onClick={handleAddToWishlist}
+            onClick={handleMoveToWishlist}
             className="btn btn-solid font-semibold items-end transition-2 mr-1 mb-1"
           >
             Move to wishlist

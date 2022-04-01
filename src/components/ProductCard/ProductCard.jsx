@@ -7,12 +7,13 @@ import { ToggleWishlist } from "./ToggleWishlist";
 import "./ProductCard.css";
 
 export const ProductCard = ({ product }) => {
-  const [isloading, setIsLoading] = useState(false);
-  const currentYear = new Date().getFullYear();
-  const { cartProducts, cartDispatch } = useCart();
-  const isProductInCart = checkProductInCart(product._id, cartProducts);
-  const navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
   const { user } = useAuth();
+  const navigate = useNavigate();
+  const { cartProducts, cartDispatch } = useCart();
+  const currentYear = new Date().getFullYear();
+  const isProductInCart = checkProductInCart(product._id, cartProducts);
+
   const {
     _id,
     alt,
@@ -32,7 +33,7 @@ export const ProductCard = ({ product }) => {
       if (isProductInCart) {
         navigate("/cart");
       } else {
-        addToCart(product, cartDispatch, setIsLoading);
+        addToCart(product, cartDispatch, setLoader);
       }
     }
   };
@@ -71,10 +72,10 @@ export const ProductCard = ({ product }) => {
         </div>
       </Link>
       <button
-        disabled={!inStock || isloading}
+        disabled={!inStock || loader}
         onClick={handleAddToCart}
         className={`${
-          !inStock || isloading ? "disable" : ""
+          !inStock || loader ? "disable" : ""
         } p-1 w-100 font-semibold btn btn-solid transition-2 mr-1`}
       >
         {isProductInCart
