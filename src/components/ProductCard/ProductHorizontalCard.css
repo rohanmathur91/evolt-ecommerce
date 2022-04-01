@@ -2,6 +2,11 @@
   width: 90%;
 }
 
+.cart-item-image {
+  max-width: 20rem;
+  min-width: 20rem;
+}
+
 .quantity {
   width: 3rem;
   height: 3rem;
@@ -16,4 +21,11 @@
 
 .quantity-btn span {
   font-size: 1.4rem;
+}
+
+@media screen and (max-width: 30em) {
+  .cart-item-image {
+    width: 100%;
+    min-width: unset;
+  }
 }
