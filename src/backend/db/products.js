@@ -293,6 +293,7 @@ export const products = [
     oldPrice: "5000.00",
     inStock: true,
     discount: 30,
+    rating: 4,
   },
   {
     _id: uuid(),

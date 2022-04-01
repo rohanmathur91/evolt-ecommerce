@@ -76,7 +76,7 @@ export const ProductDetails = () => {
     <h4 className="text-center mt-2 p-1">Loading wishlist...</h4>
   ) : (
     <div className="product-details transition-2 mt-8 m-1 p-1 rounded-sm">
-      <img src={image} alt={alt} className="product-image mx-2" />
+      <img src={image} alt={alt} className="product-image mx-2 p-3" />
 
       <div className="product-content py-2 px-3">
         <div>

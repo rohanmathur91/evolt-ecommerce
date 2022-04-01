@@ -35,7 +35,7 @@ export const Products = () => {
   }, []);
 
   return (
-    <div className="products-container flex-row">
+    <div className="flex-row">
       <aside className="filters flex-column py-3 px-4 border-r">
         <SortFilter />
         <Filters />
@@ -44,11 +44,11 @@ export const Products = () => {
       {error ? (
         <p className="not-available">{error}</p>
       ) : sortedProducts.length ? (
-        <div className="products w-100 p-1 pt-5">
+        <main className="products-container w-100 p-1 pt-5">
           {sortedProducts.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
-        </div>
+        </main>
       ) : (
         <p className="not-available">No products available...</p>
       )}
