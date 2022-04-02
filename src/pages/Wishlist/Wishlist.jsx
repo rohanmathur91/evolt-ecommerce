@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
 import { INITIALIZE_WISHLIST } from "../../reducer";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
@@ -38,15 +39,26 @@ export const Wishlist = () => {
     <h4 className="text-center mt-6 p-1">Loading wishlist...</h4>
   ) : (
     <>
-      <h3 className="mt-6 mb-3 text-center">My Wishlist</h3>
       {wishlist.length ? (
-        <div className="products-container w-100 p-1 mt-2 mb-6">
-          {wishlist.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </div>
+        <>
+          <h3 className="mt-6 mb-3 text-center">My Wishlist</h3>
+          <div className="products-container w-100 p-1 mt-2 mb-6">
+            {wishlist.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
+        </>
       ) : (
-        <p className="text-center mt-4">No product in wishlist.</p>
+        <div className="not-available text-center px-1">
+          <p className="text-lg font-semibold mb-1">Your wishlist is empty.</p>
+          <p>
+            Explore more products,{" "}
+            <Link to="/products" className="continue">
+              continue shopping
+            </Link>
+            .
+          </p>
+        </div>
       )}
     </>
   );
