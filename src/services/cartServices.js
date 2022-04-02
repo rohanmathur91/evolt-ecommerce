@@ -28,7 +28,7 @@ const addToCart = async (product, cartDispatch, setLoader, showToast) => {
   }
 };
 
-const removeFromCart = async (productId, cartDispatch, showToast) => {
+const removeFromCart = async (productId, cartDispatch, showToast, isMoved) => {
   try {
     const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: localStorage.getItem("token") },
@@ -39,7 +39,7 @@ const removeFromCart = async (productId, cartDispatch, showToast) => {
       payload: productId,
     });
 
-    showToast("success", "Removed from cart");
+    !isMoved && showToast("success", "Removed from cart");
   } catch (error) {
     showToast("error", "Something went wrong");
   }

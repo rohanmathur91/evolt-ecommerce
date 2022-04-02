@@ -1,15 +1,20 @@
-import { ADD_ORDER, SET_ADDRESS, UPDATE_ADDRESS, REMOVE_ADDRESS } from "./";
+import {
+  ADD_ORDER,
+  UPDATE_ADDRESS,
+  REMOVE_ADDRESS,
+  SET_SELECTED_ADDRESS,
+} from "./";
 
 export const orderInitialState = {
   orders: [],
   addresses: [],
-  currentAddress: "",
+  selectedAddressId: "",
 };
 
 export const orderReducer = (orderState, { type, payload }) => {
   switch (type) {
-    case SET_ADDRESS:
-      return { ...orderState, currentAddress: payload };
+    case SET_SELECTED_ADDRESS:
+      return { ...orderState, selectedAddressId: payload };
 
     case UPDATE_ADDRESS:
       return payload?.isEdit
