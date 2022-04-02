@@ -6,7 +6,7 @@ import { address } from "../../../staticData";
 import "./AddressForm.css";
 
 export const AddressForm = ({ editAddress, handleShowModal }) => {
-  const [addressForm, setAddressFrom] = useState(
+  const [addressForm, setAddressForm] = useState(
     editAddress ?? {
       home: "",
       area: "",
@@ -20,7 +20,7 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
   const { orderDispatch } = useOrder();
 
   const handleInputChange = (event, field) => {
-    setAddressFrom((prevForm) => ({
+    setAddressForm((prevForm) => ({
       ...prevForm,
       [field]: event.target.value,
     }));
@@ -126,7 +126,7 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
 
       <button
         type="button"
-        onClick={() => setAddressFrom(address)}
+        onClick={() => setAddressForm(address)}
         className="btn btn-outlined mt-2 p-1 w-100 font-semibold transition-2 rounded-sm"
       >
         Fill dummy values
