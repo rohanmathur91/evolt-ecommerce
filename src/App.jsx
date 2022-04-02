@@ -6,10 +6,17 @@ import {
   Signup,
   Cart,
   Wishlist,
+  Profile,
   Products,
   ProductDetails,
 } from "./pages";
-import { Navbar, Toast } from "./components";
+import {
+  Navbar,
+  Toast,
+  Address,
+  UserProfile,
+  AccountSettings,
+} from "./components";
 import "./App.css";
 
 function App() {
@@ -25,6 +32,11 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route index element={<UserProfile />} />
+          <Route path="addresses" element={<Address />} />
+          <Route path="settings" element={<AccountSettings />} />
+        </Route>
       </Routes>
     </div>
   );
