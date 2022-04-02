@@ -147,3 +147,5 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
     </form>
   );
 };
+
+AddressForm.defaultProps = { editAddress: null, handleShowModal: () => {} };
