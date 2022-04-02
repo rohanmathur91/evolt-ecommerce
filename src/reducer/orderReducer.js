@@ -34,6 +34,10 @@ export const orderReducer = (orderState, { type, payload }) => {
     case REMOVE_ADDRESS:
       return {
         ...orderState,
+        selectedAddressId:
+          orderState.selectedAddressId !== payload
+            ? orderState.selectedAddressId
+            : "",
         addresses: orderState.addresses.filter(({ _id }) => _id !== payload),
       };
 

@@ -80,7 +80,7 @@ export const Cart = () => {
               <div className="flex-row content-space-between py-2 px-2 m-2 border rounded-sm">
                 <div>
                   <p className="font-semibold">Delivery Address</p>
-                  {selectedAddressId ? (
+                  {selectedAddress ? (
                     <p className="delivery-address text-sm">
                       {`${selectedAddress.fullName}, ${selectedAddress.home}, ${selectedAddress.area}`}
                     </p>
