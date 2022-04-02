@@ -23,7 +23,7 @@ export const ProductHorizontalCard = ({ product }) => {
 
   const handleMoveToWishlist = () => {
     addToWishlist(product, cartDispatch, showToast);
-    removeFromCart(product._id, cartDispatch, showToast);
+    removeFromCart(product._id, cartDispatch, showToast, true);
   };
 
   const handleRemoveFromCart = () => {

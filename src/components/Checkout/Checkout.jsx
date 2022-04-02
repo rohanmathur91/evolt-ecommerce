@@ -1,15 +1,17 @@
 import React from "react";
-import { useCart } from "../../contexts";
+import { useCart, useOrder } from "../../contexts";
 import "./Checkout.css";
 
 export const Checkout = () => {
+  const { selectedAddressId } = useOrder();
   const { cartProducts, totalPrice, totalDiscount, totalAmount, totalSave } =
     useCart();
 
   return (
     <div className="cart-checkout my-4 mx-2">
-      <button className="btn btn-outlined rounded-sm w-100 mb-1 font-semibold transition-2">
-        <i className="fa fa-tag mr-1"></i> Apply coupon
+      <button className="btn btn-outlined rounded-sm w-100 mb-1 icon font-semibold transition-2">
+        <span className="material-icons-outlined mr-1">local_offer</span> Apply
+        coupon
       </button>
 
       <div className="border flex-start p-3 rounded-sm">
@@ -35,10 +37,22 @@ export const Checkout = () => {
         <p className="py-1 text-green font-semibold">
           You will save ₹{totalSave} on this order
         </p>
-        <button className="btn btn-solid w-100 font-semibold items-end transition-2 p-1 mt-1">
+        <button
+          disabled={selectedAddressId}
+          className={`${
+            !selectedAddressId ? "disable" : ""
+          } btn btn-solid w-100 font-semibold items-end transition-2 p-1 mt-1`}
+        >
           Place Order
         </button>
       </div>
+
+      {!selectedAddressId && (
+        <p className="text-center address-message icon text-sm mt-1">
+          <span className="material-icons-outlined mr-1">info</span> Please
+          select an address to continue
+        </p>
+      )}
     </div>
   );
 };

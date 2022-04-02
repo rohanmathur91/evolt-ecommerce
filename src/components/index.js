@@ -12,6 +12,7 @@ export { MobileSortFilter } from "./Filters/MobileSortFilter";
 export { Checkout } from "./Checkout/Checkout";
 export { Toast } from "./Toast/Toast";
 export { Address } from "./Address/Address";
+export { AddressForm } from "./Address";
 export { Orders } from "./Orders/Orders";
 export { UserProfile } from "./UserProfile/UserProfile";
 export { AccountSettings } from "./AccountSettings/AccountSettings";

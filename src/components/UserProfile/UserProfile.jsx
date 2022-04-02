@@ -7,12 +7,9 @@ export const UserProfile = () => {
   return (
     <>
       <h4>Profile Details</h4>
-
       <div className="my-2">
-        <p className="mb-1">
-          Name: {user && (user?.fullName || user?.firstName)}
-        </p>
-        <p>Email: {user && user?.email} </p>
+        <p className="mb-1">Name: {user && user.fullName}</p>
+        <p>Email: {user && user.email} </p>
       </div>
     </>
   );
