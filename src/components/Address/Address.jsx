@@ -43,7 +43,7 @@ export const Address = () => {
             />
           ))
         ) : (
-          <li className="text-base">Please a address.</li>
+          <li className="text-base">Please add a address.</li>
         )}
       </ul>
     </>
