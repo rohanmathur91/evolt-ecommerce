@@ -9,13 +9,14 @@ import {
   Products,
   ProductDetails,
 } from "./pages";
-import { Navbar } from "./components";
+import { Navbar, Toast } from "./components";
 import "./App.css";
 
 function App() {
   return (
     <div className="app">
       <Navbar />
+      <Toast />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

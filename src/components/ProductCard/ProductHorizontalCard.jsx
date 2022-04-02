@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
+import { useToast } from "../../hooks";
 import { addToWishlist, removeFromCart, updateQuantity } from "../../services";
 import "./ProductHorizontalCard.css";
 
 export const ProductHorizontalCard = ({ product }) => {
   const [isloading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
   const { cartDispatch } = useCart();
   const {
     _id,
@@ -20,12 +22,16 @@ export const ProductHorizontalCard = ({ product }) => {
   } = product;
 
   const handleMoveToWishlist = () => {
-    addToWishlist(product, cartDispatch);
-    removeFromCart(product._id, cartDispatch);
+    addToWishlist(product, cartDispatch, showToast);
+    removeFromCart(product._id, cartDispatch, showToast);
   };
-  const handleRemoveFromCart = () => removeFromCart(_id, cartDispatch);
+
+  const handleRemoveFromCart = () => {
+    removeFromCart(_id, cartDispatch, showToast);
+  };
+
   const handleUpdateQuantity = (updateType) => {
-    updateQuantity(_id, updateType, cartDispatch, setIsLoading);
+    updateQuantity(_id, updateType, cartDispatch, setIsLoading, showToast);
   };
 
   return (

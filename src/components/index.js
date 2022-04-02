@@ -10,3 +10,4 @@ export { SortFilter } from "./Filters/SortFilter";
 export { MobileFilter } from "./Filters/MobileFilter";
 export { MobileSortFilter } from "./Filters/MobileSortFilter";
 export { Checkout } from "./Checkout/Checkout";
+export { Toast } from "./Toast/Toast";

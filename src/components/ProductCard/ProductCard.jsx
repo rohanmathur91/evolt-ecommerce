@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
+import { useToast } from "../../hooks";
 import { addToCart } from "../../services";
 import { checkProductInCart } from "../../utils";
 import { ToggleWishlist } from "./ToggleWishlist";
@@ -10,6 +11,7 @@ export const ProductCard = ({ product }) => {
   const [loader, setLoader] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const { cartProducts, cartDispatch } = useCart();
   const currentYear = new Date().getFullYear();
   const isProductInCart = checkProductInCart(product._id, cartProducts);
@@ -33,7 +35,7 @@ export const ProductCard = ({ product }) => {
       if (isProductInCart) {
         navigate("/cart");
       } else {
-        addToCart(product, cartDispatch, setLoader);
+        addToCart(product, cartDispatch, setLoader, showToast);
       }
     }
   };

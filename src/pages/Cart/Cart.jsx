@@ -30,7 +30,7 @@ export const Cart = () => {
         });
         setLoader(false);
       } catch (error) {
-        console.log(error);
+        showToast("error", "Something went wrong!");
       }
     })();
   }, []);
