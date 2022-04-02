@@ -1,0 +1,26 @@
+.profile-container {
+  max-width: 70rem;
+}
+
+.profile-left-section {
+  flex-shrink: 0;
+}
+
+.profile-link {
+  display: block;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.profile-link:hover {
+  background: var(--light-gray);
+}
+
+.profile-container > div {
+  border-top: 1px solid var(--light-gray);
+}
+
+@media screen and (max-width: 48em) {
+  .profile-left-section {
+    display: none;
+  }
+}
