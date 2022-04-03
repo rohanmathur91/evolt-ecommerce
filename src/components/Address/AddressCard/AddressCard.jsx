@@ -22,38 +22,36 @@ export const AddressCard = ({ address, handleShowModal, setEditAddress }) => {
   };
 
   return (
-    <li key={_id} className="mb-3 border rounded-sm py-2 px-3">
-      <label className="flex-row">
-        <input
-          type="radio"
-          name="address"
-          className="radio-input"
-          checked={_id === selectedAddressId}
-          onChange={handleSelectAddressClick}
-        />
-        <div className="ml-2">
-          <p className="font-semibold mb-1">{fullName}</p>
-          <p className="mb-1">{home}</p>
-          <p className="mb-1">{`${cityAndState}, ${pinCode}`}</p>
-          <p className="mb-1">{country}</p>
-          <p>Phone Number: {mobileNumber}</p>
-          <div className="mt-2 ml-auto">
-            <button
-              onClick={handleEditClick}
-              className="btn btn-solid font-semibold items-end transition-2 mr-1"
-            >
-              Edit
-            </button>
-            <button
-              onClick={handleRemoveClick}
-              className="btn btn-outlined font-semibold rounded-sm items-end transition-2"
-            >
-              Remove
-            </button>
-          </div>
+    <label className="flex-row">
+      <input
+        type="radio"
+        name="address"
+        className="radio-input"
+        checked={_id === selectedAddressId}
+        onChange={handleSelectAddressClick}
+      />
+      <div className="ml-2">
+        <p className="font-semibold mb-1">{fullName}</p>
+        <p className="mb-1">{home}</p>
+        <p className="mb-1">{`${cityAndState}, ${pinCode}`}</p>
+        <p className="mb-1">{country}</p>
+        <p>Phone Number: {mobileNumber}</p>
+        <div className="mt-2 ml-auto">
+          <button
+            onClick={handleEditClick}
+            className="btn btn-solid font-semibold items-end transition-2 mr-1"
+          >
+            Edit
+          </button>
+          <button
+            onClick={handleRemoveClick}
+            className="btn btn-outlined font-semibold rounded-sm items-end transition-2"
+          >
+            Remove
+          </button>
         </div>
-      </label>
-    </li>
+      </div>
+    </label>
   );
 };
 

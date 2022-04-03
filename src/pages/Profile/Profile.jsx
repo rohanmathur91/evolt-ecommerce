@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./Profile.css";
 
 export const Profile = () => {
@@ -10,19 +10,37 @@ export const Profile = () => {
         <div className="flex-row w-100 mx-2">
           <ul className="profile-left-section flex-column border-r">
             <li>
-              <Link to="/profile" className="p-2 profile-link">
+              <NavLink
+                end
+                to="/profile"
+                className={({ isActive }) =>
+                  `${isActive ? "active-link" : ""} profile-link p-2`
+                }
+              >
                 Profile Information
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile/addresses" className="p-2 profile-link">
+              <NavLink
+                end
+                to="/profile/addresses"
+                className={({ isActive }) =>
+                  `${isActive ? "active-link" : ""} profile-link p-2`
+                }
+              >
                 Manage Addresses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/profile/settings" className="p-2 profile-link">
+              <NavLink
+                end
+                to="/profile/settings"
+                className={({ isActive }) =>
+                  `${isActive ? "active-link" : ""} profile-link p-2`
+                }
+              >
                 Account Settings
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <section className="profile-right-section mx-2 w-100 mt-3 ml-3">

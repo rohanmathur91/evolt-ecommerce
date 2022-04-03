@@ -35,12 +35,13 @@ export const Address = () => {
       <ul className="my-2 flex-column content-center">
         {addresses.length ? (
           addresses.map((address) => (
-            <AddressCard
-              key={address._id}
-              address={address}
-              setEditAddress={setEditAddress}
-              handleShowModal={handleShowModal}
-            />
+            <li key={address._id} className="mb-3 border rounded-sm py-2 px-3">
+              <AddressCard
+                address={address}
+                setEditAddress={setEditAddress}
+                handleShowModal={handleShowModal}
+              />
+            </li>
           ))
         ) : (
           <li className="text-base">Please add a address.</li>
