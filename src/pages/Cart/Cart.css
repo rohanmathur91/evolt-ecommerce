@@ -1,12 +1,3 @@
-.address {
-  font-size: 1.4rem;
-}
-
-.edit-btn {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
 .cart-container {
   margin: auto;
   max-width: 102.4rem;
@@ -15,6 +6,18 @@
 .cart-products {
   width: 100%;
   max-width: 65rem;
+}
+
+.delivery-address {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.btn-solid .edit-icon {
+  font-size: 1.8rem;
 }
 
 .continue {

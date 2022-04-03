@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
+import { useToast } from "../../hooks";
 import { addToWishlist, removeFromWishlist } from "../../services";
 
 export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
   const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
@@ -14,9 +16,9 @@ export const ToggleWishlist = ({ product }) => {
       navigate("/login");
     } else {
       if (!isProductInWishlist) {
-        addToWishlist(product, cartDispatch);
+        addToWishlist(product, cartDispatch, showToast);
       } else {
-        removeFromWishlist(product._id, cartDispatch);
+        removeFromWishlist(product._id, cartDispatch, showToast);
       }
     }
   };

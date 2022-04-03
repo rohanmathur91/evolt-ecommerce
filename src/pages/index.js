@@ -5,3 +5,4 @@ export { Products } from "./Products/Products";
 export { Wishlist } from "./Wishlist/Wishlist";
 export { Cart } from "./Cart/Cart";
 export { ProductDetails } from "./ProductDetails/ProductDetails";
+export { Profile } from "./Profile/Profile";

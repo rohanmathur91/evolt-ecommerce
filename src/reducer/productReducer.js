@@ -74,6 +74,7 @@ export const productReducer = (productState, { type, payload }) => {
           },
         },
       };
+
     case FILTER_BY_IN_STOCK_ONLY:
       return {
         ...productState,

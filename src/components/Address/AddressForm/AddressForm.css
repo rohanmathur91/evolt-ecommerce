@@ -1,0 +1,8 @@
+.address {
+  max-width: 60rem;
+  background-color: var(--white);
+}
+
+.address-field {
+  resize: none;
+}

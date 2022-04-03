@@ -9,7 +9,7 @@ import { cartReducer, cartInitialState } from "../reducer";
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  const [{ wishlist, cartProducts, addressList }, cartDispatch] = useReducer(
+  const [{ wishlist, cartProducts }, cartDispatch] = useReducer(
     cartReducer,
     cartInitialState
   );
@@ -28,7 +28,6 @@ const CartProvider = ({ children }) => {
         totalDiscount,
         totalSave,
         cartProducts,
-        addressList,
         checkProductInWishlist,
         cartDispatch,
       }}

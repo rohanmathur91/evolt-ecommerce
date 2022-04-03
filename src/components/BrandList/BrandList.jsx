@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useProduct } from "../../contexts";
 import { FILTER_BY_BRAND } from "../../reducer";
-import { brands } from "../../staticData";
+import { brandImages } from "../../staticData";
 
 export const BrandList = () => {
   const { productDispatch } = useProduct();
@@ -15,7 +15,7 @@ export const BrandList = () => {
     <article className="mb-4">
       <h2 className="text-center mt-6 mb-2">Top Brands</h2>
       <div className="w-80 m-auto flex-row wrap flex-center gutter-bottom">
-        {brands.map(({ image, brandName }) => (
+        {brandImages.map(({ image, brandName }) => (
           <Link
             to="/products"
             key={brandName}

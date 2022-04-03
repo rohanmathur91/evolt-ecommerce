@@ -1,7 +1,7 @@
 export const banner =
   "https://raw.githubusercontent.com/rohanmathur91/evolt-ecommerce/dev/public/images/banner.jpg";
 
-export const brands = [
+export const brandImages = [
   {
     brandName: "marshall",
     image:

@@ -6,7 +6,7 @@ import {
   DECREASE_QUANTITY,
 } from "../reducer";
 
-const addToCart = async (product, cartDispatch, setLoader) => {
+const addToCart = async (product, cartDispatch, setLoader, showToast) => {
   try {
     setLoader(true);
     const updatedCart = await axios.post(
@@ -21,14 +21,14 @@ const addToCart = async (product, cartDispatch, setLoader) => {
       type: ADD_TO_CART,
       payload: product,
     });
-
+    showToast("success", "Added to cart");
     setLoader(false);
   } catch (error) {
-    console.log(error);
+    showToast("error", "Something went wrong!");
   }
 };
 
-const removeFromCart = async (productId, cartDispatch) => {
+const removeFromCart = async (productId, cartDispatch, showToast, isMoved) => {
   try {
     const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
       headers: { authorization: localStorage.getItem("token") },
@@ -38,8 +38,10 @@ const removeFromCart = async (productId, cartDispatch) => {
       type: REMOVE_FROM_CART,
       payload: productId,
     });
+
+    !isMoved && showToast("success", "Removed from cart");
   } catch (error) {
-    console.log(error);
+    showToast("error", "Something went wrong");
   }
 };
 
@@ -47,7 +49,8 @@ const updateQuantity = async (
   productId,
   updateType,
   cartDispatch,
-  setLoader
+  setLoader,
+  showToast
 ) => {
   try {
     setLoader(true);
@@ -68,9 +71,10 @@ const updateQuantity = async (
       payload: productId,
     });
 
+    showToast("success", "Cart has been updated");
     setLoader(false);
   } catch (error) {
-    console.log(error);
+    showToast("error", "Something went wrong");
   }
 };
 

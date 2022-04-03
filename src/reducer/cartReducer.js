@@ -13,7 +13,6 @@ import {
 export const cartInitialState = {
   wishlist: [],
   cartProducts: [],
-  orderSummary: [],
 };
 
 export const cartReducer = (cartState, { type, payload }) => {

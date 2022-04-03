@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
 import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
+import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
 import { checkProductInCart, checkProductInWishlist } from "../../utils";
-import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { RatingTool } from "./RatingTool";
 import "./ProductDetails.css";
 
@@ -13,6 +13,7 @@ export const ProductDetails = () => {
   const [productLoader, setProductLoader] = useState(false);
   const [product, setProduct] = useState(null);
   const { user } = useAuth();
+  const { showToast } = useToast();
   const navigate = useNavigate();
   const { productId } = useParams();
   const { cartProducts, wishlist, cartDispatch } = useCart();
@@ -43,7 +44,7 @@ export const ProductDetails = () => {
         setProduct(product);
         setLoader(false);
       } catch (error) {
-        console.log(error);
+        showToast("error", "Could not fetch the product.");
       }
     })();
   }, []);
@@ -55,7 +56,7 @@ export const ProductDetails = () => {
       if (checkProductInCart(_id, cartProducts)) {
         navigate("/cart");
       } else {
-        addToCart(product, cartDispatch, setProductLoader);
+        addToCart(product, cartDispatch, setProductLoader, showToast);
       }
     }
   };
@@ -65,9 +66,9 @@ export const ProductDetails = () => {
       navigate("/login");
     } else {
       if (!checkProductInWishlist(_id, wishlist)) {
-        addToWishlist(product, cartDispatch);
+        addToWishlist(product, cartDispatch, showToast);
       } else {
-        removeFromWishlist(product._id, cartDispatch);
+        removeFromWishlist(product._id, cartDispatch, showToast);
       }
     }
   };
