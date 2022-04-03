@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
 import { INITIALIZE_WISHLIST } from "../../reducer";
-import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
 import { ProductCard } from "../../components";
 import "./Wishlist.css";
 
 export const Wishlist = () => {
   const [loader, setLoader] = useState(false);
+  const { showToast } = useToast();
   const { wishlist, cartDispatch } = useCart();
 
   useScrollToTop();
@@ -30,7 +31,7 @@ export const Wishlist = () => {
         });
         setLoader(false);
       } catch (error) {
-        console.log(error);
+        showToast("error", "Something went wrong!");
       }
     })();
   }, []);

@@ -3,7 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart, useOrder } from "../../contexts";
 import { INITIALIZE_CART } from "../../reducer";
-import { useModal, useScrollToTop, useDocumentTitle } from "../../hooks";
+import {
+  useModal,
+  useToast,
+  useScrollToTop,
+  useDocumentTitle,
+} from "../../hooks";
 import { getSelectedAddress } from "../../utils";
 import {
   Checkout,
@@ -16,6 +21,7 @@ import "./Cart.css";
 export const Cart = () => {
   const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const { showModal, handleShowModal } = useModal();
   const { addresses, selectedAddressId } = useOrder();
   const { cartProducts, cartDispatch } = useCart();
