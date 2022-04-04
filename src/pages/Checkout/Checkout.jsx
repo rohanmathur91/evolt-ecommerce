@@ -55,7 +55,7 @@ export const Checkout = () => {
               <img
                 src={image}
                 alt={alt}
-                className="w-10 h-10 rounded-sm mr-4"
+                className="w-10 h-10 rounded-sm mr-4 order-product-image"
               />
               <div className="flex-column content-space-between">
                 <div>

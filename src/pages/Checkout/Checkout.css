@@ -3,6 +3,10 @@
   margin: 2rem auto;
 }
 
+.order-product-image {
+  aspect-ratio: 2/1;
+}
+
 .product-row,
 .order-address {
   border-bottom: 1px solid var(--light-gray);
