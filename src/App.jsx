@@ -9,6 +9,7 @@ import {
   Profile,
   Products,
   ProductDetails,
+  Checkout,
 } from "./pages";
 import {
   Navbar,
@@ -30,6 +31,7 @@ function App() {
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />}>

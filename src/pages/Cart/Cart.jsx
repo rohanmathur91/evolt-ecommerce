@@ -84,8 +84,15 @@ export const Cart = () => {
           <div className="cart-container flex-row wrap content-center">
             <div className="cart-products mt-2">
               <div className="flex-row content-space-between py-2 px-2 m-2 border rounded-sm">
-                <div>
-                  <p className="font-semibold">Delivery Address</p>
+                <Link title="Choose address" to="/profile/addresses">
+                  <p className="font-semibold flex-row items-center">
+                    {selectedAddressId
+                      ? "Change delivery address"
+                      : "Select Address"}
+                    <span className="material-icons-outlined arrow-icon">
+                      keyboard_arrow_right
+                    </span>
+                  </p>
                   {selectedAddress ? (
                     <p className="delivery-address text-sm">
                       {`${selectedAddress.fullName}, ${selectedAddress.home}, ${selectedAddress.area}`}
@@ -95,10 +102,10 @@ export const Cart = () => {
                       Please select an address for delivery
                     </p>
                   )}
-                </div>
+                </Link>
                 <button
                   onClick={handleAddressEdit}
-                  className="btn-solid rounded-sm ml-2 p-1 text-sm icon"
+                  className="btn-solid address-edit-btn rounded-sm ml-2 p-1 text-sm icon"
                 >
                   <span className="material-icons-outlined edit-icon mr-1">
                     edit

@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart, useOrder } from "../../contexts";
 import "./CartDetails.css";
 
 export const CartDetails = () => {
+  const navigate = useNavigate();
   const { selectedAddressId } = useOrder();
   const { cartProducts, totalPrice, totalDiscount, totalAmount, totalSave } =
     useCart();
@@ -38,12 +40,14 @@ export const CartDetails = () => {
           You will save ₹{totalSave} on this order
         </p>
         <button
-          disabled={selectedAddressId}
+          title="Checkout"
+          disabled={!selectedAddressId}
+          onClick={() => navigate("/checkout")}
           className={`${
             !selectedAddressId ? "disable" : ""
           } btn btn-solid w-100 font-semibold items-end transition-2 p-1 mt-1`}
         >
-          Place Order
+          Checkout
         </button>
       </div>
 

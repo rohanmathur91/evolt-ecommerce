@@ -4,8 +4,8 @@ export const address = {
   fullName: "Rohan Mathur",
   cityAndState: "Bangalore",
   mobileNumber: "9922334455",
-  home: "Room no.1, grd flr",
-  area: "Sai Sundar, Century Bazaar",
+  home: "Room no.1, ground floor",
+  area: "Akash Vila, Century Bazaar",
 };
 
 export const countries = ["Hungary", "Iceland", "India", "Indonesia", "Japan"];
