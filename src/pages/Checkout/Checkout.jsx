@@ -1,15 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useOrder, useCart } from "../../contexts";
+import { ADD_ORDER } from "../../reducer";
 import { getSelectedAddress } from "../../utils";
+import { v4 as uuid } from "uuid";
 import "./Checkout.css";
 
 export const Checkout = () => {
-  const { addresses, selectedAddressId } = useOrder();
+  const { orders, addresses, selectedAddressId, orderDispatch } = useOrder();
   const selectedAddress = getSelectedAddress(addresses, selectedAddressId);
   const { area, country, cityAndState, fullName, home, mobileNumber, pinCode } =
     selectedAddress ?? {};
   const { cartProducts, totalPrice, totalDiscount, totalAmount } = useCart();
+
+  const handleOrderClick = () => {
+    orderDispatch({
+      type: ADD_ORDER,
+      payload: {
+        _id: uuid(),
+        totalPrice,
+        totalAmount,
+        totalDiscount,
+        address: selectedAddress,
+        products: [...cartProducts],
+      },
+    });
+  };
 
   return !cartProducts.length ? (
     <div className="not-available text-center px-1">
@@ -31,6 +47,7 @@ export const Checkout = () => {
         {cartProducts.map(
           ({ _id, image, alt, description, productName, qty, price }) => (
             <Link
+              key={_id}
               title={productName}
               to={`/product/${_id}`}
               className="product-row flex-row w-100 py-2"
@@ -86,7 +103,7 @@ export const Checkout = () => {
             <span>₹{totalAmount}</span>
           </div>
           <button
-            onClick={() => alert("Order placed 🎉🎉")}
+            onClick={handleOrderClick}
             className="btn btn-solid w-100 font-semibold transition-2 p-1 mt-1"
           >
             Place Order

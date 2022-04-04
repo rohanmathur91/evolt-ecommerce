@@ -13,6 +13,9 @@ export const orderInitialState = {
 
 export const orderReducer = (orderState, { type, payload }) => {
   switch (type) {
+    case ADD_ORDER:
+      return { ...orderState, orders: [payload, ...orderState.orders] };
+
     case SET_SELECTED_ADDRESS:
       return { ...orderState, selectedAddressId: payload };
 

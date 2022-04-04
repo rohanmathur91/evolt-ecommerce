@@ -11,7 +11,7 @@ const OrderProvider = ({ children }) => {
 
   return (
     <OrderContext.Provider
-      value={{ addresses, selectedAddressId, orderDispatch }}
+      value={{ orders, addresses, selectedAddressId, orderDispatch }}
     >
       {children}
     </OrderContext.Provider>
