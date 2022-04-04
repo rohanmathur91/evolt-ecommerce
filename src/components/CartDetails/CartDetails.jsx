@@ -1,14 +1,14 @@
 import React from "react";
 import { useCart, useOrder } from "../../contexts";
-import "./Checkout.css";
+import "./CartDetails.css";
 
-export const Checkout = () => {
+export const CartDetails = () => {
   const { selectedAddressId } = useOrder();
   const { cartProducts, totalPrice, totalDiscount, totalAmount, totalSave } =
     useCart();
 
   return (
-    <div className="cart-checkout my-4 mx-2">
+    <div className="cart-details my-4 mx-2">
       <button className="btn btn-outlined rounded-sm w-100 mb-1 icon font-semibold transition-2">
         <span className="material-icons-outlined mr-1">local_offer</span> Apply
         coupon

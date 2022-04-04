@@ -11,7 +11,7 @@ import {
 } from "../../hooks";
 import { getSelectedAddress } from "../../utils";
 import {
-  Checkout,
+  CartDetails,
   AddressForm,
   ModalContainer,
   ProductHorizontalCard,
@@ -111,7 +111,7 @@ export const Cart = () => {
                 <ProductHorizontalCard key={product._id} product={product} />
               ))}
             </div>
-            <Checkout />
+            <CartDetails />
           </div>
         ) : (
           <div className="not-available text-center px-1">

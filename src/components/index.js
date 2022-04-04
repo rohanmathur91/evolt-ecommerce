@@ -9,7 +9,7 @@ export { Filters } from "./Filters/Filters";
 export { SortFilter } from "./Filters/SortFilter";
 export { MobileFilter } from "./Filters/MobileFilter";
 export { MobileSortFilter } from "./Filters/MobileSortFilter";
-export { Checkout } from "./Checkout/Checkout";
+export { CartDetails } from "./CartDetails/CartDetails";
 export { Toast } from "./Toast/Toast";
 export { Address } from "./Address/Address";
 export { AddressForm } from "./Address";
