@@ -8,6 +8,7 @@ import {
   INITIALIZE_CART,
   INITIALIZE_WISHLIST,
   CLEAR_CART_AND_WISHLIST,
+  INITIALIZE_PRODUCTS,
 } from "./index";
 
 export const cartInitialState = {
@@ -17,6 +18,9 @@ export const cartInitialState = {
 
 export const cartReducer = (cartState, { type, payload }) => {
   switch (type) {
+    case INITIALIZE_PRODUCTS:
+      return { ...cartState, ...payload };
+
     case ADD_TO_CART:
       return {
         ...cartState,

@@ -12,7 +12,8 @@ export const validateSignupForm = (
   const isFullNameValid = fullName.length >= 2 && /^[a-zA-Z ]*$/.test(fullName);
   const isEmailValid = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email);
   const isPasswordValid =
-    password !== "" && /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
+    password !== "" &&
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password);
   const isConfirmPassword =
     confirmPassword !== "" && password === confirmPassword;
 
@@ -34,7 +35,7 @@ export const validateSignupForm = (
     errorDispatch({
       type: SET_SIGNUP_PASSWORD_ERROR,
       payload:
-        "Password should contain atleast 8 characters,one letter and one number",
+        "Password should contain atleast 6 characters, atleast, one letter, special character and a number",
     });
   }
 

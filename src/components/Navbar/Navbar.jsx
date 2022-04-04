@@ -66,24 +66,21 @@ export const Navbar = () => {
         <ul className="navbar-options flex-row flex-center">
           <li className="profile-icon relative">
             {!user ? (
-              <Link to="/login">
-                <div className="cursor-pointer">
-                  <div className="icon">
-                    <span className="material-icons-outlined badge-icon">
-                      person_outline
-                    </span>
-                  </div>
-                  <span className="navbar-icon-title">Login</span>
-                </div>
+              <Link
+                to="/login"
+                className="cursor-pointer flex-column flex-center"
+              >
+                <span className="material-icons-outlined badge-icon">
+                  person_outline
+                </span>
+                <span className="navbar-icon-title">Login</span>
               </Link>
             ) : (
               <>
-                <div className="cursor-pointer">
-                  <div className="icon">
-                    <span className="material-icons-outlined badge-icon">
-                      person_outline
-                    </span>
-                  </div>
+                <div className="cursor-pointer flex-column flex-center">
+                  <span className="material-icons-outlined badge-icon">
+                    person_outline
+                  </span>
                   <span className="navbar-icon-title">
                     {user ? "Profile" : "Login"}
                   </span>
