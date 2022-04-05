@@ -21,6 +21,10 @@
 }
 
 @media screen and (max-width: 48em) {
+  .products-loader {
+    height: calc(100vh - 12rem);
+  }
+
   .mobile-filter-container {
     display: flex;
   }

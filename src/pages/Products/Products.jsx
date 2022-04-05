@@ -46,7 +46,7 @@ export const Products = () => {
       </aside>
 
       {loader ? (
-        <div className="loader w-100 flex-column flex-center">
+        <div className="loader products-loader w-100 flex-column flex-center">
           <CircularProgress />
         </div>
       ) : sortedProducts.length ? (

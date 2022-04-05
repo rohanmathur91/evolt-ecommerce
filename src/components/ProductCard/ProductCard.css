@@ -56,3 +56,9 @@
   color: var(--white);
   background-color: var(--red);
 }
+
+@media screen and (max-width: 64em) {
+  .card-description {
+    -webkit-line-clamp: 1;
+  }
+}
