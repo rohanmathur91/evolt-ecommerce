@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useOrder } from "../../../contexts";
-import { UPDATE_ADDRESS } from "../../../reducer";
+import { UPDATE_ADDRESS, SET_SELECTED_ADDRESS } from "../../../reducer";
 import { v4 as uuid } from "uuid";
 import { address } from "../../../staticData";
 import "./AddressForm.css";
@@ -17,7 +17,7 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
       cityAndState: "",
     }
   );
-  const { orderDispatch } = useOrder();
+  const { addresses, orderDispatch } = useOrder();
 
   const handleInputChange = (event, field) => {
     setAddressForm((prevForm) => ({
@@ -28,12 +28,18 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    const newAddress = { _id: uuid(), ...addressForm };
     orderDispatch({
       type: UPDATE_ADDRESS,
       payload: !editAddress
-        ? { _id: uuid(), ...addressForm }
+        ? newAddress
         : { isEdit: true, address: addressForm },
     });
+
+    if (addresses.length === 0) {
+      orderDispatch({ type: SET_SELECTED_ADDRESS, payload: newAddress._id });
+    }
+
     handleShowModal(false);
   };
 
