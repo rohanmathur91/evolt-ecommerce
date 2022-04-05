@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 import { FILTER_BY_TYPE } from "../../reducer";
 import { useProduct } from "../../contexts";
 import "./Category.css";
@@ -45,7 +46,9 @@ export const Category = () => {
       </div>
       <article className="category">
         {loader ? (
-          <p className="m-auto p-7 my-7">Fetching categories...</p>
+          <div className="loader h-100 w-100 py-8 flex-column flex-center">
+            <CircularProgress />
+          </div>
         ) : (
           categoryList &&
           categoryList.map(({ _id, alt, image, category }) => (

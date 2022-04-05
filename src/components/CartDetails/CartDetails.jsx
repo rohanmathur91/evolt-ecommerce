@@ -85,7 +85,7 @@ export const CartDetails = () => {
           Apply coupon
         </button>
 
-        <div className="border flex-start p-3 rounded-sm">
+        <div className="border flex-start py-2 px-3 rounded-sm">
           <p className="pb-1 font-bold border-bottom pb-2">Price Details</p>
           <div className="flex-row content-space-between mt-1 py-1">
             <span>Price({cartProducts.length} items)</span>

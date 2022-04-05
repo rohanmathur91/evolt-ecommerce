@@ -8,6 +8,7 @@
   position: sticky;
   top: 10rem;
   flex-grow: 1;
+  max-width: 62rem;
   align-self: flex-start;
 }
 
