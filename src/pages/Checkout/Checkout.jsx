@@ -1,30 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useOrder, useCart } from "../../contexts";
-import { ADD_ORDER } from "../../reducer";
-import { getSelectedAddress } from "../../utils";
+import { ADD_ORDER, UPDATE_COUPON } from "../../reducer";
+import { getSelectedAddress, getTotalAmountWithCoupon } from "../../utils";
 import { v4 as uuid } from "uuid";
 import "./Checkout.css";
 
 export const Checkout = () => {
-  const { orders, addresses, selectedAddressId, orderDispatch } = useOrder();
+  const { coupon, addresses, selectedAddressId, orderDispatch } = useOrder();
   const selectedAddress = getSelectedAddress(addresses, selectedAddressId);
   const { area, country, cityAndState, fullName, home, mobileNumber, pinCode } =
     selectedAddress ?? {};
-  const { cartProducts, totalPrice, totalDiscount, totalAmount } = useCart();
+  const { cartProducts, subTotal, totalDiscount, totalAmount } = useCart();
+  const totalAmountWithCoupon = getTotalAmountWithCoupon(coupon, totalAmount);
 
+  // save order details
   const handleOrderClick = () => {
     orderDispatch({
       type: ADD_ORDER,
       payload: {
         _id: uuid(),
-        totalPrice,
+        coupon,
+        subTotal,
         totalAmount,
         totalDiscount,
+        totalAmountWithCoupon,
         address: selectedAddress,
         products: [...cartProducts],
       },
     });
+  };
+
+  const handleRemoveCoupon = () => {
+    orderDispatch({ type: UPDATE_COUPON, payload: "" });
   };
 
   return !cartProducts.length ? (
@@ -88,19 +96,34 @@ export const Checkout = () => {
         <div className="w-100 mb-8">
           <div className="flex-row content-space-between my-1">
             <span>Subtotal ({cartProducts.length} items)</span>
-            <span>₹{totalPrice}</span>
+            <span>₹{subTotal}</span>
           </div>
+
           <div className="flex-row content-space-between my-1">
             <span>Discount</span>
             <span>- ₹{totalDiscount.toFixed(2)}</span>
           </div>
+
           <div className="flex-row content-space-between my-1">
             <span>Delivery Charges</span>
-            <span>Free</span>
+            <span className="text-green font-semibold">Free</span>
           </div>
-          <div className="flex-row content-space-between font-semibold my-1">
+
+          <div className="flex-row items-center font-semibold my-1">
             <span>Total Amount</span>
-            <span>₹{totalAmount}</span>
+            {coupon && (
+              <div className="coupon-chip ml-1 rounded-full icon">
+                {coupon}
+                <button
+                  className="icon"
+                  title="Remove coupon"
+                  onClick={handleRemoveCoupon}
+                >
+                  <span className="material-icons-outlined ml-1">close</span>
+                </button>
+              </div>
+            )}
+            <span className="ml-auto">₹{totalAmountWithCoupon}</span>
           </div>
           <button
             onClick={handleOrderClick}
