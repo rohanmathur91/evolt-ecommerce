@@ -52,7 +52,7 @@ export const Navbar = () => {
             </span>
             <input
               value={searchQuery}
-              type="text"
+              type="search"
               autoComplete="false"
               placeholder="search..."
               className="search-input border w-100 py-1 pl-6 pr-2 text-base rounded-sm"
