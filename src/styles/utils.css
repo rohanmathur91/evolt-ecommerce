@@ -54,7 +54,7 @@
 
 .btn-outlined {
   color: var(--primary-color);
-  border: 0.5px solid var(--primary-color);
+  border: 0.5px solid var(--gray);
 }
 
 .btn-outlined:hover {
