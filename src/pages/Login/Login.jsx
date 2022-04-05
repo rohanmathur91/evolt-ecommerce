@@ -77,7 +77,7 @@ export const Login = () => {
           }
           className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"
         >
-          Login using dummy credentials
+          Login with test credentials
         </button>
 
         <button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">

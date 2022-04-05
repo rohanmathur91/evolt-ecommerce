@@ -67,7 +67,7 @@ export const CartDetails = () => {
                   onChange={handleApplyCoupon}
                 />
                 10% Discount for new users{" "}
-                <span className="font-semibold">(NEWUSER)</span>
+                <span className="font-semibold">(10%NEWUSER)</span>
               </label>
             </div>
           </div>
@@ -93,7 +93,7 @@ export const CartDetails = () => {
           </div>
 
           <div className="flex-row content-space-between py-1">
-            <span>Discount</span>
+            <span>Product Discount</span>
             <span className="text-green font-semibold">
               - ₹{totalDiscount.toFixed(2)}
             </span>

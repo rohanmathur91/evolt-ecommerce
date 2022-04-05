@@ -100,7 +100,7 @@ export const Checkout = () => {
           </div>
 
           <div className="flex-row content-space-between my-1">
-            <span>Discount</span>
+            <span>Product Discount</span>
             <span>- ₹{totalDiscount.toFixed(2)}</span>
           </div>
 

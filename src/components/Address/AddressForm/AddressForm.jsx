@@ -45,7 +45,11 @@ export const AddressForm = ({ editAddress, handleShowModal }) => {
     >
       <div className="flex-row items-center content-space-between">
         <h3 className="my-1">Add address</h3>
-        <button type="button" onClick={() => handleShowModal(false)}>
+        <button
+          title="Close"
+          type="button"
+          onClick={() => handleShowModal(false)}
+        >
           <span className="material-icons-outlined">close</span>
         </button>
       </div>
