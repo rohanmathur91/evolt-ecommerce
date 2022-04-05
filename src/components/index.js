@@ -17,3 +17,4 @@ export { Orders } from "./Orders/Orders";
 export { UserProfile } from "./UserProfile/UserProfile";
 export { AccountSettings } from "./AccountSettings/AccountSettings";
 export { ModalContainer } from "./ModalContainer/ModalContainer";
+export { PrivateRoute } from "./PrivateRoute/PrivateRoute";

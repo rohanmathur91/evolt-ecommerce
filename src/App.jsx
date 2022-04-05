@@ -17,6 +17,7 @@ import {
   Address,
   UserProfile,
   AccountSettings,
+  PrivateRoute,
 } from "./components";
 import "./App.css";
 
@@ -27,17 +28,19 @@ function App() {
       <Toast />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/product/:productId" element={<ProductDetails />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />}>
-          <Route index element={<UserProfile />} />
-          <Route path="addresses" element={<Address />} />
-          <Route path="settings" element={<AccountSettings />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:productId" element={<ProductDetails />} />
+        <Route path="/" element={<PrivateRoute />}>
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/profile" element={<Profile />}>
+            <Route index element={<UserProfile />} />
+            <Route path="addresses" element={<Address />} />
+            <Route path="settings" element={<AccountSettings />} />
+          </Route>
         </Route>
       </Routes>
     </div>
