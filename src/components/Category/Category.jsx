@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import { FILTER_BY_TYPE } from "../../reducer";
@@ -7,26 +6,7 @@ import { useProduct } from "../../contexts";
 import "./Category.css";
 
 export const Category = () => {
-  const [error, setError] = useState(null);
-  const [loader, setLoader] = useState(false);
-  const [categoryList, setCategorList] = useState([]);
-  const { productDispatch } = useProduct();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setLoader(true);
-        const {
-          data: { categories },
-        } = await axios.get("/api/categories");
-        setCategorList(categories);
-      } catch (error) {
-        setError("Cannot fetch the categories");
-      } finally {
-        setLoader(false);
-      }
-    })();
-  }, []);
+  const { isLoading, categoryList, productDispatch } = useProduct();
 
   const handleCategoryClick = (category) => {
     productDispatch({
@@ -45,12 +25,12 @@ export const Category = () => {
         </Link>
       </div>
       <article className="category">
-        {loader ? (
+        {isLoading ? (
           <div className="loader h-100 w-100 py-8 flex-column flex-center">
             <CircularProgress />
           </div>
         ) : (
-          categoryList &&
+          categoryList.length &&
           categoryList.map(({ _id, alt, image, category }) => (
             <Link
               key={_id}

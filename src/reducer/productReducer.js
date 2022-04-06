@@ -4,6 +4,8 @@ import {
   SORT,
   SEARCH,
   CLEAR_FILTER,
+  SET_LOADING,
+  SET_CATEGORIES,
   FETCH_PRODUCTS,
   FILTER_BY_PRICE,
   FILTER_BY_BRAND,
@@ -13,6 +15,8 @@ import {
 
 export const productInitialState = {
   products: [],
+  categoryList: [],
+  isLoading: false,
   searchQuery: "",
   productFilter: {
     sortBy: "",
@@ -21,17 +25,18 @@ export const productInitialState = {
     types: createFilterObject(types),
     brands: createFilterObject(brands),
   },
-  toast: {
-    type: "",
-    message: "",
-    showToast: false,
-  },
 };
 
 export const productReducer = (productState, { type, payload }) => {
   switch (type) {
     case FETCH_PRODUCTS:
       return { ...productState, products: payload };
+
+    case SET_CATEGORIES:
+      return { ...productState, categoryList: payload };
+
+    case SET_LOADING:
+      return { ...productState, isLoading: payload };
 
     case SORT:
       return {

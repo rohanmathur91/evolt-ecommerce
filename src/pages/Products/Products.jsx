@@ -1,9 +1,7 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
+import React, { useState } from "react";
 import { useProduct } from "../../contexts";
-import { useScrollToTop, useDocumentTitle, useToast } from "../../hooks";
-import { FETCH_PRODUCTS } from "../../reducer";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
+import CircularProgress from "@mui/material/CircularProgress";
 import {
   Filters,
   SortFilter,
@@ -14,29 +12,12 @@ import {
 import "./Products.css";
 
 export const Products = () => {
-  const [loader, setLoader] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [showSortFilter, setShowSortFilter] = useState(false);
-  const { showToast } = useToast();
-  const { sortedProducts, productDispatch } = useProduct();
+  const { isLoading, sortedProducts } = useProduct();
 
   useScrollToTop();
   useDocumentTitle("Products");
-
-  useEffect(() => {
-    (async () => {
-      try {
-        setLoader(true);
-        const {
-          data: { products },
-        } = await axios.get("/api/products");
-        productDispatch({ type: FETCH_PRODUCTS, payload: products });
-        setLoader(false);
-      } catch (error) {
-        showToast("error", "Something went wrong!");
-      }
-    })();
-  }, []);
 
   return (
     <div className="flex-row">
@@ -45,7 +26,7 @@ export const Products = () => {
         <Filters />
       </aside>
 
-      {loader ? (
+      {isLoading ? (
         <div className="loader products-loader w-100 flex-column flex-center">
           <CircularProgress />
         </div>

@@ -1,5 +1,13 @@
-import { createContext, useContext, useReducer } from "react";
-import { productReducer, productInitialState } from "../reducer";
+import { useEffect, createContext, useContext, useReducer } from "react";
+import axios from "axios";
+import {
+  SET_LOADING,
+  SET_CATEGORIES,
+  FETCH_PRODUCTS,
+  productReducer,
+  productInitialState,
+} from "../reducer";
+import { useToast } from "../hooks";
 import {
   getSearchProducts,
   getSortedProducts,
@@ -9,8 +17,43 @@ import {
 const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-  const [{ products, searchQuery, toast, productFilter }, productDispatch] =
-    useReducer(productReducer, productInitialState);
+  const [
+    { isLoading, products, searchQuery, categoryList, productFilter },
+    productDispatch,
+  ] = useReducer(productReducer, productInitialState);
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        productDispatch({ type: SET_LOADING, payload: true });
+        const {
+          data: { categories },
+        } = await axios.get("/api/categories");
+
+        productDispatch({ type: SET_CATEGORIES, payload: categories });
+        productDispatch({ type: SET_LOADING, payload: false });
+      } catch (error) {
+        showToast("error", "Cannot fetch the categories");
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        productDispatch({ type: SET_LOADING, payload: true });
+        const {
+          data: { products },
+        } = await axios.get("/api/products");
+
+        productDispatch({ type: FETCH_PRODUCTS, payload: products });
+        productDispatch({ type: SET_LOADING, payload: false });
+      } catch (error) {
+        showToast("error", "Could not able to retrieve products!");
+      }
+    })();
+  }, []);
 
   const searchProducts = getSearchProducts(products, searchQuery);
   const filteredProducts = getFilteredProducts(searchProducts, productFilter);
@@ -19,8 +62,9 @@ const ProductProvider = ({ children }) => {
   return (
     <ProductContext.Provider
       value={{
-        toast,
         products,
+        isLoading,
+        categoryList,
         searchQuery,
         productFilter,
         productDispatch,
