@@ -10,6 +10,7 @@ import {
   Products,
   ProductDetails,
   Checkout,
+  PageNotFound,
 } from "./pages";
 import {
   Navbar,
@@ -42,6 +43,7 @@ function App() {
             <Route path="settings" element={<AccountSettings />} />
           </Route>
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );

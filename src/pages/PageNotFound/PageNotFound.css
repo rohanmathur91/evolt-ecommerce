@@ -1,0 +1,18 @@
+.page-not-found {
+  gap: 3rem;
+  height: calc(100vh - 9rem);
+}
+
+.not-found-message {
+  margin-top: 4px;
+}
+
+.go-home-link:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 48em) {
+  .page-not-found {
+    flex-direction: column-reverse;
+  }
+}
