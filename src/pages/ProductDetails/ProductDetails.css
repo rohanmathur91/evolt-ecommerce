@@ -1,3 +1,7 @@
+.circular-loader {
+  height: calc(100vh - 9rem);
+}
+
 .product-details {
   display: grid;
   grid-template-columns: 2fr 3fr;

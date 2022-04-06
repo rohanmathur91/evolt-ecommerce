@@ -4,7 +4,7 @@
   align-items: start;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0rem auto 6rem auto;
 }
 
@@ -21,6 +21,10 @@
 }
 
 @media screen and (max-width: 48em) {
+  .products-loader {
+    height: calc(100vh - 12rem);
+  }
+
   .mobile-filter-container {
     display: flex;
   }

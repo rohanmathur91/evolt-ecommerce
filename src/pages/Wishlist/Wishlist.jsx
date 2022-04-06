@@ -1,44 +1,17 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts";
-import { INITIALIZE_WISHLIST } from "../../reducer";
-import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { ProductCard } from "../../components";
 import "./Wishlist.css";
 
 export const Wishlist = () => {
-  const [loader, setLoader] = useState(false);
-  const { showToast } = useToast();
-  const { wishlist, cartDispatch } = useCart();
+  const { wishlist } = useCart();
 
   useScrollToTop();
   useDocumentTitle("Wishlist");
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setLoader(true);
-        const {
-          data: { wishlist },
-        } = await axios.get("/api/user/wishlist", {
-          headers: { authorization: localStorage.getItem("token") },
-        });
-
-        cartDispatch({
-          type: INITIALIZE_WISHLIST,
-          payload: wishlist,
-        });
-        setLoader(false);
-      } catch (error) {
-        showToast("error", "Something went wrong!");
-      }
-    })();
-  }, []);
-
-  return loader ? (
-    <h4 className="text-center mt-6 p-1">Loading wishlist...</h4>
-  ) : (
+  return (
     <>
       {wishlist.length ? (
         <>

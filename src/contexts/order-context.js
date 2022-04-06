@@ -4,14 +4,18 @@ import { orderReducer, orderInitialState } from "../reducer";
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
-  const [{ orders, addresses, selectedAddressId }, orderDispatch] = useReducer(
-    orderReducer,
-    orderInitialState
-  );
+  const [{ orders, coupon, addresses, selectedAddressId }, orderDispatch] =
+    useReducer(orderReducer, orderInitialState);
 
   return (
     <OrderContext.Provider
-      value={{ addresses, selectedAddressId, orderDispatch }}
+      value={{
+        orders,
+        coupon,
+        addresses,
+        selectedAddressId,
+        orderDispatch,
+      }}
     >
       {children}
     </OrderContext.Provider>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useAuth, useCart } from "../../contexts";
 import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
 import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
@@ -68,13 +69,15 @@ export const ProductDetails = () => {
       if (!checkProductInWishlist(_id, wishlist)) {
         addToWishlist(product, cartDispatch, showToast);
       } else {
-        removeFromWishlist(product._id, cartDispatch, showToast);
+        removeFromWishlist(product, cartDispatch, showToast);
       }
     }
   };
 
   return loader ? (
-    <h4 className="text-center mt-2 p-1">Loading wishlist...</h4>
+    <div className="circular-loader loader w-100 flex-column flex-center">
+      <CircularProgress />
+    </div>
   ) : (
     <div className="product-details transition-2 mt-8 m-1 p-1 rounded-sm">
       <img src={image} alt={alt} className="product-image mx-2 p-3" />

@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useReducer } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
@@ -6,14 +5,13 @@ import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import {
   signupErrorReducer,
   signUpErrorInitialState,
-  CLEAR_SIGNUP_FORM,
   SET_SIGNUP_EMAIL_ERROR,
   SET_SIGNUP_FULLNAME_ERROR,
   SET_SIGNUP_PASSWORD_ERROR,
   SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
-  INITIALIZE_CART,
-  INITIALIZE_WISHLIST,
+  SET_SIGNUP_FORM_ERROR,
 } from "../../reducer";
+import { signupService } from "../../services";
 import { validateSignupForm } from "../../utils";
 import { Input } from "../../components";
 
@@ -44,28 +42,19 @@ export const Signup = () => {
     }));
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     const isValidForm = validateSignupForm(errorDispatch, credentials);
+    errorDispatch({ type: SET_SIGNUP_FORM_ERROR, payload: "" });
+
     if (isValidForm) {
-      try {
-        const {
-          data: { createdUser, encodedToken },
-        } = await axios.post("/api/auth/signup", credentials);
-
-        updateUser(createdUser);
-        cartDispatch({ type: INITIALIZE_CART, payload: createdUser.cart });
-        cartDispatch({
-          type: INITIALIZE_WISHLIST,
-          payload: createdUser.wishlist,
-        });
-
-        localStorage.setItem("token", encodedToken);
-        errorDispatch({ type: CLEAR_SIGNUP_FORM });
-        navigate("/");
-      } catch (error) {
-        console.log("Something is wrong, please try later.");
-      }
+      signupService(
+        credentials,
+        updateUser,
+        cartDispatch,
+        errorDispatch,
+        navigate
+      );
     }
   };
 
@@ -145,6 +134,13 @@ export const Signup = () => {
         <button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">
           Signup
         </button>
+
+        {errorState.formError && (
+          <div className="mb-2 login-error-msg flex-row items-center">
+            <span className="material-icons-outlined mr-1">error_outline</span>
+            <p>{errorState.formError}</p>
+          </div>
+        )}
 
         <div className="text-sm mb-2 flex-row flex-center">
           Already a user?

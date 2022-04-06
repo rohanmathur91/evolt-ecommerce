@@ -29,3 +29,8 @@
   font-size: 2.7rem;
   margin-left: -6px;
 }
+
+/* loader */
+.loader .MuiCircularProgress-root {
+  color: var(--primary-color);
+}

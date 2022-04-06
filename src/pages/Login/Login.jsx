@@ -1,8 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
-import { INITIALIZE_CART, INITIALIZE_WISHLIST } from "../../reducer";
+import { loginService } from "../../services";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import { Input } from "../../components";
 
@@ -14,13 +13,12 @@ export const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
   const { updateUser } = useAuth();
   const { cartDispatch } = useCart();
 
   useScrollToTop();
   useDocumentTitle("Login");
-
-  const navigate = useNavigate();
 
   const handleInputChange = (event, field) => {
     setCredentials((prevCredentials) => ({
@@ -29,25 +27,10 @@ export const Login = () => {
     }));
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
-    try {
-      const {
-        data: { foundUser, encodedToken },
-      } = await axios.post("/api/auth/login", credentials);
-
-      updateUser(foundUser);
-      cartDispatch({ type: INITIALIZE_CART, payload: foundUser.cart });
-      cartDispatch({
-        type: INITIALIZE_WISHLIST,
-        payload: foundUser.wishlist,
-      });
-
-      localStorage.setItem("token", encodedToken);
-      navigate("/");
-    } catch (error) {
-      setError("Email or password is incorrect");
-    }
+    setError("");
+    loginService(credentials, updateUser, cartDispatch, navigate, setError);
   };
 
   return (
@@ -94,7 +77,7 @@ export const Login = () => {
           }
           className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"
         >
-          Login using dummy credentials
+          Login with test credentials
         </button>
 
         <button className="p-1 w-100 font-semibold btn btn-solid transition-2 mr-1 mb-2 rounded-sm">

@@ -14,16 +14,16 @@ const CartProvider = ({ children }) => {
     cartInitialState
   );
 
-  const totalPrice = getTotalCartPrice(cartProducts);
-  const totalDiscount = getTotalCartDiscount(cartProducts, totalPrice);
-  const totalAmount = (totalPrice - totalDiscount).toFixed(2);
-  const totalSave = (totalPrice - totalAmount).toFixed(2);
+  const subTotal = getTotalCartPrice(cartProducts);
+  const totalDiscount = getTotalCartDiscount(cartProducts, subTotal);
+  const totalAmount = (subTotal - totalDiscount).toFixed(2);
+  const totalSave = (subTotal - totalAmount).toFixed(2);
 
   return (
     <CartContext.Provider
       value={{
         wishlist,
-        totalPrice,
+        subTotal,
         totalAmount,
         totalDiscount,
         totalSave,

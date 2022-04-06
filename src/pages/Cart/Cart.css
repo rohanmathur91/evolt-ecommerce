@@ -8,12 +8,21 @@
   max-width: 65rem;
 }
 
+.material-icons-outlined.arrow-icon {
+  font-size: 1.9rem;
+}
+
 .delivery-address {
+  margin-top: 4px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+}
+
+.address-edit-btn {
+  align-self: flex-start;
 }
 
 .btn-solid .edit-icon {

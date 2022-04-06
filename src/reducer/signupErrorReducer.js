@@ -3,6 +3,7 @@ import {
   SET_SIGNUP_FULLNAME_ERROR,
   SET_SIGNUP_PASSWORD_ERROR,
   SET_SIGNUP_CONFIRM_PASSWORD_ERROR,
+  SET_SIGNUP_FORM_ERROR,
   CLEAR_SIGNUP_FORM,
 } from "./index";
 
@@ -11,6 +12,7 @@ export const signUpErrorInitialState = {
   fullName: "",
   password: "",
   confirmPassword: "",
+  formError: "",
 };
 
 export const signupErrorReducer = (errorState, { type, payload }) => {
@@ -26,6 +28,9 @@ export const signupErrorReducer = (errorState, { type, payload }) => {
 
     case SET_SIGNUP_CONFIRM_PASSWORD_ERROR:
       return { ...errorState, confirmPassword: payload };
+
+    case SET_SIGNUP_FORM_ERROR:
+      return { ...errorState, formError: payload };
 
     case CLEAR_SIGNUP_FORM:
       return {

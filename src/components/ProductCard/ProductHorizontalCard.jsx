@@ -23,15 +23,15 @@ export const ProductHorizontalCard = ({ product }) => {
 
   const handleMoveToWishlist = () => {
     addToWishlist(product, cartDispatch, showToast);
-    removeFromCart(product._id, cartDispatch, showToast, true);
+    removeFromCart(product, cartDispatch, showToast, true);
   };
 
   const handleRemoveFromCart = () => {
-    removeFromCart(_id, cartDispatch, showToast);
+    removeFromCart(product, cartDispatch, showToast);
   };
 
   const handleUpdateQuantity = (updateType) => {
-    updateQuantity(_id, updateType, cartDispatch, setIsLoading, showToast);
+    updateQuantity(product, updateType, cartDispatch, setIsLoading, showToast);
   };
 
   return (

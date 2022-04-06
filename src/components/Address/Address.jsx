@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useOrder } from "../../contexts";
 import { useModal } from "../../hooks";
 import { AddressCard, AddressForm } from "./";
@@ -25,12 +26,24 @@ export const Address = () => {
           />
         </ModalContainer>
       )}
-      <button
-        onClick={handleAddAddress}
-        className="btn btn-outlined flex-row items-center w-100 my-1 p-1 font-semibold transition-2 rounded-sm"
-      >
-        <span className="material-icons-outlined">add</span> Add new address
-      </button>
+
+      <div className="flex-row">
+        <Link
+          to="/cart"
+          className="btn btn-outlined goto-cart-btn flex-row items-center w-100 my-1 p-1 mr-1 font-semibold transition-2 rounded-sm"
+        >
+          <span className="material-icons-outlined mr-1">shopping_cart</span>
+          Goto Cart
+        </Link>
+
+        <button
+          onClick={handleAddAddress}
+          className="btn btn-outlined add-address-btn flex-row items-center w-100 my-1 p-1 font-semibold transition-2 rounded-sm"
+        >
+          <span className="material-icons-outlined mr-1">add</span> Add new
+          address
+        </button>
+      </div>
 
       <ul className="my-2 flex-column content-center">
         {addresses.length ? (

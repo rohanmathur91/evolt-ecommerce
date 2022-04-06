@@ -1,0 +1,42 @@
+.order-summary {
+  max-width: 65rem;
+  margin: 2rem auto;
+}
+
+.order-product-image {
+  aspect-ratio: 2/1;
+}
+
+.product-row,
+.order-address {
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.order-product-description {
+  line-height: 1.2;
+  overflow: hidden;
+  color: var(--gray);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+}
+
+.order-address {
+  align-self: flex-start;
+}
+
+.order-address-details > p {
+  font-size: 1.4rem;
+}
+
+.coupon-chip {
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  background-color: var(--light-gray);
+}
+
+.coupon-chip button span {
+  font-size: 1.8rem;
+}

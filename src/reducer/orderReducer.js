@@ -3,9 +3,11 @@ import {
   UPDATE_ADDRESS,
   REMOVE_ADDRESS,
   SET_SELECTED_ADDRESS,
+  UPDATE_COUPON,
 } from "./";
 
 export const orderInitialState = {
+  coupon: "",
   orders: [],
   addresses: [],
   selectedAddressId: "",
@@ -13,6 +15,12 @@ export const orderInitialState = {
 
 export const orderReducer = (orderState, { type, payload }) => {
   switch (type) {
+    case ADD_ORDER:
+      return { ...orderState, orders: [payload, ...orderState.orders] };
+
+    case UPDATE_COUPON:
+      return { ...orderState, coupon: payload };
+
     case SET_SELECTED_ADDRESS:
       return { ...orderState, selectedAddressId: payload };
 
@@ -40,9 +48,6 @@ export const orderReducer = (orderState, { type, payload }) => {
             : "",
         addresses: orderState.addresses.filter(({ _id }) => _id !== payload),
       };
-
-    case ADD_ORDER:
-      return { ...orderState, orders: [payload, ...orderState.orders] };
 
     default:
       throw new Error("Action type not found.");
