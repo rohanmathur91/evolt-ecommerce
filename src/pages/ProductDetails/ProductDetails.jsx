@@ -69,7 +69,7 @@ export const ProductDetails = () => {
       if (!checkProductInWishlist(_id, wishlist)) {
         addToWishlist(product, cartDispatch, showToast);
       } else {
-        removeFromWishlist(product._id, cartDispatch, showToast);
+        removeFromWishlist(product, cartDispatch, showToast);
       }
     }
   };

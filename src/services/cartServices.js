@@ -21,32 +21,33 @@ const addToCart = async (product, cartDispatch, setLoader, showToast) => {
       type: ADD_TO_CART,
       payload: product,
     });
-    showToast("success", "Added to cart");
+    showToast("success", `${product.productName} added in cart`);
     setLoader(false);
   } catch (error) {
-    showToast("error", "Something went wrong!");
+    showToast("error", "Something went wrong, please try again.");
   }
 };
 
-const removeFromCart = async (productId, cartDispatch, showToast, isMoved) => {
+const removeFromCart = async (product, cartDispatch, showToast, isMoved) => {
   try {
-    const updatedCart = await axios.delete(`/api/user/cart/${productId}`, {
+    const updatedCart = await axios.delete(`/api/user/cart/${product._id}`, {
       headers: { authorization: localStorage.getItem("token") },
     });
 
     cartDispatch({
       type: REMOVE_FROM_CART,
-      payload: productId,
+      payload: product._id,
     });
 
-    !isMoved && showToast("success", "Removed from cart");
+    !isMoved &&
+      showToast("success", `${product.productName} is removed from cart`);
   } catch (error) {
-    showToast("error", "Something went wrong");
+    showToast("error", "Something went wrong, please try again.");
   }
 };
 
 const updateQuantity = async (
-  productId,
+  product,
   updateType,
   cartDispatch,
   setLoader,
@@ -55,7 +56,7 @@ const updateQuantity = async (
   try {
     setLoader(true);
     const updatedCart = await axios.post(
-      `/api/user/cart/${productId}`,
+      `/api/user/cart/${product._id}`,
       {
         action: {
           type: updateType,
@@ -68,13 +69,13 @@ const updateQuantity = async (
 
     cartDispatch({
       type: updateType === "increment" ? INCREASE_QUANTITY : DECREASE_QUANTITY,
-      payload: productId,
+      payload: product._id,
     });
 
-    showToast("success", "Cart has been updated");
+    showToast("success", `You updated "${product.productName}" quantity.`);
     setLoader(false);
   } catch (error) {
-    showToast("error", "Something went wrong");
+    showToast("error", "Something went wrong, please try again.");
   }
 };
 

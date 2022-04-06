@@ -18,7 +18,7 @@ export const ToggleWishlist = ({ product }) => {
       if (!isProductInWishlist) {
         addToWishlist(product, cartDispatch, showToast);
       } else {
-        removeFromWishlist(product._id, cartDispatch, showToast);
+        removeFromWishlist(product, cartDispatch, showToast);
       }
     }
   };

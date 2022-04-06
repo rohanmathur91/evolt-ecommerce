@@ -16,16 +16,16 @@ const addToWishlist = async (product, cartDispatch, showToast) => {
       payload: product,
     });
 
-    showToast("success", "Added to wishlist");
+    showToast("success", `${product.productName} added in wishlist.`);
   } catch (error) {
-    showToast("error", "Something went wrong");
+    showToast("error", "Something went wrong, please try again.");
   }
 };
 
-const removeFromWishlist = async (productId, cartDispatch, showToast) => {
+const removeFromWishlist = async (product, cartDispatch, showToast) => {
   try {
     const updatedWishlist = await axios.delete(
-      `/api/user/wishlist/${productId}`,
+      `/api/user/wishlist/${product._id}`,
       {
         headers: { authorization: localStorage.getItem("token") },
       }
@@ -33,12 +33,12 @@ const removeFromWishlist = async (productId, cartDispatch, showToast) => {
 
     cartDispatch({
       type: REMOVE_FROM_WISHLIST,
-      payload: productId,
+      payload: product._id,
     });
 
-    showToast("success", "Removed from wishlist");
+    showToast("success", `${product.productName} is removed from wishlist.`);
   } catch (error) {
-    showToast("error", "Something went wrong");
+    showToast("error", "Something went wrong, please try again.");
   }
 };
 
