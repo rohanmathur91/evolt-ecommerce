@@ -1,38 +1,90 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useOrder, useCart } from "../../contexts";
-import { ADD_ORDER, UPDATE_COUPON } from "../../reducer";
+import { Link, useNavigate } from "react-router-dom";
+import { useOrder, useCart, useAuth } from "../../contexts";
+import { SAVE_ORDER, UPDATE_COUPON, INITIALIZE_CART } from "../../reducer";
+import { useToast } from "../../hooks";
 import { getSelectedAddress, getTotalAmountWithCoupon } from "../../utils";
 import { v4 as uuid } from "uuid";
+import logo from "../../assets/logo.svg";
 import "./Checkout.css";
 
 export const Checkout = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const { showToast } = useToast();
   const { coupon, addresses, selectedAddressId, orderDispatch } = useOrder();
   const selectedAddress = getSelectedAddress(addresses, selectedAddressId);
   const { area, country, cityAndState, fullName, home, mobileNumber, pinCode } =
     selectedAddress ?? {};
-  const { cartProducts, subTotal, totalDiscount, totalAmount } = useCart();
+  const { cartProducts, subTotal, totalDiscount, totalAmount, cartDispatch } =
+    useCart();
   const totalAmountWithCoupon = getTotalAmountWithCoupon(coupon, totalAmount);
-
-  // save order details
-  const handleOrderClick = () => {
-    orderDispatch({
-      type: ADD_ORDER,
-      payload: {
-        _id: uuid(),
-        coupon,
-        subTotal,
-        totalAmount,
-        totalDiscount,
-        totalAmountWithCoupon,
-        address: selectedAddress,
-        products: [...cartProducts],
-      },
-    });
-  };
 
   const handleRemoveCoupon = () => {
     orderDispatch({ type: UPDATE_COUPON, payload: "" });
+  };
+
+  const loadScript = (src) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const displayRazorpay = async () => {
+    const respose = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!respose) {
+      showToast("error", "Razorpay SDK failed to load.");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_Q4WcLMWlIe6qSa",
+      amount: totalAmountWithCoupon * 100,
+      currency: "INR",
+      name: "Evolt Ecommerce",
+      description: "Enjoy the products & thanks for shopping with us.",
+      image: logo,
+
+      handler: ({ razorpay_payment_id }) => {
+        // save order
+        orderDispatch({
+          type: SAVE_ORDER,
+          payload: {
+            orderId: uuid(),
+            paymentId: razorpay_payment_id,
+            coupon,
+            subTotal,
+            totalAmount,
+            totalDiscount,
+            totalAmountWithCoupon,
+            address: selectedAddress,
+            products: [...cartProducts],
+          },
+        });
+
+        // empty cart
+        cartDispatch({ type: INITIALIZE_CART, payload: [] });
+        navigate("/products");
+      },
+      prefill: {
+        name: user.fullName,
+        email: user.email,
+        contact: "9988776655",
+      },
+      theme: {
+        color: "#302f34",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
   };
 
   return !cartProducts.length ? (
@@ -126,7 +178,7 @@ export const Checkout = () => {
             <span className="ml-auto">₹{totalAmountWithCoupon}</span>
           </div>
           <button
-            onClick={handleOrderClick}
+            onClick={displayRazorpay}
             className="btn btn-solid w-100 font-semibold transition-2 p-1 mt-1"
           >
             Place Order

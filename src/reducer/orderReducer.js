@@ -1,5 +1,5 @@
 import {
-  ADD_ORDER,
+  SAVE_ORDER,
   UPDATE_ADDRESS,
   REMOVE_ADDRESS,
   SET_SELECTED_ADDRESS,
@@ -15,7 +15,7 @@ export const orderInitialState = {
 
 export const orderReducer = (orderState, { type, payload }) => {
   switch (type) {
-    case ADD_ORDER:
+    case SAVE_ORDER:
       return { ...orderState, orders: [payload, ...orderState.orders] };
 
     case UPDATE_COUPON:
