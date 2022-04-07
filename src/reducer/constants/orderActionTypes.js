@@ -1,4 +1,4 @@
-export const ADD_ORDER = "ADD_ORDER";
+export const SAVE_ORDER = "SAVE_ORDER";
 export const UPDATE_ADDRESS = "UPDATE_ADDRESS";
 export const REMOVE_ADDRESS = "REMOVE_ADDRESS";
 export const SET_SELECTED_ADDRESS = "SET_SELECTED_ADDRESS";

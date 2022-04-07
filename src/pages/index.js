@@ -7,3 +7,4 @@ export { Cart } from "./Cart/Cart";
 export { ProductDetails } from "./ProductDetails/ProductDetails";
 export { Profile } from "./Profile/Profile";
 export { Checkout } from "./Checkout/Checkout";
+export { PageNotFound } from "./PageNotFound/PageNotFound";
