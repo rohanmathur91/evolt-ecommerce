@@ -74,7 +74,7 @@ export const Checkout = () => {
 
         // empty cart
         cartDispatch({ type: INITIALIZE_CART, payload: [] });
-        navigate("/products");
+        navigate("/profile/orders");
       },
       prefill: {
         name: user.fullName,
