@@ -17,6 +17,7 @@ import {
   Toast,
   Address,
   UserProfile,
+  Orders,
   AccountSettings,
   PrivateRoute,
 } from "./components";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/profile" element={<Profile />}>
             <Route index element={<UserProfile />} />
             <Route path="addresses" element={<Address />} />
+            <Route path="orders" element={<Orders />} />
             <Route path="settings" element={<AccountSettings />} />
           </Route>
         </Route>

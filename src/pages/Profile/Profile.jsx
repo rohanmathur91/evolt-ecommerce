@@ -1,8 +1,12 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { useScrollToTop, useDocumentTitle } from "../../hooks";
 import "./Profile.css";
 
 export const Profile = () => {
+  useScrollToTop();
+  useDocumentTitle("Profile");
+
   return (
     <>
       <h3 className="mt-6 mb-4 text-center">My Profile</h3>
@@ -29,6 +33,17 @@ export const Profile = () => {
                 }
               >
                 Manage Addresses
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                end
+                to="/profile/orders"
+                className={({ isActive }) =>
+                  `${isActive ? "active-link" : ""} profile-link p-2`
+                }
+              >
+                Order Details
               </NavLink>
             </li>
             <li>

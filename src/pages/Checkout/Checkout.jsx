@@ -3,7 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useOrder, useCart, useAuth } from "../../contexts";
 import { SAVE_ORDER, UPDATE_COUPON, INITIALIZE_CART } from "../../reducer";
 import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
-import { getSelectedAddress, getTotalAmountWithCoupon } from "../../utils";
+import {
+  getDate,
+  getSelectedAddress,
+  getTotalAmountWithCoupon,
+} from "../../utils";
 import { v4 as uuid } from "uuid";
 import logo from "../../assets/logo.svg";
 import "./Checkout.css";
@@ -62,6 +66,7 @@ export const Checkout = () => {
           payload: {
             orderId: uuid(),
             paymentId: razorpay_payment_id,
+            date: getDate(),
             coupon,
             subTotal,
             totalAmount,
@@ -74,7 +79,7 @@ export const Checkout = () => {
 
         // empty cart
         cartDispatch({ type: INITIALIZE_CART, payload: [] });
-        navigate("/products");
+        navigate("/profile/orders");
       },
       prefill: {
         name: user.fullName,
