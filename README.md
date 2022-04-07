@@ -28,8 +28,9 @@
    of different brands and types.
    
 ## Technologies used
-- HTML, CSS & ReactJS
+- ReactJS
 - [Polaroid](https://polaroid7.netlify.app/index.html) component library
+- [Mockbee](https://mockbee.netlify.app/) for backend
 - React Router
 
 ## Live link
