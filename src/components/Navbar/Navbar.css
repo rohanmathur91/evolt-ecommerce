@@ -81,22 +81,27 @@
   box-shadow: 0 1px 3px 0px var(--navigation-shadow);
 }
 
-.profile-option {
-  font-size: 1.4rem;
-}
-
 .profile-icon:hover .profile-options {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.profile-option {
+  font-size: 1.4rem;
+}
+
+.profile-option:hover {
+  background-color: var(--light-gray);
+}
+
 .profile-option-title {
+  padding: 1rem 0;
   font-size: 1.4rem;
   font-weight: bold;
+  margin-bottom: 4px;
   color: var(--primary-color);
   border-bottom: 0.5px solid var(--light-gray);
-  padding-bottom: 1rem;
 }
 
 .badge {

@@ -86,13 +86,13 @@ export const Navbar = () => {
                   </span>
                 </div>
                 <div className="profile-options rounded-sm p-1 transition-2">
-                  <div className="profile-option-title mx-1 py-1">Welcome</div>
-                  <Link to="/profile" className="p-1 profile-option">
+                  <div className="profile-option-title mx-1">Welcome</div>
+                  <Link to="/profile" className="p-1 profile-option rounded-sm">
                     Profile
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="profile-option p-1 text-left logout-btn"
+                    className="profile-option p-1 text-left logout-btn rounded-sm"
                   >
                     Logout
                   </button>
