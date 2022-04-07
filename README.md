@@ -84,6 +84,9 @@
 #### Payment
 - Once every thing is finalised by user after clicking on place order button, payment gateway will open and payment can be done.
 
+#### Order summary
+- After the payment is successful, user will be navigate to orders page, here users get the summary for ordered products.
+
 #### Authentication
 - Evolt also has login, signup and logout feature
   - For Signup, form validation is done for all the fields.
