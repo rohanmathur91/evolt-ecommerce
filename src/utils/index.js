@@ -9,3 +9,4 @@ export { validateSignupForm } from "./validationUtils/validateSignupForm";
 export { checkProductInCart } from "./cartUtils/checkProductInCart";
 export { getSelectedAddress } from "./addressUtils/getSelectedAddress";
 export { getTotalAmountWithCoupon } from "./cartUtils/getTotalAmountWithCoupon";
+export { getDate } from "./orderUtils/getDate";

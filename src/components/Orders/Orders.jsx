@@ -13,14 +13,19 @@ export const Orders = () => {
         {orders.length ? (
           orders.map(
             ({
+              date,
               orderId,
               paymentId,
               address,
               products,
               totalAmountWithCoupon,
             }) => (
-              <div className="order-card border rounded-sm p-2 my-2">
+              <div
+                key={orderId}
+                className="order-card border rounded-sm p-2 my-2"
+              >
                 <p className="text-green font-semibold">Order confirmed</p>
+                <span>{date}</span>
                 <p className="mb-1">
                   <span className="font-semibold text-sm mr-1">Order Id:</span>
                   {orderId}
@@ -48,6 +53,7 @@ export const Orders = () => {
                 {products.map(
                   ({ _id, alt, image, qty, price, productName }) => (
                     <Link
+                      key={_id}
                       to={`/product/${_id}`}
                       title={productName}
                       className="ordered-products flex-row p-1 rounded-sm"
@@ -73,7 +79,7 @@ export const Orders = () => {
             )
           )
         ) : (
-          <p className="my-1">
+          <p className="m-1">
             No orders yet,{" "}
             <Link to="/products" className="continue">
               continue shopping.
