@@ -72,6 +72,16 @@ export const MobileNavigation = ({
           </NavLink>
         </li>
         <li>
+          <NavLink
+            to="/profile/orders"
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active-link" : ""}`
+            }
+          >
+            Orders
+          </NavLink>
+        </li>
+        <li>
           {!user ? (
             <NavLink
               to="/login"
