@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useOrder, useCart, useAuth } from "../../contexts";
 import { SAVE_ORDER, UPDATE_COUPON, INITIALIZE_CART } from "../../reducer";
-import { useToast } from "../../hooks";
+import { useToast, useScrollToTop, useDocumentTitle } from "../../hooks";
 import { getSelectedAddress, getTotalAmountWithCoupon } from "../../utils";
 import { v4 as uuid } from "uuid";
 import logo from "../../assets/logo.svg";
@@ -19,6 +19,9 @@ export const Checkout = () => {
   const { cartProducts, subTotal, totalDiscount, totalAmount, cartDispatch } =
     useCart();
   const totalAmountWithCoupon = getTotalAmountWithCoupon(coupon, totalAmount);
+
+  useScrollToTop();
+  useDocumentTitle("Checkout");
 
   const handleRemoveCoupon = () => {
     orderDispatch({ type: UPDATE_COUPON, payload: "" });
@@ -102,7 +105,7 @@ export const Checkout = () => {
     </div>
   ) : (
     <>
-      <h3 className="mt-6 text-center">Order Summary</h3>
+      <h3 className="mt-6 text-center">Order Details</h3>
       <div className="order-summary my-4 flex-column flex-center px-2">
         {cartProducts.map(
           ({ _id, image, alt, description, productName, qty, price }) => (
