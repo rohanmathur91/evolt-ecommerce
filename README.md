@@ -9,17 +9,31 @@
 
 </div>
 
+![chrome-capture (20)](https://user-images.githubusercontent.com/61556757/162187579-535d54d2-6db5-4c7b-8b91-8d19afccdfe4.gif)
+
+
 ## Table of Contents
 
 - [About](#about)
+- [Technologies used](#technologies-used)
+- [Live link](#live-link)
 - [Features](#features)
 - [Getting Started](#getting-started)
+- [Screenshots](#screenshots)
 - [Connect with me](#-connect-with-me)
 
 
 ## About
  - Evolt is a e-commerce web app made with React.js. Here you can buy, variety of heaphones 
-of different brands and types.
+   of different brands and types.
+   
+## Technologies used
+- HTML, CSS & ReactJS
+- [Polaroid](https://polaroid7.netlify.app/index.html) component library
+- React Router
+
+## Live link
+[Evolt-Ecommerce](https://evolt-ecommerce.netlify.app/)
 
 ## Features
  #### Home page 
@@ -101,8 +115,14 @@ REACT_APP_JWT_SECRET = <JWT_SECRET_KEY_OF_YOUR_CHOICE>
 npm start
 ```
 
-## 👨‍💻 Connect with me 
+## Screenshots
+![image](https://user-images.githubusercontent.com/61556757/162187674-4d917dec-4622-447f-bc53-c90ff398ddb1.png)
+![image](https://user-images.githubusercontent.com/61556757/162187714-39eb33c6-11c0-4473-be6a-131a57880aa7.png)
+![image](https://user-images.githubusercontent.com/61556757/162187747-b1f31af7-5785-4007-88bd-8de002869d03.png)
+![image](https://user-images.githubusercontent.com/61556757/162187805-2197a2c1-287d-45cb-b8a1-7096efecbe48.png)
 
+
+## 👨‍💻 Connect with me 
 <a href="https://twitter.com/rohanmathur91"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
 <a href="https://www.linkedin.com/in/rohanmathur04/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
 
