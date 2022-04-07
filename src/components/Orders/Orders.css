@@ -1,0 +1,12 @@
+.order-card > * {
+  font-size: 1.4rem;
+}
+
+.order-card p {
+  line-height: 1.4;
+}
+
+.ordered-products img {
+  width: 7rem;
+  height: 7rem;
+}
