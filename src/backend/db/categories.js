@@ -10,24 +10,28 @@ export const categories = [
     _id: uuid(),
     alt: "product",
     category: "Wired",
-    image: "https://m.media-amazon.com/images/I/61sILScAOQL._SX569_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651052849/evolt-ecommerce/1_nfr2fe.jpg",
   },
   {
     _id: uuid(),
     alt: "product",
     category: "Noise Cancelling",
-    image: "https://m.media-amazon.com/images/I/71j1dzyRQPS._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651052852/evolt-ecommerce/2_rf00wy.jpg",
   },
   {
     _id: uuid(),
     alt: "product",
     category: "Wireless",
-    image: "https://m.media-amazon.com/images/I/51wnOfRKl6L._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651052856/evolt-ecommerce/3_kgau6t.jpg",
   },
   {
     _id: uuid(),
     alt: "product",
     category: "Speaker",
-    image: "https://m.media-amazon.com/images/I/71lUJaQcyWL._AC_UY218_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651052858/evolt-ecommerce/4_ipsjrk.jpg",
   },
 ];
