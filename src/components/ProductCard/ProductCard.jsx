@@ -58,7 +58,7 @@ export const ProductCard = ({ product }) => {
       <ToggleWishlist product={product} />
       <Link to={`/product/${_id}`}>
         <div className="text-center h-20 flex-row flex-center">
-          <img src={image} alt={alt} className="w-20" />
+          <img loading="lazy" src={image} alt={alt} className="w-20" />
         </div>
         <div className="px-1">
           <div className="card-title card-text mt-2 mb-1 font-bold">

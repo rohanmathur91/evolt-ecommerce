@@ -37,7 +37,12 @@ export const ProductHorizontalCard = ({ product }) => {
   return (
     <div className="cart-item border flex-row items-center relative transition-2 m-2 p-1 rounded-sm">
       <Link to={`/product/${_id}`}>
-        <img src={image} alt={alt} className="cart-item-image p-1 mx-1" />
+        <img
+          alt={alt}
+          src={image}
+          loading="lazy"
+          className="cart-item-image p-1 mx-1"
+        />
       </Link>
 
       <div className="card-content flex-column content-space-between pt-2 px-2">

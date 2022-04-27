@@ -13,7 +13,8 @@ export const products = [
     addedInYear: 2021,
     alt: "boAt Bassheads 242",
     productName: "boAt Bassheads 242",
-    image: "https://m.media-amazon.com/images/I/614P+3LGo+L._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056502/evolt-ecommerce/p1_g792zl.jpg",
     description:
       "boAt Bassheads 242 in Ear Wired Earphones with Mic(Neon Green)",
     price: "1800.00",
@@ -29,7 +30,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Marshall Stockwell",
     productName: "Marshall Stockwell",
-    image: "https://m.media-amazon.com/images/I/71n78RY0YhL._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056504/evolt-ecommerce/p2_qqvfba.jpg",
     description:
       "Marshall Stockwell Wireless Bluetooth Portable Speaker (Black)",
     price: "4750.00",
@@ -45,7 +47,8 @@ export const products = [
     addedInYear: 2020,
     alt: "boAt Airdopes 121v2",
     productName: "boAt Airdopes 121v2",
-    image: "https://m.media-amazon.com/images/I/71ByNT34bfL._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056506/evolt-ecommerce/p3_gmwgnj.jpg",
     description:
       "boAt Airdopes 121v2 True Wireless Earbuds with Upto 14 Hours Playback, LED Indicators and Multifunction Controls(Active Black)",
     price: "2100.00",
@@ -61,7 +64,8 @@ export const products = [
     addedInYear: 2020,
     alt: "JBL Charge 4",
     productName: "JBL Charge 4",
-    image: "https://m.media-amazon.com/images/I/813GAqvZQlL._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056511/evolt-ecommerce/p4_gsyfsc.jpg",
     description:
       "JBL Charge 4, Wireless Portable Bluetooth Speaker, 7500mAh Built-in Powerbank, AUX & Type C (Without Mic, Black)",
     price: "2500.00",
@@ -77,7 +81,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Sony WH-CH510",
     productName: "Sony WH-CH510",
-    image: "https://m.media-amazon.com/images/I/41i+KMBAFjL.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056511/evolt-ecommerce/p5_bxkrft.jpg",
     description:
       "Sony WH-CH510, On-Ear Headphones, up-to 35Hrs Playtime, Lightweight, Type-C, Play/Pause Control, 30mm Driver, Blue",
     price: "2900.00",
@@ -93,7 +98,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Bose SoundSport 761529",
     productName: "Bose SoundSport 761529",
-    image: "https://m.media-amazon.com/images/I/61aca1w7aDL._SX425_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056668/evolt-ecommerce/p6_xx3wxy.jpg",
     description:
       "Bose SoundSport 761529 Bluetooth Wireless In Ear Earphones With Microphone Black",
     price: "500.00",
@@ -109,7 +115,8 @@ export const products = [
     addedInYear: 2022,
     alt: "boAt Airdopes 441",
     productName: "boAt Airdopes 441",
-    image: "https://m.media-amazon.com/images/I/51lEIy51L6L._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056668/evolt-ecommerce/p7_bjo3jn.jpg",
     description:
       "boAt Airdopes 441 TWS Ear-Buds with Up to 35H Total Playback, Super Touch Controls, Secure Sports Fit & Type-C Port(Raging Red)",
     price: "2400.00",
@@ -125,7 +132,8 @@ export const products = [
     type: "noise_cancelling",
     productName: "Bose Touch Control,Triple Black",
     alt: "Bose Touch Control",
-    image: "https://m.media-amazon.com/images/I/61j9RdOsJwL._SL1379_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056670/evolt-ecommerce/p8_udpu7y.jpg",
     description:
       "Bose QuietComfort Noise Cancelling Earbuds - Bluetooth Truly Wireless in Ear Earbuds, Noise Cancelling Earbuds with Touch Control,Triple Black",
     price: "1500.00",
@@ -142,7 +150,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Marshall Major IV",
     productName: "Marshall Major IV",
-    image: "https://m.media-amazon.com/images/I/71u2kov-lxL._SL1295_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056672/evolt-ecommerce/p9_rnye3d.jpg",
     description:
       "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Black)",
     price: "4000.00",
@@ -158,7 +167,8 @@ export const products = [
     type: "speaker",
     productName: "JBL Go 3",
     alt: "JBL Go 3",
-    image: "https://m.media-amazon.com/images/I/81GE-JdnNMS._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056673/evolt-ecommerce/p10_py5knj.jpg",
     description:
       "JBL Go 3, Wireless Ultra Portable Bluetooth Speaker, Vibrant Colors with Rugged Fabric Design, Waterproof, Type C (Without Mic, Teal), Standard",
     price: "2999.00",
@@ -174,7 +184,8 @@ export const products = [
     addedInYear: 2022,
     alt: "boAt Rockerz 450",
     productName: "boAt Rockerz 450",
-    image: "https://m.media-amazon.com/images/I/61edVIWAN1L._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056979/evolt-ecommerce/p11_mbade4.jpg",
     description:
       "boAt Rockerz 450 Pro Bluetooth Wireless On Ear Headphones with Mic (Hazel Beige)",
     price: "1900.00",
@@ -190,7 +201,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Sony MDR-XB55AP",
     productName: "Sony MDR-XB55AP",
-    image: "https://m.media-amazon.com/images/I/41tAe6lxq1L._SL1000_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056984/evolt-ecommerce/p12_auvdnf.jpg",
     description: "Sony MDR-XB55AP Wired in Ear Headphones with Mic (Black)",
     price: "2900.00",
     oldPrice: "4000.00",
@@ -205,7 +217,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Marshall Minor II",
     productName: "Marshall Minor II",
-    image: "https://m.media-amazon.com/images/I/71n78RY0YhL._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056991/evolt-ecommerce/p13_xknthh.jpg",
     description:
       "Marshall Minor II Wireless Bluetooth in Ear Headphone with Mic (Brown)",
     price: "3750.00",
@@ -221,7 +234,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Sony MDR-ZX110AP",
     productName: "Sony MDR-ZX110AP",
-    image: "https://m.media-amazon.com/images/I/61kLSSQ6P7L._AC_UY218_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651056995/evolt-ecommerce/p14_ktssf6.jpg",
     description:
       "Sony MDR-ZX110AP Wired On-Ear Headphones with tangle free cable, 3.5mm Jack, Headset with Mic for phone calls and 1 Year Warranty - (Black)",
     price: "1390.00",
@@ -237,7 +251,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Marshall Stanmore II",
     productName: "Marshall Stanmore II",
-    image: "https://m.media-amazon.com/images/I/71fAjuDqbdL._SL1000_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651057000/evolt-ecommerce/p15_ygzmyx.jpg",
     description:
       "Marshall Stanmore II Bluetooth Speaker, Brown. Classic Marshall details such as a textured vinyl covering.",
     price: "4000.00",
@@ -253,7 +268,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Bose QuietComfort 35",
     productName: "Bose QuietComfort 35",
-    image: "https://m.media-amazon.com/images/I/81+jNVOUsJL._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651057003/evolt-ecommerce/p16_qmllyb.jpg",
     description:
       "Bose QuietComfort 35 II Noise Cancelling Bluetooth Headphones— Wireless, Over Ear Headphones with Built in Microphone and Alexa Voice Control, Black",
     price: "4900.00",
@@ -269,7 +285,8 @@ export const products = [
     addedInYear: 2022,
     alt: "Sony SRS-XB13",
     productName: "Sony SRS-XB13",
-    image: "https://m.media-amazon.com/images/I/61Kqsbsk9+L._SL1500_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651057006/evolt-ecommerce/p17_z6inbi.jpg",
     description:
       "Sony SRS-XB13 Wireless Extra Bass Portable Compact Bluetooth Speaker with 16 Hours Battery Life, Type-C, IP67 Waterproof.",
     price: "4000.00",
@@ -286,7 +303,7 @@ export const products = [
     alt: "Bose Sport Earbuds",
     productName: "Bose QuietComfort",
     image:
-      "https://assets.bose.com/content/dam/Bose_DAM/Web/consumer_electronics/global/products/headphones/qc_earbuds/silo_images/v2/QCEB_PDP_Ecom-Gallery-SB02.png/jcr:content/renditions/cq5dam.web.600.600.png",
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651057011/evolt-ecommerce/p18_kbadek.png",
     description:
       "Bose QuietComfort Noise Cancelling Earbuds - True Wireless Earbuds, Bluetooth in-Ear Headphones, The World's Most Effective Noise Cancelling Earbuds",
     price: "3900.00",
@@ -302,7 +319,8 @@ export const products = [
     addedInYear: 2021,
     alt: "boAt Rockerz 550",
     productName: "boAt Rockerz 550",
-    image: "https://m.media-amazon.com/images/I/61F5SXdi9jL._AC_UY218_.jpg",
+    image:
+      "https://res.cloudinary.com/dgzehngjw/image/upload/v1651057014/evolt-ecommerce/p19_hgs4xh.jpg",
     description:
       "boAt Rockerz 550 Bluetooth Wireless Over Ear Headphone with Mic (Black Symphony)",
     price: "900.00",
