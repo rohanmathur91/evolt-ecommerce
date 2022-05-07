@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { SEARCH, CLEAR_CART_AND_WISHLIST } from "../../reducer";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth, useCart, useProduct } from "../../contexts";
+import { SEARCH } from "../../reducer";
 import { MobileNavigation } from "./MobileNavigation";
 import "./Navbar.css";
 
 export const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { pathname } = useLocation();
-  const { wishlist, cartProducts, cartDispatch } = useCart();
+  const { user, handleLogout } = useAuth();
+  const { wishlist, cartProducts } = useCart();
   const { searchQuery, productDispatch } = useProduct();
-  const { user, updateUser } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    updateUser(null);
-    localStorage.removeItem("token");
-    cartDispatch({ type: CLEAR_CART_AND_WISHLIST });
-    navigate("/");
-  };
 
   return (
     <>
