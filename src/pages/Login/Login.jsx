@@ -85,8 +85,8 @@ export const Login = () => {
         <button
           onClick={() =>
             setCredentials({
-              email: "adarshbalika@gmail.com",
-              password: "adarshbalika",
+              email: "rohanmathur@gmail.com",
+              password: "rohanmathur",
             })
           }
           className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"
