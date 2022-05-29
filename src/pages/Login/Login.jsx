@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
 import { loginService } from "../../services";
 import { useScrollToTop, useDocumentTitle } from "../../hooks";
@@ -14,11 +14,18 @@ export const Login = () => {
   });
 
   const navigate = useNavigate();
-  const { updateUser } = useAuth();
+  const location = useLocation();
+  const { user, setUser } = useAuth();
   const { cartDispatch } = useCart();
 
   useScrollToTop();
   useDocumentTitle("Login");
+
+  useEffect(() => {
+    if (user) {
+      navigate(location.state?.from?.pathname ?? "/", { replace: true });
+    }
+  }, [user]);
 
   const handleInputChange = (event, field) => {
     setCredentials((prevCredentials) => ({
@@ -30,7 +37,14 @@ export const Login = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setError("");
-    loginService(credentials, updateUser, cartDispatch, navigate, setError);
+    loginService(
+      credentials,
+      setUser,
+      cartDispatch,
+      navigate,
+      setError,
+      location
+    );
   };
 
   return (
@@ -71,8 +85,8 @@ export const Login = () => {
         <button
           onClick={() =>
             setCredentials({
-              email: "adarshbalika@gmail.com",
-              password: "adarshbalika",
+              email: "rohanmathur@gmail.com",
+              password: "rohanmathur",
             })
           }
           className="p-1 w-100 font-semibold btn btn-outlined transition-2 mr-1 mb-2 rounded-sm"

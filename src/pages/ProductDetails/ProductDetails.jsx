@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useAuth, useCart } from "../../contexts";
 import { addToCart, addToWishlist, removeFromWishlist } from "../../services";
@@ -14,6 +14,7 @@ export const ProductDetails = () => {
   const [productLoader, setProductLoader] = useState(false);
   const [product, setProduct] = useState(null);
   const { user } = useAuth();
+  const location = useLocation();
   const { showToast } = useToast();
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -52,7 +53,7 @@ export const ProductDetails = () => {
 
   const handleAddToCart = () => {
     if (!user) {
-      navigate("/login");
+      navigate("/login", { state: { from: location }, replace: true });
     } else {
       if (checkProductInCart(_id, cartProducts)) {
         navigate("/cart");
@@ -64,7 +65,7 @@ export const ProductDetails = () => {
 
   const handleWishlistClick = () => {
     if (!user) {
-      navigate("/login");
+      navigate("/login", { state: { from: location }, replace: true });
     } else {
       if (!checkProductInWishlist(_id, wishlist)) {
         addToWishlist(product, cartDispatch, showToast);

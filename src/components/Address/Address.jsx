@@ -30,15 +30,15 @@ export const Address = () => {
       <div className="flex-row">
         <Link
           to="/cart"
-          className="btn btn-outlined goto-cart-btn flex-row items-center w-100 my-1 p-1 mr-1 font-semibold transition-2 rounded-sm"
+          className="btn btn-outlined goto-cart-btn flex-row flex-center w-100 my-1 p-1 mr-1 font-semibold transition-2 rounded-sm"
         >
-          <span className="material-icons-outlined mr-1">shopping_cart</span>
+          <span className="material-icons-outlined mr-1">west</span>
           Goto Cart
         </Link>
 
         <button
           onClick={handleAddAddress}
-          className="btn btn-outlined add-address-btn flex-row items-center w-100 my-1 p-1 font-semibold transition-2 rounded-sm"
+          className="btn btn-outlined add-address-btn flex-row flex-center w-100 my-1 p-1 font-semibold transition-2 rounded-sm"
         >
           <span className="material-icons-outlined mr-1">add</span> Add new
           address

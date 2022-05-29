@@ -7,7 +7,7 @@ import {
 
 export const signupService = async (
   credentials,
-  updateUser,
+  setUser,
   cartDispatch,
   errorDispatch,
   navigate
@@ -17,7 +17,7 @@ export const signupService = async (
       data: { createdUser, encodedToken },
     } = await axios.post("/api/auth/signup", credentials);
 
-    updateUser(createdUser);
+    setUser(createdUser);
     cartDispatch({
       type: INITIALIZE_PRODUCTS,
       payload: {
@@ -26,7 +26,10 @@ export const signupService = async (
       },
     });
 
+    const { email, fullName } = createdUser;
     localStorage.setItem("token", encodedToken);
+    localStorage.setItem("ecommerce-user", JSON.stringify({ email, fullName }));
+
     errorDispatch({ type: CLEAR_SIGNUP_FORM });
     navigate("/");
   } catch (error) {

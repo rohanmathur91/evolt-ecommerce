@@ -28,7 +28,7 @@ export const Signup = () => {
     signUpErrorInitialState
   );
 
-  const { updateUser } = useAuth();
+  const { setUser } = useAuth();
   const { cartDispatch } = useCart();
 
   useScrollToTop();
@@ -50,7 +50,7 @@ export const Signup = () => {
     if (isValidForm) {
       signupService(
         credentials,
-        updateUser,
+        setUser,
         cartDispatch,
         errorDispatch,
         navigate

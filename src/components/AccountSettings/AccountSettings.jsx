@@ -1,19 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { CLEAR_CART_AND_WISHLIST } from "../../reducer";
-import { useAuth, useCart } from "../../contexts";
+import { useAuth } from "../../contexts";
 
 export const AccountSettings = () => {
-  const navigate = useNavigate();
-  const { updateUser } = useAuth();
-  const { cartDispatch } = useCart();
-
-  const handleLogout = () => {
-    updateUser(null);
-    localStorage.removeItem("token");
-    cartDispatch({ type: CLEAR_CART_AND_WISHLIST });
-    navigate("/");
-  };
+  const { handleLogout } = useAuth();
 
   return (
     <>

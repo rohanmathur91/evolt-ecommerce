@@ -3,17 +3,18 @@ import { INITIALIZE_PRODUCTS } from "../../reducer";
 
 export const loginService = async (
   credentials,
-  updateUser,
+  setUser,
   cartDispatch,
   navigate,
-  setError
+  setError,
+  location
 ) => {
   try {
     const {
       data: { foundUser, encodedToken },
     } = await axios.post("/api/auth/login", credentials);
 
-    updateUser(foundUser);
+    setUser(foundUser);
 
     cartDispatch({
       type: INITIALIZE_PRODUCTS,
@@ -23,8 +24,11 @@ export const loginService = async (
       },
     });
 
+    const { email, fullName } = foundUser;
     localStorage.setItem("token", encodedToken);
-    navigate("/");
+    localStorage.setItem("ecommerce-user", JSON.stringify({ email, fullName }));
+
+    navigate(location.state?.from?.pathname ?? "/", { replace: true });
   } catch (error) {
     setError("Email or password is incorrect");
   }
