@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
 import { useToast } from "../../hooks";
 import { addToCart } from "../../services";
@@ -12,10 +12,10 @@ export const ProductCard = ({ product }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { showToast } = useToast();
+  const location = useLocation();
   const { cartProducts, cartDispatch } = useCart();
   const currentYear = new Date().getFullYear();
   const isProductInCart = checkProductInCart(product._id, cartProducts);
-
   const {
     _id,
     alt,
@@ -30,7 +30,7 @@ export const ProductCard = ({ product }) => {
 
   const handleAddToCart = () => {
     if (!user) {
-      navigate("/login");
+      navigate("/login", { state: { from: location }, replace: true });
     } else {
       if (isProductInCart) {
         navigate("/cart");

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth, useCart } from "../../contexts";
 import { useToast } from "../../hooks";
 import { addToWishlist, removeFromWishlist } from "../../services";
@@ -8,12 +8,13 @@ export const ToggleWishlist = ({ product }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { showToast } = useToast();
+  const location = useLocation();
   const { wishlist, cartDispatch, checkProductInWishlist } = useCart();
   const isProductInWishlist = checkProductInWishlist(product._id, wishlist);
 
   const handleWishlistClick = () => {
     if (!user) {
-      navigate("/login");
+      navigate("/login", { state: { from: location }, replace: true });
     } else {
       if (!isProductInWishlist) {
         addToWishlist(product, cartDispatch, showToast);
