@@ -12,7 +12,6 @@ export const useOutsideClick = (ref, isOptions, handleCloseOptions) => {
       document.body.addEventListener("click", handleOutsideClick);
     }
 
-    console.log("running");
     return () => document.body.removeEventListener("click", handleOutsideClick);
   }, [ref, isOptions, handleCloseOptions]);
 };
