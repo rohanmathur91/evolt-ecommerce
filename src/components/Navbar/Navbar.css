@@ -122,7 +122,7 @@
   height: 100vh;
   overflow: hidden;
   background-color: var(--background-color);
-  box-shadow: 0 1px 3px 0px var(--navigation-shadow);
+  box-shadow: 19px 3px 28px -5px rgba(145, 145, 145, 0.68);
 }
 
 .sidebar-header {

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../contexts";
+import { useOutsideClick } from "../../hooks";
 import "./Navbar.css";
 
 export const MobileNavigation = ({
@@ -9,9 +10,12 @@ export const MobileNavigation = ({
   handleLogout,
 }) => {
   const { user } = useAuth();
+  const mobileNavbarRef = useRef();
+  useOutsideClick(mobileNavbarRef, toggleMenu, setToggleMenu);
 
   return (
     <div
+      ref={mobileNavbarRef}
       className={`sidebar transition-2 fixed top-0 left-0 z-3 ${
         toggleMenu ? "sidebar-mobile" : ""
       }`}
