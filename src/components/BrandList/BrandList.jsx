@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useProduct } from "../../contexts";
-import { FILTER_BY_BRAND } from "../../reducer";
+import { CLEAR_FILTER, FILTER_BY_BRAND } from "../../reducer";
 import { brandImages } from "../../staticData";
 
 export const BrandList = () => {
   const { productDispatch } = useProduct();
 
   const handleBrandClick = (brandName) => {
+    productDispatch({ type: CLEAR_FILTER });
     productDispatch({ type: FILTER_BY_BRAND, payload: brandName });
   };
 

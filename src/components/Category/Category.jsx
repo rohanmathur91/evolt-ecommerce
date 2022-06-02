@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
-import { FILTER_BY_TYPE } from "../../reducer";
+import { CLEAR_FILTER, FILTER_BY_TYPE } from "../../reducer";
 import { useProduct } from "../../contexts";
 import "./Category.css";
 
@@ -9,6 +9,7 @@ export const Category = () => {
   const { isLoading, categoryList, productDispatch } = useProduct();
 
   const handleCategoryClick = (category) => {
+    productDispatch({ type: CLEAR_FILTER });
     productDispatch({
       type: FILTER_BY_TYPE,
       payload: category.toLowerCase().split(" ").join("_"),
