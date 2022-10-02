@@ -11,7 +11,7 @@ import {
 } from "../../reducer/constants/cartActionTypes";
 
 describe("cart reducer", () => {
-  test("should initialize products in cart for the first time", () => {
+  it("should initialize products in cart for the first time", () => {
     // arrange
     const cart = {
       wishlist: [],
@@ -33,7 +33,7 @@ describe("cart reducer", () => {
     expect(cart).toEqual(updatedCart);
   });
 
-  test("should initialize cart after login", () => {
+  it("should initialize cart after login", () => {
     // arrange
     const cart = {
       ...cartInitialState,
@@ -66,7 +66,7 @@ describe("cart reducer", () => {
     expect(cart).toEqual(updatedCart);
   });
 
-  test("should add a product into a cart", () => {
+  it("should add a product into a cart", () => {
     // arange
     const product = {
       _id: 1,
@@ -93,7 +93,7 @@ describe("cart reducer", () => {
     expect(updatedCart).toEqual(cartAfterUpdation);
   });
 
-  test("should remove a product from cart", () => {
+  it("should remove a product from cart", () => {
     const cartState = {
       ...cartInitialState,
       cartProducts: [
@@ -117,7 +117,7 @@ describe("cart reducer", () => {
     expect(upatedCart).toEqual(cartInitialState);
   });
 
-  test("should increase quantity of a product", () => {
+  it("should increase quantity of a product", () => {
     const cartState = {
       ...cartInitialState,
       cartProducts: [
@@ -154,7 +154,7 @@ describe("cart reducer", () => {
     expect(updatedCart).toEqual(cartAfterUpdation);
   });
 
-  test("should decrease quantity of a product", () => {
+  it("should decrease quantity of a product", () => {
     const cartState = {
       ...cartInitialState,
       cartProducts: [
@@ -191,7 +191,7 @@ describe("cart reducer", () => {
     expect(updatedCart).toEqual(cartAfterUpdation);
   });
 
-  test("should add a product in wishlist", () => {
+  it("should add a product in wishlist", () => {
     const product = {
       _id: 1,
       brand: "boat",
@@ -215,7 +215,7 @@ describe("cart reducer", () => {
     expect(updatedCart).toEqual(cartAfterUpdation);
   });
 
-  test("should check if product exist in wishlist and dont update it", () => {
+  it("should check if product exist in wishlist and dont update it", () => {
     const product = {
       _id: 1,
       brand: "boat",
@@ -239,7 +239,7 @@ describe("cart reducer", () => {
     expect(updatedCart).toEqual(cartState);
   });
 
-  test("should remove a product from wishlist", () => {
+  it("should remove a product from wishlist", () => {
     const cartState = {
       ...cartInitialState,
       wishlist: [
